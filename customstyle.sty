@@ -37,8 +37,13 @@
 \usepackage{hyperref}
 \usepackage{hyperxmp}
 \usepackage[capitalize,nameinlink,noabbrev]{cleveref}
-\usepackage[style=apa]{biblatex}
+\usepackage[backend=biber,style=numeric]{biblatex}
 \addbibresource{/home/hugo/texnotes/bibliography.bib}
+% Apellidos en versales pequeñas (small caps)
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+% Mantener los nombres tal cual (opcional)
+% \renewcommand*{\mkbibnamegiven}[1]{#1}
+
 % \bibliographystyle{apalike}
 \usepackage{import}
 \usepackage{xifthen}

@@ -8,46 +8,41 @@
 \usepackage{graphicx}
 \usepackage{color}
 
-% \newtheorem{teo}{Teorema}[chapter]
-% \newtheorem{lema}[teo]{Lema}
-% \newtheorem*{teo}{Teorema}
-
-
-% \theoremstyle{definition}
-% \newtheorem{defin}[teo]{Definición}
-
-\title{Título del trabajo va aquí}
-\author{Nombre y Apellidos del autor/a}
+\title{Productos de Blaschke finitos}
+\author{Hugo Marqueríe Martín}
 \curso{2025-2026}
 
 
 %%%%%METADATOS: rellenar la info solicitada entre llaves
 \usepackage{hyperref}
+\makeatletter
 \hypersetup{
 	pdfinfo={
-            Title={ }, %Titulo del trabajo; ejemplo: Matematicas y desarrollo
-            Author={ }, %Autor del trabajo. 
-            Director1={ }, %Tutor1: en formato nombre.apellido, tal como aparece en la primera parte, antes de la arroba,  de su dirección de correo electrónico de la UAM; ejemplo: fernando.soria
-            Director2={ }, %Tutor2: en formato nombre.apellido, tal como aparece en la primera parte, antes de la arroba,  de su dirección de correo electrónico de la UAM
-            Ndirectores={ }, %Numero total de directores: 1 ó 2
-            Tipo={TFG}, %no tocar
-            Curso={2025-26}, %no tocar
-            Palabrasclave={ },% Palabras clave del trabajo, separadas por comas y sin acentos ni espacios; ejemplo: morfismos, formas modulares, ecuaciones elipticas
-				}
+        Title={\@title}, %Titulo del trabajo; ejemplo: Matematicas y desarrollo
+        Author={\@author}, %Autor del trabajo. 
+        Director1={dragan.vukotic}, %Tutor1: en formato nombre.apellido, tal como aparece en la primera parte, antes de la arroba,  de su dirección de correo electrónico de la UAM; ejemplo: fernando.soria
+        Director2={ }, %Tutor2: en formato nombre.apellido, tal como aparece en la primera parte, antes de la arroba,  de su dirección de correo electrónico de la UAM
+        Ndirectores={1}, %Numero total de directores: 1 ó 2
+        Tipo={TFG}, %no tocar
+        Curso={2025-26}, %no tocar
+        Palabrasclave={ },% Palabras clave del trabajo, separadas por comas y sin acentos ni espacios; ejemplo: morfismos, formas modulares, ecuaciones elipticas
+	}
 }
+\makeatother
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
     \frontmatter
     % Agradecimientos (Opcional)
-    \cleardoublepage
-    \null
-    \vfill
-    \begin{flushright}
-        \textit{A todos los que me quieren.}
-    \end{flushright}
-    \vfill
-    \cleardoublepage
+    % \cleardoublepage
+    % \null
+    % \vfill
+    % \begin{flushright}
+    %     \textit{A todos los que me quieren.}
+    % \end{flushright}
+    % \vfill
+    % \cleardoublepage
     %%Fin de agradecimientos
 
     %%Resumen, en español y en inglés (Obligatorios ambos)
@@ -105,50 +100,31 @@
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \mainmatter
 
-    %%%A partir de aquí el cuerpo del trabajo  %%%%%%%
+    %%% A partir de aquí el cuerpo del trabajo  %%%%%%%
     \input{intro.tex}
-
     \input{chap1.tex}
-
-
     \input{chap2.tex}
 
     %%%% Final del cuerpo %%%%%%%%%%
     % Apéndices (Opcionales)
-    \appendix 
+    \appendix
     \chapter{Resultados auxiliares}
-    En este apéndice recopilamos algunas definiciones y lemas auxiliares que se utilizan a lo largo del texto. Aunque la mayoría de estos resultados son bien conocidos, los incluimos aquí para mayor claridad y comodidad del lector. Comenzamos con una desigualdad elemental que será empleada repetidamente en las demostraciones de los teoremas principales.
-
-    \begin{lem}[Desigualdad básica]
-    Sean $a,b \in \mathbb{R}$ con $b \neq 0$. Entonces
-    \[
-    \left| \frac{a}{b} \right| \leq \frac{|a|}{|b|}.
-    \]
-    Además, la igualdad se cumple si y solo si $ab \geq 0$.
-    \end{lem}
-
-    \begin{proof}
-    La prueba se deduce directamente de la propiedad multiplicativa del valor absoluto, es decir, $|ab| = |a||b|$ para todo $a,b \in \mathbb{R}$. Dividiendo ambos lados por $|b|^2$ obtenemos la desigualdad. La caracterización de la igualdad es inmediata.
-    \end{proof}
-
-
-    \chapter{Otro apéndice}
-
 
     %%%La bibliografía
-    \begin{thebibliography}{10}
-        \addcontentsline{toc}{chapter}{\bibname}
+    % \begin{thebibliography}{10}
+    %     \addcontentsline{toc}{chapter}{\bibname}
+    %     \bibitem{Abel} 
+    %         \textsc{N.\,H. Abel},
+    %         Beweis eines Ausdrucks, von welchem die Binomial-Formel ein einzelner Fall ist. 
+    %         \textit{J. Reine angew. Math.} {\bf1} (1826), 159--160.
 
-        \bibitem{Abel} 
-            \textsc{N.\,H. Abel},
-            Beweis eines Ausdrucks, von welchem die Binomial-Formel ein einzelner Fall ist. 
-            \textit{J. Reine angew. Math.} {\bf1} (1826), 159--160.
+    %     \bibitem{S-W}
+    %         \textsc{E.\,M. Stein y G. Weiss},
+    %         \textit{Introduction to  Fourier analysis on Euclidean spaces.}
+    %         Princeton Mathematical Series~32, Princeton University Press, Princeton, NJ, 1971.
+    % \end{thebibliography}
 
-        \bibitem{S-W}
-            \textsc{E.\,M. Stein y G. Weiss},
-            \textit{Introduction to  Fourier analysis on Euclidean spaces.}
-            Princeton Mathematical Series~32, Princeton University Press, Princeton, NJ, 1971.
-        
-    \end{thebibliography}
+    \printbibliography    
+
     \cleardoublepage
 \end{document}
