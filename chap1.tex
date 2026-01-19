@@ -1,7 +1,26 @@
-\chapter{Automorfismos del disco unidad}\label{chap1}
+\chapter{Primer capítulo}\label{chap1}%ORDENAR: cambiar el nombre
 
-\section{Lema de Schwarz}
+\transclude{metrica}
 
-\transclude[lem]{lem-schwarz}
 
-% \lipsum[1-40]
+El problema con esta definición tan general de métrica es que no interactúa bien con el cálculo diferencial. El tipo de interacción que buscamos viene de considerar, por ejemplo, la curva que minimice la distancia entre dos puntos en un espacio métrico. Para ello, necesitamos una forma de medir longitudes de curvas en el espacio métrico.
+
+Por ejemplo, recordemos la definición de longitud de una curva $\gamma \colon [a, b] \to \R^n$ en $\R^n$ con la métrica euclídea:
+\[
+\ell(\gamma) = \int_a^b \norm{\gamma'(t)} \odif{t}.
+\]
+Observamos que esta definición supone que ya se ha definido previamente $\norm{\gamma'(t)}$, es decir, la longitud del vector tangente a la curva en cada punto. 
+
+La idea de Riemann fue definir métricas nuevas en base a definir primero las longitudes de los vectores tangentes en cada punto. El proceso sería:
+\begin{enumerate}
+    \item Considerar un espacio $X$ en el que podamos definir derivadas de curvas (por ejemplo, un abierto de $\R^n$ o, más generalmente, una variedad diferenciable).
+    \item Definir una función $\mu$ que asigne a cada punto del espacio una forma de medir longitudes de vectores tangentes en ese punto.
+    \item Definir la longitud de una curva $\gamma$ en $X$ como la integral de la longitud de su vector tangente, medida según $\mu$.
+    \item Sean $x, y \in X$, definir la distancia $d_\mu(x,y)$ como la longitud mínima de las curvas que unen $x$ e $y$.
+    \item Demostrar que la aplicación $d_\mu \colon X \times X \to [0, \infty)$ así definida es una \exhyperref[defn:metrica]{metrica}{métrica} en $X$.
+\end{enumerate}
+
+\transclude{teo-densidad-induce-metrica} %DEMOSTRACIÓN
+
+
+
