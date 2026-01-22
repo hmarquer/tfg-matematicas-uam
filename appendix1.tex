@@ -1,0 +1,58 @@
+\chapter{Nociones básicas de análisis complejo}\label{appendix1}
+
+\section{Funciones holomorfas}
+
+\transclude{fn-compleja-derivable-pnt}
+
+\transclude{fn-holomorfa}
+
+
+
+
+
+\transclude{inyectividad-local}
+
+\transclude{lem-localmente-inyectiva-implica-inversa-no-nula}%DEMOSTRACIÓN
+
+
+
+
+
+
+
+\section{Operadores de Wirtinger y el operador laplaciano}
+
+\subsection{Derivadas de Wirtinger}
+
+\transclude{operadores-wirtinger}
+
+También podemos expresar las derivadas parciales habituales en términos de las derivadas de Wirtinger:
+
+\transclude{lem-derivadas-parciales-wirtinger}
+
+\transclude{fn-antiholomorfa}
+
+\transclude{obs-holomorfa-conjugada-antiholomorfa}
+
+\transclude{prop-fn-holomorfa-iff-wirtinger}
+
+\transclude{obs-derivada-holomorfa-wirtinger}
+
+\transclude{prop-regla-cadena-wirtinger}
+
+\transclude{cor-wirtinger-composicion-holomorfas}%DEMOSTRACIÓN
+
+\transclude{cor-wirtinger-composicion-antiholomorfas}%DEMOSTRACIÓN
+
+\subsection{El operador laplaciano}
+
+\transclude{laplaciano}
+
+En $\mathbb{D}$, el \exhyperref[defn:laplaciano]{laplaciano}{operador laplaciano} $\Delta \colon \mathcal{C}^2 \left(\mathbb{D}\right) \to \mathcal{C}\left(\mathbb{D}\right)$ viene dado por
+\[
+\forall z \in \mathbb{D} : \Delta f(z) = \pdv[2]{f}{x}(z) + \pdv[2]{f}{y}(z) \quad \tex{donde } z = x + iy. 
+\]
+
+\transclude{lem-laplaciano-wirtinger}
+
+\transclude{lem-laplaciano-cambio-variable}
