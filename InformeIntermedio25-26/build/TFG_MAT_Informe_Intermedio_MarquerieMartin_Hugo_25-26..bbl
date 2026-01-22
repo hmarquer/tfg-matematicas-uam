@@ -1,0 +1,102 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{garciaFiniteBlaschkeProducts2018}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=5fda3f0833c91ff123bace8d0aea484e}{%
+           family={Garcia},
+           familyi={G\bibinitperiod},
+           given={Stephan\bibnamedelima Ramon},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{5fda3f0833c91ff123bace8d0aea484e}
+      \strng{fullhash}{5fda3f0833c91ff123bace8d0aea484e}
+      \strng{fullhashraw}{5fda3f0833c91ff123bace8d0aea484e}
+      \strng{bibnamehash}{5fda3f0833c91ff123bace8d0aea484e}
+      \strng{authorbibnamehash}{5fda3f0833c91ff123bace8d0aea484e}
+      \strng{authornamehash}{5fda3f0833c91ff123bace8d0aea484e}
+      \strng{authorfullhash}{5fda3f0833c91ff123bace8d0aea484e}
+      \strng{authorfullhashraw}{5fda3f0833c91ff123bace8d0aea484e}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Intro -- Preface -- Contents -- Notation -- 1 Geometry of the Schur Class -- 1.1 The Schwarz Lemma -- 1.2 Automorphisms of the Disk -- 1.3 Algebraic Structure of Aut(D) -- 1.4 The Schwarz-Pick Theorem -- 1.5 An Extremal Problem -- 1.6 Julia's Lemma -- 1.7 Fixed Points -- 1.8 Exercises -- 2 Elementary Hyperbolic Geometry -- 2.1 Pseudohyperbolic Metric -- 2.2 Generalized Triangle Inequality -- 2.3 Poincaré Metric -- 2.4 Ahlfors's Version of the Schwarz's Lemma -- 2.5 Hyperbolic Geometry in C+ -- 2.6 Exercises -- 3 Finite Blaschke Products: The Basics -- 3.1 Finite Blaschke Products -- 3.2 Uniqueness and Nonuniqueness -- 3.3 Finite Blaschke Products as Rational Functions -- 3.4 Finite Blaschke Products as n-to-1 Functions -- 3.5 Unimodular Elements of the Disk Algebra -- 3.6 Composition of Finite Blaschke Products -- 3.7 Constant Valence -- 3.8 Finite Blaschke Products on C+ -- 3.9 Notes -- Commuting Blaschke Products -- Infinite Blaschke Products -- 3.10 Exercises -- 4 Approximation by Finite Blaschke Products -- 4.1 Approximating Functions from S -- 4.2 The Closed Convex Hull of the Finite Blaschke Products -- 4.3 Approximating Continuous Unimodular Functions -- 4.4 Approximation by Finite Blaschke Products with Simple Zeros -- 4.5 Generalized Rouché Theorem and Its Converse -- 4.6 Exercises -- 5 Zeros and Residues -- 5.1 Gauss-Lucas Theorem -- 5.2 Gauss-Lucas Theorem for Finite Blaschke Products -- 5.3 Zeros as Foci of an Ellipse -- 5.4 A Weak Version of Sendov's Conjecture -- 5.5 A Forbidden Region -- 5.6 The Best Citadel -- 5.7 Existence of a Nonzero Residue -- 5.8 Exercises -- 6 Critical Points -- 6.1 Location of the Critical Points -- 6.2 Controlling the Critical Points -- 6.3 The Topological Space Σd -- 6.4 The Distance-Ratio Function -- 6.5 A Characterization of Heins -- 6.6 Notes -- Critical Values -- Asymptotic Values -- 6.7 Exercises}
+      \field{isbn}{978-3-319-78246-1 978-3-319-78247-8}
+      \field{langid}{english}
+      \field{pagetotal}{1}
+      \field{title}{Finite {{Blaschke Products}} and {{Their Connections}}}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /home/hugo/Zotero/storage/3TQAKK7C/Garcia - 2018 - Finite Blaschke Products and Their Connections.pdf
+      \endverb
+    \endentry
+    \entry{krantzComplexAnalysisGeometric2004}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=4219fdd521cdc0d8324b96d7942de586}{%
+           family={Krantz},
+           familyi={K\bibinitperiod},
+           given={Steven\bibnamedelima G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Washington?}%
+      }
+      \list{publisher}{1}{%
+        {Mathematical Association of America}%
+      }
+      \strng{namehash}{4219fdd521cdc0d8324b96d7942de586}
+      \strng{fullhash}{4219fdd521cdc0d8324b96d7942de586}
+      \strng{fullhashraw}{4219fdd521cdc0d8324b96d7942de586}
+      \strng{bibnamehash}{4219fdd521cdc0d8324b96d7942de586}
+      \strng{authorbibnamehash}{4219fdd521cdc0d8324b96d7942de586}
+      \strng{authornamehash}{4219fdd521cdc0d8324b96d7942de586}
+      \strng{authorfullhash}{4219fdd521cdc0d8324b96d7942de586}
+      \strng{authorfullhashraw}{4219fdd521cdc0d8324b96d7942de586}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{edition}{2nd ed}
+      \field{isbn}{978-0-88385-035-0 978-0-88385-968-1}
+      \field{langid}{english}
+      \field{number}{v. 23}
+      \field{pagetotal}{1}
+      \field{series}{Carus {{Mathematical Monographs}}}
+      \field{shorttitle}{Complex Analysis}
+      \field{title}{Complex Analysis: The Geometric Viewpoint}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb /home/hugo/Zotero/storage/DYSBFH2A/Krantz - 2004 - Complex analysis the geometric viewpoint.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

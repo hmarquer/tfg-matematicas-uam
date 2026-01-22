@@ -1,0 +1,162 @@
+\documentclass[a4paper,oneside,11pt,leqno]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{epic}
+\usepackage{eepic}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancybox}
+
+\usepackage{graphicx} % <-- necesario para incluir imágenes
+\usepackage{lipsum}   % <-- solo para texto de ejemplo
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{/home/hugo/texnotes/bibliography.bib}
+% Apellidos en versales pequeñas (small caps)
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+% Mantener los nombres tal cual (opcional)
+% \renewcommand*{\mkbibnamegiven}[1]{#1}
+
+\textwidth = 16truecm 
+\textheight = 24truecm
+\oddsidemargin =-20pt
+\evensidemargin = 5pt
+\topmargin=-2truecm
+
+\begin{document}
+
+\begin{center}
+    \includegraphics[width=0.7\textwidth]{logo_uamciencias_color} % ajusta el tamaño
+\end{center}
+
+\vskip 25pt
+
+\centerline{\bf \huge INFORME INTERMEDIO}% \footnote{ El informe debe ser elaborado por el estudiante y presentado al tutor -o tutores- que deber\'a dar su conformidad antes de ser entregado al coordinador.}}
+
+\vskip 17pt 
+
+\hrule
+\vskip 1pt 
+\hrule
+
+\vskip 5pt 
+\centerline{\bf \Large TRABAJO DE FIN DE GRADO EN MATEM\'ATICAS}
+
+\vskip 15pt 
+
+\centerline{\bf \Large Curso 2025-26}
+\vskip 6pt 
+\hrule
+\vskip 1pt 
+\hrule
+
+\vskip 5mm
+
+\noindent{\bf T\'itulo}: Productos finitos de Blaschke
+
+\vskip 5mm
+
+\noindent{\bf Title}: Finite Blaschke products
+
+\vskip 5mm
+
+
+\noindent{\bf Nombre y Apellidos}: Hugo Marquerie Mart\'in
+
+
+\vskip 5mm
+
+\noindent{\bf Nombre del tutor(es)}: Dragan Vukotic Jovsic
+
+\vskip 5pt
+{\footnotesize El informe debe ser elaborado por el/la estudiante y presentado al/a tutor/a -o tutores- que deber\'a dar su conformidad antes de ser entregado al coordinador.}
+\vskip 10pt 
+\hrule
+\vskip 1pt 
+\hrule
+
+
+\vskip 5mm
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+
+\item {\bf Labor desarrollada hasta la fecha}: \\
+{\small (\textit{reuniones con el tutor; b\'usqueda de bibliograf\'ia; planteamiento de los objetivos.})}
+
+%TODO: preguntar a dragan si es mejor escribir en primera o tercera persona
+Se han realizado un total de 12 reuniones con una frecuencia semanal o quincenal, ajustando el ritmo a los periodos de ex\'amenes o viajes. Para cada una, el estudiante ha preparado el material acordado previamente para exponerlo en la pizarra, respondiendo a las preguntas y comentarios del tutor sobre la relevancia de los conceptos estudiados. El tutor ha ayudado a resolver dudas y a clarificar conceptos. Adem\'as, se han realizado ejercicios pr\'acticos para afianzar los conocimientos adquiridos.
+%TODO: preguntar a dragan si hay que insertar el diario de trabajo
+
+El objetivo principal del trabajo es profundizar en las propiedades de los productos finitos de Blaschke. Al tratarse de un tema tan concreto, se ha seguido principalmente un libro de texto recomendado por el tutor, \cite{garciaFiniteBlaschkeProducts2018} \textit{Finite Blaschke Products and their Connections} de Stephan Ramon Garcia, Javad Mashreghi y William T. Ross. Sin embargo, para poder seguir los desarrollos te\'oricos, ha sido necesario ampliar la base de conocimientos en An\'alisis Complejo y Geometr\'ia no eucl\'idea con libros m\'as generales, como \cite{krantzComplexAnalysisGeometric2004} \textit{Complex Analysis: The Geometric Viewpoint} de Steven G. Krantz. Tambi\'en han sido de utilidad apuntes de otros cursos facilitados por el tutor.
+
+\vskip 20pt 
+\hrule
+
+\item {\bf Esquema de los distintos apartados del trabajo}: \\
+{\small (\textit{puede usarse como gu\'ia la propia tabla de contenidos.})}
+
+Hasta la fecha, se han desarrollado los siguientes apartados del trabajo:
+
+\begin{itemize}
+    \item \textbf{Lema de Schwarz-Pick.} Lema de Schwarz. Automorfismos conformes del disco unidad. Estructura algebraica del grupo de automorfismos. Lema de Schwarz-Pick y un problema extremal asociado.
+    
+    \item \textbf{M\'etrica hiperb\'olica.} M\'etrica pseudo-hiperb\'olica en el disco unidad. Desigualdad triangular generalizada. M\'etrica de Poincar\'e en el disco unidad y en el semiplano superior. Longitud hiperb\'olica y su invariancia conforme. Versi\'on de Ahlfors del lema de Schwarz.
+    
+    \item \textbf{Productos finitos de Blaschke.} Definici\'on y primeras propiedades. Unicidad y no unicidad: teorema de Horowitz-Rubel. Productos finitos de Blaschke vistos como funciones racionales. Su derivada en la circunferencia unidad. Recubrimiento del plano extendido por los productos de Blaschke finitos. \'Algebra del disco, elementos unimodulares, teorema de Fatou para productos de Blaschke finitos. Valencia constante. Composici\'on de productos finitos de Blaschke.
+\end{itemize}
+
+\vskip 20pt
+\hrule
+\item {\bf Descripci\'on del proyecto}: \\
+{\small (\textit{motivaci\'on; principales resultados y, en su caso, aplicaciones que se esperan obtener.})} \\
+% M\'aximo 2 p\'aginas.
+
+%TODO: preguntar a dragan si es mejor incluir motivación más académica que personal
+Como hab\'ia disfrutado estudiando la asignatura de Variable Compleja I, decid\'i matricularme de Variable Compleja II y escog\'i un tema relacionado para mi Trabajo de Fin de Grado. Me llamaron especialmente la atenci\'on los productos finitos de Blaschke por su estrecha relaci\'on con la geometr\'ia hiperb\'olica y lo mucho que se prestan a la visualizaci\'on gr\'afica, tema que personalmente me interesa por mi experiencia con el arte generativo.
+
+%TODO: preguntar a dragan si es mejor enunciar de forma más detallada y formal los resultados principales
+Los principales resultados vistos hasta ahora incluyen: Caracterizaci\'on de los automorfismos del disco unidad, teorema de Schwarz-Pick, completitud de la m\'etrica pseudo-hiperb\'olica y la m\'etrica de Poincar\'e, versi\'on de Ahlfors del lema de Schwarz, caracterizaci\'on y unicidad de los productos finitos de Blaschke, caracterizaci\'on de los productos finitos de Blaschke entre las funciones racionales, valencia constante de los productos finitos de Blaschke, teorema de Fatou, caracterizaci\'on de los productos finitos de Blaschke en la clase de Schur.
+
+\vskip 20pt
+\hrule
+\item {\bf Grado de consecuci\'on de los objetivos y plan de trabajo a desarrollar en la segunda mitad del periodo}: 
+
+Durante el primer cuatrimestre del curso, se han alcanzado los objetivos previstos para este periodo por completo. Para el segundo cuatrimestre, est\'a previsto continuar con el estudio de los productos finitos de Blaschke siguiendo la misma din\'amica de reuniones semanales o quincenales con el tutor. En particular, se planea haber cubierto los siguientes temas para el mes de Abril:
+
+\begin{itemize}
+    \item \textbf{Aproximaci\'on por productos finitos de Blaschke.} Convergencia uniforme en compactos. Teoremas de Weierstrass y de Hurwitz. Teorema de aproximaci\'on de Carath\'eodory. Cierre de la envoltura convexa de los productos finitos de Blaschke: teorema de Fisher. Aproximaci\'on de funciones unimodulares continuas: teorema de Helson-Sarason.
+    
+    \item \textit{Algunos temas adicionales, si el tiempo lo permite.} Teorema de Gauss-Lucas y su an\'alogo para productos finitos de Blaschke. Teorema de interpolaci\'on de Pick. Productos infinitos de Blaschke: convergencia y propiedades b\'asicas.
+\end{itemize}
+
+Los meses de Abril y Mayo se dedicar\'an a la redacci\'on y correcci\'on de la memoria, as\'i como a la preparaci\'on de la presentaci\'on oral.
+
+\vskip 20pt 
+\hrule
+
+\item {\bf Bibliograf\'ia usada hasta la fecha o que se piensa utilizar}: \\
+% Ejemplo:
+
+\vspace{-15pt}
+
+\printbibliography[heading=none]
+
+% \begin{thebibliography}{10}
+
+% \bibitem{Abel} 
+%     \textsc{N.\,H. Abel}, 
+%     Beweis eines Ausdrucks, von welchem die Binomial-Formel ein einzelner Fall ist. 
+%     \textit{J. Reine angew. Math.} {\bf1} (1826), 159--160.
+
+% \end{thebibliography}
+
+
+\end{enumerate}
+
+\end{document}
+
