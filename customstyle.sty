@@ -131,10 +131,10 @@
 \newcommand{\ind}{\mathbbm{1}}
 \newcommand{\upexpl}[2]{%
   \overset{\substack{
-    \mathrlap{\text{\hspace{-1em}#2}} \\ \downarrow
+    \mathrlap{\text{\tiny\hspace{-1em}#2}} \\ \downarrow
   }}{#1}}
 \newcommand{\dwexpl}[2]{%
-  \underset{\substack{\uparrow\\\mathrlap{\text{\hspace{-1em}#2}}}}{#1}}
+  \underset{\substack{\uparrow\\\mathrlap{\text{\tiny\hspace{-1em}#2}}}}{#1}}
 
 \newcommand{\lbox}[1]{{%
   \let\@frameb@x\l@frameb@x\fbox{$#1$}%
@@ -276,13 +276,15 @@
     {0.5em}
     {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
-\newenvironment{dem}[1][]{%\par
-    \textbf{\textit{Demostración}\ifx\relax#1\relax\else{ (#1)}\fi:}
-}{\hfill \qedsymbol\par}
+\newtheoremstyle{demstyle}
+    {6pt}{6pt}
+    {}{}
+    {\bfseries\itshape}
+    {:}
+    {0.5em}
+    {\thmname{#1}\thmnote{ (#3)}}
 
-\newenvironment{sol}[1][]{%\par
-   \textbf{\textit{Solución}\ifx\relax#1\relax\else{ (#1)}\fi:}
-}{\par}
+
 
 \NewDocumentEnvironment{enu}{O{1} O{}}{
     \newcommand{\colnum}{#1}
@@ -382,6 +384,13 @@
 
 \theoremstyle{remarkstyle}
 \newtheorem{obs}[axm]{Observación}
+
+\theoremstyle{demstyle}
+\newtheorem{dem}{Demostración}[chapter]
+
+\newenvironment{sol}[1][]{%\par
+   \textbf{\textit{Solución}\ifx\relax#1\relax\else{ (#1)}\fi:}
+}{\par}
 
 % \renewcommand{\maketitle}[4]{
 %     \onehalfspacing
