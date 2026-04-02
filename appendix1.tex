@@ -11,6 +11,8 @@
 
 \transclude{transformacion-mobius}
 
+\transclude{transformacion-mobius-circunferencias-generalizadas}
+
 
 \transclude{inyectividad-local}
 
@@ -58,3 +60,63 @@ En $\mathbb{D}$, el \exhyperref[defn:laplaciano]{laplaciano}{operador laplaciano
 \transclude{lem-laplaciano-wirtinger}
 
 \transclude{lem-laplaciano-cambio-variable}
+
+
+\chapter{Ejercicios}
+
+\section{Ejercicios del capítulo 1}
+
+\begin{ejer}\label{ejer:identidad-auxiliar-disco-unidad}
+    Sean $\alpha, \beta \in \mathbb{D}$. Demuestra la siguiente identidad:
+    \[
+    1 - \abs{\frac{\alpha - \beta}{1 - \overline{\beta} \alpha}}^2 = \frac{(1 - \abs{\alpha}^2)(1 - \abs{\beta}^2)}{\abs{1 - \overline{\beta} \alpha}^2}.
+    \]
+\end{ejer}
+\begin{sol}
+    Partiendo del lado izquierdo, tenemos que
+    \[
+    1 - \abs{\frac{\alpha - \beta}{1 - \bar{\beta} \alpha}}^2 = \frac{\abs{1 - \bar{\beta} \alpha}^2 - \abs{\alpha - \beta}^2}{\abs{1 - \bar{\beta} \alpha}^2}.
+    \]
+    En el numerador, desarrollando ambos términos, obtenemos
+    \[
+    \begin{aligned}
+        \abs{1 - \bar{\beta} \alpha}^2 - \abs{\alpha - \beta}^2 &= \left(1 - \bar{\beta} \alpha\right)\left(1 - \beta \bar{\alpha}\right) - (\alpha - \beta)(\bar{\alpha} - \bar{\beta}) \\
+        &= 1 - \cancel{\bar{\alpha} \beta} - \cancel{\alpha \bar{\beta}} + \abs{\alpha}^2 \abs{\beta}^2 - \left(\abs{\alpha}^2 - \cancel{\alpha \bar{\beta}} - \cancel{\bar{\alpha} \beta} + \abs{\beta}^2\right) \\
+        &= 1 - \abs{\alpha}^2 - \abs{\beta}^2 + \abs{\alpha}^2 \abs{\beta}^2 = (1 - \abs{\alpha}^2)(1 - \abs{\beta}^2).
+    \end{aligned}
+    \]
+    Por tanto, se sigue la identidad deseada.\hfill \qedsymbol
+\end{sol}
+
+\begin{ejer}\label{ejer:desigualdad-schwarz-pick}
+    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$. Demuestra que
+    \[
+    \forall z, w \in \mathbb{D} : \abs{\frac{f(z) - f(w)}{z-w}}^2 \leq \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
+    \]
+\end{ejer}
+\begin{sol}
+    Como $f \in \mathcal{S}$, por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick}, tenemos que
+    \[
+    \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}} \leq \abs{\frac{z - w}{1 - \bar{w} z}} \implies 1 - \abs{\frac{z - w}{1 - \bar{w} z}}^2 \leq 1 - \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}}^2. 
+    \]
+
+    Por el \excref[ejer:identidad-auxiliar-disco-unidad]{ejer-identidad-auxiliar-disco-unidad}, esta desigualdad se traduce a
+    \[
+    \begin{aligned}
+        \frac{(1 - \abs{z}^2)(1 - \abs{w}^2)}{\abs{1 - \bar{w} z}^2} &\leq \frac{(1 - \abs{f(z)}^2)(1 - \abs{f(w)}^2)}{\abs{1 - \overline{f(w)} f(z)}^2} \\
+        \implies \abs{\frac{1 - \bar{f(w)} f(z)}{1 - \bar{w} z}}^2 &\leq \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
+    \end{aligned}
+    \]
+
+    Finalmente, observamos que:
+    \[
+    \begin{aligned}
+        \abs{\frac{f(z) - f(w)}{z - w}}^2 &= \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}}^2 \cdot \abs{\frac{1 - \overline{f(w)} f(z)}{1 - \bar{w} z}}^2 \cdot \abs{\frac{1 - \bar{w} z}{z - w}}^2 \\
+        &\leq 1 \cdot \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2} \cdot 1 = \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
+    \end{aligned}
+    \]
+
+    \vspace{-\baselineskip}
+    \vspace{-\belowdisplayskip}
+    \hfill \qedsymbol
+\end{sol}

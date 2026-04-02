@@ -1,16 +1,20 @@
-\chapter{Automorfismos del disco unidad}\label{chap1}%ORDENAR: cambiar el nombre
+\chapter{Geometría de la clase de Schur}\label{chap1}
 
-\section{Lema de Schwarz}
+\begin{defn}\label{defn:clase-schur}
+    Definimos la \textit{clase de Schur} como $\mathcal{S} \defeq \left\{ f \colon \mathbb{D}  \longrightarrow \bar{\mathbb{D}} : f \tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}} \right\}$.
+\end{defn}
 
 \begin{lem}[de Schwarz]\label{lem:schwarz}
-    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\mathbb{D})$ tal que $f(0) = 0 \we \forall z \in \mathbb{D} : \abs{f(z)} \leq 1$, entonces
-    \begin{enumerate*}[label=\textnormal{(\arabic*)}, ref=\textnormal{(\arabic*)}]
-        \item\label{lem:schwarz:1} $\forall z \in \mathbb{D} : \abs{f(z)} \leq \abs{z}$ $\we$ 
-        \item\label{lem:schwarz:2} $\abs{f'(0)} \leq 1$.
-    \end{enumerate*}
+    Sea $f \in \mathcal{S}$ tal que $f(0) = 0$, entonces
+    \begin{enu}[2][label=\textnormal{(\arabic*)}, ref=\textnormal{(\arabic*)}]
+        \item\label{lem:schwarz:1} $\forall z \in \mathbb{D} : \abs{f(z)} \leq \abs{z}$.
+        \item\label{lem:schwarz:2} $\abs{f\exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{'}(0)} \leq 1$.
+    \end{enu}
 
-    Además, si se cumple la igualdad en \ref{lem:schwarz:1} para $z \neq 0$ o en \ref{lem:schwarz:2}, $f$ es una rotación.
+    Además, si se cumple la igualdad en \ref{lem:schwarz:1} para $z \neq 0$ o en \ref{lem:schwarz:2}, $f$ es una \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{rotación}.
 \end{lem}
+
+\section{Automorfismos del disco unidad}
 
 \begin{defn}[Automorfismo del disco unidad]\label{defn:automorfismo-disco-unidad}
     Para $f \colon \mathbb{D} \to \mathbb{D}$, decimos que $f$ es un \emph{automorfismo del disco unidad} si es biyectiva y \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}. El conjunto de automorfismos del disco unidad se denota por $\mathrm{Aut} \left(\mathbb{D} \right)$.
@@ -28,11 +32,13 @@
     \begin{enumerate}[label=(\roman*)]
         \item Asociatividad: $\forall f, g, h \in \mathrm{Aut} \left(\mathbb{D} \right) : (f \circ g) \circ h = f \circ (g \circ h)$.
         \item Elemento neutro: $\operatorname{id} \in \mathrm{Aut} \left(\mathbb{D} \right)$ cumple que $\forall f \in \mathrm{Aut} \left(\mathbb{D} \right) : f \circ \operatorname{id} = f = \operatorname{id} \circ f$.
-        \item Elemento inverso: $\forall f \in \mathrm{Aut} \left(\mathbb{D} \right) : f^{-1}$ satisface $f \circ f^{-1} = \operatorname{id} = f^{-1} \circ f$. Veamos que $f^{-1} \in \mathrm{Aut} \left(\mathbb{D} \right)$. Como $f$ es biyectiva, $f^{-1}$ es (localmente) inyectiva y al aplicar el \excref[lem:localmente-inyectiva-implica-inversa-no-nula]{lem-localmente-inyectiva-implica-inversa-no-nula}, obtenemos que $\forall w \in \mathbb{D} : (f^{-1})'(w) \neq 0$. Entonces, por el \exhyperref[teo:fn-inversa-holomorfas]{teo-fn-inversa-holomorfas}{Teorema de la función inversa}, $f^{-1} \in \mathcal{H}(\mathbb{D})$, luego $f^{-1} \in \mathrm{Aut} \left(\mathbb{D} \right)$ ya que $f^{-1}$ es biyectiva.\hfill\qedsymbol
+        \item Elemento inverso: $\forall f \in \mathrm{Aut} \left(\mathbb{D} \right) : f^{-1}$ satisface $f \circ f^{-1} = \operatorname{id} = f^{-1} \circ f$. Veamos que $f^{-1} \in \mathrm{Aut} \left(\mathbb{D} \right)$. Como $f$ es biyectiva, $f^{-1}$ es (localmente) inyectiva y al aplicar el \excref[lem:localmente-inyectiva-implica-inversa-no-nula]{lem-localmente-inyectiva-implica-inversa-no-nula}, obtenemos que $\forall w \in \mathbb{D} : (f^{-1})'(w) \neq 0$. Entonces, por el \exhyperref[teo:fn-inversa-holomorfas]{teo-fn-inversa-holomorfas}{teorema de la función inversa}, $f^{-1} \in \mathcal{H}(\mathbb{D})$, luego $f^{-1} \in \mathrm{Aut} \left(\mathbb{D} \right)$ ya que $f^{-1}$ es biyectiva.
     \end{enumerate}
-\end{dem}
 
-\section{Caracterización de $\mathrm{Aut} \left(\mathbb{D} \right)$}
+    \vspace{-\baselineskip}
+    % \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
+\end{dem}
 
 \subsection{Involuciones del disco unidad}
 
@@ -74,11 +80,15 @@
 \begin{dem}
     Usando la regla del cociente, tenemos que para $z \in \mathbb{D}$,
     \[
-    {\tau_w}'(z) = \frac{-1 \cdot \left(1 - \bar{w} z\right) - (w - z) \cdot (-\bar{w})}{\left(1 - \bar{w} z\right)^2} = \frac{\cancel{\bar{w} z} - 1 + \bar{w} w - \cancel{\bar{w} z}}{\left(1 - \bar{w} z\right)^2} = \frac{\abs{w}^2 - 1}{(1 - \bar{w} z)^2}. \qed
+    {\tau_w}'(z) = \frac{-1 \cdot \left(1 - \bar{w} z\right) - (w - z) \cdot (-\bar{w})}{\left(1 - \bar{w} z\right)^2} = \frac{\cancel{\bar{w} z} - 1 + \bar{w} w - \cancel{\bar{w} z}}{\left(1 - \bar{w} z\right)^2} = \frac{\abs{w}^2 - 1}{(1 - \bar{w} z)^2}.
     \]
+
+    \vspace{-\baselineskip}
+    \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
 \end{dem}
 
-\subsection{Fórmula explícita}
+\subsection{Caracterización de $\mathrm{Aut} \left(\mathbb{D} \right)$}
 
 El siguiente teorema nos da una caracterización completa de los automorfismos del disco unidad mediante una fórmula explícita.
 
@@ -93,7 +103,7 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
     \[
     \forall z \in \mathbb{D} : \abs{h(z)} \leq \abs{z} \we \abs{h^{-1}(z)} \leq \abs{z}.
     \]
-    De la segunda desigualdad, obtenemos que $\abs{z} = \abs{h^{-1}(h(z))} \leq \abs{h(z)}$ y, con la primera, deducimos que $\abs{h(z)} = \abs{z}$. Entonces, el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} garantiza que $h$ es una rotación, i.e. $\exists\, \gamma \in \mathbb{T} : h = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma}$. Aplicando el \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}.\exref[lem:involucion-disco-unidad:4]{lem-involucion-disco-unidad}, despejamos $f$:
+    De la segunda desigualdad, obtenemos que $\abs{z} = \abs{h^{-1}(h(z))} \leq \abs{h(z)}$ y, con la primera, deducimos que $\abs{h(z)} = \abs{z}$. Entonces, el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} garantiza que $h$ es una rotación, i.e. $\exists\, \gamma \in \mathbb{T} : h = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma}$. Aplicando el \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}, despejamos $f$:
     \[
     h = f \circ \tau_w \implies h \circ \tau_w = f \circ \tau_w \circ \tau_w \implies f = \rho_\gamma \circ \tau_w.
     \]
@@ -104,9 +114,20 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
     Del \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad}, deducimos que si $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$ es tal que $f(0) = 0$, entonces $f = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma}$ para algún $\gamma \in \mathbb{T}$. Es decir, los únicos \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad} que fijan el origen son las rotaciones.
 \end{obs}
 
-%COMPLETAR poner observación sobre Aut(D) como subgrupo de las aplicaciones de Möbius e isomorfo a PSL_2(R)
+\begin{prop}\label{prop:aut-disco-unidad-traslada-z1-0-z2-01}
+    Sean $z_1, z_2 \in \mathbb{D}$ tales que $z_1 \neq z_2$, entonces existe $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$ tal que $f(z_1) = 0$ y $f(z_2) \in (0,1) \subset \mathbb{R}$.
+\end{prop}
+\begin{dem}
+    Consideramos $g \defeq f \circ \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}$, entonces $g \in \mathrm{Aut} \left(\mathbb{D} \right)$ y $g(0) = f(z_1) = 0$. Por la \excref[obs:aut-disco-unidad-fija-origen-imp-rotacion]{obs-aut-disco-unidad-fija-origen-imp-rotacion}, $\exists \gamma \in \mathbb{T} : g = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma}$. Por tanto, $f = g \circ \tau_{z_1}^{-1} = \rho_\gamma \circ \tau_{z_1}$.
+
+
+    Si imponemos ahora que $f(z_2) \in (0, 1)$, tenemos que $\rho_\gamma(\tau_{z_1}(z_2)) = \gamma \, \tau_{z_1}(z_2) \in (0, 1)$. Por tanto, $\gamma \tau_{z_1}(z_2) = \abs{\tau_{z_1}(z_2)}$, luego $\gamma = \frac{\abs{\tau_{z_1}(z_2)}}{\tau_{z_1}(z_2)} \in \mathbb{T}$. \hfill \qedsymbol
+\end{dem}
 
 \section{Estructura algebraica de $\mathrm{Aut} \left(\mathbb{D} \right)$}
+
+%COMPLETAR poner observación sobre Aut(D) como subgrupo de las aplicaciones de Möbius e isomorfo a PSL_2(R)
+
 
 \begin{teo}\label{teo:aut-disco-unidad-parametros}
     Sea $f = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma} \circ \exhyperref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}{\tau_w} \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$, entonces
@@ -123,18 +144,34 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
     Por otro lado, $f(0) = \rho_\gamma \circ \tau_w(0) = \gamma \cdot w = \gamma \cdot f^{-1}(0)$. Por tanto, tenemos que
     \begin{itemize}
         \item Si $f(0) \neq 0$, entonces $\gamma = \sfrac{f(0)}{f^{-1}(0)}$.
-        \item Si $f(0) = 0$, entonces $\forall z \in \mathbb{D} : f(z) = - \gamma z$ (\exref[obs:aut-disco-unidad-fija-origen-imp-rotacion]{obs-aut-disco-unidad-fija-origen-imp-rotacion}), luego $\gamma = - f'(z) = -f'(0)$.\hfill\qedsymbol 
+        \item Si $f(0) = 0$, entonces $\forall z \in \mathbb{D} : f(z) = - \gamma z$ (\exref[obs:aut-disco-unidad-fija-origen-imp-rotacion]{obs-aut-disco-unidad-fija-origen-imp-rotacion}), luego $\gamma = - f'(z) = -f'(0)$.\hfill\qedsymbol
     \end{itemize}
 \end{dem}
 
 \begin{lem}\label{lem:involucion-disco-unidad-rho}
-    Sea $f = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_a} \circ \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma} \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$, entonces $f = \rho_\gamma \circ \tau_{\bar{\gamma} a}$.
+    Sea $f = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_w} \circ \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma} \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$, entonces $f = \rho_\gamma \circ \tau_{\bar{\gamma} w}$.
 \end{lem}
 \begin{dem}
-    Como $\gamma \in \mathbb{T}$, tenemos que $\gamma \cdot \bar{\gamma} = \abs{\gamma}^2 = 1$. Por tanto,
+    Como $\gamma \in \mathbb{T}$, tenemos que $\gamma \cdot \bar{\gamma} = \abs{\gamma}^2 = 1$. Por tanto, $\forall z \in \mathbb{D}:$
     \[
-    \forall z \in \mathbb{D} : f(z) = \tau_a(\rho_\gamma(z)) = \frac{a - \gamma z}{1 - \bar{a} \gamma z} \cdot \frac{\bar{\gamma}}{\bar{\gamma}} = \frac{1}{\bar{\gamma}} \cdot \frac{\bar{\gamma} a - z}{1 - \bar{a}\gamma z} = \gamma \cdot \frac{\bar{\gamma} a - z}{1 - \overline{(\bar{\gamma} a)} z} = \rho_\gamma(\tau_{\bar{\gamma} a}(z)). \qed
+    f(z) = \tau_w(\rho_\gamma(z)) = \frac{w - \gamma z}{1 - \bar{w} \gamma z} \cdot \frac{\bar{\gamma}}{\bar{\gamma}} = \frac{1}{\bar{\gamma}} \cdot \frac{\bar{\gamma} w - z}{1 - \bar{w}\gamma z} = \gamma \cdot \frac{\bar{\gamma} w - z}{1 - \overline{(\bar{\gamma} w)} z} = \rho_\gamma(\tau_{\bar{\gamma} w}(z)).
     \]
+
+    \vspace{-\baselineskip}
+    \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
+\end{dem}
+
+\begin{prop}\label{prop:aut-disco-unidad-inversa}
+    Sea $f = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_{\gamma}} \circ \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_w} \in \mathrm{Aut} \left(\mathbb{D} \right)$, entonces $f^{-1} = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{w}} \circ \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_{\bar{\gamma}}} = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_{\bar{\gamma}}} \circ \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{\gamma w}}$.
+\end{prop}
+\begin{dem}
+    Por el \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad} y la identidad $\rho_\gamma^{-1} = \rho_{\gamma^{-1}} = \rho_{\bar{\gamma}}$, obtenemos que
+    \[
+    \left(\rho_\gamma \circ \tau_w\right)^{-1} = \tau_w^{-1} \circ \rho_\gamma^{-1} = \tau_w \circ \rho_{\gamma}^{-1} = \tau_w \circ \rho_{\bar{\gamma}}.
+    \]
+    Para la segunda igualdad, usamos el \excref[lem:involucion-disco-unidad-rho]{lem-involucion-disco-unidad-rho}: $\tau_{w} \circ \rho_{\bar{\gamma}} = \rho_{\bar{\gamma}} \circ \tau_{\bar{\left(\bar{\gamma}\right)} w} = \rho_{\bar{\gamma}} \circ \tau_{\gamma w}$.
+    \hfill \qedsymbol
 \end{dem}
 
 \begin{lem}\label{lem:aut-disco-unidad-composicion-tau}
@@ -151,14 +188,14 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
     \[
     c = \left(\tau_b \circ \tau_a\right)^{-1}(0) = \left(\tau_a^{-1} \circ \tau_b^{-1}\right) (0) = \tau_a \left(\tau_b(0)\right) = \tau_a(b) = \frac{a - b}{1 - \bar{a} b}. 
     \]
-
-    Además, tenemos que $\left(\tau_b \circ \tau_a\right)(0) = \rho_{\gamma}(c)$, luego $\tau_b(a) = \gamma \, \tau_a(b)$ y como $a \neq b$, $\tau_a(b) \neq 0$, por lo que
+    Además, $\left(\tau_b \circ \tau_a\right)(0) = \rho_{\gamma}(c)$, luego $\tau_b(a) = \gamma \, \tau_a(b)$ y como $a \neq b$, $\tau_a(b) \neq 0$, tenemos
     \[
     \gamma = \frac{\tau_b(a)}{\tau_a(b)} = \frac{\sfrac{(b - a)}{(1 - \bar{b} a)}}{\sfrac{(a - b)}{(1 - \bar{a} b)}} = \frac{\bar{a} b - 1}{1 - a \bar{b}} = \tau_{\bar{a} b}(1).
     \]
 
     \vspace{-\baselineskip}
     \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
 \end{dem}
 
 \begin{teo}\label{teo:aut-disco-unidad-composicion}
@@ -188,14 +225,10 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
         -\gamma_1 \gamma_2 & \text{si } a_2 = a_1 \gamma_1,
     \end{cases} \quad \we \quad a = \widetilde{a} = \tau_{a_1}(\bar{\gamma_1} a_2).
     \]
-    Finalmente, tenemos que $\ds \gamma_2 \cdot \tau_{\bar{a_1} a_2 \bar{\gamma_2}}(1) = \gamma_2 \cdot \frac{\bar{a_1} a_2 \bar{\gamma_2} - 1}{1 - a_1 \bar{a_2} \gamma_2} = \frac{\bar{a_1} a_2 - \gamma_2}{1 - a_1 \bar{a_2} \gamma_2} = \tau_{\bar{a_1} a_2}(\gamma_2)$ y se sigue el resultado deseado.
+    Finalmente, tenemos que $\ds \gamma_2 \cdot \tau_{\bar{a_1} a_2 \bar{\gamma_2}}(1) = \gamma_2 \cdot \frac{\bar{a_1} a_2 \bar{\gamma_2} - 1}{1 - a_1 \bar{a_2} \gamma_2} = \frac{\bar{a_1} a_2 - \gamma_2}{1 - a_1 \bar{a_2} \gamma_2} = \tau_{\bar{a_1} a_2}(\gamma_2)$ y se sigue el resultado deseado.\hfill\qedsymbol
 \end{dem}
 
-\subsection{Teorema de Schwarz-Pick}
-
-\begin{defn}\label{defn:clase-schur}
-    $\mathcal{S}$ es la \textbf{clase de Schur} $\iff \mathcal{S} = \left\{ f \colon \mathbb{D}  \longrightarrow \bar{\mathbb{D}} : f \tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}} \right\}$.
-\end{defn}
+\section{Teorema de Schwarz-Pick}
 
 \begin{teo}[Schwarz-Pick]\label{teo:schwarz-pick}
     Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$, entonces
@@ -210,158 +243,79 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
     % \end{align}
 
     Además, las siguientes afirmaciones son equivalentes:
-    \begin{enu}[2][label=\textnormal{(\roman*)}]
-        \item $\exists z \neq w \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq1}.
-        \item $\forall z \neq w \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq1}.
-        \item $\exists z \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq2}.
-        \item $\forall z \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq2}.
-        \item $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$.
+    \begin{enu}[2][label=\textnormal{(\roman*)}, ref=\textnormal{(\roman*)}]
+        \item\label{teo:schwarz-pick:i} $\exists z \neq w \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq1}.
+        \item\label{teo:schwarz-pick:ii} $\forall z \neq w \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq1}.
+        \item\label{teo:schwarz-pick:iii} $\exists z \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq2}.
+        \item\label{teo:schwarz-pick:iv} $\forall z \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq2}.
+        \item\label{teo:schwarz-pick:v} $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$.
         \item[]
     \end{enu}
 \end{teo}
 \begin{dem}
     Sea $w \in \mathbb{D}$. Si $\abs{f(w)} = 1$, por el \exhyperref[teo:modulo-maximo]{teo-modulo-maximo}{principio del módulo máximo}, tenemos que $f$ es constante y \ref{teo:schwarz-pick:eq1} y \ref{teo:schwarz-pick:eq2} se cumplen trivialmente. Si, por otro lado, $\abs{f(w)} < 1$, el \exhyperref[teo:modulo-maximo]{teo-modulo-maximo}{principio del módulo máximo} nos dice que $f(\mathbb{D}) \subset \mathbb{D}$.
 
-    Definimos $g \defeq \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{f(w)}} \circ f \circ \tau_w$. Entonces, $g \in \mathcal{H} \left(\mathbb{D}\right)$ y $g(0) = \tau_{f(w)}(f(w)) = 0$. Por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz}, tenemos que $\forall z \in \mathbb{D} : \abs{g(z)} \leq \abs{z}$ y $\abs{g'(0)} \leq 1$.
+    Definimos $g_w \defeq \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{f(w)}} \circ f \circ \tau_w$. Entonces, $g_w \in \mathcal{H} \left(\mathbb{D}\right)$ y $g_w(0) = \tau_{f(w)}(f(w)) = 0$. Por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz}, tenemos que $\forall z \in \mathbb{D} : \abs{g_w(z)} \leq \abs{z}$ y $\abs{g_w'(0)} \leq 1$.
 
     Evaluando en $\tau_w(z)$ en la primera desigualdad, obtenemos \ref{teo:schwarz-pick:eq1}:
     \[
-    \abs{g(\tau_w(z))} = \abs{\tau_{f(w)}(f(z))} = \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}} \leq \abs{\tau_w(z)} = \abs{\frac{z - w}{1 - \bar{w} z}}.
+    \abs{g_w(\tau_w(z))} = \abs{\tau_{f(w)}(f(z))} = \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}} \leq \abs{\tau_w(z)} = \abs{\frac{z - w}{1 - \bar{w} z}}.
     \]
-    Por otro lado, usando la regla de la cadena y el \excref[lem:involucion-disco-unidad-derivada]{lem-involucion-disco-unidad-derivada} en la segunda, llegamos a \ref{teo:schwarz-pick:eq2}:
+    Por otro lado, por la regla de la cadena y el \excref[lem:involucion-disco-unidad-derivada]{lem-involucion-disco-unidad-derivada} en la segunda, llegamos a \ref{teo:schwarz-pick:eq2}:
     \[
     \begin{aligned}
-        \abs{g'(0)} &= \abs{\tau_{f(w)}'(f(w))} \cdot \abs{f'(w)} \cdot \abs{\tau_w'(0)} \\
+        \abs{g_w'(0)} &= \abs{\tau_{f(w)}'(f(w))} \cdot \abs{f'(w)} \cdot \abs{\tau_w'(0)} \\
         &= \abs{\frac{1}{\abs{f(w)}^2 - 1}} \cdot \abs{f'(w)} \cdot \abs{\abs{w}^2 - 1} \leq 1 \iff \abs{f'(w)} \leq \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
     \end{aligned}
     \]
 
-    Si se satisface alguna de las condiciones (i) a (v), entonces %COMPLETAR: explicar bien las implicaciones
+    \begin{itemize}[wide]
+        \item[$\text{\ref{teo:schwarz-pick:i}} \!\Rightarrow \!\text{\ref{teo:schwarz-pick:v}}$:] Si para $z \neq w$ hay igualdad en \ref{teo:schwarz-pick:eq1}, entonces $\tau_{w}(z) \neq 0$, luego hay igualdad en el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} aplicado a $g_w$ para un punto no nulo y, por tanto, $g_w$ es una rotación. Así, $f = \tau_{f(w)} \circ g_w \circ \tau_{w} \in \mathrm{Aut}\left(\mathbb{D}\right)$.
+
+        \item[$\text{\ref{teo:schwarz-pick:iii}} \!\Rightarrow \!\text{\ref{teo:schwarz-pick:v}}$:] Si hay igualdad en \ref{teo:schwarz-pick:eq2} para $w \in \mathbb{D}$, por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} aplicado a $g_w$, tenemos que $\abs{g_w'(0)} = 1$ implica que $g_w$ es una rotación, de donde $f \in \mathrm{Aut}\left(\mathbb{D}\right)$.
+
+        \item[$\text{\ref{teo:schwarz-pick:v}} \!\Rightarrow \!\text{\ref{teo:schwarz-pick:ii}} \!\we \!\text{\ref{teo:schwarz-pick:iv}}$:] Si $f \in \mathrm{Aut}\left(\mathbb{D}\right)$, entonces para cada $w \in \mathbb{D}$ la función $g_w$ es un automorfismo de $\mathbb{D}$ que fija $0$. Por la \excref[obs:aut-disco-unidad-fija-origen-imp-rotacion]{obs-aut-disco-unidad-fija-origen-imp-rotacion}, $g_w$ es una rotación, luego hay igualdad en las dos desigualdades de Schwarz para $g_w$, y al deshacer el cambio de variables se obtiene la igualdad en \ref{teo:schwarz-pick:eq1} para todo $z \neq w$ y en \ref{teo:schwarz-pick:eq2} para todo $z$.
+
+        \item[] Las implicaciones $\text{\ref{teo:schwarz-pick:ii}} \!\Rightarrow \!\text{\ref{teo:schwarz-pick:i}}$ y $\text{\ref{teo:schwarz-pick:iv}} \!\Rightarrow \!\text{\ref{teo:schwarz-pick:iii}}$ son inmediatas.\hfill\qedsymbol
+    \end{itemize}
 \end{dem}
 
 \begin{obs}
-    El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} es una generalización del \exhyperref[lem:schwarz]{lem-schwarz}{Lema de Schwarz}, que se obtiene al tomar $w = 0$ y $f(0) = 0$.
-\end{obs}%COMPLETAR DEMOSTRACIÓN
+    El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} es una generalización del \exhyperref[lem:schwarz]{lem-schwarz}{Lema de Schwarz}, ya que lo implica al tomar $w = 0$ y $f(0) = 0$.
+\end{obs}%REVISAR: a lo mejor conviene escribir la demostración de esto
 
 \begin{cor}\label{cor:schwarz-pick-involucion-disco-unidad}
-    Sea $a \in \mathbb{D}$ y $\tau_a$ la \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{involución del disco unidad} asociada, entonces
+    Sea $w \in \mathbb{D}$ y $\tau_w$ la \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{involución del disco unidad} asociada, entonces
     \begin{enumerate}[label=\textnormal{(\arabic*)}]
-        % \item $\ds \forall w, z \in \mathbb{D} : \abs{\frac{\tau_a(w) - \tau_a(z)}{1 - \overline{\tau_a(w)} \tau_a(z)}} \leq \abs{\frac{w - z}{1 - \bar{w} z}}$
-        \item $\ds \forall w, z \in \mathbb{D} : \abs{\tau_{\tau_a(w)} \left(\tau_a(z)\right)} \leq \abs{\tau_w(z)}$.
-        \hspace{2em}\inlineitem $\ds \forall z \in \mathbb{D} : \abs{\exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{{\tau_a}'}(z)} \leq \frac{1 - \abs{\tau_a(z)}^2}{1 - \abs{z}^2}$
+        % \item $\ds \forall w, z \in \mathbb{D} : \abs{\frac{\tau_w(w) - \tau_w(z)}{1 - \overline{\tau_w(w)} \tau_w(z)}} \leq \abs{\frac{w - z}{1 - \bar{w} z}}$
+        \item $\ds \forall w, z \in \mathbb{D} : \abs{\tau_{\tau_w(w)} \left(\tau_w(z)\right)} \leq \abs{\tau_w(z)}$.
+        \hspace{1.5em}\inlineitem $\ds \forall z \in \mathbb{D} : \abs{\exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{{\tau_w}'}(z)} \leq \frac{1 - \abs{\tau_w(z)}^2}{1 - \abs{z}^2}$
     \end{enumerate}
 \end{cor}
 \begin{dem}
-    Basta con aplicar el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} a $f = \tau_a \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$.
+    Basta con aplicar el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} a $f = \tau_w \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$.\hfill\qedsymbol
 \end{dem}
 
-%REVISAR escribir de forma redactada con título: un problema extermal
-\begin{ejer}\label{ejer:schwarz-pick-extremales}
-    %REVISAR a lo mejor se está asumiendo que $f \colon \mathbb{D} \to \bar{\mathbb{D}}$ porque 
-    Sean $\alpha, \beta \in \mathbb{D}$, definimos $\mathcal{A}_{\alpha, \beta} \defeq \{ f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\mathbb{D}) : f(\alpha) = \beta \}$. Demuestra que
-    \begin{enumerate}
-        \item $\mathcal{A}_{\alpha, \beta} \neq \varnothing$.\hspace{5em}
-        \inlineitem $\ds \sup_{f \in \mathcal{A}_{\alpha, \beta}} \abs{f'(\alpha)} = \frac{1 - \abs{\beta}^2}{1 - \abs{\alpha}^2}$.
-        \item Si $f \in \mathcal{A}_{\alpha, \beta}$ alcanza el supremo, entonces $f = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_\beta} \circ \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma} \circ \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{\alpha}}$ con $\gamma \in \mathbb{T}$ libre.
-    \end{enumerate}
-\end{ejer}
-\begin{sol}
-    \begin{enumerate}[label=(\alph*)]
-        \item Basta con tomar $f = \tau_\beta \circ \tau_\alpha$, que es holomorfa y cumple que $f(\alpha) = \tau_\beta(0) = \beta$.
-        \item Sea $f \in \mathcal{A}_{\alpha, \beta}$. Por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{Teorema de Schwarz-Pick}, tenemos que
-        \[
-        \abs{f'(\alpha)} \leq \frac{1 - \abs{f(\alpha)}^2}{1 - \abs{\alpha}^2} = \frac{1 - \abs{\beta}^2}{1 - \abs{\alpha}^2}.
-        \]
-        Además, para $f = \tau_\beta \circ \tau_{\alpha}$, se satisface la igualdad:
-        \[
-        \abs{\left(\tau_\beta \circ \tau_{\alpha}\right)'(\alpha)} = \abs{\tau_\beta'(0)} \cdot \abs{\tau_{\alpha}'(\alpha)} \upexpl{=}{\exref[lem:involucion-disco-unidad-derivada]{lem-involucion-disco-unidad-derivada}} \left(\abs{\beta}^2 - 1\right) \cdot \frac{1}{\abs{\alpha}^2 - 1} = \frac{1 - \abs{\beta}^2}{1 - \abs{\alpha}^2}.
-        \]
-        Luego $\ds \sup_{f \in \mathcal{A}_{\alpha, \beta}} \abs{f'(\alpha)} = \frac{1 - \abs{\beta}^2}{1 - \abs{\alpha}^2}$.% \hfill \qedsymbol
-        \item Si $f \in \mathcal{A}_{\alpha, \beta}$ alcanza el supremo, entonces hay igualdad en la segunda desigualdad del \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick}, luego $f \in \mathrm{Aut} \left(\mathbb{D} \right)$. Definimos $g \defeq \tau_\beta \circ f \circ \tau_\alpha$. Entonces, $g \in \mathrm{Aut} \left(\mathbb{D} \right)$ y $g(0) = \tau_{\beta} \left(f(\alpha)\right) = \tau_\beta(\beta) = 0$. Por la \excref[obs:aut-disco-unidad-fija-origen-imp-rotacion]{obs-aut-disco-unidad-fija-origen-imp-rotacion}, $\exists \gamma \in \mathbb{T} : g = \rho_\gamma$. Por tanto, al despejar $f$, llegamos a $f = \tau_\beta \circ \rho_\gamma \circ \tau_\alpha$.
-    \end{enumerate}
+\subsection{Un problema extremal}
 
-    \vspace{-\baselineskip}
-    % \vspace{-\belowdisplayskip}
-    \hfill \qedsymbol
-\end{sol}%REVISAR
+El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} nos permite resolver problemas extremales relacionados con la clase de Schur fácilmente. Veamos un ejemplo concreto.
+
+Sean $\alpha, \beta \in \mathbb{D}$, definimos $\mathcal{A}_{\alpha, \beta} \defeq \{ f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}} : f(\alpha) = \beta \}$. Observamos que, como $f = \tau_\beta \circ \tau_\alpha \in \mathcal{H}\left(\mathbb{D} \right)$ cumple que $f(\alpha) = \tau_\beta(0) = \beta$, entonces $\mathcal{A}_{\alpha, \beta} \neq \varnothing$. Calculemos
+\[
+M = \sup_{f \in \mathcal{A}_{\alpha, \beta}} \abs{f'(\alpha)}.
+\]
+
+Sea $f \in \mathcal{A}_{\alpha, \beta}$. Por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{Teorema de Schwarz-Pick}, tenemos que
+\[
+\abs{f'(\alpha)} \leq \frac{1 - \abs{f(\alpha)}^2}{1 - \abs{\alpha}^2} = \frac{1 - \abs{\beta}^2}{1 - \abs{\alpha}^2}.
+\]
+Además, para $f = \tau_\beta \circ \tau_{\alpha}$, se satisface la igualdad, luego $M = \frac{1 - \abs{\beta}^2}{1 - \abs{\alpha}^2}$:
+\[
+\abs{\left(\tau_\beta \circ \tau_{\alpha}\right)'(\alpha)} = \abs{\tau_\beta'(0)} \cdot \abs{\tau_{\alpha}'(\alpha)} \dwexpl{=}{\exref[lem:involucion-disco-unidad-derivada]{lem-involucion-disco-unidad-derivada}} \left(\abs{\beta}^2 - 1\right) \cdot \frac{1}{\abs{\alpha}^2 - 1} = \frac{1 - \abs{\beta}^2}{1 - \abs{\alpha}^2}.
+\]
+
+Si $f \in \mathcal{A}_{\alpha, \beta}$ alcanza el supremo, entonces hay igualdad en la segunda desigualdad del \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick}, luego $f \in \mathrm{Aut} \left(\mathbb{D} \right)$. Definimos $g \defeq \tau_\beta \circ f \circ \tau_\alpha$. Entonces, $g \in \mathrm{Aut} \left(\mathbb{D} \right)$ y $g(0) = \tau_{\beta} \left(f(\alpha)\right) = \tau_\beta(\beta) = 0$. Por la \excref[obs:aut-disco-unidad-fija-origen-imp-rotacion]{obs-aut-disco-unidad-fija-origen-imp-rotacion}, $\exists \gamma \in \mathbb{T} : g = \rho_\gamma$. Por tanto, al despejar $f$, llegamos a $f = \tau_\beta \circ \rho_\gamma \circ \tau_\alpha$.
 
 
 
-\section{Ejercicios}
 
-\begin{ejer}\label{ejer:aut-disco-unidad-traslada-z1-0-z2-01}
-    Sean $z_1, z_2 \in \mathbb{D}$ tales que $z_1 \neq z_2$, demuestra que existe $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$ tal que $f(z_1) = 0$ y $f(z_2) \in (0,1) \subset \mathbb{R}$.
-\end{ejer}
-\begin{sol}
-    Consideramos $g \defeq f \circ \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}$, entonces $g \in \mathrm{Aut} \left(\mathbb{D} \right)$ y $g(0) = f(z_1) = 0$. Por la \excref[obs:aut-disco-unidad-fija-origen-imp-rotacion]{obs-aut-disco-unidad-fija-origen-imp-rotacion}, $\exists \gamma \in \mathbb{T} : g = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma}$. Por tanto, $f = g \circ \tau_{z_1}^{-1} = \rho_\gamma \circ \tau_{z_1}$.
-
-
-    Si imponemos ahora que $f(z_2) \in (0, 1)$, tenemos que $\rho_\gamma(\tau_{z_1}(z_2)) = \gamma \, \tau_{z_1}(z_2) \in (0, 1)$. Por tanto, $\gamma \tau_{z_1}(z_2) = \abs{\tau_{z_1}(z_2)}$, luego $\gamma = \frac{\abs{\tau_{z_1}(z_2)}}{\tau_{z_1}(z_2)} \in \mathbb{T}$. \hfill \qedsymbol
-\end{sol}%INcluir como proposición ya que se usa más adelante
-
-\begin{ejer}\label{ejer:aut-disco-unidad-inversa}
-    Demuestra que $\left(\exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_{\gamma}} \circ \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_w}\right)^{-1} = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{w}} \circ \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_{\bar{\gamma}}} = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_{\bar{\gamma}}} \circ \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{\gamma w}}$.
-\end{ejer}
-\begin{sol}
-    Para la primera igualdad, usamos el \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad} y que $\rho_\gamma^{-1} = \rho_{\gamma^{-1}} = \rho_{\bar{\gamma}}$:
-    \[
-    \left(\rho_\gamma \circ \tau_w\right)^{-1} = \tau_w^{-1} \circ \rho_\gamma^{-1} \dwexpl{=}{\exref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}} \tau_w \circ \rho_{\gamma}^{-1} = \tau_w \circ \rho_{\bar{\gamma}}.
-    \]
-    Para la segunda igualdad, usamos el \excref[lem:involucion-disco-unidad-rho]{lem-involucion-disco-unidad-rho}: $\tau_{w} \circ \rho_{\bar{\gamma}} \dwexpl{=}{\exref[lem:involucion-disco-unidad-rho]{lem-involucion-disco-unidad-rho}} \rho_{\bar{\gamma}} \circ \tau_{\bar{\left(\bar{\gamma}\right)} w} = \rho_{\bar{\gamma}} \circ \tau_{\gamma w}$.
-    \hfill \qedsymbol
-\end{sol}
-
-\begin{ejer}\label{ejer:identidad-auxiliar-disco-unidad}
-    Sean $\alpha, \beta \in \mathbb{D}$. Demuestra la siguiente identidad:
-    \[
-    1 - \abs{\frac{\alpha - \beta}{1 - \overline{\beta} \alpha}}^2 = \frac{(1 - \abs{\alpha}^2)(1 - \abs{\beta}^2)}{\abs{1 - \overline{\beta} \alpha}^2}.
-    \]
-\end{ejer}
-\begin{sol}
-    Partiendo del lado izquierdo, tenemos que
-    \[
-    1 - \abs{\frac{\alpha - \beta}{1 - \bar{\beta} \alpha}}^2 = \frac{\abs{1 - \bar{\beta} \alpha}^2 - \abs{\alpha - \beta}^2}{\abs{1 - \bar{\beta} \alpha}^2}.
-    \]
-    En el numerador, desarrollando ambos términos, obtenemos
-    \[
-    \begin{aligned}
-        \abs{1 - \bar{\beta} \alpha}^2 - \abs{\alpha - \beta}^2 &= \left(1 - \bar{\beta} \alpha\right)\left(1 - \beta \bar{\alpha}\right) - (\alpha - \beta)(\bar{\alpha} - \bar{\beta}) \\
-        &= 1 - \cancel{\bar{\alpha} \beta} - \cancel{\alpha \bar{\beta}} + \abs{\alpha}^2 \abs{\beta}^2 - \left(\abs{\alpha}^2 - \cancel{\alpha \bar{\beta}} - \cancel{\bar{\alpha} \beta} + \abs{\beta}^2\right) \\
-        &= 1 - \abs{\alpha}^2 - \abs{\beta}^2 + \abs{\alpha}^2 \abs{\beta}^2 = (1 - \abs{\alpha}^2)(1 - \abs{\beta}^2).
-    \end{aligned}
-    \]
-    Por tanto, se sigue la identidad deseada.\hfill \qedsymbol
-\end{sol}
-
-\begin{ejer}\label{ejer:desigualdad-schwarz-pick}
-    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$. Demuestra que
-    \[
-    \forall z, w \in \mathbb{D} : \abs{\frac{f(z) - f(w)}{z-w}}^2 \leq \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
-    \]
-\end{ejer}
-\begin{sol}
-    Como $f \in \mathcal{S}$, por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick}, tenemos que
-    \[
-    \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}} \leq \abs{\frac{z - w}{1 - \bar{w} z}} \implies 1 - \abs{\frac{z - w}{1 - \bar{w} z}}^2 \leq 1 - \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}}^2. 
-    \]
-
-    Por el \excref[ejer:identidad-auxiliar-disco-unidad]{ejer-identidad-auxiliar-disco-unidad}, esta desigualdad se traduce a
-    \[
-    \begin{aligned}
-        \frac{(1 - \abs{z}^2)(1 - \abs{w}^2)}{\abs{1 - \bar{w} z}^2} &\leq \frac{(1 - \abs{f(z)}^2)(1 - \abs{f(w)}^2)}{\abs{1 - \overline{f(w)} f(z)}^2} \\
-        \implies \abs{\frac{1 - \bar{f(w)} f(z)}{1 - \bar{w} z}}^2 &\leq \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
-    \end{aligned}
-    \]
-
-    Finalmente, observamos que:
-    \[
-    \begin{aligned}
-        \abs{\frac{f(z) - f(w)}{z - w}}^2 &= \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}}^2 \cdot \abs{\frac{1 - \overline{f(w)} f(z)}{1 - \bar{w} z}}^2 \cdot \abs{\frac{1 - \bar{w} z}{z - w}}^2 \\
-        &\leq 1 \cdot \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2} \cdot 1 = \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
-    \end{aligned}
-    \]
-
-    \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}
-    \hfill \qedsymbol
-\end{sol}
