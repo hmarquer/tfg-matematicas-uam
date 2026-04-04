@@ -8,7 +8,7 @@
 
 La métrica euclídea en el disco unidad no es completa (basta con tomar la sucesión de Cauchy dada por $z_n = 1 - \frac{1}{n}$ que no converge en $\mathbb{D}$) y no es invariante conforme. %REVISAR: comprobar esto con un ejemplo
 
-Esto sugiere la necesidad de definir una métrica alternativa que sí satisfaga estas propiedades. El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} proporciona un punto de partida, ya que asegura que para $f \in \mathrm{Aut}(\mathbb{D})$, $\forall z, w \in \mathbb{D} : \abs{\tau_{f(w)}(f(z))} = \abs{\tau_w(z)}$, es decir, la aplicación $\varrho \colon \mathbb{D} \times \mathbb{D} \to \R$ dada por $\varrho(z, w) \defeq \abs{\tau_w(z)}$ es invariante conforme. El objetivo de esta sección es demostrar que $\varrho$ es además una métrica completa en $\mathbb{D}$, que llamaremos \emph{métrica pseudohiperbólica}. Para ello, es conveniente entender mejor su geometría.
+Esto sugiere la necesidad de definir una métrica alternativa que sí satisfaga estas propiedades. El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} proporciona un punto de partida, ya que asegura que para $f \in \mathrm{Aut}(\mathbb{D})$, $\forall z, w \in \mathbb{D} : \abs{\tau_{f(w)}(f(z))} = \abs{\tau_w(z)}$, es decir, la aplicación $\varrho \colon \mathbb{D} \times \mathbb{D} \to \R$ dada por $\varrho(z, w) \defeq \abs{\tau_w(z)}$ es invariante conforme. El objetivo de esta sección es demostrar que $\varrho$ es además una métrica completa en $\mathbb{D}$, que llamaremos \emph{métrica pseudohiperbólica}. Para ello, primero debemos entender mejor su geometría.
 
 Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio $r$ respecto a la métrica pseudohiperbólica. Es decir, $\forall z \in \mathbb{D}, r > 0 : B_{\varrho}(z, r) \defeq \left\{w \in \mathbb{D} : \varrho(z, w) < r\right\}$.
 
@@ -126,7 +126,7 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
 
 \subsection{Desigualdad triangular generalizada}
 
-\begin{lem}%[]\label{lem:}
+\begin{lem}\label{lem:cota-modulo-bola-pseudohiperbolica}
     Sea $z \in \mathbb{D}$ y $r \in (0,1)$, entonces
     \[
     \forall w \in \bar{B_{\varrho}(z, r)} : \frac{\abs{z}-r}{1 - r \abs{z}} \leq \abs{w} \leq \frac{\abs{z} + r}{1 + r \abs{z}}.
@@ -136,102 +136,93 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
     Por la \excref[prop:bola-pseudohiperbolica-bola-euclidea]{prop-bola-pseudohiperbolica-bola-euclidea}, $w_m = \frac{\abs{z} - r}{1 - r \abs{z}} \cdot \frac{z}{\abs{z}}$ y $w_M = \frac{\abs{z} + r}{1 + r \abs{z}} \cdot \frac{z}{\abs{z}}$ son los puntos de $\bar{B_{\varrho}(z, r)}$ más cercanos y más alejados del origen respectivamente (ver la \autoref{fig:bolas-pseudohiperbolicas}), luego el resultado se sigue de la desigualdad triangular de $\abs{\cdot}$.\hfill\qedsymbol
 \end{dem}
 
-\begin{cor}%[]\label{cor:}
+\begin{cor}\label{cor:borde-bola-pseudohiperbolica-desigualdades-auxiliares}
     Sean $z_1, z_2 \in \mathbb{D}$, entonces
-    \begin{enu}[2][label=\textnormal{(\arabic*)}]
-        \item $\ds \frac{z_1 - z_2}{1 - \overline{z_1} z_2}  \in \partial B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}}\left(z_1, \abs{z_2}\right)$
-        \item $\ds \frac{\abs{z_1} - \abs{z_2}}{1 - \abs{z_1 \, z_2}} \leq \abs{\frac{z_1 - z_2}{1 - \overline{z_1} z_2}} \leq \frac{\abs{z_1} + \abs{z_2}}{1 + \abs{z_1\, z_2}}$.
+    \begin{enu}[1][label=\textnormal{(\arabic*)}, ref=\textnormal{(\arabic*)}]
+        \item\label{cor:borde-bola-pseudohiperbolica-desigualdades-auxiliares:1} $\ds \frac{z_1 - z_2}{1 - \overline{z_1} z_2}  \in \partial B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}}\left(z_1, \abs{z_2}\right)$ \hspace{1em} 
+        \inlineitem\label{cor:borde-bola-pseudohiperbolica-desigualdades-auxiliares:2} $\ds \frac{\abs{z_1} - \abs{z_2}}{1 - \abs{z_1 \, z_2}} \leq \abs{\frac{z_1 - z_2}{1 - \overline{z_1} z_2}} \leq \frac{\abs{z_1} + \abs{z_2}}{1 + \abs{z_1\, z_2}}$.
     \end{enu}
 \end{cor}
 \begin{dem}
-    \begin{enumerate}[label=\textnormal{(\arabic*)}]
-        \item Basta ver que $\varrho \left(\exhyperref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}{\tau_{z_1}}(z_2), z_1\right) = \abs{z_2}$. Como $\tau_{z_1} \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut}(\mathbb{D})}$, por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{Teorema de Schwarz-Pick}, $\tau_{z_1}$ es una isometría para la métrica pseudohiperbólica. Por tanto,
-        \[
-        \varrho\left(\tau_{z_1}(z_2), z_1\right) = \varrho\left(\tau_{z_1}(z_2), \tau_{z_1}(0)\right) = \varrho(z_2, 0) = \abs{z_2}.
-        \]
-        \item Se obtiene aplicando el lema anterior a $z_0 = z_1$ y $r_0 = \abs{z_2}$ y usando (1). %ORDENAR referenciar bien
+    \begin{enumerate}[label=\textnormal{(\arabic*)}, wide, labelindent=0pt]
+        \item Basta ver que $\varrho \left(\exhyperref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}{\tau_{z_1}}(z_2), z_1\right) = \abs{z_2}$. Como $\tau_{z_1} \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut}(\mathbb{D})}$, por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{Teorema de Schwarz-Pick}, $\tau_{z_1}$ es una isometría para la métrica pseudohiperbólica. Por tanto, $\varrho\left(\tau_{z_1}(z_2), z_1\right) = \varrho\left(\tau_{z_1}(z_2), \tau_{z_1}(0)\right) = \varrho(z_2, 0) = \abs{z_2}$.
+        \item Se obtiene aplicando el \excref[lem:cota-modulo-bola-pseudohiperbolica]{lem-cota-modulo-bola-pseudohiperbolica} con $z = z_1$ y $r = \abs{z_2}$ y usando \ref{cor:borde-bola-pseudohiperbolica-desigualdades-auxiliares:1}. \hfill\qedsymbol
     \end{enumerate}
-
-    \vspace{-\baselineskip}
-    % \vspace{-\belowdisplayskip}
 \end{dem}
 
 
 \begin{teo}\label{teo:desigualdad-triangular-generalizada}
-    Sea $z, w, u \in \mathbb{D}$, entonces
+    Sea $z_1, z_2, z_3 \in \mathbb{D}$, entonces
     \[
-    \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w) \leq \frac{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, u) + \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(u, w)}{1 + \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, u) \, \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(u, w)}.
+    \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_1, z_2) \leq \frac{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_1, z_3) + \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_2, z_3)}{1 + \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_1, z_3) \, \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_2, z_3)}.
     \]    
 \end{teo}
 \begin{dem}
-    Basta demostrar la desigualdad para $z' = \tau_u(z)$, $w' = \tau_u(w)$ y $u' = \tau_u(u) = 0$, ya que $\varrho$ es invariante por $\tau_u$. Como se tiene que
+    Basta demostrar la desigualdad para $z_1' = \tau_{z_3}(z_1)$, $z_2' = \tau_{z_3}(z_2)$ y $z_3' = \tau_{z_3}(z_3) = 0$, ya que $\varrho$ es invariante por $\tau_{z_3}$. Como se tiene que
     \[
-    \varrho(z, w) = \varrho(z', w'), \quad \varrho(z, u) = \varrho(z', 0) = \abs{z'}, \quad \varrho(u, w) = \varrho(0, w') = \abs{w'},
+    \varrho(z_1, z_2) = \varrho(z_1', z_2'), \quad \varrho(z_1, z_3) = \varrho(z_1', 0) = \abs{z_1'}, \quad \varrho(z_2, z_3) = \varrho(0, z_2') = \abs{z_2'},
     \]
-    basta probar que $\ds \varrho(z', w') \leq \frac{\abs{z'} + \abs{w'}}{1 + \abs{z'}  \abs{w'}}$ y esta última desigualdad es consecuencia directa del corolario anterior.%ORDENAR referenciar bien
+    basta probar que $\varrho(z_1', z_2') \leq \frac{\abs{z_1'} + \abs{z_2'}}{1 + \abs{z_1'}  \abs{z_2'}}$, que es consecuencia del \excref[cor:borde-bola-pseudohiperbolica-desigualdades-auxiliares]{cor-borde-bola-pseudohiperbolica-desigualdades-auxiliares}.\hfill\qedsymbol
 \end{dem}
 
-\begin{teo}%[]\label{teo:}
+\begin{teo}\label{teo:completitud-metrica-pseudohiperbolica}
     $\left(\mathbb{D}, \varrho\right)$ es un espacio métrico completo.
 \end{teo}
 \begin{dem}
-    Sea $\left(z_n\right)_{n \in \N} \subset \mathbb{D}$ una sucesión de Cauchy respecto a $\varrho$%COMPLETAR
+    Veamos primero que $\varrho$ es una métrica. Sean $z_1, z_2, z_3 \in \mathbb{D}$.
+    \begin{enumerate}[label=(\roman*)]
+        \item $\varrho(z_1, z_2) = \abs{\tau_{z_2}(z_1)} \geq 0$ y $\varrho(z_1, z_2) = 0 \iff \tau_{z_2}(z_1) = 0 \iff z_1 = z_2$.
+        \item $\varrho(z_1, z_2) = \abs{\tau_{z_2}(z_1)} = \abs{\frac{z_1 - z_2}{1 - \bar{z_2} z_1}} = \abs{\frac{z_2 - z_1}{1 - \bar{z_1} z_2}} = \abs{\tau_{z_1}(z_2)} = \varrho(z_2, z_1)$.
+        \item Por el \excref[teo:desigualdad-triangular-generalizada]{teo-desigualdad-triangular-generalizada}, $\varrho(z_1, z_2) \leq \frac{\varrho(z_1, z_3) + \varrho(z_3, z_2)}{1 + \varrho(z_1, z_3) \, \varrho(z_3, z_2)} \leq \varrho(z_1, z_3) + \varrho(z_3, z_2)$.
+    \end{enumerate}
+
+    Veamos ahora que la métrica $\varrho$ es completa. Sea $\left(z_n\right)_{n \in \N} \subset \mathbb{D}$ una sucesión de Cauchy respecto a $\varrho$, es decir, $\forall \varepsilon > 0 : \exists N \in \N : \forall n, m \geq N : \varrho(z_n, z_m) < \varepsilon$.
+    En particular, tomando $m = N$, $\forall n \geq N : \varrho(z_n, z_N) < \varepsilon$, i.e. $\forall n \geq N : z_n \in B_{\varrho}(z_N, \varepsilon)$.
+    
+    Por el \excref[lem:cota-modulo-bola-pseudohiperbolica]{lem-cota-modulo-bola-pseudohiperbolica}, $\left(z_n\right)_{n\in\N}$ está contenida en un compacto $K \Subset \mathbb{D}$. Como $\forall z, w \in \mathbb{D} : \abs{1 - \bar{w}z} \leq 2$, tenemos que $\abs{z-w} \leq 2\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w)$. Por tanto, $\left(z_n\right)_{n=N}^\infty$ es también una sucesión de Cauchy respecto a la métrica euclídea, luego existe $z \in K \Subset \mathbb{D}$ tal que $\abs{z_n - z} \to 0$. 
+    
+    Finalmente, como la función $(z,w)\mapsto \abs{1-\bar wz}^{-1}$ es continua en el compacto $K\times K$, por el teorema de Weierstrass alcanza un máximo finito $C_K$. Entonces, $\forall z,w\in K : \varrho(z,w) \leq C_K\abs{z-w}$.
+    Por tanto, $\abs{z_n - z} \to 0$ implica $\varrho(z_n, z) \to 0$.\hfill\qedsymbol
 \end{dem}
 
-\textbf{Cosas que comentar:}
-\begin{itemize}
-    \item ¿Interpretación geométrica de la desigualdad triangular generalizada?
-    \item ¿Y si \emph{buscamos} $\varrho$ como la única métrica del disco unidad que hace que todos los automorfismos del disco unidad sean isometrías? ¿Nos sale la métrica pseudohiperbólica?
-\end{itemize}
 
 
-\newpage
+% \begin{obs}\label{obs:schur-contraccion-metrica-pseudohiperbolica}
+%     Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$, entonces, por el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick}, tenemos que
+%     \[
+%     \forall z, w \in \mathbb{D} : \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(f(z), f(w)) = \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}} \leq \abs{\frac{z - w}{1 - \overline{w} z}} = \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w).
+%     \]  
+%     Es decir, $f$ es una contracción para la \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{métrica pseudohiperbólica}.
 
-
-%ORDENAR: prescindible
-\begin{obs}\label{obs:comparacion-metricas-pseudohiperbolica-euclidea}
-    Como $\forall z, w \in \mathbb{D} : \abs{1 - \bar{w}z} \leq 2$, tenemos que $\frac{1}{2}\ d(z, w) \leq \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w)$ donde $d$ es la métrica euclídea dada por $d(z, w) = \abs{z - w}$.
-
-    Además, $\forall K \exhyperref[defn:compacidad]{compacidad}{\Subset} \mathbb{D} : \exists C_K > 0 : \forall z, w \in K : \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w) \leq C_K\ d(z, w)$.
-\end{obs} %REVISAR: comprobar si luego se usa y referenciar donde se haga
-
-\begin{obs}\label{obs:schur-contraccion-metrica-pseudohiperbolica}
-    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$, entonces, por el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick}, tenemos que
-    \[
-    \forall z, w \in \mathbb{D} : \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(f(z), f(w)) = \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}} \leq \abs{\frac{z - w}{1 - \overline{w} z}} = \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w).
-    \]  
-    Es decir, $f$ es una contracción para la \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{métrica pseudohiperbólica}.
-
-    Además, $\exists z \neq w \in \mathbb{D} : \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(f(z), f(w)) = \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w)$ si y solo si $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut}(\mathbb{D})}$.
-\end{obs}
+%     Además, $\exists z \neq w \in \mathbb{D} : \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(f(z), f(w)) = \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w)$ si y solo si $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut}(\mathbb{D})}$.
+% \end{obs}
 
 
 
 \section{Métrica de Poincaré}
 
-\begin{ejer}\label{ejer:desigualdad-triangular-producto-hiperbolico}
-    Sean $x, y, z \in [0,1)$ tales que $\ds x \leq \frac{y + z}{1 + yz}$. Demuestra que 
-    \[
-        \frac{1+x}{1-x} \leq \frac{1+y}{1-y} \cdot \frac{1+z}{1-z}.
-    \]
-\end{ejer}
-\begin{sol}
-    Consideramos la función $\varphi \colon \R \setminus \{1\} \to \R$ dada por $\varphi(t) = \frac{1+t}{1-t}$.
-    Su derivada es $\varphi'(t) = \frac{2}{(1-t)^2} > 0$ para todo $t < 1$, por lo que $\varphi$ es estrictamente creciente en $(-\infty, 1)$.
+La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una métrica riemanniana: por el \excref[teo:desigualdad-triangular-generalizada]{teo-desigualdad-triangular-generalizada}, el caso de igualdad en la desigualdad triangular es degenerado. Para linealizar la desigualdad del \excref[teo:desigualdad-triangular-generalizada]{teo-desigualdad-triangular-generalizada}, usaremos el siguiente resultado, que es una consecuencia de la monotonía de la función $\varphi(t) = \frac{1+t}{1-t}$ en $[0,1)$.
 
-    Por tanto, como $x, y, z \in [0,1)$ y $x \leq \frac{y+z}{1+yz}$, tenemos que
-    \[
-    \varphi(x) \leq \varphi\left(\frac{y+z}{1+yz}\right) \implies \frac{1+x}{1-x} \leq \frac{1+\frac{y+z}{1+yz}}{1-\frac{y+z}{1+yz}}.
-    \]
-    Operando en el lado derecho, llegamos a que
-    \[
-    \frac{1+\frac{y+z}{1+yz}}{1-\frac{y+z}{1+yz}} = \frac{(1+yz) + (y+z)}{(1+yz) - (y+z)} = \frac{(1+y)(1+z)}{(1-y)(1-z)} = \frac{1+y}{1-y} \cdot \frac{1+z}{1-z} = \varphi(y) \cdot \varphi(z).
-    \]
-    Esto implica la desigualdad que queríamos demostrar.\hfill\qedsymbol
-\end{sol}
+\begin{lem}\label{lem:desigualdad-triangular-producto-hiperbolico}
+    Sean $x, y, z \in [0,1)$. Entonces, $\ds x \leq \frac{y + z}{1 + yz} \implies \frac{1+x}{1-x} \leq \frac{1+y}{1-y} \cdot \frac{1+z}{1-z}$.
+\end{lem}
+% \begin{dem}%ORDENAR: demostración prescindible
+%     Consideramos $\varphi \colon \R \setminus \{1\} \to \R$ dada por $\varphi(t) = \frac{1+t}{1-t}$.
+%     Entonces, $\forall t < 1 : \varphi'(t) = \frac{2}{(1-t)^2} > 0$, por lo que $\varphi$ es estrictamente creciente en $(-\infty, 1)$.
+
+%     Por tanto, como $x, y, z \in [0,1)$ y $x \leq \frac{y+z}{1+yz}$, tenemos que
+%     \[
+%     \varphi(x) \leq \varphi\left(\frac{y+z}{1+yz}\right) \implies \frac{1+x}{1-x} \leq \frac{1+\frac{y+z}{1+yz}}{1-\frac{y+z}{1+yz}}.
+%     \]
+%     Operando en el lado derecho, llegamos a que
+%     \[
+%     \frac{1+\frac{y+z}{1+yz}}{1-\frac{y+z}{1+yz}} = \frac{(1+yz) + (y+z)}{(1+yz) - (y+z)} = \frac{(1+y)(1+z)}{(1-y)(1-z)} = \frac{1+y}{1-y} \cdot \frac{1+z}{1-z} = \varphi(y) \cdot \varphi(z).
+%     \]
+%     Esto implica la desigualdad que queríamos demostrar.\hfill\qedsymbol
+% \end{dem}
 
 %<*prop>
-\begin{prop}[Métrica de Poincaré]\label{prop:metrica-poincare}\ignorespaces
+\begin{prop}\label{prop:metrica-poincare}
     La aplicación $\wp \colon \mathbb{D} \times \mathbb{D} \to [0, \infty)$ dada por
     \[
     \wp(z, w) = \log \frac{1 + \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho(z, w)}}{1 - \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho(z, w)}}
@@ -240,26 +231,24 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
 \end{prop}
 %</prop>
 \begin{dem}%ORDENAR: referenciar bien
-    Veamos que se satisfacen las propiedades: Sean $z, w, u \in \mathbb{D}$.
-    \begin{enumerate}[label=\textnormal{(\roman*)}]
-        \item Como $\varrho(z, w) \in [0,1)$ y $\varphi(t) = \frac{1+t}{1-t}$ es creciente, $\varphi (\varrho(z,w)) \geq 1$, por lo que $\wp(z, w) \geq 0$.
-
+    Veamos que se satisfacen las tres propiedades. Sean $z, w, u \in \mathbb{D}$.
+    \begin{enumerate}[label=\textnormal{(\roman*)}, wide, labelindent=0pt]
+        \item Como $\varrho(z, w) \in [0,1)$, $\varphi(0) = 1$ y $\varphi$ es creciente, $\varphi (\varrho(z,w)) \geq 1$, luego $\wp(z, w) \geq 0$.
+        
         Además, $\wp(z, w) = 0 \iff \varphi(\varrho(z, w)) = 1 \iff \varrho (z, w) = 0 \iff z = w$.
         \item Como $\varrho(z, w) = \varrho(w, z)$, se tiene que $\wp(z, w) = \wp(w, z)$ por definición.
-        \item Por el \excref[teo:desigualdad-triangular-generalizada]{teo-desigualdad-triangular-generalizada} y el \excref[ejer:desigualdad-triangular-producto-hiperbolico]{ejer-desigualdad-triangular-producto-hiperbolico}, se tiene que
+        \item Por el \excref[teo:desigualdad-triangular-generalizada]{teo-desigualdad-triangular-generalizada} y el \excref[lem:desigualdad-triangular-producto-hiperbolico]{lem-desigualdad-triangular-producto-hiperbolico}, se tiene que
         \[
         \varrho(z, w) \leq \frac{\varrho(z, u) + \varrho(u, w)}{1 + \varrho(z, u) \, \varrho(u, w)} \implies \frac{1 + \varrho(z, w)}{1 - \varrho(z, w)} \leq \frac{1 + \varrho(z, u)}{1 - \varrho(z, u)} \cdot \frac{1 + \varrho(u, w)}{1 - \varrho(u, w)}.
         \]
-        Aplicando logaritmos, se obtiene la desigualdad triangular para $\wp$.
+        Aplicando logaritmos, se obtiene la desigualdad triangular para $\wp$.\hfill\qedsymbol
     \end{enumerate}
-
-    \vspace{-\baselineskip}
 \end{dem}
 
 \begin{obs}
     La métrica de Poincaré se puede escribir como $\wp(z, w) = f(\varrho(z, w))$ donde $f \colon [0,1) \to [0, \infty)$ es la función dada por $f(t) = \log \frac{1+t}{1-t}$.
     
-    Esta función es continua y estrictamente creciente en $[0,1)$, con $f(0) = 0$ y $\lim_{t \to 1^-} f(t) = \infty$. Por tanto, $f$ es una biyección entre $[0,1)$ y $[0, \infty)$. 
+    Esta función es continua y estrictamente creciente en $[0,1)$, con $f(0) = 0$ y $\lim_{t \to 1^-} f(t) = \infty$. Por tanto, $f$ es una biyección entre $[0,1)$ y $[0, \infty)$ (véase la \autoref{fig:funcion-log-poincare}).
     
     \begin{figure}[ht]
         \centering
@@ -270,7 +259,7 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
             % axis equal,
             axis lines=middle,
             grid=both, 
-            width=6cm, height=8cm,
+            width=8cm, height=8cm,
             ymin=-0.5, ymax=10.5, xmin=-0.1, xmax=1.1,
             % restrict y to domain=-50:50, % evita picos numéricos
             % every axis x label/.style={at={(axis description cs:0.95,0.05)},anchor=north east},
@@ -284,22 +273,56 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
             % \addplot[only marks, mark=*, mark options={fill=white}, mark size=0.8pt] coordinates {(0,0)};
         \end{axis}
         \end{tikzpicture}
+        \caption{Gráfica de $f(t)=\log\frac{1+t}{1-t}$ en $[0,1)$.}
+        \label{fig:funcion-log-poincare}
     \end{figure}
 \end{obs}
 
 
-\begin{ejem}%[de ]
-    Consideramos la sucesión $\left(z_n\right)_{n \in \N} \subset \mathbb{D}$ dada por $z_0 = 0$ y de forma recursiva $\forall n \in \N : z_{n} \in [0, 1) : \wp \left(z_n, z_{n-1}\right) = 1$. Entonces, tenemos que
-    \[
-    \log \frac{1 + \varrho(z_n, z_{n-1})}{1 - \varrho(z_n, z_{n-1})} = 1 \iff \frac{1 + \varrho(z_n, z_{n-1})}{1 - \varrho(z_n, z_{n-1})} = e \iff \varrho(z_n, z_{n-1}) = \frac{e-1}{e+1}.
-    \]
-    Despejando $z_{n}$, obtenemos que $z_{n} = \tau_{w} (z_{n-1})$ donde $w = \frac{e-1}{e+1}$. Por tanto, $z_n = \tau_w^{n}(0)$.
-    
-    Por construcción, $\forall n \in \N : \wp(z_n, z_{n-1}) = 1$, luego esta sucesión no es de Cauchy respecto a la métrica de Poincaré. Sin embargo, respecto a la métrica euclídea, tenemos que
-    %COMPLETAR
-\end{ejem}
 
-% \begin{lem}%REVISAR: muy prescindible porque es obvio
+
+\begin{obs}
+    Sea $(z_n)_{n\in\N}\subset\mathbb{D}$ una sucesión de Cauchy euclídea que no converge en $\mathbb{D}$. Como $\mathbb{C}$ es completo, $(z_n)$ converge euclídeamente a algún $\xi\in\mathbb{C}$. Además, necesariamente $\xi\notin\mathbb{D}$ y, como $\overline{\mathbb{D}}=\{z\in\mathbb{C}:|z|\le 1\}$, se tiene $|\xi|=1$.
+
+    Veamos qué ocurre con la métrica pseudohiperbólica. Fijado $N\in\N$,
+    \[
+    \varrho(z_n,z_N) = \abs{\tau_{z_N}(z_n)} \xrightarrow[n\to\infty]{} \abs{\tau_{z_N}(\xi)} = 1,
+    \]
+    por el \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}. Por tanto, para todo $N$ hay $n\ge N$ con $\varrho(z_n,z_N)$ arbitrariamente cerca de $1$, luego $(z_n)$ no puede ser de Cauchy respecto a $\varrho$.
+
+    En consecuencia, para la métrica de Poincaré,
+    \[
+    \wp(z_n,z_N)=\log\frac{1+\varrho(z_n,z_N)}{1-\varrho(z_n,z_N)}\xrightarrow[n\to\infty]{}\infty,
+    \]
+    y tampoco es de Cauchy respecto a $\wp$.
+
+    En este sentido, podemos ver con precisión cómo se deforma la geometría euclídea cerca del borde: para sucesiones que convergen euclídeamente a $\partial\mathbb{D}$, la distancia pseudohiperbólica a un punto interior no tiende a $0$ sino a $1$, y la distancia de Poincaré correspondiente diverge a $\infty$. Es decir, $\varrho$ separa el borde lo suficiente para destruir la propiedad de Cauchy euclídea, mientras que $\wp$ sitúa el borde a distancia infinita.
+\end{obs}
+
+% Con la observación anterior, este ejemplo ya no es relevante
+% \begin{ejem}%[de ]
+%     Consideramos la sucesión $\left(z_n\right)_{n \in \N} \subset \mathbb{D}$ dada por $z_0 = 0$ y de forma recursiva $\forall n \in \N : z_{n} \in [0, 1) : \wp \left(z_n, z_{n-1}\right) = 1$. Entonces, tenemos que
+%     \[
+%     \log \frac{1 + \varrho(z_n, z_{n-1})}{1 - \varrho(z_n, z_{n-1})} = 1 \iff \frac{1 + \varrho(z_n, z_{n-1})}{1 - \varrho(z_n, z_{n-1})} = e \iff \varrho(z_n, z_{n-1}) = \frac{e-1}{e+1}.
+%     \]
+%     Despejando $z_{n}$, obtenemos que $z_{n} = \tau_{w} (z_{n-1})$ donde $w = \frac{e-1}{e+1}$. Por tanto, $z_n = \tau_w^{n}(0)$.
+    
+%     Por construcción, $\forall n \in \N : \wp(z_n, z_{n-1}) = 1$, luego esta sucesión no es de Cauchy respecto a la métrica de Poincaré. Sin embargo, respecto a la métrica euclídea sí es de Cauchy. En efecto,
+%     \[
+%     z_n-z_{n-1}=\frac{w(1-z_{n-1}^2)}{1+wz_{n-1}}\ge 0,
+%     \]
+%     luego $(z_n)_n \subset [0,1]$ es creciente y está acotada superiormente por $1$. Por tanto, converge en $\R$ a un cierto $L\in[0,1]$.
+
+%     Pasando al límite en la recurrencia,
+%     \[
+%     L=\frac{L+w}{1+wL}\iff wL^2=w\iff L=1
+%     \]
+%     (ya que $L\in[0,1]$ y $w>0$). Así, $z_n\to 1$ en la métrica euclídea y, en particular, $(z_n)$ es de Cauchy para dicha métrica, aunque su límite no pertenece a $\mathbb{D}$.
+
+
+% \end{ejem}
+
+% \begin{lem}% muy prescindible porque es obvio
 %     Sea $\left(z_n\right)_{n\in\N} \subset \mathbb{D}$ una sucesión, entonces
 %     \begin{enumerate}[label=\textnormal{(\arabic*)}]
 %         \item $\ds z_n \xrightarrow{n\to\infty} z \in \mathbb{D} \text{ respecto a } \varrho \iff z_n \xrightarrow{n\to\infty} z \text{ respecto a } \wp$.
@@ -319,34 +342,19 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
 %     \end{enumerate}
 % \end{dem}
 
-\begin{teo}%[]\label{teo:}
-    $\left(\mathbb{D}, \wp\right)$ es un espacio métrico completo.
+\begin{teo}\label{teo:completitud-metrica-poincare}
+    $\left(\mathbb{D}, \wp\right)$ es un \exhyperref[defn:completitud-metrica]{completitud-metrica}{espacio métrico completo}.
 \end{teo}
-\begin{dem}%REVISAR
-    Sea $(z_n)_{n\in\mathbb{N}}\subset\mathbb{D}$ una sucesión de Cauchy para $\wp$.
-Definimos $f\colon[0,1)\to[0,\infty)$ por $f(t)=\log\frac{1+t}{1-t}$. Observamos que
-$f$ es estrictamente creciente, $f(0)=0$ y satisface $f(t)\to 0 \iff t\to 0$ (en particular tiene inversa creciente
-en su imagen).
+\begin{dem}
+    Sea $(z_n)_{n}\subset\mathbb{D}$ una sucesión de Cauchy para $\wp$. Observamos que la aplicación $f\colon[0,1)\to[0,\infty)$ dada por $f(t)=\log\frac{1+t}{1-t}$ es estrictamente creciente, cumple que $f(0)=0$ y satisface $f(t)\to 0 \iff t\to 0$.
 
-Para probar completitud tomemos $\varepsilon>0$ arbitrario y pongamos $\eta:=f(\varepsilon)>0$.
-Como $(z_n)$ es Cauchy en $\wp$, existe $N$ tal que para todo $m,n\ge N$ se tiene
-\[
-\wp(z_n,z_m)=f\big(\varrho(z_n,z_m)\big)<\eta.
-\]
-Dado que $f$ es creciente, de $f(\varrho(z_n,z_m))<f(\varepsilon)$ se sigue
-$\varrho(z_n,z_m)<\varepsilon$ para todo $m,n\ge N$. Por tanto $(z_n)$ es una sucesión de Cauchy
-en la métrica $\varrho$.
+    Sea $\varepsilon>0$ tal que $\varepsilon < 1$, tomamos $\eta:=f(\varepsilon)>0$. Como $(z_n)_{n}$ es Cauchy para $\wp$,
+    \[
+    \exists N \in\N : \forall n, m \geq N : \wp(z_n,z_m) < \eta.
+    \]
+    Como $f$ es creciente, $f(\varrho(z_n,z_m)) < f(\varepsilon)$ implica que $\varrho(z_n,z_m)<\varepsilon$, luego $(z_n)_n$ es de Cauchy para la métrica $\varrho$. Por el \excref[teo:completitud-metrica-pseudohiperbolica]{teo-completitud-metrica-pseudohiperbolica}, existe $z\in\mathbb{D}$ tal que $\varrho(z_n,z)\to 0$.
 
-Por hipótesis (ya demostrado en el texto principal) $(\mathbb{D},\varrho)$ es completo, luego
-existe $z\in\mathbb{D}$ tal que $\varrho(z_n,z)\to 0$ cuando $n\to\infty$.
-
-Finalmente, usando la propiedad $f(t)\to 0 \iff t\to 0$ y la continuidad de $f$,
-se tiene
-\[
-\wp(z_n,z)=f\big(\varrho(z_n,z)\big)\longrightarrow f(0)=0,
-\]
-es decir, $z_n\to z$ en la métrica $\wp$. Como toda sucesión de Cauchy en $\wp$ converge en $\mathbb{D}$,
-concluimos que $(\mathbb{D},\wp)$ es completo.
+    Usando que $f(t)\to 0 \iff t\to 0$, llegamos a que $\wp(z_n,z)=f(\varrho(z_n,z))\to 0$, es decir, $z_n\to z$ respecto a $\wp$.\hfill\qedsymbol
 \end{dem}
 
 \begin{obs}
@@ -356,41 +364,80 @@ concluimos que $(\mathbb{D},\wp)$ es completo.
     \]
 \end{obs}
 
+\subsection{Naturaleza infinitesimal de la métrica de Poincaré}
+
+Hasta ahora hemos trabajado con $\wp$ definida mediante una distancia entre puntos pero, como ya se mencionó al comienzo de esta sección, $\wp$ es una métrica riemanniana. Esto significa que existe una densidad local positiva $\mu$ tal que la distancia se obtiene minimizando longitudes de caminos. Es decir, para todo $z,w\in\mathbb{D}$,
+\[
+\wp(z,w)=\inf\left\{\ell_{\mu}(\gamma):\gamma\tex{ camino en }\mathbb{D}\tex{ entre }z\tex{ y }w\right\},\qquad
+\ell_{\mu}(\gamma)=\int_a^b \mu(\gamma(t))\abs{\gamma'(t)}\odif{t}.
+\]
+Para probarlo, partiremos de la definición de longitud hiperbólica de un camino, cuya densidad viene del límite del cociente incremental de $\wp$:
+
+\begin{lem}\label{lem:cociente-incremental-poincare}
+    Sea $z\in\mathbb{D}$, entonces $\ds \lim_{h\to 0}\frac{\wp(z,z+h)}{\abs{h}}=\frac{2}{1-\abs{z}^2}$.
+\end{lem} %DEMOSTRACIÓN
+% \begin{dem}
+%     Para $h$ suficientemente pequeño, $z+h\in\mathbb{D}$ y
+%     \[
+%     \varrho(z,z+h)=\left\lvert\frac{z-(z+h)}{1-\overline{(z+h)}\,z}\right\rvert
+%     =\frac{\abs{h}}{\abs{1-\abs{z}^2-\overline{h}\,z}}.
+%     \]
+%     Por definición de $\wp$,
+%     \[
+%     \frac{\wp(z,z+h)}{\abs{h}}
+%     =\frac{\log\left(\frac{1+\varrho(z,z+h)}{1-\varrho(z,z+h)}\right)}{\varrho(z,z+h)}\cdot\frac{\varrho(z,z+h)}{\abs{h}}.
+%     \]
+%     Como $\varrho(z,z+h)\to 0$ cuando $h\to 0$, se tiene
+%     \[
+%     \lim_{u\to 0}\frac{\log\left(\frac{1+u}{1-u}\right)}{u}=2,
+%     \]
+%     y además
+%     \[
+%     \lim_{h\to 0}\frac{\varrho(z,z+h)}{\abs{h}}
+%     =\lim_{h\to 0}\frac{1}{\abs{1-\abs{z}^2-\overline{h}\,z}}
+%     =\frac{1}{1-\abs{z}^2}.
+%     \]
+%     Multiplicando ambos límites,
+%     \[
+%     \lim_{h\to 0}\frac{\wp(z,z+h)}{\abs{h}}=\frac{2}{1-\abs{z}^2}.
+%     \]
+%     \hfill\qedsymbol
+% \end{dem}
+
 \begin{defn}[Longitud hiperbólica]\label{defn:longitud-hiperbolica}
-    Sea $\gamma \colon [a,b] \to \mathbb{D}$ un camino. La \emph{longitud hiperbólica} de $\gamma$ es
+    Así, dado un camino\footnote{Aquí y en lo sucesivo, un camino es una función continua y $\mathcal{C}^1$ a trozos $\Gamma \colon [a,b] \to \mathbb{D}$.} $\Gamma \colon [a,b] \to \mathbb{D}$, su \emph{longitud hiperbólica} se define como
     \[
-    \ell(\gamma) = \int_a^b \frac{2\abs{\gamma'(t)}}{1 - \abs{\gamma(t)}^2} \odif{t}.
+    \ell(\Gamma) = \int_a^b \frac{2\abs{\Gamma'(t)}}{1 - \abs{\Gamma(t)}^2} \odif{t}.
     \]
 \end{defn}
-%REVISAR: ¿Por qué esta definición? ¿No tendría más sentido definir la longitud como el supremo de las sumas de distancias respecto a la métrica de Poincaré y luego demostrar que es igual a esta integral?
 
-\begin{lem}%[]\label{lem:}
-    Sea $\Gamma \colon [a,b] \to \mathbb{D}$ un camino inyectivo, y $f \in \mathrm{Aut} \left(\mathbb{D}\right)$%REVISAR: ¿Inyectivo por qué?
-    \[
-    \implies \ell \left(f \circ \Gamma\right) = \ell \left(\Gamma\right). 
-    \]
+\begin{lem}\label{lem:invariancia-conforme-longitud-hiperbolica}
+    Sea $\Gamma$ un camino en $\mathbb{D}$ y $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D}\right)}$, entonces $\exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell} \left(f \circ \Gamma\right) = \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell} \left(\Gamma\right)$.
 \end{lem}
 \begin{dem}
-    Como $f \in \mathrm{Aut} \left(\mathbb{D}\right)$ es biyectiva sobre $\mathbb{D}$ y $\Gamma$ es un camino inyectivo en $\mathbb{D}$, entonces $f \circ \Gamma$ también lo es.
-
-    Por el \excref[teo:formula-aut-disco-unidad]{Teo-formula-aut-disco-unidad}, $\exists \gamma \in \mathbb{T}, w \in \mathbb{D} : f = \gamma \, \tau_w$. Por tanto, para el integrando de la longitud hiperbólica de $f \circ \gamma$ se tiene que
+    Como $f \in \mathrm{Aut} \left(\mathbb{D}\right)$, $f \circ \Gamma$ es un camino en $\mathbb{D}$.
+    
+    Por el \excref[teo:formula-aut-disco-unidad]{Teo-formula-aut-disco-unidad}, $\exists \gamma \in \mathbb{T}, w \in \mathbb{D} : f = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma} \circ \exhyperref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}{\tau_w}$. Por tanto, para el integrando de la longitud hiperbólica de $f \circ \Gamma$ se tiene que
     \[
     \frac{\abs{(f \circ \Gamma)'(t)}}{1 - \abs{(f \circ \Gamma)(t)}^2} = \frac{\abs{\gamma} \, \abs{(\tau_w \circ \Gamma)'(t)}}{1 - \abs{\gamma} \, \abs{(\tau_w \circ \Gamma)(t)}^2} = \frac{\abs{(\tau_w \circ \Gamma)'(t)}}{1 - \abs{(\tau_w \circ \Gamma)(t)}^2} = \frac{\abs{\tau_w'(\Gamma(t))} \, \abs{\Gamma'(t)}}{1 - \abs{\tau_w(\Gamma(t))}^2}.
     \]
-    Ahora, por el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick}, sabemos que $\tau_w'(z) = \frac{1 - \abs{\tau_w(z)}^2}{1 - \abs{z}^2}$, luego
+    Ahora, por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{Teorema de Schwarz-Pick}, sabemos que $\abs{\tau_w'(z)} = \frac{1 - \abs{\tau_w(z)}^2}{1 - \abs{z}^2}$, luego
     \[
     \frac{\abs{(f \circ \Gamma)'(t)}}{1 - \abs{(f \circ \Gamma)(t)}^2} = \frac{\abs{\Gamma'(t)}}{1 - \abs{\Gamma(t)}^2} \implies \ell(f \circ \Gamma) = \ell(\Gamma).
     \]
 
     \vspace{-\baselineskip}
     \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
 \end{dem}
 
-\begin{lem}%[]\label{lem:}
-    Sea $r \in (0,1)$, entonces $\Gamma_r(t) = t$, $t \in [0, r]$ define el camino más corto respecto a la longitud hiperbólica entre $0$ y $r$. Además, $\ell(\Gamma_r) = \wp(0, r)$.
+\begin{lem}\label{lem:camino-minimo-poincare-0-r}
+    Sea $r \in (0,1)$, entonces $\forall t \in [0, r] : \Gamma_r(t) = t$, define el único camino (salvo reparametrización) entre $0$ y $r$ de \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{longitud hiperbólica} mínima.
+    
+    Además, $\exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell}(\Gamma_r) = \exhyperref[prop:metrica-poincare]{prop-metrica-poincare}{\wp}(0, r)$.
 \end{lem}
 \begin{dem}
-    Observamos que 
+    Primero, integrando, observamos que 
     \[
     \begin{aligned}
         \ell(\Gamma_r) &= \int_0^r \frac{2}{1 - t^2} \odif{t} = \int_{0}^r \left(\frac{1}{1 - t} + \frac{1}{1 + t}\right) \odif{t}\\
@@ -398,88 +445,140 @@ concluimos que $(\mathbb{D},\wp)$ es completo.
     \end{aligned}
     \]
 
-    Sea $\Gamma \colon [0,1] \to \mathbb{D}$ un camino cualquiera entre $0$ y $r$. Podemos integrar en la concatenación de caminos $\Gamma_r^{-1} * \Gamma$ que es un camino cerrado y aplicar el \exhyperref[teo:cauchy-goursat-disco]{Teo-cauchy-goursat-disco}{Teorema de Cauchy-Goursat} a la función $f(z) = \frac{2}{1 - z^2}$, que es holomorfa en $\mathbb{D}$:
+    Sea $\Gamma \colon [0,1] \to \mathbb{D}$ un camino cualquiera entre $0$ y $r$. Podemos integrar en la concatenación de caminos $\Gamma_r^{-1} * \Gamma$ que es un camino cerrado y aplicar el \exhyperref[teo:cauchy-goursat]{teo-cauchy-goursat}{Teorema de Cauchy-Goursat} a la función $f$ dada por $f(z) = \frac{2}{1 - z^2}$, que es holomorfa en $\mathbb{D}$:
     \[
     0 = \int_{\Gamma_r^{-1} * \Gamma} f(z) \odif{z} = \int_{\Gamma} f(z) \odif{z} - \int_{\Gamma_r} f(z) \odif{z} \implies \int_{\Gamma} f(z) \odif{z} = \int_{\Gamma_r} f(z) \odif{z}.
     \]
-    Por tanto, se tiene que
     \[
-    \ell(\Gamma_r) = \abs{\int_{\Gamma_r} f(z) \odif{z}} = \abs{\int_{\Gamma} f(z) \odif{z}} \leq \int_{\Gamma} \abs{\frac{2}{1 - z^2}} \abs{\odif{z}} 
+    \therefore\quad\ell(\Gamma_r) = \abs{\int_{\Gamma_r} f(z) \odif{z}} = \abs{\int_{\Gamma} f(z) \odif{z}} \leq \int_{\Gamma} \abs{\frac{2}{1 - z^2}} \abs{\odif{z}}.
     \]
-    Ahora, por la desigualdad triangular inversa, $\forall z \in \mathbb{D} : \abs{1 - z^2} \geq 1 - \abs{z}^2 > 0$, luego $\frac{1}{\abs{1 - z^2}} \leq \frac{1}{1 - \abs{z}^2}$. Por tanto,
+    Por la desigualdad triangular inversa, $\forall z \in \mathbb{D} : \frac{1}{\abs{1 - z^2}} \leq \frac{1}{1 - \abs{z}^2}$, luego
     \[
     \ell(\Gamma_r) \leq \int_{\Gamma} \frac{2}{1 - \abs{z}^2} \abs{\odif{z}} = \ell(\Gamma).
     \]
-    Como $\Gamma$ era un camino arbitrario entre $0$ y $r$ y $\Gamma_r$ satisface la igualdad, concluimos que $\Gamma_r$ es el camino más corto entre $0$ y $r$ respecto a la longitud hiperbólica. Falta ver que es único. Si $\Gamma$ satisface la igualdad, entonces todas las desigualdades anteriores se convierten en igualdades, en particular, la desigualdad triangular inversa. Es decir, $\forall z \in \Gamma : \abs{1 - z^2} = 1 - \abs{z}^2$. Esto ocurre si y sólo si $z^2 \in [0,1)$, es decir, si $z \in [0,1)$. Por tanto, el único camino que cumple la igualdad es $\Gamma_r$.
+    Como $\Gamma$ era un camino arbitrario entre $0$ y $r$ y $\Gamma_r$ satisface la igualdad, concluimos que $\Gamma_r$ minimiza la longitud hiperbólica entre $0$ y $r$. Falta ver que es único.
+    
+    Si $\Gamma$ satisface la igualdad, entonces todas las desigualdades anteriores se convierten en igualdades, en particular, la desigualdad triangular inversa. Es decir, $\forall z \in \Gamma : \abs{1 - z^2} = 1 - \abs{z}^2$. Esto ocurre si y sólo si $z^2 \in [0,1)$, es decir, si $z \in [0,1)$. Por tanto, el único camino que cumple la igualdad es $\Gamma_r$.\hfill\qedsymbol
 \end{dem}
 
-\begin{obs}
-    Por el lema anterior, la longitud hiperbólica entre $0$ y $r \in (0,1)$ viene dada por
-    \[
-    \wp(0, r) = \ell(\Gamma_r) = \int_0^r \frac{2}{1 - t^2} \odif{t} = \log \frac{1 + r}{1 - r} \xrightarrow[r \to 1^-]{} \infty.
-    \]
-    Es decir, es como si el borde del disco unidad estuviera a una distancia infinita respecto al origen en la métrica de Poincaré (al menos a lo largo del segmento radial $[0,1)$).
-\end{obs}
+% PRESCINDIBLE, ya lo vimos en una observación anterior
+% \begin{obs}
+%     Por el \excref[lem:camino-minimo-poincare-0-r]{lem-camino-minimo-poincare-0-r}, la longitud hiperbólica entre $0$ y $r \in (0,1)$ viene dada por
+%     \[
+%     \wp(0, r) = \ell(\Gamma_r) = \int_0^r \frac{2}{1 - t^2} \odif{t} = \log \frac{1 + r}{1 - r} \xrightarrow[r \to 1^-]{} \infty.
+%     \]
+%     Es decir, es como si el borde del disco unidad estuviera a una distancia infinita respecto al origen en la métrica de Poincaré (al menos a lo largo del segmento radial $[0,1)$).
+% \end{obs}
 
-\begin{teo}%[]\label{teo:}
-    Sean $z_1, z_2 \in \mathbb{D}$ distintos, entonces el camino de menor longitud hiperbólica entre $z_1$ y $z_2$ viene dado por $\forall t \in [0,1] : \Gamma(t) =  \tau_{z_1}(\tau_{z_1}(z_2) \, t)$. Además, $\ell(\Gamma) = \wp(z_1, z_2)$.
+\begin{teo}\label{teo:camino-minimo-poincare}
+    Sean $z_1, z_2 \in \mathbb{D}$ distintos, entonces $\forall t \in [0,1] : \Gamma(t) =  \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_2) \, t)$ define el único camino (salvo reparametrización) entre $z_1$ y $z_2$ de \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{longitud hiperbólica} mínima.
+    
+    Además, $\ell(\Gamma) = \wp(z_1, z_2)$.
 \end{teo}
 \begin{dem}
-    Por el ejercicio 8, %ORDENAR referenciar bien
-    $f(z) = \bar{\gamma} \, \tau_{z_1}(z)$ con $\gamma = \frac{\tau_{z_1}(z_2)}{\abs{\tau_{z_1}(z_2)}} \in \mathbb{D}$ define un automorfismo del disco unidad que lleva $z_1$ a $0$ y $z_2$ a $\abs{\tau_{z_1}(z_2)}$. Entonces, como los automorfismos del disco unidad son isometrías para la longitud hiperbólica, el camino de menor longitud hiperbólica entre $z_1$ y $z_2$ es $f^{-1} \circ \Gamma_{\abs{\tau_{z_1}(z_2)}}$ donde $\Gamma_{\abs{\tau_{z_1}(z_2)}}$ es el camino más corto entre $0$ y $\abs{\tau_{z_1}(z_2)}$ que viene dado por el lema anterior. %ORDENAR referenciar todo bien
+    Por la \excref[prop:aut-disco-unidad-traslada-z1-0-z2-01]{prop-aut-disco-unidad-traslada-z1-0-z2-01}, $f = \rho_\gamma \circ \tau_{z_1}$ con $\gamma = \sfrac{\abs{\tau_{z_1}(z_2)}}{\tau_{z_1}(z_2)} \in \mathbb{D}$ es  un automorfismo del disco unidad que lleva $z_1$ a $0$ y $z_2$ a $\abs{\tau_{z_1}(z_2)}$.
     
-    Por tanto, como $f^{-1}(w) = \tau_{z_1}(\gamma \, w)$, se tiene que la parametrización buscada es
-     %ORDENAR: referenciar bien (es un ejercicio)
+    Entonces, como $\ell$ es invariante conforme (\excref[lem:invariancia-conforme-longitud-hiperbolica]{lem-invariancia-conforme-longitud-hiperbolica}), el camino de menor longitud hiperbólica entre $z_1$ y $z_2$ es $f^{-1} \circ \Gamma_{\abs{\tau_{z_1}(z_2)}}$ donde $\Gamma_{\abs{\tau_{z_1}(z_2)}}$ es el camino más corto entre $0$ y $\abs{\tau_{z_1}(z_2)}$ dado por el \excref[lem:camino-minimo-poincare-0-r]{lem-camino-minimo-poincare-0-r}.
+    
+    Por tanto, como por la \excref[prop:aut-disco-unidad-inversa]{prop-aut-disco-unidad-inversa} $f^{-1}(w) = \tau_{z_1}\left(\bar{\gamma} \, w\right)$, tenemos que
     \[
     \begin{aligned}
-        \forall t \in [0, 1] : \Gamma(t) &= f^{-1} \left(\Gamma_{\abs{\tau_{z_1}(z_2)}}(t)\right) = \tau_{z_1} \left(\gamma \, t \abs{\tau_{z_1}(z_2)}\right) = \tau_{z_1} \left(\frac{\tau_{z_1}(z_2)}{\abs{\tau_{z_1}(z_2)}} \, t \abs{\tau_{z_1}(z_2)}\right) \\
+        \forall t \in [0, 1] : \Gamma(t) &= f^{-1} \left(\Gamma_{\abs{\tau_{z_1}(z_2)}}(t)\right) = \tau_{z_1} \left(\bar{\gamma} \, t \abs{\tau_{z_1}(z_2)}\right) = \tau_{z_1} \left(\frac{\tau_{z_1}(z_2)}{\abs{\tau_{z_1}(z_2)}} \, t \abs{\tau_{z_1}(z_2)}\right) \\
         &= \tau_{z_1} \left(\tau_{z_1}(z_2) \, t\right) = \frac{z_1 - \tau_{z_1}(z_2) \, t}{1 - \overline{z_1} \, \tau_{z_1}(z_2) \, t}.
     \end{aligned}
     \] 
 
-    Para calcular su longitud hiperbólica, usamos que los automorfismos del disco unidad son isometrías para la longitud hiperbólica y el lema anterior:
+    Para calcular su longitud hiperbólica, aplicamos el \excref[lem:invariancia-conforme-longitud-hiperbolica]{lem-invariancia-conforme-longitud-hiperbolica} y el \excref[lem:camino-minimo-poincare-0-r]{lem-camino-minimo-poincare-0-r}:
     \[
     \ell(\Gamma) = \ell\left(f \circ \Gamma\right) = \ell\left(\Gamma_{\abs{\tau_{z_1}(z_2)}}\right) = \wp\left(0, \abs{\tau_{z_1}(z_2)}\right) = \wp(z_1, z_2).
     \]
 
     \vspace{-\baselineskip}
     \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
 \end{dem}
 
-Este teorema motiva la siguiente definición.
+Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que la distancia entre dos puntos se obtiene minimizando la longitud de caminos $\ell$. Además, nos da una descripción explícita de las geodésicas.
+
+\subsection{Rectas hiperbólicas}
 
 \begin{defn}\label{defn:recta-hiperbolica}
-    Sean $z_1, z_2 \in \mathbb{D}$ distintos, $\Gamma$ traza la \textbf{recta hiperbólica} entre $z_1$ y $z_2$
+    Dados $z_1, z_2 \in \mathbb{D}$ distintos, la \emph{recta hiperbólica} que pasa por $z_1$ y $z_2$ es
     \[
-    \iff \forall t \in \left[0, \abs{\tau_{z_1}(z_2)}\right] : \Gamma(t) = \tau_{z_1} \left(\tau_{z_1}(z_2) \, t\right) \in \mathbb{D}.
+    \left\{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}} \left(\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_2) \, t\right) : t \in \R\right\} \cap \mathbb{D} = \left\{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}} \left(\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_2) \, t\right) : \abs{t} < \abs{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_2)}^{-1}\right\}. 
     \]
 \end{defn}
 
-%COMPLETAR con figura y observación de que las rectas hiperbólicas son arcos de circunferencia ortogonales a la frontera del disco unidad.
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[scale=2]
+        % Circunferencia soporte ortogonal al borde del disco
+        \def\Rgeo{1.2738}
+        \coordinate (C) at (1.6,0.25);
+        \coordinate (A) at (0.489,0.873);
+        \coordinate (B) at (0.731,-0.682);
 
-\begin{cor}%[]\label{cor:}
-    Sean $z_1, z_2, z_3 \in \mathbb{D}$ distintos, entonces están en la misma recta hiperbólica
-    \[
-    \iff \frac{\tau_{z_1}(z_3)}{\tau_{z_1}(z_2)} \in \R
-    \]
+        % Dos puntos interiores sobre la geodesica
+        \coordinate (ZOne) at (0.355,0.515);
+        \coordinate (ZTwo) at (0.445,-0.288);
+
+        % Borde del disco unidad
+        \draw (0,0) circle [radius=1];
+
+        % Centro de la circunferencia unidad
+        \fill (0,0) circle (0.015) node[below left] {$0$};
+
+        % Circunferencia euclidea soporte (discontinua)
+        \draw[dashed] (C) circle [radius=\Rgeo];
+
+        % Arco interior (recta hiperbólica)
+        \draw[very thick] (A) arc[start angle=150.8, end angle=227.0, radius=\Rgeo];
+
+        % Segmento hiperbólico entre z1 y z2 (subarco de la geodésica)
+        \draw[ultra thick, gray!70] (ZOne) arc[start angle=168, end angle=205, radius=\Rgeo];
+
+        % Centro de la circunferencia soporte
+        \fill (C) circle (0.015) node[right] {$c$};
+
+        % Puntos z1 y z2 en la recta hiperbólica
+        \fill (ZOne) circle (0.02) node[above left] {$z_1$};
+        \fill (ZTwo) circle (0.02) node[below left] {$z_2$};
+
+        % Puntos de interseccion ortogonal con la frontera
+        \fill (A) circle (0.015);
+        \fill (B) circle (0.015);
+
+        % Marcas de angulo recto en las intersecciones (ortogonalidad)
+        \path (A) ++(60.7:0.08) coordinate (Aone);
+        \path (A) ++(-29.2:0.08) coordinate (Atwo);
+        \path (Aone) ++(-29.2:0.08) coordinate (Acorner);
+        \draw[thick] (Aone) -- (Acorner) -- (Atwo);
+
+        \path (B) ++(137.0:0.08) coordinate (Bone);
+        \path (B) ++(47.0:0.08) coordinate (Btwo);
+        \path (Bone) ++(47.0:0.08) coordinate (Bcorner);
+        \draw[thick] (Bone) -- (Bcorner) -- (Btwo);
+    \end{tikzpicture}
+    \caption{Recta hiperbólica que pasa por $z_1$ y $z_2$.}
+    \label{fig:recta-hiperbolica-disco}
+\end{figure}
+
+\begin{obs}
+    Como podemos ver en la \autoref{fig:recta-hiperbolica-disco}, las rectas hiperbólicas en el disco aparecen como arcos de circunferencia que cortan ortogonalmente a $\mathbb{T}$.
+    
+    Esto se debe a que, como $\{\tau_{z_1}(z_2)\,t:t\in\R\}$ es una recta euclídea que pasa por el origen, corta ortogonalmente a $\mathbb{T}$. Entonces, al aplicar $\tau_{z_1}$, que es una transformación de Möbius (por tanto manda circunferencias generalizadas en circunferencias generalizadas) y además es conforme, su imagen sigue siendo una circunferencia generalizada ortogonal a $\mathbb{T}$.
+\end{obs}
+
+\begin{cor}%\label{cor:}
+    Tres puntos $z_1, z_2, z_3 \in \mathbb{D}$ distintos están en la misma recta hiperbólica si y sólo si $\sfrac{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_3)}{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_2)} \in \R$.
 \end{cor}
 \begin{dem}
-    Sabemos que $z_1, z_2, z_3$ están en la misma recta hiperbólica si y sólo si existe $t \in \R$ tal que $z_3 = \tau_{z_1}(\tau_{z_1}(z_2) \, t)$. Aplicando $\tau_{z_1}$ a ambos lados, esto es equivalente a que $\tau_{z_1}(z_3) = \tau_{z_1}(z_2) \, t$. Como $z_2 \neq z_1$ y, por tanto, $\tau_{z_1}(z_2) \neq 0$, esto equivale a que $\frac{\tau_{z_1}(z_3)}{\tau_{z_1}(z_2)} = t \in \R$.
+    Por definición, $z_1, z_2, z_3$ están en la misma recta hiperbólica si y sólo si existe $t \in \R$ tal que $z_3 = \tau_{z_1}(\tau_{z_1}(z_2) \, t)$. Aplicando $\tau_{z_1}$ a ambos lados, por el \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}, esto es equivalente a que $\tau_{z_1}(z_3) = \tau_{z_1}(z_2) \, t$. Como $z_2 \neq z_1$ y, por tanto, $\tau_{z_1}(z_2) \neq 0$, esto equivale a que $\frac{\tau_{z_1}(z_3)}{\tau_{z_1}(z_2)} = t \in \R$.\hfill\qedsymbol
 \end{dem}
 
 %COMPLETAR ¿nada de paralelas? REVISAR: mirar ejercicios
 
 \section{Densidad de una métrica}
-
-\begin{defn}[Métrica]\label{defn:metrica}
-    Sea $X \neq \varnothing$, $\appl{d}{X \times X}{\R}$ es una métrica $\iff$
-    \begin{enumerate}
-        \item\label{defn:metrica:positividad} Positividad (no degenerada): $\forall x,y \in X : d(x,y) \geq 0 \we d(x,y) = 0 \iff x = y$.
-        \item\label{defn:metrica:simetria} Simetría: $\forall x,y \in X : d(x,y) = d(y,x)$.
-        \item\label{defn:metrica:desigualdad-triangular} Desigualdad triangular: $\forall x,y,z \in X : d(x, z) \leq d(x,y) + d(y,z)$.
-    \end{enumerate}
-    $\forall x, y \in X:$ a la imagen $d(x,y)$ se le llama \textbf{distancia} entre $x$ e $y$.
-\end{defn}
 
 % \transclude{desigualdad-triangular-inversa}
 \begin{teo}\label{teo:densidad-induce-metrica}
@@ -491,7 +590,7 @@ Este teorema motiva la siguiente definición.
     \[
     \forall x, y \in \Omega : d(x, y) = \inf \left\{\ell_{\mu}(\Gamma) : \Gamma \tex{ \exhyperref[defn:camino]{camino}{camino} inyectivo en } \Omega \tex{ entre } x \tex{ e } y\right\},
     \]
-    es una \exhyperref[defn:metrica]{metrica}{métrica} en $\Omega$. A la aplicación $\mu$ se le llama la \textbf{densidad métrica} de $d$.
+    es una \exhyperref[defn:metrica]{metrica}{métrica} en $\Omega$. A la aplicación $\mu$ se le llama la \emph{densidad métrica} de $d$.
 \end{teo} %DEMOSTRACIÓN
 
 \begin{obs}
@@ -502,22 +601,22 @@ Este teorema motiva la siguiente definición.
 
 \subsection{Densidad métrica inducida por una aplicación holomorfa}
 
-\begin{defn}[Densidad métrica inducida]\label{defn:densidad-metrica-inducida}
-    Sea $\mu \colon \Omega \subset \C \to (0, \infty)$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} en un dominio $\Omega$ y sea $f \colon \Omega_1 \subset \C \to \Omega$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa}, $f^*\mu \colon \Omega_1 \to \R$ es la densidad métrica inducida por $f$ y $\mu$ en $\Omega_1$
+\begin{defn}[Densidad métrica inducida]\label{defn:densidad-metrica-inducida-fn-holomorfa}
+    Sea $\mu \colon \Omega \subset \C \to (0, \infty)$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} en un \exhyperref[defn:dominio]{dominio}{dominio} $\Omega$ y sea $f \colon \Omega_1 \subset \C \to \Omega$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} en el \exhyperref[defn:dominio]{dominio}{dominio} $\Omega_1$, llamamos \emph{densidad métrica inducida por $f$ y $\mu$ en $\Omega_1$} a la aplicación $f^* \mu \colon \Omega_1 \to (0, \infty)$ dada por
     \[
-    \iff \forall z \in \Omega_1 : (f^* \mu)(z) = \mu(f(z)) \, \abs{f'(z)}.
+    \forall z \in \Omega_1 : (f^* \mu)(z) = \mu(f(z)) \, \abs{f'(z)}.
     \]
 \end{defn}
 
 \begin{obs}\label{obs:longitud-camino-densidad-metrica-inducida}
-    Entonces, para $\Gamma$ un camino inyectivo en $\Omega_1$, se tiene que
+    Entonces, para un camino $\Gamma$ en $\Omega_1$, se tiene que
     \[
-    \ell_{f^* \mu} (\Gamma) = \int_a^b (f^* \mu)(\Gamma(t)) \, \abs{\Gamma'(t)} \odif{t} = \int_a^b \underbrace{\mu(f(\Gamma(t)))}_{\mu \left(\left(f \circ \Gamma\right)(t)\right)} \, \underbrace{\abs{f'(\Gamma(t))} \, \abs{\Gamma'(t)}}_{\abs{(f \circ \Gamma)'(t)}} \odif{t} = \ell_{\mu} (f \circ \Gamma).
+    \ell_{\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \mu}} (\Gamma) = \int_a^b (\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \mu})(\Gamma(t)) \, \abs{\Gamma'(t)} \odif{t} = \int_a^b \underbrace{\mu(f(\Gamma(t)))}_{\mu \left(\left(f \circ \Gamma\right)(t)\right)} \, \underbrace{\abs{f'(\Gamma(t))} \, \abs{\Gamma'(t)}}_{\abs{(f \circ \Gamma)'(t)}} \odif{t} = \ell_{\mu} (f \circ \Gamma).
     \]
 \end{obs}
 
-\begin{obs}
-    En el \textbf{caso particular} en el que $\Omega_1 = \Omega_2 = \Omega$, podemos comparar $(f^*\mu)$ y $\mu$ en cualquier punto de $\Omega$. Por ejemplo, si $\forall z \in \Omega : (f^* \mu)(z) \leq \mu(z)$, entonces $\forall \Gamma$ camino en $\Omega : \ell_{f^* \mu}(\Gamma) \leq \ell_{\mu}(\Gamma)$ y, por tanto, $\forall x, y \in \Omega : d_{f^* \mu}(x, y) \leq d_{\mu}(x, y)$.
+% \begin{obs}
+    En el caso particular en el que $\Omega_1 = \Omega_2 = \Omega$, podemos comparar $(f^*\mu)$ y $\mu$ en cualquier punto de $\Omega$. Por ejemplo, si $\forall z \in \Omega : (f^* \mu)(z) \leq \mu(z)$, entonces $\forall \Gamma$ camino en $\Omega : \ell_{f^* \mu}(\Gamma) \leq \ell_{\mu}(\Gamma)$ y, por tanto, $\forall x, y \in \Omega : d_{f^* \mu}(x, y) \leq d_{\mu}(x, y)$.
     
     Ahora bien, como $\forall \Gamma$ camino en $\Omega$ entre $z$ y $w : f \circ \Gamma$ es un camino en $\Omega$ entre $f(z)$ y $f(w)$, se tiene que
     \[
@@ -526,36 +625,39 @@ Este teorema motiva la siguiente definición.
         &\leq \inf \left\{\ell_{\mu}(f \circ \Gamma) : \Gamma \tex{ camino en } \Omega \tex{ entre } z \tex{ y } w\right\} = d_{f^* \mu}(z, w).
     \end{aligned}
     \]
-    Por tanto, $\forall z, w \in \Omega : d_{\mu}(f(z), f(w)) \leq d_{\mu}(z, w)$ y $f$ es una contracción respecto a $d_{\mu}$.
+    Por tanto, $d_{\mu}(f(z), f(w)) \leq d_{\mu}(z, w)$, es decir, $f$ es una contracción respecto a $d_{\mu}$.
     
-    Concretamente, para la métrica de Poincaré en el disco unidad, la densidad métrica es $\mu(z) = \frac{2}{1 - \abs{z}^2}$. Entonces, si $f \in \mathcal{S}$, por el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick}, se tiene que
-    \[
-    \forall z \in \mathbb{D} : (f^* \mu)(z) = \frac{2}{1 - \abs{f(z)}^2} \, \abs{f'(z)} \leq \frac{2}{1 - \abs{z}^2} = \mu(z).
-    \]
-    En consecuencia, $f$ es una contracción respecto a la métrica de Poincaré:%ORDENAR: referenciar observación donde se ve esto
-    \[
-    \forall z, w \in \mathbb{D} : \wp(f(z), f(w)) \leq \wp(z, w).
-    \]
-\end{obs}
+    % Concretamente, para la métrica de Poincaré en el disco unidad, la densidad métrica es $\mu(z) = \frac{2}{1 - \abs{z}^2}$. Entonces, si $f \in \mathcal{S}$, por el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick}, se tiene que
+    % \[
+    % \forall z \in \mathbb{D} : (f^* \mu)(z) = \frac{2}{1 - \abs{f(z)}^2} \, \abs{f'(z)} \leq \frac{2}{1 - \abs{z}^2} = \mu(z).
+    % \]
+    % En consecuencia, $f$ es una contracción respecto a la métrica de Poincaré:%ORDENAR: referenciar observación donde se ve esto
+    % \[
+    % \forall z, w \in \mathbb{D} : \wp(f(z), f(w)) \leq \wp(z, w).
+    % \]
+% \end{obs}
 
 \subsection{Curvatura de una densidad métrica}
 
-La curvatura gaussiana $\kappa_\mu \colon \Omega \to \R$ asociada a una densidad métrica $\mu \colon \Omega \to (0, \infty)$ viene dada por la fórmula
-\[
-\forall z \in \Omega : \kappa_\mu(z) = -\frac{B_{\varrho} (\log \mu)(z)}{\mu(z)^2}.
-\]
-Para una explicación más detallada del origen de esta fórmula, véase \cite{krantzComplexAnalysisGeometric2004}, Anexo.
+\begin{defn}[Curvatura gaussiana]\label{defn:curvatura-gaussiana}
+    La curvatura gaussiana $\kappa_\mu \colon \Omega \to \R$ asociada a una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\mu$ es
+    \[
+    \forall z \in \Omega : \kappa_\mu(z) = -\frac{\Delta (\log \mu)(z)}{\mu(z)^2}.
+    \]
+    Para una explicación más detallada del origen de esta fórmula, véase \cite{krantzComplexAnalysisGeometric2004}, Anexo.
+\end{defn}
 
-Para la métrica de Poincaré en el disco unidad, tenemos que
+
+Para la métrica de Poincaré, por el \excref[lem:laplaciano-wirtinger]{lem-laplaciano-wirtinger} tenemos que
 \[
 \begin{aligned}
-    B_{\varrho} \log \mu (z) &= B_{\varrho} \log \left(\frac{2}{1 - \abs{z}^2}\right) = 4 \,\pdv{}{z} \pdv{}{\bar{z}} \left(\log 2 - \log(1 - z \bar{z})\right) \\
+    \Delta \log \mu (z) &= \Delta \log \left(\frac{2}{1 - \abs{z}^2}\right) = 4 \,\pdv{}{z} \pdv{}{\bar{z}} \left(\log 2 - \log(1 - z \bar{z})\right) \\
     &= -4 \,\pdv{}{z} \left(\frac{-z}{1 - z \bar{z}}\right) = 4 \, \frac{1 - z \bar{z} - z \left(- \bar{z}\right)}{(1 - z \bar{z})^2} = \frac{4}{{\left(1 - \abs{z}^2\right)}^2}.
 \end{aligned}
 \]
 Observamos que $(\mu(z))^2 = \left(\frac{2}{1 - \abs{z}^2}\right)^2 = \frac{4}{{\left(1 - \abs{z}^2\right)}^2}$, luego
 \[
-B_{\varrho} \log \mu (z) = (\mu(z))^2 \implies \kappa_\mu(z) = - \frac{B_{\varrho} \log \mu (z)}{(\mu(z))^2} = -1.
+\Delta \log \mu (z) = (\mu(z))^2 \implies \kappa_\mu(z) = - \frac{\Delta \log \mu (z)}{(\mu(z))^2} = -1.
 \] 
 
 Una de las propiedades más importantes de la curvatura es que es conformalmente invariante, es decir, se conserva al considerar la densidad métrica inducida por una aplicación conforme (holomorfa con derivada no nula). Más concretamente, tenemos el siguiente resultado.
@@ -568,18 +670,19 @@ Una de las propiedades más importantes de la curvatura es que es conformalmente
 \end{lem}   
 \begin{dem}
     Por definición de $f^*\sigma$, tenemos que $\log(f^*\sigma) = \log(\sigma\circ f) + \log \abs{f'}$.
-    Como $f'$ es holomorfa, en cualquier punto donde $f'\neq0$ la función $f'$ no se anula localmente y $\log\abs{f'}$ es armónica, por tanto $B_{\varrho}\log\abs{f'} = 0$. %REVISAR no entiendo bien esto
+    Como $f'$ es holomorfa, en cualquier punto donde $f'\neq0$ la función $f'$ no se anula localmente y $\log\abs{f'}$ es armónica, por tanto $\Delta \log\abs{f'} = 0$. %REVISAR no entiendo bien esto
     Además, por el \excref[lem:laplaciano-cambio-variable]{Lem-laplaciano-cambio-variable}, tenemos que
     \[
-        B_{\varrho}\log(f^*\sigma)(z) = B_{\varrho} \log(\sigma\circ f)(z) + \cancelto{0}{B_{\varrho}\log\abs{f'}(z)} = \abs{f'(z)}^2 \big(B_{\varrho}\log\sigma\big)(f(z)).
+        \Delta \log(f^*\sigma)(z) = \Delta \log(\sigma\circ f)(z) + \cancelto{0}{\Delta \log\abs{f'}(z)} = \abs{f'(z)}^2 \big(\Delta \log\sigma\big)(f(z)).
     \]
     Usando la definición de curvatura y que $(f^*\sigma)(z)^2 = \sigma(f(z))^2\,\abs{f'(z)}^2$ se obtiene
     \[
-        \kappa_{f^*\sigma}(z) = - \frac{B_{\varrho}\log(f^*\sigma)(z)}{(f^*\sigma)(z)^2} = - \frac{\abs{f'(z)}^2 \, (B_{\varrho}\log\sigma )(f(z))}{\sigma(f(z))^2 \, \abs{f'(z)}^2} = \kappa_{\sigma}(f(z)).
+        \kappa_{f^*\sigma}(z) = - \frac{\Delta\log(f^*\sigma)(z)}{(f^*\sigma)(z)^2} = - \frac{\abs{f'(z)}^2 \, (\Delta\log\sigma )(f(z))}{\sigma(f(z))^2 \, \abs{f'(z)}^2} = \kappa_{\sigma}(f(z)).
     \]
 
     \vspace{-\baselineskip}
     \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
 \end{dem}
 
 Ahlfors enunció el Lema de Schwarz como un resultado acerca de la curvatura.
@@ -600,11 +703,11 @@ Ahlfors enunció el Lema de Schwarz como un resultado acerca de la curvatura.
     \]
     Por tanto, $\phi$ alcanza su máximo $M$ en un punto $z_0 \in \bar{D_r(0)}$ y, para probar el teorema, basta ver que $M \leq 1$.
     
-    Si el máximo se alcanza en la frontera, entonces $M = \phi(z_0) = 0 \leq 1$ y el resultado se cumple. Suponemos que el máximo se alcanza en el interior, es decir, $z_0 \in D_r(0)$, podemos suponer además que $\phi(z_0) > 0$, es decir, $f^* \sigma (z_0) > 0$. Como $\phi$ es $\mathcal{C}^2$ en un entorno de $z_0$ (pues $f^* \sigma$ y $\mu_r$ lo son), podemos aplicar el operador laplaciano en $z_0$ y obtener que $B_{\varrho} \log \phi(z_0) \leq 0$ (pues $z_0$ es un máximo local y $\log$ es creciente). %REVISAR esta última afirmación esto es porque la parte real/imaginaria de una función holomorfa es armónica %ORDENAR: escribir en lema y demostrarlo y citarlo
+    Si el máximo se alcanza en la frontera, entonces $M = \phi(z_0) = 0 \leq 1$ y el resultado se cumple. Suponemos que el máximo se alcanza en el interior, es decir, $z_0 \in D_r(0)$, podemos suponer además que $\phi(z_0) > 0$, es decir, $f^* \sigma (z_0) > 0$. Como $\phi$ es $\mathcal{C}^2$ en un entorno de $z_0$ (pues $f^* \sigma$ y $\mu_r$ lo son), podemos aplicar el operador laplaciano en $z_0$ y obtener que $\Delta \log \phi(z_0) \leq 0$ (pues $z_0$ es un máximo local y $\log$ es creciente). %REVISAR esta última afirmación esto es porque la parte real/imaginaria de una función holomorfa es armónica %ORDENAR: escribir en lema y demostrarlo y citarlo
     Por tanto, tenemos que
     \[
     \begin{aligned}
-        B_{\varrho} \log \phi (z_0) &= B_{\varrho} \log (f^* \sigma)(z_0) - B_{\varrho} \log \mu_r (z_0) \\
+        \Delta \log \phi (z_0) &= \Delta \log (f^* \sigma)(z_0) - \Delta \log \mu_r (z_0) \\
         &= - \kappa_{f^* \sigma}(z_0) \, (f^* \sigma(z_0))^2 + \kappa_{\mu_r}(z_0) \, (\mu_r(z_0))^2 \leq 0.
     \end{aligned}
     \]

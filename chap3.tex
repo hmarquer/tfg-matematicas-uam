@@ -1,0 +1,595 @@
+\chapter{Productos Finitos de Blaschke}
+
+\section{Definición y propiedades básicas}
+
+\transclude{producto-finito-blaschke}
+
+\begin{obs}
+    Como cada $\tau_{z_k}$ tiene un cero en $z_k$ y un polo en $\sfrac{1}{\bar{z_k}}$, %ORDENAR: referenciar
+    el producto finito de Blaschke $B$ tiene $n$ ceros en $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $n$ polos en $\left\{\sfrac{1}{\bar{z_k}}\right\}_{k=1}^n \subset \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
+
+    Además, $B$ es una función meromorfa en $\widehat{\mathbb{C}}$ y holomorfa en $\mathbb{D}$.
+\end{obs}
+
+\begin{obs}
+    Por ser un producto de \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad}, un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $B$ pertenece a la \exhyperref[defn:clase-schur]{clase-schur}{clase de Schur}, $\mathcal{S}$, y satisface
+    \begin{enu}[3][label=(\arabic*), ref=\arabic*]
+        \item $\forall z \in \mathbb{D} : \abs{B(z)} < 1$,
+        \item $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$,
+        \item $\forall z \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}} : \abs{B(z)} > 1$.
+    \end{enu}
+
+    Como $\ds \xi \in \mathbb{T} \implies \xi = \sfrac{1}{\bar{\xi}} \we B(\xi) \in \mathbb{T}$, tenemos que $\forall \zeta \in \mathbb{T} : \ds B(\zeta) = \frac{1}{\bar{B(\zeta)}} = \frac{1}{\bar{B \left(\sfrac{1}{\bar{\zeta}}\right)}}$.
+
+    Ahora bien, como $\sfrac{1}{\bar{B \left(\bar{z}\right)}}$ define una función meromorfa en $\widehat{\mathbb{C}}$ que coincide con $B$ en $\mathbb{T}$, el \exhyperref[cor:continuacion-analitica]{cor-continuacion-analitica}{principio de continuación analítica} nos dice que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$.
+\end{obs}
+
+% \transclude{teo-reflexion-schwarz} %DEMOSTRACIÓN
+
+% \transclude{cor-reflexion-schwarz-disco-unidad} %DEMOSTRACIÓN
+
+\section{Caracterización de los productos finitos de Blaschke}
+
+Consideramos el producto de Blaschke $B(z) = \gamma \prod_{k=1}^n \frac{z - z_k}{1 - \overline{z_k} z}$ de grado $n$. Entonces, $B \in \mathcal{H} \left(\mathbb{D} \right)$ ya que el denominador no se anula en $\mathbb{D}$ por la desigualdad triangular inversa:
+\[
+\abs{1 - \overline{z_k} z} \geq 1 - \abs{z_k} \abs{z} \geq 1 - \abs{z_k} > 0. 
+\]
+\begin{enumerate}
+    \item $B \colon \mathbb{D} \to \mathbb{D}$ holomorfa.
+    \item $B \in \mathcal{C} \left(\mathbb{D} \right)$.
+    \item $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$.
+    \item $B$ tiene $n$ ceros en $\mathbb{D}$ (contando multiplicidades).
+\end{enumerate}
+
+Además, toda función que cumple estas cuatro propiedades es un producto finito de Blaschke de grado $n$.
+
+\transclude{teo-carac-prod-finito-blaschke}
+
+\section{Unicidad y no unicidad}
+
+\begin{lem}%[]\label{lem:}
+    Sean $B_1, B_2$ productos finitos de Blaschke mónicos de grado $n$, entonces
+    \[
+    \exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \tex{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k) \implies \exists \xi \in \mathbb{T} : B_1(\xi) = B_2(\xi). 
+    \]
+\end{lem}
+\begin{dem}
+    Tenemos que $\exists \left\{z_k\right\}_{k=1}^n, \left\{v_k\right\}_{k=1}^n \subset \mathbb{D}$ tales que
+    \[
+    \begin{aligned}
+        B_1(z) = B_2(z) &\iff \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = \prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z} \iff \left(\prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}\right) \bigg/ \left(\prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z}\right) = 1 \\
+        &\iff \prod_{k=1}^n \frac{(z_k - z)(1 - \overline{v_k} z)}{(v_k - z)(1 - \overline{z_k} z)} = 1.
+    \end{aligned}
+    \]
+
+    Para $z \in \mathbb{T}$, esta última igualdad es equivalente a
+    \[
+    \prod_{k=1}^n \frac{(z_k - z)(\bar{z} - \bar{v_k})}{(v_k - z)(\bar{z} - \bar{z_k})} = 1 \iff \prod_{k=1}^n \left(\frac{z_k - z}{v_k - z}\right) \bigg/\, \bar{\left(\frac{z_k - z}{v_k - z}\right)} = 1.
+    \]
+    Ahora bien, como $\forall w \in \mathbb{C} \setminus \left\{0\right\} : \ds \sfrac{w}{\bar{w}} = e^{2i \arg(w)}$, %REVISAR: comprobar
+    basta con probar que
+    \[
+    \exists \xi \in \mathbb{T} : \arg \left(\prod_{k=1}^n \frac{z_k - \xi}{v_k - \xi}\right) \equiv 0 \mod \pi. 
+    \]
+
+    Para ello, definimos $\ds F(z) = \prod_{k=1}^n \frac{z_k - z}{v_k - z}$. Así, $\exists \delta > 0$ tal que $F$ es una función holomorfa y distinta de cero en $\left\{z \in \C : \abs{z} > 1 - \delta\right\}$. Además, tomamos $F(\infty) = \lim_{\abs{z} \to \infty} F(z) = 1$. Por tanto, $H(z) = \log F(z)$ define una función holomorfa en $\left\{z \in \C : \abs{z} > 1 - \delta\right\}$ con $H(\infty) = 0$.
+    
+    Ahora consideramos $h(z) = \Im \left(H \left(\sfrac{1}{z}\right)\right)$ definida en $\left\{z \in \C : \abs{z} < \sfrac{1}{1 - \delta}\right\}$. Entonces, $h$ es armónica en un entorno abierto de $\bar{\mathbb{D}}$. Por la propiedad del valor medio para funciones armónicas, tenemos que
+    \[
+    h(0) = \frac{1}{2\pi} \int_0^{2\pi} h\left(e^{i\theta}\right) \odif{\theta} \implies 0 = \frac{1}{2\pi} \int_0^{2\pi} h \left(e^{i\theta}\right) \odif{\theta}.
+    \]
+    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\im H$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado. %REVISAR: explicar mejor porque no lo entiendo.
+\end{dem}
+
+\begin{teo}%[]\label{teo:}
+    Sean $B_1, B_2$ productos finitos de Blaschke mónicos de grado $n$, entonces
+    \[
+    \Big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \tex{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\Big) \implies B_1 = B_2 \tex{ en } \mathbb{D}.
+    \]
+\end{teo}
+\begin{dem}
+    Definimos la función $R$ mediante $R(z) = \frac{B_1(z)}{B_2(z)}$. Como $B_1$ y $B_2$ son productos finitos de Blaschke, $\forall \zeta \in \mathbb{T} : \abs{R(\zeta)} = 1$. Además,
+    \[%ORDENAR: referenciar
+    \Big(\forall j \in \{1, 2\} : B_j(z)\cdot \bar{B_j \left(\sfrac{1}{\bar{z}}\right)} = 1\Big) \implies R(z) \cdot \bar{R \left(\sfrac{1}{\bar{z}}\right)} = 1.
+    \]
+    Por hipótesis, $\forall k \in \N_n : R(w_k) = 1$, luego tenemos que $\forall k \in \N_n : R\left(\sfrac{1}{\bar{w_k}}\right) = 1$.
+    
+    Además, por el lema anterior, %ORDENAR: referenciar
+    $\exists \xi \in \mathbb{T} : R(\xi) = 1$. Por tanto, tenemos al menos $2n + 1$ puntos distintos en los que $R$ toma el valor $1$. Como $R$ es una función racional de grado a lo sumo $2n$, concluimos que $R \equiv 1$ en $\widehat{\mathbb{C}}$, es decir, $B_1 \equiv B_2$ en $\mathbb{D}$. 
+\end{dem}
+
+\begin{ejem}[de por qué la condición de ser mónicos es necesaria]\mbox{}\\
+    Sean $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D} \setminus \{0\}$ distintos, definimos:
+    \[
+    B_1(z) = i \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} \quad \we \quad B_2(z) = \frac{iz_n - z}{1 + i \bar{z_n} z} \cdot \prod_{k=1}^{n-1} \frac{z_k - z}{1 - \overline{z_k} z}.
+    \]
+    Entonces, ambos $B_1$ y $B_2$ son productos finitos de Blaschke de grado $n$ que coinciden en los $n-1$ puntos $\left\{z_k\right\}_{k=1}^{n-1}$ y en el punto $0$:
+    \[
+    B_1(0) = i \cdot \prod_{k=1}^n z_k  \quad \we \quad B_2(0) = iz_n \cdot \prod_{k=1}^{n-1} z_k = i \cdot \prod_{k=1}^n z_k. 
+    \]
+    Es decir, cumplen todas las hipótesis del teorema salvo la de ser mónicos. Sin embargo, $B_1 \not\equiv B_2$ en $\mathbb{D}$ ya que en caso contrario, tendríamos que
+    \[
+    \forall z \in \mathbb{D} : 1 = \frac{B_1(z)}{B_2(z)} = i \frac{\tau_{z_n}(z)}{\tau_{iz_n}(z)} \implies \tau_{iz_n} = i \tau_{z_n},
+    \]
+    luego, usando que $\tau_{iz_n} \circ \tau_{i z_n} = \operatorname{id}$, obtendríamos que $\forall z \in \mathbb{D} : \tau_{z_n} \circ \tau_{i z_n} (z) = i z$, lo cual es falso poque %REVISAR: yo creo que el libro está mal.
+    $\tau_{z_n} \circ \tau_{i z_n} (i z_n) = \tau_{z_n}(0) = z_n \neq i^2 z_n = -z_n$.
+\end{ejem}
+
+\section{Productos finitos de Blaschke como funciones racionales}
+
+%REVISAR
+Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen factores comunes salvo unidades (polinomios constantes).
+
+\begin{defn}[Función racional]\label{defn:fn-racional}
+    
+\end{defn}
+
+\begin{defn}[Polinomio conjugado reverso]\label{defn:polinomio-conjugado-reverso}
+    Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$, $P^{\#_n}$ es el polinomio conjugado reverso de $P$ respecto a $n$
+    \[
+    \iff \forall z \in \C : P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)}.
+    \]
+    % Es decir, para $P(z) = \sum_{k=0}^n \alpha_k z^k$, tenemos que $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$.
+\end{defn}
+
+\begin{obs}
+    Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$. Entonces:
+    \begin{enumerate}[label=(\arabic*)]
+        \item Si $P(z) = \sum_{k=0}^n \alpha_k z^k$, entonces $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$.
+        \item Si $P(z) = 1$, entonces $P^{\#_n}(z) = z^n$ y si $P(z) = z^n$, entonces $P^{\#_n}(z) = 1$.
+    \end{enumerate}
+\end{obs}
+
+\begin{lem}%[]\label{lem:}
+    Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$. Entonces:
+    \begin{enumerate}
+        \item $\deg{P^{\#_n}} \leq n$ y la igualdad se cumple si, y sólo si, $P(0) \neq 0$.
+        \item $\left(P^{\#_n}\right)^{\#_n} = P$.
+        \item $\forall z \in \C \setminus \{0\} : \big(P(z) = 0 \iff P^{\#_n} \left(\sfrac{1}{\bar{z}}\right) = 0\big)$.
+    \end{enumerate}
+\end{lem}%DEMOSTRACIÓN
+
+\begin{prop}%[]\label{}
+    Sean $P, Q \in \C[z]$ tales que $\deg P \leq n, \deg Q \leq m$ para $n, m > 0$
+    \[
+    \implies \left(P \cdot Q\right)^{\#_{n+m}} = P^{\#_n} \cdot Q^{\#_m}.
+    \]
+\end{prop}%DEMOSTRACIÓN
+
+\begin{teo}%[]\label{teo:}
+    Sea $f$ una función racional de grado $n >0$, entonces $f$ es un producto finito de Blaschke 
+    \[
+    \iff \exists P \in \C[z] \tex{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\#_n}}.
+    \]
+\end{teo}
+\begin{dem}
+    Veamos ambas implicaciones por separado.
+    \begin{itemize}
+        \item[$\boxed{\Rightarrow}$] Sea $f$ un producto finito de Blaschke de grado $n$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}, \gamma \in \mathbb{T} : $
+        \[
+        \forall z \in \mathbb{D} : f(z) = \gamma \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = e^{t_0i} \cdot \frac{\prod_{k=1}^n (z_k - z)}{\prod_{k=1}^n (1 - \overline{z_k} z)}
+        \]
+        para algún $t_0 \in \R$. Definimos ahora el polinomio $P$ mediante
+        \[
+        \forall z \in \C : P(z) = e^{t_0i/2} \cdot \prod_{k=1}^n (z_k - z).
+        \]
+        Entonces, $P$ es un polinomio de grado como mucho $n$ cuyos ceros están en $\mathbb{D}$ y, además,
+        \[
+        P^\#(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n \cdot e^{-t_0i/2} \cdot \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = e^{-t_0i/2} \cdot \prod_{k=1}^n (1 - \overline{z_k} z).
+        \]
+        Por tanto, $\forall z \in \mathbb{D} : f(z) = \sfrac{P(z)}{P^\#(z)}$.
+        \item[$\boxed{\Leftarrow}$] Sea $f$ una función racional de la forma $f(z) = \sfrac{P(z)}{P^\#(z)}$ para $P(z) = \alpha_n z^n + \alpha_{n-1} z^{n-1} + \dots + \alpha_1 z + \alpha_0$ de grado $n$ tal que $\left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D}$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ tales que
+        \[
+        P(z) = \alpha_n \prod_{k=1}^n (z_k - z) \implies P^\#(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n\, \bar{\alpha_n} \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = \bar{\alpha_n} \prod_{k=1}^n (1 - \overline{z_k} z). 
+        \]
+        Entonces, $\forall z \in \mathbb{D} : \ds f(z) = \frac{P(z)}{P^\#(z)} = \frac{\alpha_n}{\bar{\alpha_n}} \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}$ donde $\ds \abs{\frac{\alpha_n}{\bar{\alpha_n}}} = 1$.
+    \end{itemize}
+
+    \vspace{-\baselineskip}
+    %\vspace{-\belowdisplayskip}
+\end{dem}
+
+\begin{cor}%[]\label{cor:} %ORDENAR: me ha dicho Dragan que es muy prescindible
+    Sea $f$ una función racional de grado $n$, entonces
+    \[
+    \begin{aligned}
+        \exists B_1, B_2 \tex{ productos finitos de Blaschke} &: f = \frac{B_1}{B_2}\\
+        &\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\iff \exists P \in \C[z] : \big(\forall z \in \mathbb{T} : P(z) \neq 0\big) : f = \frac{P}{P^{\#_n}}. %REVISAR: ¿$P$ es de grado n?
+    \end{aligned}
+    \]
+    Además, en tal caso, $\deg B_1 + \deg B_2 \leq n$ y $\deg P = n$.
+\end{cor}
+\begin{dem}
+    Veamos ambas implicaciones por separado.
+    \begin{itemize}
+        \item[$\boxed{\Rightarrow}$] Por el teorema anterior, %ORDENAR: referenciar
+        existen polinomios $Q, R$ de grados $n_1 \defeq \deg B_1$ y $n_2 \defeq\deg B_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $B_1 = \sfrac{Q}{Q^{\#_{n_1}}}$ y $B_2 = \sfrac{R}{R^{\#_{n_2}}}$.
+        
+        Por tanto, los ceros de $P \defeq Q \cdot R^{\#_{n_2}}$ están en $\mathbb{D} \cup \C \setminus \bar{\mathbb{D}} = \C \setminus \mathbb{T}$ y se cumple que
+        \[
+        f = \frac{B_1}{B_2} = \frac{Q / Q^{\#_{n_1}}}{R / R^{\#_{n_2}}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} = \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_{n_1 + n_2}}} = \frac{P}{P^{\#_n}}.
+        \]
+
+        Además, como $\deg R^{\#_{n_2}} \leq n_2$ y $\deg Q^{\#_{n_1}} \leq n_1$ y se tiene que
+        \[
+        n = \max \left\{\deg \left(Q R^{\#_{n_2}}\right), \deg \left(Q^{\#_{n_1}} R\right)\right\} = \max\left\{n_1 + \deg R^{ \#_{n_2}}, n_2 + \deg Q^{\#_{n_1}}\right\},
+        \]
+        concluimos que $\deg B_1 + \deg B_2 = n_1 + n_2 \leq n$.
+        \item[$\boxed{\Leftarrow}$] Sea $f$ una función racional de la forma $f(z) = \sfrac{P(z)}{P^\#(z)}$ donde $P$ es un polinomio sin ceros en $\mathbb{T}$. Entonces, podemos separar sus $n$ ceros en dos grupos: los $n_1$ que están en $\mathbb{D}$ y los $n_2$ que están en $\C \setminus \bar{\mathbb{D}}$. Por tanto, existen $Q, R$ polinomios de grados $n_1$ y $n_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $P = Q \cdot R^{\#_{n_2}}$. Por la proposición anterior, %ORDENAR: referenciar
+        \[
+        f = \frac{P}{P^{\#_n}} = \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_n}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} = \frac{Q}{Q^{\#_{n_1}}} \bigg/ \frac{R}{R^{\#_{n_2}}}.
+        \]%REVISAR: explicar mejor la igualdad
+        Luego, por el teorema anterior, %ORDENAR: referenciar
+        existen $B_1$ y $B_2$ productos finitos de Blaschke tales que $\sfrac{Q}{Q^{\#_{n_1}}} = B_1$ y $\sfrac{R}{R^{\#_{n_2}}} = B_2$. Por tanto, $f = \sfrac{B_1}{B_2}$.
+
+        Por último, tenemos que $n = \deg f = \max \left\{\deg P, \deg P^{\#_n}\right\} = \deg P$. 
+    \end{itemize}
+
+    \vspace{-\baselineskip}
+    %\vspace{-\belowdisplayskip}
+\end{dem}
+
+\begin{obs}
+    Sea $P$ un polinomio de grado $n$ sin ceros en $\mathbb{T}$. Entonces, por el corolario anterior, %ORDENAR: referenciar
+    $\forall \zeta \in \mathbb{T} : \abs{P(\zeta)} = \abs{P^{\#_n}(\zeta)}$.
+\end{obs}
+
+\section{$n$-valencia de los productos finitos de Blaschke} %Esto puede ir de lo primero si las demostraciones no usan B=P/P^#
+
+Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque cada valor en la imagen tiene dos preimágenes (salvo el 0). En general, la función $f_n(z) = z^n$ es $n$-valente, es decir, cada valor en la imagen tiene n preimágenes (salvo el 0).
+
+\transclude{orden-cero-fn-holomorfa}
+
+\transclude{valencia-fn-holomorfa}
+
+%ORDENAR: reescribir esta sección usando la definición de valencia  
+
+\begin{teo}\label{teo:n-valencia-prod-finito-blaschke-disco-unidad}
+    Todo producto finito de Blaschke de grado $n$ es $n$-valente en $\mathbb{D}$. %, es decir, para todo $w \in \mathbb{D}$, la ecuación $B(z) = w$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).
+\end{teo}
+\begin{dem}
+    Sea $B$ un producto finito de Blaschke de grado $n$. Entonces, $B \in \mathcal{H}\left(\Omega\right)$ donde $\Omega$ es un abierto que contiene a $\bar{\mathbb{D}}$. Entonces, $\mathbb{T}$ es una curva de Jordan en $\Omega$ tal que $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$. Sea $w \in \mathbb{D}$. Tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, entonces
+    \[
+    \forall \zeta \in \mathbb{T} : \abs{f(\zeta) - g(\zeta)} = \abs{B(\zeta) - (B(\zeta) - w)} = \abs{w} < 1 = \abs{B(\zeta)} = \abs{f(\zeta)}.
+    \]
+    Por tanto, por Teorema de Rouché \ref{teo:rouche}, $f$ y $g$ tienen el mismo número de ceros en $\mathbb{D}$. Como $B$ tiene $n$ ceros en $\mathbb{D}$, concluimos que $B(z) - w$ también tiene $n$ ceros en $\mathbb{D}$, es decir, la ecuación $B(z) = w$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).
+\end{dem}
+\begin{dem}[Alternativa]
+    Usamos que $B = \sfrac{P}{P^{\#_n}}$ y jugamos con los coeficientes para ver que hay $n$ soluciones por el teorema fundamental del álgebra.%DEMOSTRACIÓN págs 48-49
+\end{dem}
+
+
+\transclude{derivada-logaritmica}
+
+\transclude{lem-derivada-logaritmica-prod-finito-blaschke}
+
+\transclude{lem-derivada-prod-finito-blaschke-no-nula-toro}
+
+\begin{obs}
+    El \excref[lem:derivada-prod-finito-blaschke-no-nula-toro]{lem-derivada-prod-finito-blaschke-no-nula-toro} implica que un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} no puede alcanzar ningún valor unimodular en $\mathbb{T}$ con multiplicidad mayor que uno. 
+    
+    En efecto, sea $\gamma \in \mathbb{T}$ y supongamos que $\exists \zeta_0 \in \mathbb{T} : B(\zeta_0) = \gamma$. Si $\zeta_0$ fuera un cero de multiplicidad $m \geq 2$ de la función $h(z) = B(z) - \gamma$, entonces tendríamos que $h'(\zeta_0) = B'(\zeta_0) = 0$, lo cual contradice que $\abs{B'(\zeta_0)} > 0$.
+    
+    Por tanto, cada una de las $n$ soluciones de la ecuación $B(z) = \gamma$ en $\mathbb{T}$ (para $\gamma \in \mathbb{T}$) es un cero simple, es decir, todas las soluciones son distintas.
+\end{obs}
+
+\begin{cor}%[]\label{cor:}
+    Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} entonces
+    \[
+    \forall t \in \R : \odv{}{t} \arg B\left(e^{it}\right) = -\abs{B'\left(e^{it}\right)}.
+    \]
+\end{cor}
+\begin{dem}
+    Como $\forall t \in \R : B\left(e^{it}\right) \in \mathbb{T}$, podemos escribir $B\left(e^{it}\right) = e^{i \psi(t)}$ para alguna función $\psi \colon \R \to \R$. Entonces, por el \excref[lem:derivada-logaritmica-prod-finito-blaschke]{lem-derivada-logaritmica-prod-finito-blaschke}, tenemos que
+    \[%REVISAR: no entiendo
+    \psi'(t) = e^{it} \cdot \frac{B'\left(e^{it}\right)}{B\left(e^{it}\right)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\abs{e^{it} - z_k}^2} \upexpl{=}{\exref[lem:derivada-prod-finito-blaschke-no-nula-toro]{lem-derivada-prod-finito-blaschke-no-nula-toro}} - \abs{B'\left(e^{it}\right)}.
+    \]
+
+    \vspace{-\baselineskip}
+    \vspace{-\belowdisplayskip}
+\end{dem}
+
+
+
+%REVISAR: estos corolarios son de cosecha propia.
+\begin{cor}\label{cor:n-valencia-prod-finito-blaschke-disco-exterior}
+    Todo producto finito de Blaschke de grado $n$ es $n$-valente en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$. %, es decir, para todo $w \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$, la ecuación $B(z) = w$ tiene $n$ soluciones en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ (contando multiplicidades).
+\end{cor}
+\begin{dem}
+    Por la propiedad de reflexión de Schwarz, sabemos que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$. Por tanto, la ecuación $B(z) = w$ es equivalente a
+    \[
+    \frac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}} = w \iff B \left(\sfrac{1}{\bar{z}}\right) = \frac{1}{\bar{w}}.
+    \]
+    
+    Como $\abs{w} > 1$, tenemos que $\abs{\sfrac{1}{\bar{w}}} = \sfrac{1}{\abs{w}} < 1$, es decir, $\sfrac{1}{\bar{w}} \in \mathbb{D}$. Por el teorema anterior, la ecuación $B(\zeta) = \sfrac{1}{\bar{w}}$ tiene exactamente $n$ soluciones $\zeta_1, \dots, \zeta_n \in \mathbb{D}$ (contando multiplicidades).
+    
+    Ahora bien, la transformación $z \mapsto \sfrac{1}{\bar{z}}$ es una biyección de $\mathbb{D}$ en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$. Por tanto, las soluciones de $B(z) = w$ en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ son $z_k = \sfrac{1}{\bar{\zeta_k}}$ para $k = 1, \dots, n$, y hay exactamente $n$ de ellas (contando multiplicidades).
+\end{dem}
+
+%REVISAR: de cosecha propia.
+\begin{cor}\label{cor:n-valencia-prod-finito-blaschke-circunferencia}
+    Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n$ es $n$-valente en $\mathbb{T}$. %, es decir, para todo $\gamma \in \mathbb{T}$, la ecuación $B(z) = \gamma$ tiene $n$ soluciones en $\mathbb{T}$ (contando multiplicidades).
+\end{cor}
+\begin{dem}
+    Sea $B$ un producto finito de Blaschke de grado $n$ y sea $\gamma \in \mathbb{T}$. Consideramos la función $h(z) = B(z) - \gamma$. Como $B$ es holomorfa en un entorno abierto de $\bar{\mathbb{D}}$, también lo es $h$.
+    
+    Ahora bien, como $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1 = \abs{\gamma}$, la función $h$ no tiene ceros en $\mathbb{T}$ o tiene ceros de multiplicidad finita. Además, los ceros de $h$ en $\widehat{\mathbb{C}}$ son precisamente las soluciones de $B(z) = \gamma$.
+    
+    Como $B$ tiene grado $n$ (como función racional), la ecuación $B(z) = \gamma$ tiene en total $n$ soluciones en $\widehat{\mathbb{C}}$ (contando multiplicidades). Por los resultados anteriores, hay $n$ soluciones en $\mathbb{D}$ si $\abs{\gamma} < 1$ y $n$ soluciones en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ si $\abs{\gamma} > 1$. 
+    
+    Para $\gamma \in \mathbb{T}$, las $n$ soluciones no pueden estar en $\mathbb{D}$ (pues $\abs{B(z)} < 1$ para $z \in \mathbb{D}$) ni en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ (pues $\abs{B(z)} > 1$ para $z \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$). Por tanto, las $n$ soluciones deben estar en $\mathbb{T}$.
+\end{dem}
+
+\section{Álgebra del disco}
+
+\transclude{algebra-disco-unidad}
+
+\begin{ejems}[de funciones en el álgebra del disco]
+    \begin{enumerate}
+        \item Todo producto finito de Blaschke pertenece al álgebra del disco.
+        \item Cualquier función racional sin polos en $\bar{\mathbb{D}}$ pertenece al álgebra del disco.
+        \item La función dada por $z \mapsto \sum_{n=0}^\infty \sfrac{z^n}{n^2}$ pertenece al álgebra del disco.
+    \end{enumerate}
+\end{ejems}
+
+\subsection{Productos finitos de Blaschke como funciones del álgebra del disco}
+
+\transclude{cor-fn-holomorfa-compacto-imp-finitud-ceros}%ORDENAR: meterlo al anexo
+
+\begin{teo}[Fatou]\label{teo:fatou-carac-prod-finito-blaschke-algebra-disco}
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\mathbb{D}\right)$ tal que $\exhyperref[defn:convergencia]{convergencia}{\lim_{\abs{z} \to 1^-}} \abs{f(z)} = 1$
+    \[
+    \implies f \tex{ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke}}.
+    \]
+\end{teo}
+\begin{dem}
+    Como $\abs{f(z)} \xrightarrow{\abs{z} \to 1^-} 1$, tenemos que $\forall \varepsilon > 0 : \exists \delta \in (0, 1) : \forall z \in \mathbb{D} : \left(1 - \delta < \abs{z} \implies \abs{\abs{f(z)} - 1} < \varepsilon\right)$. En particular, tomando $\varepsilon < 1$, tenemos que $\exists r \in (0, 1) : \forall z \in \mathbb{D} : \left(r < \abs{z} \implies \abs{f(z)} > 0\right)$, i.e. $f$ no se anula en $\left\{z \in \mathbb{D} : r < \abs{z} < 1\right\}$.
+
+    Entonces, $f$ tiene todos sus ceros en el compacto $\bar{\mathbb{D}}_r = \left\{z \in \C : \abs{z} \leq r\right\}$, luego por el \excref[cor:fn-holomorfa-compacto-imp-finitud-ceros]{cor-fn-holomorfa-compacto-imp-finitud-ceros}, $f$ tiene un número finito de ceros en $\mathbb{D}$. 
+    
+    %DEMOSTRACIÓN terminarla
+\end{dem}
+
+\begin{cor}\label{cor:carac-prod-finito-blaschke-algebra-disco}
+    Si $f \in \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{\mathscr{A}(\mathbb{D})}$ y $f(\mathbb{T}) \subseteq \mathbb{T}$, entonces $f$ es un producto finito de Blaschke.
+\end{cor}
+\begin{dem}
+    Por hipótesis, $\abs{f(\zeta)} = 1 $ para todo $\zeta \in \mathbb{T}$. Como $f$ es continua en $\overline{\mathbb{D}}$, para todo $z \in \mathbb{D}$ con $\abs{z}$ suficientemente cercano a 1, tenemos que $\abs{f(z)}$ está cercano a 1. Por tanto, $\abs{f(z)} \to 1$ cuando $\abs{z} \to 1^-$. Aplicamos el teorema anterior.
+\end{dem}%COMPLETAR: mirar el teorema de Cantor
+
+Compacidad implica que existe una subsucesión convergente, por eso hay un número finito de polos % Mirar foto del día 11/12/2025
+
+
+
+\begin{ejer}
+    ¿Está la función $f(z) = \sqrt{1-z}$ definida en el disco unidad en el álgebra del disco? Es decir, ¿$\exists \lim_{\substack{z \to 1 \\ z \in \bar{\mathbb{D}}}} \sqrt{1-z}$?
+\end{ejer}
+\begin{sol}
+    Veamos que sí. Tomamos la rama principal de la raíz cuadrada, es decir, la que tiene corte de rama en $(-\infty, 0]$ y envía $z$ al único $w$ tal que $w^2 = z$ y $\Re z \geq 0$. Entonces,
+    \[
+    f(z) = \sqrt{1-z} \implies f \colon \underbrace{\mathbb{D} \setminus [1, \infty)}_{\mathbb{D}} \to \left\{w \in \C : \Re w \geq 0\right\}.
+    \]
+    Entonces $f \in \mathcal{H} \left(\mathbb{D}\right)$. Veamos que $\exists \lim_{\substack{z \to 1 \\ z \in \bar{\mathbb{D}}}} \sqrt{1-z}$. Sea $\varepsilon > 0$. Tomamos $\delta = \varepsilon^2$. Entonces, si $z \in \bar{\mathbb{D}}$ y $\abs{z - 1} < \delta$, tenemos que
+    \[
+    \abs{\sqrt{1-z} - 0} = \abs{\sqrt{1-z}} = \sqrt{\abs{1-z}} < \sqrt{\delta} = \varepsilon.
+    \]
+    Por tanto, tomando $f(1) = 0$, tenemos que $f \in \mathscr{A}(\mathbb{D})$.
+\end{sol}%REVISAR con la foto del dia 11/12/2025
+
+%COMPLETAR: falta un corolario
+
+\section{Composición de productos finitos de Blaschke}
+
+\begin{lem}\label{lem:prod-finito-blaschke-composicion-involucion}
+    Sea $B$ un producto finito de Blaschke de grado $n$ y $w \in \mathbb{D}$
+    \[
+    \implies \tau_w \circ B, \, B \circ \tau_w \tex{ son productos finitos de Blaschke de grado } n.
+    \]
+\end{lem}
+\begin{dem}
+    Ya sabemos que $\tau_w \circ B \in \mathcal{H}(\mathbb{D}) \cap \mathcal{C}\left(\bar{\mathbb{D}}\right)$ y que $\forall \zeta \in \mathbb{T} : \abs{\tau_w \circ B(\zeta)} = 1$. Por tanto, el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco} asegura que $\tau_w \circ B$ es un producto finito de Blaschke. Además, como $\tau_w \circ B (z) = 0 \iff B(z) = w$, por el \cref{teo:n-valencia-prod-finito-blaschke-disco-unidad}, la ecuación $\tau_w \circ B(z) = 0$ tiene exactamente $n$ soluciones en $\mathbb{D}$ (contando multiplicidades). Por tanto, $\tau_w \circ B$ es un producto finito de Blaschke de grado $n$. 
+    
+    Análogamente, el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco} asegura que $B \circ \tau_w$ es un producto finito de Blaschke. Además, como $\tau_w$ es biyectiva, por el \cref{teo:n-valencia-prod-finito-blaschke-disco-unidad}, existen $n$ soluciones en $\mathbb{D}$ para la ecuación $B \circ \tau_w(z) = 0$. Por tanto, $B \circ \tau_w$ es un producto finito de Blaschke de grado $n$.
+\end{dem}
+
+\begin{obs}
+    Sea $B$ un producto finito de Blaschke de grado $n$ y $w \in \mathbb{D}$. Entonces, como $\forall \gamma \in \mathbb{T} : \rho_\gamma \circ B, B \circ \rho_\gamma$ son productos finitos de Blaschke de grado $n$, el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} y el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion} aseguran que $\forall \varphi \in \mathrm{Aut}(\mathbb{D}) : \varphi \circ B, B \circ \varphi$ son productos finitos de Blaschke de grado $n$.
+\end{obs}
+
+\begin{teo}\label{teo:composicion-prod-finito-blaschke}
+    Sean $B_1, B_2$ productos finitos de Blaschke de grados $n_1$ y $n_2$ respectivamente. Entonces, $B_1 \circ B_2$ es un producto finito de Blaschke de grado $n_1 n_2$.
+\end{teo}
+\begin{dem}
+    Por definición, $\exists \left\{z_k\right\}_{k=1}^{n_1} \subset \mathbb{D}, \gamma \in \mathbb{T}$ tales que $B_1 = \rho_\gamma \circ \prod_{k=1}^{n_1} \tau_{z_k}$.
+    Entonces, $B_1 \circ B_2 = \rho_\gamma \circ \prod_{k=1}^{n_1} \left(\tau_{z_k} \circ B_2\right)$. Por el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion}, cada uno de los factores $\tau_{z_k} \circ B_2$ es un producto finito de Blaschke de grado $n_2$. Por tanto, $B_1 \circ B_2$ es un producto finito de Blaschke de grado $n_1 n_2$.
+\end{dem}
+
+\section{Caracterización de los productos finitos de Blaschke en la clase de Schur}
+
+%REVISAR: este teorema es de cosecha propia, hecho por la chati
+\begin{teo}[de factorización de ceros]\label{teo:factorizacion-ceros-fn-holomorfa}
+    Sea $\Omega \subset \C$ un abierto, $f \in \mathcal{H}(\Omega)$ y $a \in \Omega$ un cero de $f$ de orden $m \geq 1$. Entonces, $\exists \delta > 0 : D(a, \delta) \subset \Omega : \exists h \in \mathcal{H}(D(a, \delta))$ que no se anula en $D(a, \delta)$ tal que $\forall z \in D(a, \delta) : f(z) = (z - a)^m \, h(z)$.
+\end{teo}
+\begin{dem}
+    Como $\operatorname{ord}\left(f, a\right) = m$, la expansión en serie de Taylor de $f$ en $a$ es
+    \[
+    f(z) = \sum_{k=m}^\infty \frac{f^{(k)}(a)}{k!} (z - a)^k = (z - a)^m \sum_{k=m}^\infty \frac{f^{(k)}(a)}{k!} (z - a)^{k-m} = (z - a)^m \sum_{j=0}^\infty \frac{f^{(j+m)}(a)}{(j+m)!} (z - a)^j.
+    \]
+    
+    Definimos $h(z) = \sum_{j=0}^\infty \frac{f^{(j+m)}(a)}{(j+m)!} (z - a)^j$. Entonces, $h \in \mathcal{H}(D(a, r))$ donde $r$ es el radio de convergencia de la serie de Taylor de $f$ en $a$. Además,
+    \[
+    h(a) = \frac{f^{(m)}(a)}{m!} \neq 0.
+    \]
+    
+    Como $h$ es continua y $h(a) \neq 0$, existe $\delta > 0$ tal que $D(a, \delta) \subset D(a, r)$ y $\forall z \in D(a, \delta) : h(z) \neq 0$. Por tanto, $\forall z \in D(a, \delta) : f(z) = (z - a)^m h(z)$ donde $h$ no se anula en $D(a, \delta)$.
+    
+    Para la segunda parte, como $h$ es holomorfa y no se anula en $D(a, \delta)$, podemos reducir $\delta$ si es necesario para asegurar que $D(a, \delta)$ es simplemente conexo (lo cual ya se cumple por ser un disco) y que $h(D(a, \delta))$ está contenido en un dominio simplemente conexo que no contiene al origen. Por tanto, existe una rama holomorfa del logaritmo $\log h$ en $D(a, \delta)$.
+    
+    Definimos $g(z) = \exp\left(\frac{\log h(z)}{m}\right)$. Entonces, $g \in \mathcal{H}(D(a, \delta))$ y $\forall z \in D(a, \delta) : \big(g(z)\big)^m = \exp(\log h(z)) = h(z)$. Además, como $h$ no se anula en $D(a, \delta)$, también $g$ no se anula en $D(a, \delta)$.
+    
+    Por tanto, $\forall z \in D(a, \delta) : f(z) = (z - a)^m h(z) = (z - a)^m \big(g(z)\big)^m = \Big((z - a) \cdot g(z)\Big)^m$.
+\end{dem}
+
+\begin{teo}%[]\label{teo:}
+    Sea $f \in \mathcal{S}$ una función $n$-valente en $\mathbb{D}$. Entonces, $f$ es un producto finito de Blaschke de grado $n$.
+\end{teo}
+\begin{dem}%REVISAR esta DEMOSTRACIÓN
+    Por el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco}, basta ver que $\lim_{\abs{z} \to 1^-} \abs{f(z)} = 1$. Suponemos por contradicción que $\exists \left(z_m\right)_{m\in \N} \subset \mathbb{D}$ tal que $\abs{z_m} \to 1 \we \neg \left(\abs{f(z_m)} \to 1\right)$. Entonces, existe $r \in (0, 1)$ y una subsucesión $\left(z_{m_j}\right)_{j \in \N}$ tal que $\forall k \in \N : \abs{f(z_{m_j})} \leq r$. Como $\left\{z \in \mathbb{D} : \abs{z} \leq r\right\}$ es compacto, $\exists \big(z_{m_{j_k}}\big)_{k \in \N}$ subsucesión de $\left(z_{m_j}\right)_{j \in \N}$ y $w_0 \in \mathbb{D}$ tales que $f(z_{m_{j_k}}) \xrightarrow{k \to \infty} w_0$. La denotaremos por $\left(z_k\right)_{k \in \N}$.
+
+    Como $f$ es $n$-valente, $f(z) = w_0$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades), digamos $a_1, \dots, a_r$ con multiplicidades $m_1, \dots, m_r$ respectivamente tales que $n_1 + \dots + n_r = n$. Entonces, en cada $a_j$, tenemos la expansión en serie de Taylor
+    \[
+    f(z) = w_0 + \sum_{k=n_j}^\infty \frac{f^{(k)}(a_j)}{k!} (z - a_j)^k
+    \]
+    que converge en $z \in D(a_j, 1 - \abs{a_j}) \subset \mathbb{D}$. Entonces sacando factor común $(z - a_j)^{m_j}$, tenemos que
+    \[
+    f(z) = w_0 + (z - a_j)^{m_j} \underbrace{\sum_{k=m_j}^\infty \frac{f^{(k)}(a_j)}{k!} (z - a_j)^{k - m_j}}_{g_j(z)}.
+    \] 
+    Tomando un entorno todavía más pequeño alrededor de $a_j$ donde $g$ no se anule, obtenemos tenemos que 
+    \[
+    \forall z \in D(a_j, \varepsilon_j) : f(z) = w_0 + \left(\left(z-a_j\right)f_j(z)\right)^{m_j}
+    \]
+    donde $f_j \in \mathcal{H}\left(D(a_j, \varepsilon_j)\right)$ no se anula en $D(a_j, \varepsilon_j)$. Sin pérdida de generalidad, podemos suponer que las bolas $D(a_j, \varepsilon_j)$ son disjuntas dos a dos.
+    
+    Definimos $g_j(z) = \left(z - a_j\right) f_j(z)$ para $j \in \N_r$, entonces $g_j$ es localmente inyectiva en $a_j$. Por tanto, sin pérdida de generalidad, podemos suponer que es inyectiva en $D(a_j, \varepsilon_j)$ (reduciendo $\varepsilon_j$ en caso de que fuese necesario). Entonces, por el \exhyperref[teo:apl-abierta-compleja]{teo-apl-abierta-compleja}{Teorema de la aplicación abierta}, $g_j\left(D(a_j, \varepsilon_j)\right)$ es abierto, luego $E \defeq \bigcap_{j=1}^r g_j\left(D(a_j, \varepsilon_j)\right)$ es abierto. Además, como $g_j(a_j) = 0$ para todo $j \in \N_r$, tenemos que $0 \in E$.
+
+    Entonces, $\exists \varepsilon > 0 : D(0, \varepsilon) \subset E$ y tomamos $V_j \defeq g_j^{-1}\left(D(0, \varepsilon)\right) \subset D(a_j, \varepsilon_j)$ para $j \in \N_r$. Observamos que $g_j \colon V_j \to D(0, \varepsilon)$ es biyectiva, $g_j\left(a_j\right) = 0$ y los abiertos $V_j \subset \mathbb{D}$ son disjuntos dos a dos. Entonces,  $\forall w \in D(w_0, \varepsilon') \setminus \{w_0\} : f(z) = w$ tiene exactamente $n_j$ soluciones en $V_j$ donde $\varepsilon' = \min_{j \in \N_r} \varepsilon^{m_j} = \varepsilon^{\max_{j \in \N_r} m_j}$.
+
+    Como $f(z_k) \xrightarrow{k \to \infty} w_0 \we \abs{z_k} \xrightarrow{k \to \infty} 1$, tenemos que
+    \[
+    \exists k_0 \in \N : \forall k \geq k_0 : f(z_k) \in D(w_0, \varepsilon') \setminus \{w_0\} \we f(z_k) \neq w_0 \we z_k \notin \bigcup_{j=1}^r V_j.
+    \]
+    Tomamos la sucesión $\left(w_k\right)_{k\in \N}$ dada por $w_k = f(z_{k_0 + k})$. Entonces, $\forall j \in \N_r : V_j$ contiene $n_j$ puntos distintos que van a $w_k$ por $f$. Por tanto, la ecuación $f(z) = w_k$ tiene al menos $n_1 + \dots + n_r + 1 = n + 1$ soluciones. $\contr$
+\end{dem}
+
+\section{Productos finitos de Blaschke en $\mathbb{H}$}
+
+%REVISAR: lo ha escrito la chati
+
+Consideramos la transformación de Möbius $\varphi \colon \mathbb{H} \to \mathbb{D}$ dada por 
+\[
+\forall z \in \mathbb{H} : \varphi(z) = \frac{z - i}{z + i}.
+\]
+Entonces, esta transformación es una biyección holomorfa de $\mathbb{H}$ sobre $\mathbb{D}$ con inversa también holomorfa dada por
+\[
+\forall w \in \mathbb{D} : \varphi^{-1}(w) = i \, \frac{1 + w}{1 - w}.
+\]
+
+Entonces, podemos aplicar el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} para caracterizar los automorfismos de $\mathbb{H}$ componendo $\tau_w$ y $\rho_\gamma$ con $\varphi$ y $\varphi^{-1}$:
+
+\textbf{Análogo de $\rho_\gamma$ en $\mathbb{H}$:} Para $\gamma \in \mathbb{T}$, definimos
+\[
+\forall z \in \mathbb{H} : \rho_\gamma^{\mathbb{H}}(z) = \varphi^{-1} \circ \rho_\gamma \circ \varphi(z) = i \, \frac{1 + \gamma \, \frac{z-i}{z+i}}{1 - \gamma \, \frac{z-i}{z+i}} = i \, \frac{(z+i) + \gamma(z-i)}{(z+i) - \gamma(z-i)} = i \, \frac{(1+\gamma)z + i(1-\gamma)}{(1-\gamma)z + i(1+\gamma)}.
+\]
+
+\textbf{Análogo de $\tau_w$ en $\mathbb{H}$:} Para $w \in \mathbb{D}$, sea $a = \varphi^{-1}(w) = i\frac{1+w}{1-w} \in \mathbb{H}$. Entonces
+\[
+\forall z \in \mathbb{H} : \tau_a^{\mathbb{H}}(z) = \varphi^{-1} \circ \tau_w \circ \varphi(z) = \frac{z - a}{z - \bar{a}}.
+\]
+Geométricamente, como $a \in \mathbb{H}$ y $\bar{a}$ está en el semiplano inferior, $\tau_a^{\mathbb{H}}$ es una transformación de Möbius que envía $a \mapsto \infty$ y $\infty \mapsto a$. Es un automorfismo involutivo de $\mathbb{H}$ ($\tau_a^{\mathbb{H}} \circ \tau_a^{\mathbb{H}} = \text{id}$) que corresponde a una inversión respecto a la semicircunferencia ortogonal al eje real que pasa por $a$ y $\bar{a}$.
+
+\textbf{Interpretación geométrica de $\rho_\gamma^{\mathbb{H}}$:} La función $\rho_\gamma^{\mathbb{H}}$ traslada al semiplano superior las rotaciones del disco unidad. Algunos casos particulares:
+\begin{itemize}
+    \item $\gamma = 1$: $\rho_1^{\mathbb{H}}(z) = z$ (identidad).
+    \item $\gamma = -1$: $\rho_{-1}^{\mathbb{H}}(z) = -\frac{1}{z}$ (inversión que envía $z \mapsto -\sfrac{1}{z}$).
+    \item $\gamma = e^{i\theta}$: transformación que corresponde a la rotación por ángulo $\theta$ en $\mathbb{D}$.
+\end{itemize}
+
+\textbf{Caso general:} Para $w \in \mathbb{D}$ y $\gamma \in \mathbb{T}$, como la conjugación preserva composiciones, tenemos
+\[
+\varphi^{-1} \circ \rho_\gamma \circ \tau_w \circ \varphi = \left(\varphi^{-1} \circ \rho_\gamma \circ \varphi\right) \circ \left(\varphi^{-1} \circ \tau_w \circ \varphi\right) = \rho_\gamma^{\mathbb{H}} \circ \tau_a^{\mathbb{H}},
+\]
+donde $a = \varphi^{-1}(w) \in \mathbb{H}$. Desarrollando el cálculo explícitamente:
+\[
+\begin{aligned}
+    \forall z \in \mathbb{H} : \psi(z) &= \varphi^{-1} \circ \rho_\gamma \circ \tau_w \circ \varphi(z) \\
+    &= i \, \frac{1 + \gamma \, \frac{\varphi(z) - w}{1 - \bar{w} \, \varphi(z)}}{1 - \gamma \, \frac{\varphi(z) - w}{1 - \bar{w} \, \varphi(z)}} = i \, \frac{(1 - \bar{w} \, \varphi(z)) + \gamma (\varphi(z) - w)}{(1 - \bar{w} \, \varphi(z)) - \gamma (\varphi(z) - w)} \\
+    &= i \, \frac{1 - \bar{w} \, \frac{z - i}{z + i} + \gamma \left(\frac{z - i}{z + i} - w\right)}{1 - \bar{w} \,\frac{z - i}{z + i} - \gamma \left(\frac{z - i}{z + i} - w\right)} = i \, \frac{(z + i) - \bar{w} (z - i) + \gamma \left((z - i) - w (z + i)\right)}{(z + i) - \bar{w} (z - i) - \gamma \left((z - i) - w (z + i)\right)} \\
+    &= i \, \frac{\left(1 - \bar{w} + \gamma (1 - w)\right) z + i \left(1 + \bar{w} - \gamma (1 + w)\right)}{\left(1 - \bar{w} - \gamma (1 - w)\right) z + i \left(1 + \bar{w} + \gamma (1 + w)\right)}.
+\end{aligned}
+\]
+
+\begin{obs}[Generadores geométricos de $\mathrm{Aut}(\mathbb{H})$]
+    Los automorfismos de $\mathbb{H}$ admiten una descripción geométrica más directa. Todo $f \in \mathrm{Aut}(\mathbb{H})$ es una transformación de Möbius de la forma
+    \[
+    f(z) = \frac{az + b}{cz + d}, \quad \text{donde } a, b, c, d \in \mathbb{R} \text{ y } ad - bc > 0.
+    \]
+    
+    Un conjunto de generadores geométricamente más intuitivos es:
+    \begin{enumerate}
+        \item \textbf{Traslaciones horizontales:} $T_b(z) = z + b$ para $b \in \mathbb{R}$ (desplazamiento paralelo al eje real).
+        \item \textbf{Dilataciones:} $D_\lambda(z) = \lambda z$ para $\lambda > 0$ (escalado desde el origen que preserva $\mathbb{H}$).
+        \item \textbf{Inversión:} $J(z) = -\frac{1}{z}$ (inversión respecto al semicírculo unitario en $\mathbb{H}$).
+    \end{enumerate}
+    
+    De hecho, las traslaciones $T_b$ junto con la inversión $J$ ya generan todos los automorfismos de $\mathbb{H}$, pues las dilataciones se obtienen como $D_\lambda = J \circ T_{1-\lambda} \circ J \circ T_{1-\lambda}$ (para $\lambda \neq 1$).
+    
+    Esta presentación es más natural geométricamente que la obtenida por conjugación desde $\mathbb{D}$, aunque ambas describen el mismo grupo $\mathrm{Aut}(\mathbb{H}) \cong \mathrm{PSL}(2, \mathbb{R})$.
+\end{obs}
+
+Para motivar la definición de productos finitos de Blaschke en $\mathbb{H}$, observamos primero una propiedad crucial de los factores individuales:
+
+\begin{lem}\label{lem:factor-blaschke-semiplano-modulo-uno}
+    Sea $a \in \mathbb{H}$. Entonces, $\forall x \in \mathbb{R} : \left|\frac{x - a}{x - \bar{a}}\right| = 1$.
+\end{lem}
+\begin{dem}
+    Para $a \in \mathbb{H}$ y $x \in \mathbb{R}$, tenemos que $\bar{a}$ está en el semiplano inferior. Por tanto,
+    \[
+    |x - a| = |x - \Re a - i \Im a| = \sqrt{(x - \Re a)^2 + (\Im a)^2}
+    \]
+    y
+    \[
+    |x - \bar{a}| = |x - \Re a + i \Im a| = \sqrt{(x - \Re a)^2 + (\Im a)^2}.
+    \]
+    Por lo tanto, $|x - a| = |x - \bar{a}|$, y concluimos que
+    \[
+    \left|\frac{x - a}{x - \bar{a}}\right| = \frac{|x - a|}{|x - \bar{a}|} = 1.
+    \]
+    
+    \vspace{-\baselineskip}
+\end{dem}
+
+Este lema muestra que cada factor $\frac{z - a}{z - \bar{a}}$ es el análogo natural en $\mathbb{H}$ del factor de Blaschke $\frac{z - z_k}{1 - \bar{z_k}z}$ en $\mathbb{D}$: ambos tienen módulo uno en sus respectivas fronteras.
+
+\begin{defn}[Producto finito de Blaschke en $\mathbb{H}$]\label{defn:producto-finito-blaschke-semiplano}
+    Sea $n \in \N$. Un \textbf{producto finito de Blaschke en $\mathbb{H}$} de grado $n$ es una función de la forma
+    \[
+    B^{\mathbb{H}}(z) = \gamma \prod_{k=1}^n \frac{z - a_k}{z - \bar{a_k}}
+    \]
+    donde $\left\{a_k\right\}_{k=1}^n \subset \mathbb{H}$ y $\gamma \in \mathbb{T}$.
+    
+    Si $\gamma = 1$, decimos que $B^{\mathbb{H}}$ es \textbf{mónico}.
+\end{defn}
+
+\begin{obs}[Justificación de la definición]\mbox{}
+    \begin{enumerate}
+        \item \textbf{Módulo uno en la frontera:} Por el lema anterior, cada factor satisface $\left|\frac{x - a_k}{x - \bar{a_k}}\right| = 1$ para $x \in \mathbb{R}$. Por tanto,
+        \[
+        \forall x \in \mathbb{R} : \left|B^{\mathbb{H}}(x)\right| = |\gamma| \prod_{k=1}^n \left|\frac{x - a_k}{x - \bar{a_k}}\right| = 1 \cdot 1 = 1.
+        \]
+        Esto es análogo a la propiedad fundamental $|B(\zeta)| = 1$ para $\zeta \in \mathbb{T}$ en el disco.
+        
+        \item \textbf{Por qué $\gamma \in \mathbb{T}$ y no $\gamma \in \mathbb{R}$:} Si tomáramos $\gamma \in \mathbb{R}$, tendríamos $|B^{\mathbb{H}}(x)| = |\gamma|$, que solo sería $1$ si $\gamma = \pm 1$. La condición $\gamma \in \mathbb{T}$ garantiza $|B^{\mathbb{H}}(x)| = 1$ para todo $x \in \mathbb{R}$, preservando la analogía exacta con $\mathbb{D}$.
+        
+        \item \textbf{Relación con $\mathbb{D}$ por conjugación:} Si $B(z) = \gamma \prod_{k=1}^n \frac{z - z_k}{1 - \bar{z_k}z}$ es un producto de Blaschke en $\mathbb{D}$ con $z_k \in \mathbb{D}$ y definimos $a_k = \varphi^{-1}(z_k) \in \mathbb{H}$, entonces
+        \[
+        B^{\mathbb{H}} = \varphi^{-1} \circ B \circ \varphi
+        \]
+        donde $\varphi(z) = \frac{z-i}{z+i}$ es la transformación de Cayley. La constante $\gamma \in \mathbb{T}$ se preserva bajo esta conjugación.
+        
+        \item \textbf{Propiedades análogas:}
+        \begin{itemize}
+            \item $B^{\mathbb{H}} \in \mathcal{H}(\mathbb{H})$ (holomorfa en $\mathbb{H}$).
+            \item $B^{\mathbb{H}}$ mapea $\mathbb{R} \cup \{\infty\} \to \mathbb{R} \cup \{\infty\}$ (análogo a $\mathbb{T} \to \mathbb{T}$).
+            \item $B^{\mathbb{H}}$ tiene $n$ ceros en $\mathbb{H}$ y $n$ polos en el semiplano inferior $\mathbb{H}^-$ (análogo a ceros en $\mathbb{D}$ y polos en $\widehat{\mathbb{C}}    \setminus \bar{\mathbb{D}}$).
+        \end{itemize}
+    \end{enumerate}
+\end{obs}
+
+%próxima reunión el martes 16/12/2025 ultimas dos secciones y ejercicio 3.5
+
+%Pagina web, cursos de master y doctorado, curso avanzado de funciones analíticas, 
+% teorema de pick-nevalina ??
+%clases desde la 4 7 y 8
+% https://matematicas.uam.es/~dragan.vukotic/doct/CAAN_2020-21.html 
+
+%martes 27 4.1 y 4.2 (comparar con la web de Dragan)
