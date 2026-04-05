@@ -578,7 +578,9 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
 
 %COMPLETAR ¿nada de paralelas? REVISAR: mirar ejercicios
 
-\section{Densidad de una métrica}
+\section{Versión de Alhfors del Lema de Schwarz}
+
+\subsection{Densidad de una métrica}
 
 % \transclude{desigualdad-triangular-inversa}
 \begin{teo}\label{teo:densidad-induce-metrica}
@@ -613,9 +615,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     \[
     \ell_{\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \mu}} (\Gamma) = \int_a^b (\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \mu})(\Gamma(t)) \, \abs{\Gamma'(t)} \odif{t} = \int_a^b \underbrace{\mu(f(\Gamma(t)))}_{\mu \left(\left(f \circ \Gamma\right)(t)\right)} \, \underbrace{\abs{f'(\Gamma(t))} \, \abs{\Gamma'(t)}}_{\abs{(f \circ \Gamma)'(t)}} \odif{t} = \ell_{\mu} (f \circ \Gamma).
     \]
-\end{obs}
 
-% \begin{obs}
     En el caso particular en el que $\Omega_1 = \Omega_2 = \Omega$, podemos comparar $(f^*\mu)$ y $\mu$ en cualquier punto de $\Omega$. Por ejemplo, si $\forall z \in \Omega : (f^* \mu)(z) \leq \mu(z)$, entonces $\forall \Gamma$ camino en $\Omega : \ell_{f^* \mu}(\Gamma) \leq \ell_{\mu}(\Gamma)$ y, por tanto, $\forall x, y \in \Omega : d_{f^* \mu}(x, y) \leq d_{\mu}(x, y)$.
     
     Ahora bien, como $\forall \Gamma$ camino en $\Omega$ entre $z$ y $w : f \circ \Gamma$ es un camino en $\Omega$ entre $f(z)$ y $f(w)$, se tiene que
@@ -627,50 +627,53 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     \]
     Por tanto, $d_{\mu}(f(z), f(w)) \leq d_{\mu}(z, w)$, es decir, $f$ es una contracción respecto a $d_{\mu}$.
     
-    % Concretamente, para la métrica de Poincaré en el disco unidad, la densidad métrica es $\mu(z) = \frac{2}{1 - \abs{z}^2}$. Entonces, si $f \in \mathcal{S}$, por el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick}, se tiene que
+    % En particular, para la métrica de Poincaré en el disco unidad, la densidad métrica es $\mu(z) = \frac{2}{1 - \abs{z}^2}$ (por el \excref[teo:camino-minimo-poincare]{teo-camino-minimo-poincare}). Entonces, si $f \in \mathcal{S}$, por el \hyperref[teo:schwarz-pick]{teorema de Schwarz-Pick}, se tiene que
     % \[
     % \forall z \in \mathbb{D} : (f^* \mu)(z) = \frac{2}{1 - \abs{f(z)}^2} \, \abs{f'(z)} \leq \frac{2}{1 - \abs{z}^2} = \mu(z).
     % \]
-    % En consecuencia, $f$ es una contracción respecto a la métrica de Poincaré:%ORDENAR: referenciar observación donde se ve esto
+    % En consecuencia, $f$ es una contracción respecto a la métrica de Poincaré:
     % \[
     % \forall z, w \in \mathbb{D} : \wp(f(z), f(w)) \leq \wp(z, w).
     % \]
-% \end{obs}
+\end{obs}
 
 \subsection{Curvatura de una densidad métrica}
 
-\begin{defn}[Curvatura gaussiana]\label{defn:curvatura-gaussiana}
+\begin{defn}[Curvatura gaussiana]\label{defn:curvatura-gaussiana-densidad-metrica}
     La curvatura gaussiana $\kappa_\mu \colon \Omega \to \R$ asociada a una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\mu$ es
     \[
-    \forall z \in \Omega : \kappa_\mu(z) = -\frac{\Delta (\log \mu)(z)}{\mu(z)^2}.
+    \forall z \in \Omega : \kappa_\mu(z) = -\frac{\exhyperref[defn:laplaciano]{laplaciano}{\Delta} (\log \mu)(z)}{\mu(z)^2}.
     \]
     Para una explicación más detallada del origen de esta fórmula, véase \cite{krantzComplexAnalysisGeometric2004}, Anexo.
 \end{defn}
 
-
-Para la métrica de Poincaré, por el \excref[lem:laplaciano-wirtinger]{lem-laplaciano-wirtinger} tenemos que
-\[
-\begin{aligned}
-    \Delta \log \mu (z) &= \Delta \log \left(\frac{2}{1 - \abs{z}^2}\right) = 4 \,\pdv{}{z} \pdv{}{\bar{z}} \left(\log 2 - \log(1 - z \bar{z})\right) \\
-    &= -4 \,\pdv{}{z} \left(\frac{-z}{1 - z \bar{z}}\right) = 4 \, \frac{1 - z \bar{z} - z \left(- \bar{z}\right)}{(1 - z \bar{z})^2} = \frac{4}{{\left(1 - \abs{z}^2\right)}^2}.
-\end{aligned}
-\]
-Observamos que $(\mu(z))^2 = \left(\frac{2}{1 - \abs{z}^2}\right)^2 = \frac{4}{{\left(1 - \abs{z}^2\right)}^2}$, luego
-\[
-\Delta \log \mu (z) = (\mu(z))^2 \implies \kappa_\mu(z) = - \frac{\Delta \log \mu (z)}{(\mu(z))^2} = -1.
-\] 
-
-Una de las propiedades más importantes de la curvatura es que es conformalmente invariante, es decir, se conserva al considerar la densidad métrica inducida por una aplicación conforme (holomorfa con derivada no nula). Más concretamente, tenemos el siguiente resultado.
-
-\begin{lem}[Curvatura de la métrica inducida]\label{lem:curvatura-pullback}
-    Sea $f\colon \Omega_1\to\Omega_2$ holomorfa y sea $\sigma$ una densidad métrica $\mathcal{C}^2$
+\begin{ejem}%[de ]
+    Para la métrica de Poincaré, por el \excref[lem:laplaciano-wirtinger]{lem-laplaciano-wirtinger} tenemos que
     \[
-        \implies \forall z \in \Omega_1 : f'(z) \neq 0 : \kappa_{f^*\sigma}(z)=\kappa_{\sigma}\big(f(z)\big).
+    \begin{aligned}
+        \Delta \log \mu (z) &= \Delta \log \left(\frac{2}{1 - \abs{z}^2}\right) = 4 \,\pdv{}{z} \pdv{}{\bar{z}} \left(\log 2 - \log(1 - z \bar{z})\right) \\
+        &= -4 \,\pdv{}{z} \left(\frac{-z}{1 - z \bar{z}}\right) = 4 \, \frac{1 - z \bar{z} - z \left(- \bar{z}\right)}{(1 - z \bar{z})^2} = \frac{4}{{\left(1 - \abs{z}^2\right)}^2}.
+    \end{aligned}
+    \]
+    Observamos que $(\mu(z))^2 = \left(\frac{2}{1 - \abs{z}^2}\right)^2 = \frac{4}{{\left(1 - \abs{z}^2\right)}^2}$, luego
+    \[
+    \Delta \log \mu (z) = (\mu(z))^2 \implies \kappa_\mu(z) = - \frac{\Delta \log \mu (z)}{(\mu(z))^2} = -1.
+    \]
+\end{ejem}
+
+
+% Una de las propiedades más importantes de la curvatura es que es conformalmente invariante, es decir, se conserva al considerar la densidad métrica inducida por una aplicación conforme (holomorfa con derivada no nula). Más concretamente, tenemos el siguiente resultado.
+
+\begin{lem}\label{lem:curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa}
+    Sea $f\colon \Omega_1\to\Omega_2$ \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} y sea $\sigma$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^2}$. Entonces, 
+    \[
+        \forall z \in \Omega_1 : f'(z) \neq 0 : \exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^*\sigma}}}(z)=\exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\sigma}}\big(f(z)\big).
     \]
 \end{lem}   
 \begin{dem}
     Por definición de $f^*\sigma$, tenemos que $\log(f^*\sigma) = \log(\sigma\circ f) + \log \abs{f'}$.
-    Como $f'$ es holomorfa, en cualquier punto donde $f'\neq0$ la función $f'$ no se anula localmente y $\log\abs{f'}$ es armónica, por tanto $\Delta \log\abs{f'} = 0$. %REVISAR no entiendo bien esto
+    Como $f'$ es holomorfa, en cualquier punto donde $f'\neq 0$ la función $f'$ no se anula localmente y $\log\abs{f'}$ es armónica, por tanto $\Delta \log\abs{f'} = 0$.
+
     Además, por el \excref[lem:laplaciano-cambio-variable]{Lem-laplaciano-cambio-variable}, tenemos que
     \[
         \Delta \log(f^*\sigma)(z) = \Delta \log(\sigma\circ f)(z) + \cancelto{0}{\Delta \log\abs{f'}(z)} = \abs{f'(z)}^2 \big(\Delta \log\sigma\big)(f(z)).
@@ -688,22 +691,22 @@ Una de las propiedades más importantes de la curvatura es que es conformalmente
 Ahlfors enunció el Lema de Schwarz como un resultado acerca de la curvatura.
 
 \begin{lem}%[]\label{lem:}
-    Sea $\Omega \subset \C$ un dominio dotado de una densidad métrica $\sigma$ tal que $\kappa_{\sigma}(z) \leq -1$ para todo $z \in \Omega$. Sea $f \colon \mathbb{D} \to \Omega$ una aplicación holomorfa, entonces
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} dotado de una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\sigma$ tal que $\exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\sigma}}(z) \leq -1$ para todo $z \in \Omega$. Sea $f \colon \mathbb{D} \to \Omega$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa}, entonces
     \[
-    \forall z \in \mathbb{D} : \left(f^* \sigma\right) (z) \leq \mu(z)
+    \forall z \in \mathbb{D} : \left(\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \sigma}\right) (z) \leq \mu(z)
     \]
-    donde $\mu$ es la densidad métrica de la métrica de Poincaré en $\mathbb{D}$.
+    donde $\mu$ es la \exhyperref[teo:densidad-induce-metrica]{densidad-induce-metrica}{densidad métrica} de la \exhyperref[prop:metrica-poincare]{prop-metrica-poincare}{métrica de Poincaré} en $\mathbb{D}$.
 \end{lem}
 \begin{dem}
-    Sea $r \in (0,1)$. En el disco $D_r(0)$, la función dada por $\mu_r(z) = \frac{2}{r^2 - \abs{z}^2}$ está bien definida. Además, es una densidad métrica en $D_r(0)$ cuya curvatura es $\kappa_{\mu_r}(z) = -1$ para todo $z \in D_r(0)$ (el cálculo es análogo al realizado para $\mu$).
+    Sea $r \in (0,1)$. Entonces, en el disco $D(0, r)$, la función dada por $\mu_r(z) = \frac{2}{r^2 - \abs{z}^2}$ está bien definida. Además, es una densidad métrica en $D(0, r)$ cuya curvatura es $\kappa_{\mu_r}(z) = -1$ para todo $z \in D(0, r)$ (el cálculo es análogo al realizado para $\mu$).
 
-    Definimos la función $\phi \colon D_r(0) \to \R$ mediante $\forall z \in D_r(0) : \phi(z) = \frac{(f^* \sigma)(z)}{\mu_r(z)}$. Entonces, $\phi \geq 0$ y como $\mu_r$ no se anula y $f^* \sigma$ es continua, $\phi$ es continua en $D_r(0)$. Además, tenemos que
+    Definimos la función $\phi \colon D(0, r) \to \R$ mediante $\forall z \in D(0, r) : \phi(z) = \frac{(f^* \sigma)(z)}{\mu_r(z)}$. Entonces, $\phi \geq 0$ y como $\mu_r$ no se anula y $f^* \sigma$ es continua, $\phi$ es continua en $D(0, r)$. Además, tenemos que
     \[
     \lim_{\abs{z} \to r^-} \phi(z) = \lim_{\abs{z} \to r^-} \frac{(f^* \sigma)(z)}{\mu_r(z)} = \lim_{\abs{z} \to r^-} (f^* \sigma)(z) \cdot \frac{r^2 - \abs{z}^2}{2} = 0.
     \]
-    Por tanto, $\phi$ alcanza su máximo $M$ en un punto $z_0 \in \bar{D_r(0)}$ y, para probar el teorema, basta ver que $M \leq 1$.
+    Por tanto, $\phi$ alcanza su máximo $M$ en un punto $z_0 \in \bar{D(0, r)}$ y, para probar el teorema, basta ver que $M \leq 1$.
     
-    Si el máximo se alcanza en la frontera, entonces $M = \phi(z_0) = 0 \leq 1$ y el resultado se cumple. Suponemos que el máximo se alcanza en el interior, es decir, $z_0 \in D_r(0)$, podemos suponer además que $\phi(z_0) > 0$, es decir, $f^* \sigma (z_0) > 0$. Como $\phi$ es $\mathcal{C}^2$ en un entorno de $z_0$ (pues $f^* \sigma$ y $\mu_r$ lo son), podemos aplicar el operador laplaciano en $z_0$ y obtener que $\Delta \log \phi(z_0) \leq 0$ (pues $z_0$ es un máximo local y $\log$ es creciente). %REVISAR esta última afirmación esto es porque la parte real/imaginaria de una función holomorfa es armónica %ORDENAR: escribir en lema y demostrarlo y citarlo
+    Si el máximo se alcanza en la frontera, entonces $M = \phi(z_0) = 0 \leq 1$ y el resultado se cumple. Suponemos que el máximo se alcanza en el interior, es decir, $z_0 \in D(0, r)$, podemos suponer además que $\phi(z_0) > 0$, es decir, $f^* \sigma (z_0) > 0$. Como $\phi$ es $\mathcal{C}^2$ en un entorno de $z_0$ (pues $f^* \sigma$ y $\mu_r$ lo son), podemos aplicar el operador laplaciano en $z_0$ y obtener que $\Delta \log \phi(z_0) \leq 0$ (pues $z_0$ es un máximo local y $\log$ es creciente). %REVISAR esta última afirmación esto es porque la parte real/imaginaria de una función holomorfa es armónica %ORDENAR: escribir en lema y demostrarlo y citarlo
     Por tanto, tenemos que
     \[
     \begin{aligned}
@@ -711,13 +714,11 @@ Ahlfors enunció el Lema de Schwarz como un resultado acerca de la curvatura.
         &= - \kappa_{f^* \sigma}(z_0) \, (f^* \sigma(z_0))^2 + \kappa_{\mu_r}(z_0) \, (\mu_r(z_0))^2 \leq 0.
     \end{aligned}
     \]
-    Ahora bien, por el lema anterior, %ORDENAR referenciar
-    $\kappa_{f^* \sigma}(z) = \kappa_{\sigma}(f(z)) \leq -1$ para todo $z \in \mathbb{D}$ y $\kappa_{\mu_r}(z) = -1$ para todo $z \in D_r(0)$. Por tanto, como $\kappa_{\mu_r} (z_0) (\mu_r(z_0))^2 \leq \kappa_{f^* \sigma}(z_0) (f^* \sigma(z_0))^2$,
+    Por el \excref[lem:curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa]{lem-curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa}, $\kappa_{f^* \sigma}(z) = \kappa_{\sigma}(f(z)) \leq -1$ para todo $z \in \mathbb{D}$ y $\kappa_{\mu_r}(z) = -1$ para todo $z \in D(0, r)$. Por tanto, como $\kappa_{\mu_r} (z_0) (\mu_r(z_0))^2 \leq \kappa_{f^* \sigma}(z_0) (f^* \sigma(z_0))^2$, tenemos que
     \[
     - (\mu_r(z_0))^2 \leq \kappa_{\sigma} (f(z_0)) (f^* \sigma(z_0))^2 \leq - (f^* \sigma(z_0))^2 \implies \frac{(f^* \sigma)(z_0)}{\mu_r(z_0)} \leq 1.
     \]
-    Haciendo ahora tender $r$ a $1$ se tiene que $\forall z \in \mathbb{D} : (f^* \sigma)(z) \leq \mu(z)$.
-     %COMPLETAR
+    Haciendo ahora tender $r$ a $1$ se tiene que $\forall z \in \mathbb{D} : (f^* \sigma)(z) \leq \mu(z)$.\hfill\qedsymbol
 \end{dem}
 
 \begin{obs}
@@ -725,7 +726,7 @@ Ahlfors enunció el Lema de Schwarz como un resultado acerca de la curvatura.
     \[
     \forall z \in \mathbb{D} : (f^* \mu)(z) = \mu(f(z)) \, \abs{f'(z)} = \frac{2}{1 - \abs{f(z)}^2} \, \abs{f'(z)} \leq \frac{2}{1 - \abs{z}^2} = \mu(z).
     \]
-    Y esta desigualdad, a su vez, implica la primera por la discusión previa sobre densidades métricas inducidas.
+    Y esta desigualdad, a su vez, implica la primera por la \autoref{obs:longitud-camino-densidad-metrica-inducida}.
 \end{obs}
 
 %REVISAR COMPLETAR: mirarse \cite{krantzComplexAnalysisGeometric2004} capítulo 2 y \cite{pressleyElementaryDifferentialGeometry2012}
@@ -817,21 +818,21 @@ Esta densidad métrica es la pullback de la métrica estándar en la esfera unid
     f \tex{ es una isometría entre } (\Omega_1, d_{\mu_1}) \tex{ y } (\Omega_2, d_{\mu_2}) \iff \forall z \in \Omega_1 : (f^* \mu_2)(z) = \mu_1(z).
     \]
 \end{ejer}
-\begin{sol}
-    Veamos ambas implicaciones por separado:
-    \begin{itemize}
-        \item[$\boxed{\Rightarrow}$]
-        \item[$\boxed{\Leftarrow}$] 
-    \end{itemize}
-\end{sol}
+% \begin{sol}
+%     Veamos ambas implicaciones por separado:
+%     \begin{itemize}
+%         \item[$\boxed{\Rightarrow}$]
+%         \item[$\boxed{\Leftarrow}$] 
+%     \end{itemize}
+% \end{sol}
 %DEMOSTRACIÓN
 
 \begin{ejer}%EJERCICIO 
     Demuestra que la curvatura de la métrica esférica es constante e igual a $+1$.
 \end{ejer}
-\begin{sol}
+% \begin{sol}
 
-\end{sol}
+% \end{sol}
 
 %COMPLETAR mirar Geometry: Euclid and Beyond.
 

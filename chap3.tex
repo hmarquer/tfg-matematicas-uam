@@ -2,48 +2,71 @@
 
 \section{Definición y propiedades básicas}
 
-\transclude{producto-finito-blaschke}
+\begin{defn}[Producto finito de Blaschke]\label{defn:producto-finito-blaschke}
+    Un producto finito de Blaschke de grado $n$ es una función $B \colon \mathbb{D} \to \mathbb{D}$ de la forma
+    \[
+    B(z) = \gamma \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}, 
+    \]
+    donde $\gamma \in \mathbb{T}$ y $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$.
+    Un producto finito de Blaschke es mónico si $\gamma = 1$.
+\end{defn}
+
+\begin{obs}\label{obs:producto-finito-blaschke-automorfismos-disco-unidad}
+    Un producto finito de Blaschke es el producto de una constante de módulo $1$ y un número finito de \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{involuciones del disco unidad}.
+
+    Por el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad}, esto significa que $B$ es un producto finito de Blaschke si, y sólo si, es el producto de un número finito de \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad}.
+\end{obs}
 
 \begin{obs}
-    Como cada $\tau_{z_k}$ tiene un cero en $z_k$ y un polo en $\sfrac{1}{\bar{z_k}}$, %ORDENAR: referenciar
-    el producto finito de Blaschke $B$ tiene $n$ ceros en $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $n$ polos en $\left\{\sfrac{1}{\bar{z_k}}\right\}_{k=1}^n \subset \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
+    Como cada $\tau_{z_k}$ tiene un cero en $z_k$ y un polo en $\sfrac{1}{\bar{z_k}}$, el producto finito de Blaschke $B$ tiene $n$ ceros en $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $n$ polos en $\left\{\sfrac{1}{\bar{z_k}}\right\}_{k=1}^n \subset \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
 
     Además, $B$ es una función meromorfa en $\widehat{\mathbb{C}}$ y holomorfa en $\mathbb{D}$.
 \end{obs}
 
 \begin{obs}
     Por ser un producto de \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad}, un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $B$ pertenece a la \exhyperref[defn:clase-schur]{clase-schur}{clase de Schur}, $\mathcal{S}$, y satisface
-    \begin{enu}[3][label=(\arabic*), ref=\arabic*]
+    \begin{enu}[1][label=(\arabic*), ref=\arabic*]
         \item $\forall z \in \mathbb{D} : \abs{B(z)} < 1$,
-        \item $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$,
-        \item $\forall z \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}} : \abs{B(z)} > 1$.
+        \inlineitem $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$,
+        \inlineitem $\forall z \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}} : \abs{B(z)} > 1$.
     \end{enu}
 
-    Como $\ds \xi \in \mathbb{T} \implies \xi = \sfrac{1}{\bar{\xi}} \we B(\xi) \in \mathbb{T}$, tenemos que $\forall \zeta \in \mathbb{T} : \ds B(\zeta) = \frac{1}{\bar{B(\zeta)}} = \frac{1}{\bar{B \left(\sfrac{1}{\bar{\zeta}}\right)}}$.
-
-    Ahora bien, como $\sfrac{1}{\bar{B \left(\bar{z}\right)}}$ define una función meromorfa en $\widehat{\mathbb{C}}$ que coincide con $B$ en $\mathbb{T}$, el \exhyperref[cor:continuacion-analitica]{cor-continuacion-analitica}{principio de continuación analítica} nos dice que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$.
+    Como $\xi \in \mathbb{T}$ implica que $\xi = \sfrac{1}{\bar{\xi}} \we B(\xi) \in \mathbb{T}$, tenemos que
+    \[
+    \forall \zeta \in \mathbb{T} : \ds B(\zeta) = \frac{1}{\bar{B(\zeta)}} = \frac{1}{\bar{B \left(\sfrac{1}{\bar{\zeta}}\right)}}
+    \]
+    Ahora bien, como $\sfrac{1}{\bar{B \left(\bar{z}\right)}}$ define una función meromorfa en $\widehat{\mathbb{C}}$ que coincide con $B$ en $\mathbb{T}$, el {principio de identidad} nos dice que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$. %ORDENAR: referenciar
 \end{obs}
 
-% \transclude{teo-reflexion-schwarz} %DEMOSTRACIÓN
+% \transclude{teo-reflexion-schwarz}
 
-% \transclude{cor-reflexion-schwarz-disco-unidad} %DEMOSTRACIÓN
+% \transclude{cor-reflexion-schwarz-disco-unidad}
 
 \section{Caracterización de los productos finitos de Blaschke}
 
-Consideramos el producto de Blaschke $B(z) = \gamma \prod_{k=1}^n \frac{z - z_k}{1 - \overline{z_k} z}$ de grado $n$. Entonces, $B \in \mathcal{H} \left(\mathbb{D} \right)$ ya que el denominador no se anula en $\mathbb{D}$ por la desigualdad triangular inversa:
-\[
-\abs{1 - \overline{z_k} z} \geq 1 - \abs{z_k} \abs{z} \geq 1 - \abs{z_k} > 0. 
-\]
-\begin{enumerate}
-    \item $B \colon \mathbb{D} \to \mathbb{D}$ holomorfa.
-    \item $B \in \mathcal{C} \left(\mathbb{D} \right)$.
-    \item $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$.
-    \item $B$ tiene $n$ ceros en $\mathbb{D}$ (contando multiplicidades).
-\end{enumerate}
+% Consideramos el producto de Blaschke $B(z) = \gamma \prod_{k=1}^n \tau_{z_k}(z)$ de grado $n$. Entonces, $B \in \mathcal{H} \left(\mathbb{D} \right)$ ya que el denominador no se anula en $\mathbb{D}$ por la desigualdad triangular inversa:
+% \[
+% \abs{1 - \overline{z_k} z} \geq 1 - \abs{z_k} \abs{z} \geq 1 - \abs{z_k} > 0. 
+% \]
+% \begin{enumerate}
+%     \item $B \colon \mathbb{D} \to \mathbb{D}$ holomorfa.
+%     \item $B \in \mathcal{C} \left(\mathbb{D} \right)$.
+%     \item $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$.
+%     \item $B$ tiene $n$ ceros en $\mathbb{D}$ (contando multiplicidades).
+% \end{enumerate}
 
-Además, toda función que cumple estas cuatro propiedades es un producto finito de Blaschke de grado $n$.
+% Además, toda función que cumple estas cuatro propiedades es un producto finito de Blaschke de grado $n$.
 
-\transclude{teo-carac-prod-finito-blaschke}
+\begin{teo}\label{teo:carac-prod-finito-blaschke}
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\mathbb{D}\right) \cap \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}} \left(\bar{\mathbb{D}}\right)$ tal que $\forall \zeta \in \mathbb{T} : \abs{f(\zeta)} = 1$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado igual al número de ceros de $f$ en $\mathbb{D}$ (contando multiplicidades).
+\end{teo}
+\begin{dem}
+    Por el \exhyperref[cor:continuacion-analitica]{cor-continuacion-analitica}{principio de identidad}, $f$ tiene un número finito de ceros en $\mathbb{D}$, digamos $n$. Sean $\left\{z_k\right\}_{k=1}^n$ los ceros de $f$ en $\mathbb{D}$. Consideramos el producto finito de Blaschke mónico de grado $n$: $B = \prod_{k=1}^n \tau_{z_k}$.
+
+    Entonces, la función $g = \sfrac{f}{B}$ es holomorfa en $\mathbb{D} \setminus \left\{z_k\right\}_{k=1}^n$ y, como los ceros de $B$ coinciden con los de $f$, las singularidades de $g$ en $\left\{z_k\right\}_{k=1}^n$ son \exhyperref[defn:singularidad-evitable]{singularidad-evitable}{evitables}, dando lugar a una función holomorfa en todo $\mathbb{D}$ (\excref[teo:singularidad-evitable-riemann]{teo-singularidad-evitable-riemann}).
+
+    Además, para $\zeta \in \mathbb{T}$, tenemos que $\abs{g(\zeta)} = \sfrac{\abs{f(\zeta)}}{\abs{B(\zeta)}} = 1$, luego por el \exhyperref[teo:modulo-maximo]{teo-modulo-maximo}{principio del módulo máximo}, $\forall z \in \mathbb{D} : \abs{g(z)} \leq 1$. Como lo mismo se cumple para $\sfrac{1}{g}$, concluimos que $\forall z \in \mathbb{D} : \abs{g(z)} = 1$. Por el \exhyperref[teo:apl-abierta-compleja]{teo-apl-abierta-compleja}{teorema de la aplicación abierta}, $g$ es constante y de módulo $1$, es decir, $\exists \gamma \in \mathbb{T} : g \equiv \gamma$. Por tanto, $f(z) = \gamma B(z)$.\hfill\qedsymbol
+\end{dem}
 
 \section{Unicidad y no unicidad}
 
@@ -238,9 +261,20 @@ Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen
 
 Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque cada valor en la imagen tiene dos preimágenes (salvo el 0). En general, la función $f_n(z) = z^n$ es $n$-valente, es decir, cada valor en la imagen tiene n preimágenes (salvo el 0).
 
-\transclude{orden-cero-fn-holomorfa}
+\begin{defn}[Orden de un cero]\label{defn:orden-cero-fn-holomorfa}
+    Sea $\Omega \subset \C$ un abierto, $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ no identicamente nula y $z_0 \in \Omega$ un cero de $f$, $\operatorname{ord}(f, z_0)$ es el orden de $z_0$ como cero de $f$
+    \[
+    \iff \operatorname{ord}(f, z_0) = \min \left\{m \in \N \cup \{0\} : \exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{f^{(m)}(z_0)} \neq 0\right\}.
+    \]
+\end{defn}
 
-\transclude{valencia-fn-holomorfa}
+\begin{defn}[Valencia]\label{defn:valencia-fn-holomorfa}
+    Sea $\Omega \subset \C$ un abierto y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$, $v_f \colon \C \to \N \cup \{0, \infty\}$ es la valencia de $f$ 
+    \[
+    \iff \forall w \in \C : v_f(w) = \sum_{\substack{z \in \Omega \\ f(z) = w}} \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{\operatorname{ord}}(f - w, z).
+    \]
+    Es decir, $v_f(w)$ es el número de soluciones (contando multiplicidades) de $f(z) = w$ en $\Omega$.
+\end{defn}
 
 %ORDENAR: reescribir esta sección usando la definición de valencia  
 
@@ -259,11 +293,39 @@ Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque c
 \end{dem}
 
 
-\transclude{derivada-logaritmica}
+\begin{defn}[Derivada logarítmica]\label{defn:derivada-logaritmica}%REVISAR y ORDENAR
+    Sea $f$ una función meromorfa en un abierto $\Omega \subset \C$ tal que $f(z) \neq 0$ para todo $z \in \Omega$. La derivada logarítmica de $f$ es la función definida por
+    \[
+    \forall z \in \Omega : \left(\log f\right)'(z) = \frac{f'(z)}{f(z)}.
+    \]
+\end{defn}
 
-\transclude{lem-derivada-logaritmica-prod-finito-blaschke}
+\begin{lem}\label{lem:derivada-logaritmica-prod-finito-blaschke}
+    Sea $B$ el \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} asociado a $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $\gamma \in \mathbb{T}$, entonces su \exhyperref[defn:derivada-logaritmica]{derivada-logaritmica}{derivada logarítmica} viene dada por  
+    \[
+    \frac{B'(z)}{B(z)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} z\right) (z_k - z)}. 
+    \]
+\end{lem}
+\begin{dem}
+    Por definición tenemos que $B(z) = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}}(z)$, luego
+    \[
+    \frac{B'(z)}{B(z)} = \sum_{k=1}^n \frac{\tau_{z_k}'(z)}{\tau_{z_k}(z)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{{\left(1 - \overline{z_k} z\right)}^2} \cdot \frac{1 - \overline{z_k} z}{z_k - z} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} z\right) (z_k - z)}.
+    \]%ORDENAR: referencia a derivada de involucion-disco-unidad
 
-\transclude{lem-derivada-prod-finito-blaschke-no-nula-toro}
+    \vspace{-\baselineskip}
+    \vspace{-\belowdisplayskip}
+\end{dem}
+
+\begin{lem}\label{lem:derivada-prod-finito-blaschke-no-nula-toro}
+    Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke}, entonces $\forall \zeta \in \mathbb{T} : \abs{B'(\zeta)} \neq 0$.
+\end{lem}
+\begin{dem}
+    Sea $\zeta \in \mathbb{T}$, entonces por el \excref[lem:derivada-logaritmica-prod-finito-blaschke]{lem-derivada-logaritmica-prod-finito-blaschke}, tenemos que
+    \[
+    \zeta \frac{B'(\zeta)}{B(\zeta)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\bar{\zeta} (1 - \overline{z_k} \zeta)(z_k - \zeta)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\bar{\left(\zeta - z_k\right)} (\zeta - z_k)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\abs{\zeta - z_k}^2} < 0.
+    \]
+    Como $\abs{B(\zeta)} = 1$ y $\abs{\zeta} = 1$, concluimos que $\ds \abs{B'(\zeta)} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\abs{\zeta - z_k}^2} > 0$.
+\end{dem}
 
 \begin{obs}
     El \excref[lem:derivada-prod-finito-blaschke-no-nula-toro]{lem-derivada-prod-finito-blaschke-no-nula-toro} implica que un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} no puede alcanzar ningún valor unimodular en $\mathbb{T}$ con multiplicidad mayor que uno. 
@@ -322,7 +384,9 @@ Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque c
 
 \section{Álgebra del disco}
 
-\transclude{algebra-disco-unidad}
+\begin{defn}[Álgebra del disco unidad]\label{defn:algebra-disco-unidad}
+    $\mathscr{A}(\mathbb{D}) = \left\{f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\mathbb{D}) \cap \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}}\left(\exhyperref[defn:clausura]{clausura}{\bar{\mathbb{D}}}\right) \right\}$.
+\end{defn}
 
 \begin{ejems}[de funciones en el álgebra del disco]
     \begin{enumerate}
@@ -334,7 +398,12 @@ Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque c
 
 \subsection{Productos finitos de Blaschke como funciones del álgebra del disco}
 
-\transclude{cor-fn-holomorfa-compacto-imp-finitud-ceros}%ORDENAR: meterlo al anexo
+\begin{cor}\label{cor:fn-holomorfa-compacto-imp-finitud-ceros}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $K \subset \Omega$ un \exhyperref[defn:compacidad]{compacidad}{compacto} y sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ no identicamente nula. Entonces, $f$ tiene un número finito de ceros en $K$.
+\end{cor}
+\begin{dem}
+    Supongamos por contradicción que existe una sucesión $\left(z_n\right)_{n \in \N} \subset K$ tal que $\forall n \neq m : z_n \neq z_m \we f(z_n) = 0$. Como $K$ es compacto, $\exists \left(z_{n_k}\right)_{k \in \N} \subset \left(z_n\right)_{n \in \N}$ tal que $z_{n_k} \xrightarrow{k \to \infty} z_0 \in K$. Entonces, por el \exhyperref[teo:ceros-aislados]{teo-ceros-aislados}{principio de los ceros aislados}, $f \equiv 0$ en $\Omega$. $\contr$
+\end{dem}%ORDENAR: meterlo al anexo
 
 \begin{teo}[Fatou]\label{teo:fatou-carac-prod-finito-blaschke-algebra-disco}
     Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\mathbb{D}\right)$ tal que $\exhyperref[defn:convergencia]{convergencia}{\lim_{\abs{z} \to 1^-}} \abs{f(z)} = 1$
