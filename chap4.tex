@@ -44,7 +44,22 @@
 
 \section{Aproxiomación de funciones en $\mathcal{S}$}
 
-\transclude{prop-convergencia-uniforme-continuidad-uniforme}
+\begin{prop}\label{prop:convergencia-uniforme-continuidad-uniforme}
+    Sean $X, Y$ \exhyperref[defn:esp-metrico]{esp-metrico}{espacios métricos}, $f \colon X \to Y$ y sea $\left(f_n\right)_{n \in \N}$ una sucesión de funciones $f_n \colon X \to Y$ \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continuas} que \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{converge uniformemente} a $f$
+    \[
+    \implies f \text{ es \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continua}.}
+    \]
+\end{prop}
+\begin{dem}
+    Sea $\varepsilon > 0$. Como $f_n \xrightrightarrows[n \to \infty]{} f$, $\exists N \in \mathbb{N} : \forall x \in X : d_Y(f_N(x), f(x)) < \frac{\varepsilon}{3}$.
+
+    Entonces, como $f_N$ es uniformemente continua, $\exists \delta > 0 : \forall x_1, x_2 \in X : d_X(x_1, x_2) < \delta \implies d_Y(f_N(x_1), f_N(x_2)) < \frac{\varepsilon}{3}$. Por tanto, si $d_X(x_1, x_2) < \delta$, por la \exhyperref[defn:metrica:desigualdad-triangular]{metrica}{desigualdad triangular},
+    \begin{align*}
+        d_Y(f(x_1), f(x_2)) &\leq d_Y(f(x_1), f_N(x_1)) + d_Y(f_N(x_1), f_N(x_2)) + d_Y(f_N(x_2), f(x_2)) \\
+        &< \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon.
+    \end{align*}
+    Luego $f$ es uniformemente continua.
+\end{dem}
 
 \begin{obs}
     Si $f \in \mathcal{S}$ es límite uniforme en $\mathbb{D}$ de productos finitos de Blaschke, entonces cada aproximante es holomorfo, está acotado por $1$ y es unimodular en $\mathbb{T}$. La convergencia uniforme asegura que $f$ se prolonga de forma continua y única a $\overline{\mathbb{D}}$ y que la restricción a $\mathbb{T}$ sigue siendo unimodular. Por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-prod-finito-blaschke-algebra-disco}, $f$ debe ser un producto finito de Blaschke. En particular, los productos finitos de Blaschke forman un subconjunto de $\mathcal{S}$ cerrado para la norma $\norm{\cdot}_\infty$.
@@ -99,6 +114,9 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
     \end{aligned}
     \]%COMPLETAR usar desigualdad triangular inversa
     
+    \vspace{-\baselineskip}
+    \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
 \end{dem}
 
 \begin{teo}[Carathéodory]\label{teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}
@@ -116,18 +134,41 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
 
     Entonces, $h_n \defeq \sfrac{g_n}{2} \in \mathcal{S}$ y $h(0) = 0$, luego, por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz}, $\forall z \in \mathbb{D} : \abs{h_n(z)} \leq \abs{z}$. En consecuencia, $\forall z \in \mathbb{D} : \abs{f(z) - B_n (z)} = \abs{z^{n-1} g_n(z)} = 2 \abs{z^{n-1} h_n(z)} \leq 2 \abs{z}^n$.
 
-    Por tanto, para $K \subset \mathbb{D}$ compacto, existe $r \in (0, 1)$ tal que $\forall z \in K : \abs{z} \leq r$. Así, $\sup_{z \in K} \abs{f(z) - B_n(z)} \leq 2 r^n \xrightarrow[n \to \infty]{} 0$, i.e. $B_n \xrightrightarrows[n \to \infty]{K} f$.
+    Por tanto, para $K \subset \mathbb{D}$ compacto, existe $r \in (0, 1)$ tal que $\forall z \in K : \abs{z} \leq r$. Así, $\sup_{z \in K} \abs{f(z) - B_n(z)} \leq 2 r^n \xrightarrow[n \to \infty]{} 0$, i.e. $B_n \xrightrightarrows[n \to \infty]{K} f$.\hfill\qedsymbol
 \end{dem}
 
 \section{La envolvente convexa de los productos finitos de Blaschke}
 
-\transclude{combinacion-convexa} %ORDENAR enviar al anexo
+\begin{defn}[Combinación convexa]\label{defn:combinacion-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $\left\{x_i\right\}_{i=1}^n \subset V$, $y \in V$ es una combinación convexa de $\left\{x_i\right\}_{i=1}^n$
+    \[
+    \iff \exists \left\{\lambda_i\right\}_{i=1}^n \subset \mathbb{R}_{\geq 0} : \sum_{i=1}^n \lambda_i = 1 \we y = \sum_{i=1}^n \lambda_i x_i
+    \]
 
-\transclude{envolvente-convexa} %ORDENAR enviar al anexo
+    Sea $A \subset V$, $y \in V$ es una combinación convexa de elementos de $A \iff \exists \left\{a_i\right\}_{i=1}^n \subset A$ tal que $y \tex{ es una combinación convexa de } \left\{a_i\right\}_{i=1}^n$.
+\end{defn} %ORDENAR enviar al anexo
 
-\transclude{prop-envolvente-convexa-combinacion-convexa}%ORDENAR enviar al anexo
+\begin{defn}[Envolvente convexa]\label{defn:envolvente-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$, $\operatorname{conv}(A)$ es la envolvente convexa de $A \iff \operatorname{conv}(A)$ es el \exhyperref[defn:con-convexo]{con-convexo}{convexo} más pequeño que contiene a $A$.
+\end{defn} %ORDENAR enviar al anexo
 
-\transclude{lem-prod-combinacion-convexa-prod-finito-blaschke}%ORDENAR enviar al anexo
+\begin{prop}\label{prop-envolvente-convexa-combinacion-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$. Entonces,
+    \[
+    \operatorname{conv}(A) = \left\{y \in V : v \tex{ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de elementos de } A \right\}.
+    \]
+\end{prop}%ORDENAR enviar al anexo
+
+\begin{lem}\label{lem:prod-combinacion-convexa-prod-finito-blaschke}
+    Sean $f$ y $g$ \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinaciones convexas} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}. Entonces, $f \cdot g$ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
+\end{lem}
+\begin{dem}
+    Por definición, sabemos que $\exists \left\{f_k\right\}_{k=1}^n, \left\{g_\ell\right\}_{\ell=1}^m$ productos finitos de Blaschke y $\left\{\alpha_k\right\}_{k=1}^n, \left\{\beta_\ell\right\}_{\ell=1}^m \subset \R_{\geq 0} : \sum_{k} \alpha_k = 1 \we \sum_{\ell} \beta_\ell = 1 \we f = \sum_{k} \alpha_k f_k \we g = \sum_{l} \beta_\ell g_\ell$. Luego,
+    \[
+    f \cdot g = \left( \sum_{k=1}^n \alpha_k f_k \right) \cdot \left( \sum_{\ell=1}^m \beta_\ell g_\ell \right) = \sum_{k=1}^n \sum_{\ell=1}^m \alpha_k \beta_\ell f_k g_\ell.
+    \]
+    Como $f_k$ y $g_\ell$ son productos finitos de Blaschke, $f_k g_\ell$ es un producto finito de Blaschke. Además, $\sum_{k} \sum_{l} \alpha_k \beta_\ell = \left( \sum_{k} \alpha_k \right) \left( \sum_{\ell} \beta_\ell \right) = 1$. Por lo tanto, $f \cdot g$ es una combinación convexa de productos finitos de Blaschke.
+\end{dem}%ORDENAR enviar al anexo
 
 \begin{lem}\label{lem:dilatacion-prod-finito-blaschke}
     Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} y $t \in [0, 1)$. Entonces, $B_t$ dado por $\forall z \in \mathbb{D} : B_t(z) = B(tz)$ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
@@ -221,6 +262,7 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
 
     \vspace{-\baselineskip}
     % \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
 \end{dem}
 
 \begin{dem}[Alternativa]%SEGURAMENTE esté mal
@@ -250,7 +292,7 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
     \end{enumerate}
 
     \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}
+    \vspace{-\belowdisplayskip}\hfill\qedsymbol
 \end{dem}
 
 \begin{teo}[Helson--Sarason]\label{teo:helson-sarason-aproximacion-fn-unimodular-continua-cociente-prod-finito-blaschke}
@@ -282,7 +324,24 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
 
 \section{Aproximación por productos finitos de blaschke con ceros simples}
 
-\transclude{lem-diferencia-productos-leq-suma-diferencias}
+\begin{lem}\label{lem:diferencia-productos-leq-suma-diferencias}
+    Sean $\left\{a_k\right\}_{k =1}^n, \left\{b_k\right\}_{k=1}^n \subset \bar{\mathbb{D}}$. Entonces, $\ds \abs{\prod_{k=1}^n a_k - \prod_{k=1}^n b_k} \leq \sum_{k=1}^n \abs{a_k - b_k}$. 
+\end{lem}
+\begin{dem}
+    Lo probaremos por inducción en $n$. Para $n = 1$, el resultado es trivial. Supongamos que el resultado se cumple para $n$. Consideramos $\left\{a_k\right\}_{k =1}^{n+1}, \left\{b_k\right\}_{k=1}^{n+1} \subset \bar{\mathbb{D}}$. Entonces,
+    \[
+    \begin{aligned}
+        \abs{\prod_{k=1}^{n+1} a_k - \prod_{k=1}^{n+1} b_k} &= \abs{\left(\prod_{k=1}^{n+1} a_k - a_{n+1} \prod_{k=1}^{n} b_k + a_{n+1} \prod_{k=1}^{n} b_k - \prod_{k=1}^{n+1} b_k\right)} \\
+        &= \abs{a_{n+1} \left(\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k\right) + \left(\prod_{k=1}^{n} b_k\right) (a_{n+1} - b_{n+1})} \\
+        &\leq \abs{a_{n+1}} \abs{\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k} + \prod_{k=1}^{n} \abs{b_k} \abs{a_{n+1} - b_{n+1}} \\
+        &\upexpl{\leq}{$\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\! a_k, b_k \in \bar{\mathbb{D}}$} \abs{\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k} + \abs{a_{n+1} - b_{n+1}} \leq \sum_{k=1}^n \abs{a_k - b_k} + \abs{a_{n+1} - b_{n+1}}.
+    \end{aligned}
+    \]
+
+    \vspace{-\baselineskip}
+    % \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
+\end{dem}
 
 \begin{lem}%\label{lem:}
     Sea $\left(z_k\right)_{k=1}^n \subset \mathbb{D}$ y $B = \prod_{k} \tau_{z_k}$ el producto finito de Blaschke mónico asociado. Sea $\left(\left(z_k^m\right)_{k=1}^n\right)_{m \in \N}$ tal que $\forall k \in \N_n : z_k^m \in \mathbb{D} \we \lim_{m} z_k^m = z_k$. Sea $B_m = \prod_{k} \tau_{z_k^m}$ el producto finito de Blaschke mónico asociado a $\left(z_k^m\right)_{k=1}^n$. Entonces,
@@ -323,7 +382,7 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
     \[
     \sup_{z \in K} \abs{B(z) - B_m(z)} \leq M \sup_{z \in K} \abs{\tilde{B}(z) - \tilde{B}_m(z)} + M \sup_{z \in K} \abs{\tau_{z_1}(z) - \tau_{z_1^m}(z)} \xrightarrow[m \to \infty]{} 0.
     \]
-    Nótese que si $K \subset \bar{\mathbb{D}}$, las involuciones de Blaschke satisfacen $\abs{\tau_{z_k}}, \abs{\tau_{z_k^m}} \leq 1$ en $K$, luego $M = 1$ y la cota se reduce, por el \excref[lem:diferencia-productos-leq-suma-diferencias]{lem-diferencia-productos-leq-suma-diferencias}, a $\abs{B - B_m} \leq \sum_{k=1}^n \abs{\tau_{z_k} - \tau_{z_k^m}}$.
+    Nótese que si $K \subset \bar{\mathbb{D}}$, las involuciones de Blaschke satisfacen $\abs{\tau_{z_k}}, \abs{\tau_{z_k^m}} \leq 1$ en $K$, luego $M = 1$ y la cota se reduce, por el \excref[lem:diferencia-productos-leq-suma-diferencias]{lem-diferencia-productos-leq-suma-diferencias}, a $\abs{B - B_m} \leq \sum_{k=1}^n \abs{\tau_{z_k} - \tau_{z_k^m}}$.\hfill\qedsymbol
 \end{dem}
 
 \begin{teo}%[]\label{teo:}
