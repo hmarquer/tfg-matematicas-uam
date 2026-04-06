@@ -161,32 +161,32 @@ Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen
     \end{enumerate}
 \end{obs}
 
-\begin{lem}%[]\label{lem:}
+\begin{lem}\label{lem:polinomio-conjugado-reverso}
     Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$. Entonces:
-    \begin{enumerate}
-        \item $\deg{P^{\#_n}} \leq n$ y la igualdad se cumple si, y sólo si, $P(0) \neq 0$.
+    \begin{enumerate}[label=\textnormal{(\arabic*)}]
+        \item $\deg{P^{\#_n}} \leq n$ y la igualdad se cumple si y sólo si $P(0) \neq 0$.
         \item $\left(P^{\#_n}\right)^{\#_n} = P$.
         \item $\forall z \in \C \setminus \{0\} : \big(P(z) = 0 \iff P^{\#_n} \left(\sfrac{1}{\bar{z}}\right) = 0\big)$.
     \end{enumerate}
 \end{lem}%DEMOSTRACIÓN
 
-\begin{prop}%[]\label{}
-    Sean $P, Q \in \C[z]$ tales que $\deg P \leq n, \deg Q \leq m$ para $n, m > 0$
+\begin{prop}\label{prop:conjugado-reverso-producto}
+    Sean $P, Q \in \C[z]$ tales que $\deg P \leq n, \deg Q \leq m$. Entonces,
     \[
-    \implies \left(P \cdot Q\right)^{\#_{n+m}} = P^{\#_n} \cdot Q^{\#_m}.
+    \left(P \cdot Q\right)^{\#_{n+m}} = P^{\#_n} \cdot Q^{\#_m}.
     \]
 \end{prop}%DEMOSTRACIÓN
 
-\begin{teo}%[]\label{teo:}
-    Sea $f$ una función racional de grado $n >0$, entonces $f$ es un producto finito de Blaschke 
+\begin{teo}\label{teo:carac-prod-finito-blaschke-fn-racional}
+    Sea $f$ una función racional de grado $n >0$, entonces $f$ es un producto finito de Blaschke si y sólo si
     \[
-    \iff \exists P \in \C[z] \tex{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\#_n}}.
+    \exists P \in \C[z] \tex{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\#_n}}.
     \]
 \end{teo}
 \begin{dem}
     Veamos ambas implicaciones por separado.
-    \begin{itemize}
-        \item[$\boxed{\Rightarrow}$] Sea $f$ un producto finito de Blaschke de grado $n$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}, \gamma \in \mathbb{T} : $
+    \begin{itemize}[wide, labelindent=0pt]
+        \item[$\boxed{\Rightarrow}$] Sea $f$ un producto de Blaschke de grado $n$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}, \gamma \in \mathbb{T} : $
         \[
         \forall z \in \mathbb{D} : f(z) = \gamma \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = e^{t_0i} \cdot \frac{\prod_{k=1}^n (z_k - z)}{\prod_{k=1}^n (1 - \overline{z_k} z)}
         \]
@@ -194,23 +194,28 @@ Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen
         \[
         \forall z \in \C : P(z) = e^{t_0i/2} \cdot \prod_{k=1}^n (z_k - z).
         \]
-        Entonces, $P$ es un polinomio de grado como mucho $n$ cuyos ceros están en $\mathbb{D}$ y, además,
+        Entonces, $P$ es un polinomio de grado como mucho $n$ cuyos ceros están en $\mathbb{D}$ y
         \[
-        P^\#(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n \cdot e^{-t_0i/2} \cdot \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = e^{-t_0i/2} \cdot \prod_{k=1}^n (1 - \overline{z_k} z).
+        P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n \cdot e^{-t_0i/2} \cdot \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = e^{-t_0i/2} \cdot \prod_{k=1}^n (1 - \overline{z_k} z).
         \]
-        Por tanto, $\forall z \in \mathbb{D} : f(z) = \sfrac{P(z)}{P^\#(z)}$.
-        \item[$\boxed{\Leftarrow}$] Sea $f$ una función racional de la forma $f(z) = \sfrac{P(z)}{P^\#(z)}$ para $P(z) = \alpha_n z^n + \alpha_{n-1} z^{n-1} + \dots + \alpha_1 z + \alpha_0$ de grado $n$ tal que $\left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D}$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ tales que
-        \[
-        P(z) = \alpha_n \prod_{k=1}^n (z_k - z) \implies P^\#(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n\, \bar{\alpha_n} \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = \bar{\alpha_n} \prod_{k=1}^n (1 - \overline{z_k} z). 
-        \]
-        Entonces, $\forall z \in \mathbb{D} : \ds f(z) = \frac{P(z)}{P^\#(z)} = \frac{\alpha_n}{\bar{\alpha_n}} \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}$ donde $\ds \abs{\frac{\alpha_n}{\bar{\alpha_n}}} = 1$.
-    \end{itemize}
+        Por tanto, $\forall z \in \mathbb{D} : f(z) = \sfrac{P(z)}{P^{\#_n}(z)}$.
 
-    \vspace{-\baselineskip}
-    %\vspace{-\belowdisplayskip}
+        \item[$\boxed{\Leftarrow}$] Supongamos que $f = \sfrac{P}{P^{\#_n}}$ para $P \in \C[z]$ de grado $n$ y dado por
+        \[
+        P(z) = \alpha_n z^n + \alpha_{n-1} z^{n-1} + \cdots + \alpha_1 z + \alpha_0,
+        \]
+        cuyos ceros están en $\mathbb{D}$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}: P(z) = \alpha_n \prod_{k=1}^n (z_k - z)$.
+        \[
+        \begin{aligned}
+            \therefore \quad P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n\, \bar{\alpha_n} \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = \bar{\alpha_n} \prod_{k=1}^n (1 - \overline{z_k} z).
+        \end{aligned}
+        \]
+        Por tanto, $\forall z \in \mathbb{D} : \ds f(z) = \frac{P(z)}{P^{\#_n}(z)} = \frac{\alpha_n}{\bar{\alpha_n}} \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}$ donde $\ds \abs{\frac{\alpha_n}{\bar{\alpha_n}}} = 1$.\hfill\qedsymbol
+    \end{itemize}
 \end{dem}
 
-\begin{cor}%[]\label{cor:} %ORDENAR: me ha dicho Dragan que es muy prescindible
+%ORDENAR: me ha dicho Dragan que es muy prescindible
+\begin{cor}\label{cor:carac-cociente-prod-finito-blaschke-fn-racional}
     Sea $f$ una función racional de grado $n$, entonces
     \[
     \begin{aligned}
@@ -222,66 +227,48 @@ Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen
 \end{cor}
 \begin{dem}
     Veamos ambas implicaciones por separado.
-    \begin{itemize}
-        \item[$\boxed{\Rightarrow}$] Por el teorema anterior, %ORDENAR: referenciar
-        existen polinomios $Q, R$ de grados $n_1 \defeq \deg B_1$ y $n_2 \defeq\deg B_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $B_1 = \sfrac{Q}{Q^{\#_{n_1}}}$ y $B_2 = \sfrac{R}{R^{\#_{n_2}}}$.
+    \begin{itemize}[wide, labelindent=0pt]
+        \item[$\boxed{\Rightarrow}$] Por el \excref[teo:carac-prod-finito-blaschke-fn-racional]{teo:carac-prod-finito-blaschke-fn-racional}, $\exists Q, R \in \C[z]$ de grados $n_1 \defeq \deg B_1$ y $n_2 \defeq\deg B_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $B_1 = \sfrac{Q}{Q^{\#_{n_1}}}$ y $B_2 = \sfrac{R}{R^{\#_{n_2}}}$.
         
-        Por tanto, los ceros de $P \defeq Q \cdot R^{\#_{n_2}}$ están en $\mathbb{D} \cup \C \setminus \bar{\mathbb{D}} = \C \setminus \mathbb{T}$ y se cumple que
+        Por tanto, los ceros de $P \defeq Q \cdot R^{\#_{n_2}}$ están en $\mathbb{D} \cup \C \setminus \bar{\mathbb{D}} = \C \setminus \mathbb{T}$ y, además,
         \[
-        f = \frac{B_1}{B_2} = \frac{Q / Q^{\#_{n_1}}}{R / R^{\#_{n_2}}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} = \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_{n_1 + n_2}}} = \frac{P}{P^{\#_n}}.
+        f = \frac{B_1}{B_2} = \frac{Q / Q^{\#_{n_1}}}{R / R^{\#_{n_2}}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} \upexpl{=}{\exref[prop:conjugado-reverso-producto]{prop-conjugado-reverso-producto}} \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_{n_1 + n_2}}} = \frac{P}{P^{\#_n}}.
         \]
 
-        Además, como $\deg R^{\#_{n_2}} \leq n_2$ y $\deg Q^{\#_{n_1}} \leq n_1$ y se tiene que
+        Como $\deg R^{\#_{n_2}} \leq n_2$ y $\deg Q^{\#_{n_1}} \leq n_1$ y se tiene que
         \[
         n = \max \left\{\deg \left(Q R^{\#_{n_2}}\right), \deg \left(Q^{\#_{n_1}} R\right)\right\} = \max\left\{n_1 + \deg R^{ \#_{n_2}}, n_2 + \deg Q^{\#_{n_1}}\right\},
         \]
         concluimos que $\deg B_1 + \deg B_2 = n_1 + n_2 \leq n$.
-        \item[$\boxed{\Leftarrow}$] Sea $f$ una función racional de la forma $f(z) = \sfrac{P(z)}{P^\#(z)}$ donde $P$ es un polinomio sin ceros en $\mathbb{T}$. Entonces, podemos separar sus $n$ ceros en dos grupos: los $n_1$ que están en $\mathbb{D}$ y los $n_2$ que están en $\C \setminus \bar{\mathbb{D}}$. Por tanto, existen $Q, R$ polinomios de grados $n_1$ y $n_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $P = Q \cdot R^{\#_{n_2}}$. Por la proposición anterior, %ORDENAR: referenciar
+
+        \item[$\boxed{\Leftarrow}$] Sea $f$ una función racional de la forma $f(z) = \sfrac{P(z)}{P^\#(z)}$ donde $P$ es un polinomio sin ceros en $\mathbb{T}$. Entonces, podemos separar sus $n$ ceros en dos grupos: los $n_1$ que están en $\mathbb{D}$ y los $n_2$ que están en $\C \setminus \bar{\mathbb{D}}$. Por tanto, existen $Q, R$ polinomios de grados $n_1$ y $n_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $P = Q \cdot R^{\#_{n_2}}$.
+        
+        Por la \excref[prop:conjugado-reverso-producto]{prop-conjugado-reverso-producto}, se tiene que
         \[
         f = \frac{P}{P^{\#_n}} = \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_n}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} = \frac{Q}{Q^{\#_{n_1}}} \bigg/ \frac{R}{R^{\#_{n_2}}}.
         \]%REVISAR: explicar mejor la igualdad
-        Luego, por el teorema anterior, %ORDENAR: referenciar
-        existen $B_1$ y $B_2$ productos finitos de Blaschke tales que $\sfrac{Q}{Q^{\#_{n_1}}} = B_1$ y $\sfrac{R}{R^{\#_{n_2}}} = B_2$. Por tanto, $f = \sfrac{B_1}{B_2}$.
+        Luego, por el \excref[teo:carac-prod-finito-blaschke-fn-racional]{teo:carac-prod-finito-blaschke-fn-racional}, existen $B_1$ y $B_2$ productos finitos de Blaschke tales que $\sfrac{Q}{Q^{\#_{n_1}}} = B_1$ y $\sfrac{R}{R^{\#_{n_2}}} = B_2$. Por tanto, $f = \sfrac{B_1}{B_2}$.
 
-        Por último, tenemos que $n = \deg f = \max \left\{\deg P, \deg P^{\#_n}\right\} = \deg P$. 
+        Por último, tenemos que $n = \deg f = \max \left\{\deg P, \deg P^{\#_n}\right\} = \deg P$.\hfill\qedsymbol
     \end{itemize}
-
-    \vspace{-\baselineskip}
-    %\vspace{-\belowdisplayskip}
-    \hfill\qedsymbol
 \end{dem}
 
 \begin{obs}
-    Sea $P$ un polinomio de grado $n$ sin ceros en $\mathbb{T}$. Entonces, por el corolario anterior, %ORDENAR: referenciar
+    Sea $P$ un polinomio de grado $n$ sin ceros en $\mathbb{T}$. Entonces, por el \excref[cor:carac-cociente-prod-finito-blaschke-fn-racional]{cor-carac-cociente-prod-finito-blaschke-fn-racional}, %ORDENAR: referenciar
     $\forall \zeta \in \mathbb{T} : \abs{P(\zeta)} = \abs{P^{\#_n}(\zeta)}$.
 \end{obs}
 
 \section{$n$-valencia de los productos finitos de Blaschke} %Esto puede ir de lo primero si las demostraciones no usan B=P/P^#
 
-Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque cada valor en la imagen tiene dos preimágenes (salvo el 0). En general, la función $f_n(z) = z^n$ es $n$-valente, es decir, cada valor en la imagen tiene n preimágenes (salvo el 0).
-
-\begin{defn}[Orden de un cero]\label{defn:orden-cero-fn-holomorfa}
-    Sea $\Omega \subset \C$ un abierto, $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ no identicamente nula y $z_0 \in \Omega$ un cero de $f$, $\operatorname{ord}(f, z_0)$ es el orden de $z_0$ como cero de $f$
-    \[
-    \iff \operatorname{ord}(f, z_0) = \min \left\{m \in \N \cup \{0\} : \exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{f^{(m)}(z_0)} \neq 0\right\}.
-    \]
-\end{defn}
-
-\begin{defn}[Valencia]\label{defn:valencia-fn-holomorfa}
-    Sea $\Omega \subset \C$ un abierto y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$, $v_f \colon \C \to \N \cup \{0, \infty\}$ es la valencia de $f$ 
-    \[
-    \iff \forall w \in \C : v_f(w) = \sum_{\substack{z \in \Omega \\ f(z) = w}} \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{\operatorname{ord}}(f - w, z).
-    \]
-    Es decir, $v_f(w)$ es el número de soluciones (contando multiplicidades) de $f(z) = w$ en $\Omega$.
-\end{defn}
+% Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque cada valor en la imagen tiene dos preimágenes (salvo el 0). En general, la función $f_n(z) = z^n$ es $n$-valente, es decir, cada valor en la imagen tiene $n$ preimágenes (salvo el 0).
 
 %ORDENAR: reescribir esta sección usando la definición de valencia  
 
 \begin{teo}\label{teo:n-valencia-prod-finito-blaschke-disco-unidad}
-    Todo producto finito de Blaschke de grado $n$ es $n$-valente en $\mathbb{D}$. %, es decir, para todo $w \in \mathbb{D}$, la ecuación $B(z) = w$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).
+    Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$} es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\mathbb{D}$.
 \end{teo}
 \begin{dem}
-    Sea $B$ un producto finito de Blaschke de grado $n$. Entonces, $B \in \mathcal{H}\left(\Omega\right)$ donde $\Omega$ es un abierto que contiene a $\bar{\mathbb{D}}$. Entonces, $\mathbb{T}$ es una curva de Jordan en $\Omega$ tal que $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$. Sea $w \in \mathbb{D}$. Tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, entonces
+    Sea $B$ un producto finito de Blaschke de grado $n$. Entonces, existe un abierto $\Omega \subset \C$ qu contiene a $\bar{\mathbb{D}}$ tal que $B \in \mathcal{H}\left(\Omega\right)$. Observamos que $\mathbb{T}$ es una curva de Jordan en $\Omega$ tal que $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$. Sea $w \in \mathbb{D}$, entonces, si tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, tenemos que
     \[
     \forall \zeta \in \mathbb{T} : \abs{f(\zeta) - g(\zeta)} = \abs{B(\zeta) - (B(\zeta) - w)} = \abs{w} < 1 = \abs{B(\zeta)} = \abs{f(\zeta)}.
     \]
@@ -300,16 +287,16 @@ Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque c
 \end{defn}
 
 \begin{lem}\label{lem:derivada-logaritmica-prod-finito-blaschke}
-    Sea $B$ el \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} asociado a $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $\gamma \in \mathbb{T}$, entonces su \exhyperref[defn:derivada-logaritmica]{derivada-logaritmica}{derivada logarítmica} viene dada por  
+    Sea $B = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}}$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke}, entonces su \exhyperref[defn:derivada-logaritmica]{derivada-logaritmica}{derivada logarítmica} viene dada por  
     \[
-    \frac{B'(z)}{B(z)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} z\right) (z_k - z)}. 
+    \forall z \in \mathbb{D} : \frac{B'(z)}{B(z)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} z\right) (z_k - z)}. 
     \]
 \end{lem}
 \begin{dem}
-    Por definición tenemos que $B(z) = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}}(z)$, luego
+    Basta con aplicar el \excref[lem:involucion-disco-unidad-derivada]{lem-involucion-disco-unidad-derivada}:
     \[
     \frac{B'(z)}{B(z)} = \sum_{k=1}^n \frac{\tau_{z_k}'(z)}{\tau_{z_k}(z)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{{\left(1 - \overline{z_k} z\right)}^2} \cdot \frac{1 - \overline{z_k} z}{z_k - z} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} z\right) (z_k - z)}.
-    \]%ORDENAR: referencia a derivada de involucion-disco-unidad
+    \]
 
     \vspace{-\baselineskip}
     \vspace{-\belowdisplayskip}\hfill\qedsymbol
@@ -331,54 +318,56 @@ Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque c
     
     En efecto, sea $\gamma \in \mathbb{T}$ y supongamos que $\exists \zeta_0 \in \mathbb{T} : B(\zeta_0) = \gamma$. Si $\zeta_0$ fuera un cero de multiplicidad $m \geq 2$ de la función $h(z) = B(z) - \gamma$, entonces tendríamos que $h'(\zeta_0) = B'(\zeta_0) = 0$, lo cual contradice que $\abs{B'(\zeta_0)} > 0$.
     
-    Por tanto, cada una de las $n$ soluciones de la ecuación $B(z) = \gamma$ en $\mathbb{T}$ (para $\gamma \in \mathbb{T}$) es un cero simple, es decir, todas las soluciones son distintas.
+    Por tanto, todas las soluciones de la ecuación $B(z) = \gamma$ en $\mathbb{T}$ (para $\gamma \in \mathbb{T}$) son simples, es decir, todas las soluciones son distintas.
 \end{obs}
 
-\begin{cor}%[]\label{cor:}
+\begin{cor}\label{cor:derivada-arg-prod-finito-blaschke-toro}
     Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} entonces
     \[
-    \forall t \in \R : \odv{}{t} \arg B\left(e^{it}\right) = -\abs{B'\left(e^{it}\right)}.
+    \forall t \in \R : \odv{}{t} \arg B\left(e^{it}\right) = \abs{B'\left(e^{it}\right)}.
     \]
 \end{cor}
 \begin{dem}
-    Como $\forall t \in \R : B\left(e^{it}\right) \in \mathbb{T}$, podemos escribir $B\left(e^{it}\right) = e^{i \psi(t)}$ para alguna función $\psi \colon \R \to \R$. Entonces, por el \excref[lem:derivada-logaritmica-prod-finito-blaschke]{lem-derivada-logaritmica-prod-finito-blaschke}, tenemos que
-    \[%REVISAR: no entiendo
-    \psi'(t) = e^{it} \cdot \frac{B'\left(e^{it}\right)}{B\left(e^{it}\right)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\abs{e^{it} - z_k}^2} \upexpl{=}{\exref[lem:derivada-prod-finito-blaschke-no-nula-toro]{lem-derivada-prod-finito-blaschke-no-nula-toro}} - \abs{B'\left(e^{it}\right)}.
+    Como $\forall t \in \R : B\left(e^{it}\right) \in \mathbb{T}$, podemos escribir $B\left(e^{it}\right) = e^{i \psi(t)}$ para alguna función $\psi \colon \R \to \R$ tal que $\psi(2\pi) - \psi(0) = 2\pi m$ para algún $m \in \Z$. Entonces,
+    \[
+    i e^{it} B'\left(e^{it}\right) = i \psi'(t) B\left(e^{it}\right) \implies \psi'(t) = e^{it} \frac{B'\left(e^{it}\right)}{B\left(e^{it}\right)}.
     \]
 
-    \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}\hfill\qedsymbol
+    Aplicando el \excref[lem:derivada-logaritmica-prod-finito-blaschke]{lem-derivada-logaritmica-prod-finito-blaschke} en $z = e^{it}$, tenemos que
+    \[
+    \psi'(t) = e^{it} \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} e^{it}\right) (z_k - e^{it})} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\bar{\left(e^{it} - z_k\right)} (e^{it} - z_k)} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\abs{e^{it} - z_k}^2}.
+    \]
+    Entonces, por la demostración del \excref[lem:derivada-prod-finito-blaschke-no-nula-toro]{lem-derivada-prod-finito-blaschke-no-nula-toro}, $\abs{B'\left(e^{it}\right)} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\abs{e^{it} - z_k}^2}$,
+    y por tanto $\psi'(t) = \abs{B'\left(e^{it}\right)}$.
+    Como $\psi = \arg B\left(e^{it}\right)$ (salvo suma de una constante $2\pi m$), concluimos la igualdad del enunciado.\hfill\qedsymbol
 \end{dem}
 
 
 
 %REVISAR: estos corolarios son de cosecha propia.
 \begin{cor}\label{cor:n-valencia-prod-finito-blaschke-disco-exterior}
-    Todo producto finito de Blaschke de grado $n$ es $n$-valente en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$. %, es decir, para todo $w \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$, la ecuación $B(z) = w$ tiene $n$ soluciones en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ (contando multiplicidades).
+    Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n$ es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
 \end{cor}
 \begin{dem}
-    Por la propiedad de reflexión de Schwarz, sabemos que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$. Por tanto, la ecuación $B(z) = w$ es equivalente a
+    Sea $w \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$. Por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur},
     \[
-    \frac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}} = w \iff B \left(\sfrac{1}{\bar{z}}\right) = \frac{1}{\bar{w}}.
+    B(z) = w \iff B\left(\sfrac{1}{\bar{z}}\right) = \sfrac{1}{\bar{w}}.
     \]
-    
-    Como $\abs{w} > 1$, tenemos que $\abs{\sfrac{1}{\bar{w}}} = \sfrac{1}{\abs{w}} < 1$, es decir, $\sfrac{1}{\bar{w}} \in \mathbb{D}$. Por el teorema anterior, la ecuación $B(\zeta) = \sfrac{1}{\bar{w}}$ tiene exactamente $n$ soluciones $\zeta_1, \dots, \zeta_n \in \mathbb{D}$ (contando multiplicidades).
-    
-    Ahora bien, la transformación $z \mapsto \sfrac{1}{\bar{z}}$ es una biyección de $\mathbb{D}$ en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$. Por tanto, las soluciones de $B(z) = w$ en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ son $z_k = \sfrac{1}{\bar{\zeta_k}}$ para $k = 1, \dots, n$, y hay exactamente $n$ de ellas (contando multiplicidades).\hfill\qedsymbol
+    Como $\abs{w} > 1$, se tiene $\sfrac{1}{\bar{w}} \in \mathbb{D}$, y por el \excref[teo:n-valencia-prod-finito-blaschke-disco-unidad]{teo-n-valencia-prod-finito-blaschke-disco-unidad} la ecuación $B(\zeta) = \sfrac{1}{\bar{w}}$ tiene exactamente $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).
+
+    Ahora, $\Phi(z) = \sfrac{1}{\bar{z}}$ es una biyección de $\mathbb{D}$ sobre $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ y, por la equivalencia anterior, induce una correspondencia biyectiva entre las soluciones de $B(\zeta) = \sfrac{1}{\bar{w}}$ en $\mathbb{D}$ y las de $B(z)=w$ en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$. Luego $B(z)=w$ tiene exactamente $n$ soluciones en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ (contando multiplicidades).\hfill\qedsymbol
 \end{dem}
 
 %REVISAR: de cosecha propia.
 \begin{cor}\label{cor:n-valencia-prod-finito-blaschke-circunferencia}
-    Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n$ es $n$-valente en $\mathbb{T}$. %, es decir, para todo $\gamma \in \mathbb{T}$, la ecuación $B(z) = \gamma$ tiene $n$ soluciones en $\mathbb{T}$ (contando multiplicidades).
+    Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n$ es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\mathbb{T}$.
 \end{cor}
 \begin{dem}
-    Sea $B$ un producto finito de Blaschke de grado $n$ y sea $\gamma \in \mathbb{T}$. Consideramos la función $h(z) = B(z) - \gamma$. Como $B$ es holomorfa en un entorno abierto de $\bar{\mathbb{D}}$, también lo es $h$.
-    
-    Ahora bien, como $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1 = \abs{\gamma}$, la función $h$ no tiene ceros en $\mathbb{T}$ o tiene ceros de multiplicidad finita. Además, los ceros de $h$ en $\widehat{\mathbb{C}}$ son precisamente las soluciones de $B(z) = \gamma$.
-    
-    Como $B$ tiene grado $n$ (como función racional), la ecuación $B(z) = \gamma$ tiene en total $n$ soluciones en $\widehat{\mathbb{C}}$ (contando multiplicidades). Por los resultados anteriores, hay $n$ soluciones en $\mathbb{D}$ si $\abs{\gamma} < 1$ y $n$ soluciones en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ si $\abs{\gamma} > 1$. 
-    
-    Para $\gamma \in \mathbb{T}$, las $n$ soluciones no pueden estar en $\mathbb{D}$ (pues $\abs{B(z)} < 1$ para $z \in \mathbb{D}$) ni en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ (pues $\abs{B(z)} > 1$ para $z \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$). Por tanto, las $n$ soluciones deben estar en $\mathbb{T}$.\hfill\qedsymbol
+    Sea $\gamma \in \mathbb{T}$. Como $B$ es racional de grado $n$, la ecuación $B(z)=\gamma$ tiene exactamente $n$ soluciones en $\widehat{\mathbb{C}}$ (contando multiplicidades).
+
+    Por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur}, si $z \in \mathbb{D}$ entonces $\abs{B(z)}<1$, y si $z \in \widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$ entonces $\abs{B(z)}>1$. Luego, para $\gamma \in \mathbb{T}$, no hay soluciones de $B(z)=\gamma$ ni en $\mathbb{D}$ ni en $\widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$.
+
+    En consecuencia, las $n$ soluciones de $B(z)=\gamma$ pertenecen a $\mathbb{T}$, es decir, $B$ es $n$-valente en $\mathbb{T}$.\hfill\qedsymbol
 \end{dem}
 
 \section{Álgebra del disco}
