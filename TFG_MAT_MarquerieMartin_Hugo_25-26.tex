@@ -46,6 +46,8 @@
     % \cleardoublepage
     %%Fin de agradecimientos
 
+    \setlength{\abovedisplayskip}{6pt}
+    \setlength{\belowdisplayskip}{8pt}
     %%Resumen, en español y en inglés (Obligatorios ambos)
     \input{abstract.tex}
     \cleardoublepage
@@ -71,8 +73,8 @@
     %%%% Final del cuerpo %%%%%%%%%%
     % Apéndices (Opcionales)
     \appendix
-    \chapter{Resultados auxiliares}
-
+    \input{appendixstyle}
+    % \chapter{Resultados auxiliares}
     \input{appendix1.tex}
 
     %%%La bibliografía

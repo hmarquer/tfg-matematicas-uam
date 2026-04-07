@@ -9,6 +9,24 @@
 \usepackage{derivative}
 \usepackage[inline]{enumitem} % para listas numeradas
 \usepackage{geometry} % Configuración de márgenes
+% \usepackage{todonotes} % para añadir notas al margen
+
+% Configuracion global por defecto para listas
+\setlist[itemize]{ % Aplica estas opciones a todos los entornos itemize
+%   leftmargin=*, % Calcula automaticamente la sangria izquierda (usa la natural de la lista)
+  topsep=4pt, % Espacio vertical antes y despues de la lista
+  itemsep=3pt, % Espacio vertical entre items consecutivos
+%   parsep=0pt, % Espacio entre parrafos dentro de un mismo item
+%   partopsep=0pt % Espacio extra si la lista empieza tras una linea en blanco
+} % Fin de la configuracion global de itemize
+\setlist[enumerate]{ % Aplica estas opciones a todos los entornos enumerate
+%   leftmargin=*, % Calcula automaticamente la sangria izquierda (usa la natural de la lista)
+  topsep=4pt, % Espacio vertical antes y despues de la lista
+  itemsep=3pt, % Espacio vertical entre items consecutivos
+%   parsep=0pt, % Espacio entre parrafos dentro de un mismo item
+%   partopsep=0pt % Espacio extra si la lista empieza tras una linea en blanco
+} % Fin de la configuracion global de enumerate
+
 \usepackage{pgfplots}%, pgfplotstable}
 \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{colormaps} % Load colormap library
@@ -238,8 +256,8 @@
 
 %Theorem environment definitions
 \newtheoremstyle{definitionstyle}
-	{6pt} % Space above
-    {6pt} % Space below
+	{5pt} % Space above
+    {5pt} % Space below
     {\color{defncolor}} % Body font
     {} % Indent amount
     {\bfseries} % Head font
@@ -248,7 +266,7 @@
     {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}} % Head spec
 
 \newtheoremstyle{examplestyle}
-    {6pt}{6pt}
+    {5pt}{5pt}
     {\color{ejemcolor}}{}
     {\bfseries}
     {.}
@@ -256,7 +274,7 @@
     {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
 \newtheoremstyle{exercisestyle}
-    {6pt}{6pt}
+    {5pt}{5pt}
     {\color{ejercolor}}{}
     {\bfseries}
     {.}
@@ -264,7 +282,7 @@
     {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
 \newtheoremstyle{propositionstyle}
-    {6pt}{6pt}
+    {5pt}{5pt}
     {\itshape\color{propcolor}}{}
     {\bfseries}
     {.}
@@ -272,7 +290,7 @@
     {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
 \newtheoremstyle{remarkstyle}
-    {6pt}{6pt}
+    {5pt}{5pt}
     {\color{remarkcolor}}{}
     {\itshape}
     {.}
@@ -280,14 +298,12 @@
     {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
 \newtheoremstyle{demstyle}
-    {6pt}{6pt}
+    {5pt}{5pt}
     {}{}
     {\bfseries\itshape}
     {:}
     {0.5em}
     {\thmname{#1}\thmnote{ (#3)}}
-
-
 
 \NewDocumentEnvironment{enu}{O{1} O{}}{
     \newcommand{\colnum}{#1}
@@ -297,38 +313,14 @@
     \ifnum\colnum=1
         \begin{enumerate}[#2]
     \else
+    % Evita el espacio vertical extra que multicols anade antes y despues
+    \setlength{\multicolsep}{6pt}
+    % \setlength{\premulticols}{4pt}
+    % \setlength{\postmulticols}{4pt}
         \begin{multicols}{#1}
             \begin{enumerate}[#2]
     \fi
 }{\ifnum\colnum=1 \end{enumerate} \else \end{enumerate}\end{multicols} \fi}
-
-% \newcommand{\smoothManifold}[3]{
-%     \begin{tikzpicture}[scale=1.8]
-%         \coordinate (A) at (0.5, -0.7);
-%         \coordinate (B) at (1.2, 0.);
-%         \coordinate (C) at (-.5, 0.2);
-%         \coordinate (D) at (-1., -0.5);
-%         \draw[thick] (A) to[out=70,in=170] (B);
-%         \draw[thick] (B) to[out=150,in=20] (C);
-%         \draw[thick] (C) to[out=210,in=80] (D);
-%         \draw[thick] (D) to[out=20,in=130] (A);
-%         \draw[fill=black] (0,0) circle (0.6pt) node[anchor=north west]{#3};
-%         \draw[dashed] plot[smooth cycle,tension=0.8] coordinates {(-0.2,-0.25) (-0.35,0.1) (0.3,0.2) (0.3,-0.25)};
-%         \node[anchor=north] at (-0.6, 0.) {#2};
-%         \node[anchor=north] at (0.9, -0.25) {#1};
-%     \end{tikzpicture}
-% }
-
-% \newcommand{\smoothCoords}[3]{
-%     \begin{tikzpicture}[scale=1.4]
-%         \draw[->,thick] (0, -.4) -- (0, 1.5);
-%         \draw[->,thick] (-.4, 0) -- (1.5, 0);
-%         \draw[dashed] plot[smooth cycle,tension=0.8] coordinates {(0.4,0.3) (0.35,1.1) (1.,1.) (1.5,0.3)};
-%         \draw[fill=black] (0.65,0.7) circle (0.6pt) node[anchor=north west]{#3}; 
-%         \node at (0.75, -.3) {#1};
-%         \node at (1.2, 1.25) {#2};
-%     \end{tikzpicture}
-% }
 
 \makeatletter
 
@@ -368,6 +360,7 @@
 
 \newenvironment{defn}[1][]{
 }{}
+\AtBeginEnvironment{defn}{\setlist[enumerate, 1]{label=(\roman*), ref=(\roman*)}}
 
 \theoremstyle{definitionstyle}
 \newtheorem{axm}{Axioma}[chapter]
@@ -375,15 +368,22 @@
 \theoremstyle{examplestyle}
 \newtheorem{ejem}[axm]{Ejemplo}
 \newtheorem{ejems}[axm]{Ejemplos}
+\AtBeginEnvironment{ejems}{\setlist[enumerate, 1]{label=\boxed{\arabic*}, ref=\arabic*}}
 
 \theoremstyle{exercisestyle}
 \newtheorem{ejer}[axm]{Ejercicio}
 
+\AtBeginEnvironment{ejer}{\setlist[enumerate, 1]{label=(\alph*), ref=(\alph*)}}
+
 \theoremstyle{propositionstyle}
 \newtheorem{prop}[axm]{Proposición}
+\AtBeginEnvironment{prop}{\setlist[enumerate, 1]{label=\textnormal{(\arabic*)}, ref=\arabic*}}
 \newtheorem{lem}[axm]{Lema}
+\AtBeginEnvironment{lem}{\setlist[enumerate, 1]{label=\textnormal{(\arabic*)}, ref=\arabic*}}
 \newtheorem{teo}[axm]{Teorema}
+\AtBeginEnvironment{teo}{\setlist[enumerate, 1]{label=\textnormal{(\arabic*)}, ref=\arabic*}}
 \newtheorem{cor}[axm]{Corolario}
+\AtBeginEnvironment{cor}{\setlist[enumerate, 1]{label=\textnormal{(\arabic*)}, ref=\arabic*}}
 
 \theoremstyle{remarkstyle}
 \newtheorem{obs}[axm]{Observación}
@@ -392,54 +392,22 @@
 \newtheorem{dem}{Demostración}[chapter]
 \newtheorem{sol}{Solución}[chapter]
 
-% \renewcommand{\maketitle}[4]{
-%     \onehalfspacing
-%     \setlength{\abovedisplayskip}{5pt}
-%     \setlength{\belowdisplayskip}{7pt}
-
-%     \begin{titlepage}
-%     \begin{center}
-%         \mbox{} \\ [-1.35cm]
-%         \LARGE
-%         \HRule{0.06cm} \\ [0.5cm]
-%         \textbf{\MakeUppercase{\@title}} \HRule{0.06cm}
-
-%         \textbf{#1 del Grado en Matemáticas}
-        
-%         \vfill
-%         {#4}
-%         \vfill
-%         % \coffestains
-%         \normalsize
-
-%         \textbf{\@author} \\ \vspace{0.5cm}
-%         Profesor: #2 \\
-%         Facultad de Ciencias - Universidad Autónoma de Madrid \\
-%         #3\\
-%         \vspace{0.5cm}
-%         \@date
-%         \vspace{0.5cm}
-%     \end{center}
-%     \end{titlepage}
-%     \thispagestyle{empty}
-%     \mbox{}
-%     \vfill
-%     \begin{center}
-%         \textit{Puedes encontrar mi colección completa de apuntes en \href{https://hmarquer.github.io}{https://hmarquer.github.io}.}
-%         % \textbf{Licencia:} \href{https://creativecommons.org/licenses/by-nc/4.0/deed.es}{Creative Commons Atribución–NoComercial 4.0 Internacional}. Puedes compartir y adaptar el contenido, siempre que cites la autoría y no lo uses con fines comerciales.\\[1em]
-%         % \href{https://creativecommons.org/licenses/by-nc/4.0/}{
-%         %     \includesvg[width=3cm]{/home/hugo/texnotes/notes/figures/Cc_by-nc_icon.svg}
-%         % }
-%     \end{center}
-%     % \vfill
-%     % \mbox{}
-%     \newpage
-%     \pagenumbering{roman}\tableofcontents
-% }
-
-% \titleformat{\chapter}[block]
-%   {\normalfont\huge\bfseries}{\thechapter.}{1em}{\Huge}
-% \titlespacing*{\chapter}{0pt}{-19pt}{0pt}
+% Evita colisiones de anclajes PDF (p. ej. B.2 apuntando a 2.2)
+\makeatletter
+\providecommand*{\theHchapter}{}
+\renewcommand*{\theHchapter}{\thechapter}
+\def\theHaxm{\theHchapter.\arabic{axm}}
+\def\theHejem{\theHchapter.\arabic{axm}}
+\def\theHejems{\theHchapter.\arabic{axm}}
+\def\theHejer{\theHchapter.\arabic{axm}}
+\def\theHprop{\theHchapter.\arabic{axm}}
+\def\theHlem{\theHchapter.\arabic{axm}}
+\def\theHteo{\theHchapter.\arabic{axm}}
+\def\theHcor{\theHchapter.\arabic{axm}}
+\def\theHobs{\theHchapter.\arabic{axm}}
+\def\theHdem{\theHchapter.\arabic{dem}}
+\def\theHsol{\theHchapter.\arabic{sol}}
+\makeatother
 
 \usepackage{catchfilebetweentags}
 

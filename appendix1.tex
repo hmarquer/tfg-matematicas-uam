@@ -2,41 +2,23 @@
 
 \section{Funciones holomorfas}
 
+\subsection{Derivada compleja}
+
 \transclude{fn-compleja-derivable-pnt}
 
 \transclude{fn-holomorfa}
 
+\transclude{fn-holomorfa-pnt}
 
-\section{Transformaciones de Möbius}
+\transclude{fn-entera}
 
-\transclude{transformacion-mobius}
+\transclude{prop-fn-compleja-derivable}%DEMOSTRACIÓN
 
-\transclude{transformacion-mobius-circunferencias-generalizadas}
+\subsection{Ecuaciones de Cauchy-Riemann}
 
+\transclude[teo]{teo-cauchy-riemann}
 
-\transclude{inyectividad-local}
-
-\transclude{lem-localmente-inyectiva-implica-inversa-no-nula}%DEMOSTRACIÓN
-
-
-
-
-\transclude{teo-cauchy-goursat}
-
-\transclude{teo-fn-inversa-holomorfas}
-
-\transclude{teo-apl-abierta-compleja}
-
-
-
-\transclude{orden-cero-fn-holomorfa}
-
-\transclude{valencia-fn-holomorfa}
-
-
-
-
-\transclude{teo-singularidad-evitable-riemann}
+\transclude[prop]{prop-consecuencias-cauchy-riemann}
 
 \section{Operadores de Wirtinger y el operador laplaciano}
 
@@ -64,8 +46,6 @@ También podemos expresar las derivadas parciales habituales en términos de las
 
 \subsection{El operador laplaciano}
 
-% \transclude{laplaciano}
-
 \begin{defn}[Laplaciano]\label{defn:laplaciano}
     En $\mathbb{D}$, el operador laplaciano $\Delta \colon \mathcal{C}^2 \left(\mathbb{D}\right) \to \mathcal{C}\left(\mathbb{D}\right)$ viene dado por
     \[
@@ -73,11 +53,96 @@ También podemos expresar las derivadas parciales habituales en términos de las
     \]
 \end{defn}
 
-
 \transclude{lem-laplaciano-wirtinger}
 
 \transclude{lem-laplaciano-cambio-variable}
 
+\section{Transformaciones de Möbius}
+
+\transclude{transformacion-mobius}
+
+\transclude[prop]{prop-transformacion-mobius-composicion}
+
+\transclude{transformacion-mobius-circunferencias-generalizadas}
+
+\section{Teorema de la función inversa y de la aplicación abierta}
+
+\transclude[teo]{teo-fn-inversa-holomorfas}
+
+\transclude{teo-apl-abierta-compleja}
+
+
+
+\transclude{inyectividad-local}
+
+\transclude{lem-localmente-inyectiva-implica-inversa-no-nula}%DEMOSTRACIÓN
+
+
+
+\section{Integración compleja}
+
+\transclude{curva-topologica}
+
+% \transclude{curva-cerrada}
+
+% \transclude{curva-simple}
+
+% \transclude{curva-jordan}
+
+\transclude{camino}
+
+% \transclude{longitud-camino}
+
+% \transclude{camino-opuesto}
+
+\transclude{integral-linea-compleja}
+
+\transclude{integral-linea-compleja-longitud}
+
+
+
+\transclude[teo]{teo-cauchy-goursat}
+
+\transclude[teo]{teo-formula-integral-cauchy-derivadas}
+
+\transclude[teo]{teo-ceros-aislados}
+\vspace{0.3em}
+
+\begin{cor}\label{cor:fn-holomorfa-compacto-imp-finitud-ceros}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $K \subset \Omega$ un \exhyperref[defn:compacidad]{compacidad}{compacto} y sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ no identicamente nula. Entonces, $f$ tiene un número finito de ceros en $K$.
+\end{cor}
+\begin{dem}
+    Supongamos por contradicción que existe una sucesión $\left(z_n\right)_{n \in \N} \subset K$ tal que $\forall n \neq m : z_n \neq z_m \we f(z_n) = 0$. Como $K$ es compacto, $\exists \left(z_{n_k}\right)_{k \in \N} \subset \left(z_n\right)_{n \in \N}$ tal que $z_{n_k} \xrightarrow{k \to \infty} z_0 \in K$. Entonces, por el \exhyperref[teo:ceros-aislados]{teo-ceros-aislados}{principio de los ceros aislados}, $f \equiv 0$ en $\Omega$. Contradicción.
+\end{dem}
+
+\begin{cor}[Principio de identidad]\label{cor:principio-identidad}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, sean $f, g \in \mathcal{H}(\Omega)$ y $\left(a_n\right)_{n\in\N} \subset \Omega$ tales que $a_n \xrightarrow{n\to\infty} a \in \Omega \we \forall n \in \N : f(a_n) = g(a_n)$
+    \[
+    \implies f \equiv g \tex{ en } \Omega.
+    \]
+\end{cor}
+
+\transclude[teo]{teo-modulo-maximo}
+
+\transclude[cor]{cor-modulo-maximo}
+
+\transclude{prop-modulo-constante-imp-constante}
+
+\transclude{orden-cero-fn-holomorfa}
+
+\transclude{valencia-fn-holomorfa}
+
+\transclude{singularidad-aislada}
+
+\transclude{singularidad-evitable}
+
+\transclude{polo}
+
+\transclude{singularidad-esencial}
+
+\transclude{teo-singularidad-evitable-riemann}
+
+\transclude{fn-meromorfa}
 
 \chapter{Ejercicios}
 
@@ -137,3 +202,58 @@ También podemos expresar las derivadas parciales habituales en términos de las
     \vspace{-\belowdisplayskip}
     \hfill \qedsymbol
 \end{sol}
+
+\section{Ejercicios del capítulo 2}
+
+\begin{ejer}
+    Demuestra que la métrica de Poincaré $\wp$ satisface que
+    \[
+    \forall z, w \in \mathbb{D} : \wp(z, w) = 2 \tanh^{-1} \abs{\frac{z - w}{1 - \overline{w}z}}.
+    \]
+\end{ejer}
+\begin{sol}
+    Recordemos la definición de la tangente hiperbólica:
+    \[
+    \tanh(z) = \frac{\sinh(x)}{\cosh(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \frac{e^{2x} - 1}{e^{2x} + 1}.
+    \]
+    Entonces, despejando, tenemos que $e^{2x} \left(1 - \tanh(x)\right) = 1 + \tanh(x)$, luego
+    \[
+    e^{2x} = \frac{1 + \tanh(x)}{1 - \tanh(x)} \implies \tanh^{-1}(y) = \frac{1}{2} \, \log \frac{1 + y}{1 - y}.
+    \]
+    En particular, para $y = \varrho (z, w)$ con $z, w \in \mathbb{D}$, tenemos que
+    \[
+    \tanh^{-1} \left(\varrho(z, w)\right) = \frac{1}{2} \, \log \frac{1 + \varrho(z, w)}{1 - \varrho(z, w)} = \frac{1}{2} \, \wp(z, w)
+    \]
+    por definición de la métrica de Poincaré. Por tanto, como $\varrho(z, w) = \abs{\frac{z - w}{1 - \overline{w} z}}$, se tiene que
+    \[
+    \implies \wp(z, w) = 2 \, \tanh^{-1} \left(\varrho(z, w)\right) = 2 \, \tanh^{-1} \abs{\frac{z - w}{1 - \overline{w} z}}.
+    \]
+
+    \vspace{-\baselineskip}
+    \vspace{-\belowdisplayskip}
+    \hfill\qedsymbol
+\end{sol}
+
+\begin{ejer}
+    Sea $f \colon \Omega_1 \to \Omega_2$ una aplicación holomorfa entre dos dominios $\Omega_1, \Omega_2 \subset \C$ dotados de densidades métricas $\mu_1, \mu_2$ respectivamente. Demuestra que
+    \[
+    f \tex{ es una isometría entre } (\Omega_1, d_{\mu_1}) \tex{ y } (\Omega_2, d_{\mu_2}) \iff \forall z \in \Omega_1 : (f^* \mu_2)(z) = \mu_1(z).
+    \]
+\end{ejer}
+% \begin{sol}
+%     Veamos ambas implicaciones por separado:
+%     \begin{itemize}
+%         \item[$\boxed{\Rightarrow}$]
+%         \item[$\boxed{\Leftarrow}$] 
+%     \end{itemize}
+% \end{sol}
+%DEMOSTRACIÓN
+
+\begin{ejer}%EJERCICIO 
+    Demuestra que la curvatura de la métrica esférica es constante e igual a $+1$.
+\end{ejer}
+% \begin{sol}
+
+% \end{sol}
+
+%COMPLETAR mirar Geometry: Euclid and Beyond.

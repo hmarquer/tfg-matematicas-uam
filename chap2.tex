@@ -1,8 +1,8 @@
 \chapter{Geometría hiperbólica}\label{chap2}
 
-\begin{defn}[Invariancia conforme]\label{defn:fn-invariante-conforme}
-    Sea $F \colon \mathbb{D}^n \to \R$ una aplicación, diremos que $F$ es \emph{invariante conforme} si satisface que $\forall f \in \mathrm{Aut}(\mathbb{D}) : \forall z_1, \ldots, z_n \in \mathbb{D} : F(f(z_1), \ldots, f(z_n)) = F(z_1, \ldots, z_n)$.
-\end{defn}
+% \begin{defn}[Invariancia conforme]\label{defn:fn-invariante-conforme}
+%     Sea $F \colon \mathbb{D}^n \to \R$ una aplicación, diremos que $F$ es \emph{invariante conforme} si satisface que $\forall f \in \mathrm{Aut}(\mathbb{D}) : \forall z_1, \ldots, z_n \in \mathbb{D} : F(f(z_1), \ldots, f(z_n)) = F(z_1, \ldots, z_n)$.
+% \end{defn}
 
 \section{Métrica pseudohiperbólica}
 
@@ -22,8 +22,7 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
 \begin{dem}
     Por definición, $B_{\varrho}(z, r) = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_z}^{-1}(D(0, r)) = \tau_z(D(0, r))$ (\excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}). Como $\tau_z$ es una \exhyperref[defn:transformacion-mobius]{transformacion-mobius}{transformación de Möbius}, por el \excref[teo:transformacion-mobius-circunferencias-generalizadas]{transformacion-mobius-circunferencias-generalizadas}, $B_{\varrho}(z, r)$ es un disco euclídeo. Es decir, $\exists w \in \mathbb{D}, s > 0 : B_{\varrho}(z, r) = \tau_{z}(D(0, r)) = D(w, s)$.
 
-    Como el diámetro del disco unidad $\gamma \defeq \left\{t \, z/\abs{z} : t  \in (-1,1)\right\} \subset \mathbb{D}$ se mantiene invariante por $\tau_z$ %ORDENAR: referenciar
-    y es una recta perpendicular a $\partial D(0, r)$, $\tau_z(\gamma) = \gamma$ es también perpendicular a $\tau_z(\partial D(0, r)) = \partial D(w, s)$ (ya que $\tau_z$ es conforme). Por tanto, $w \in \gamma$ estará en el punto medio entre $w_m = \tau_z\left(r \, z/\abs{z}\right)$ y $w_M = \tau_z\left(-r \, z/\abs{z}\right)$, es decir, $w = \frac{1}{2}(w_m + w_M)$. Operando, obtenemos que
+    Como el diámetro del disco unidad $\gamma \defeq \left\{t \, z/\abs{z} : t  \in (-1,1)\right\} \subset \mathbb{D}$ se mantiene invariante por $\tau_z$ y es una recta perpendicular a $\partial D(0, r)$, $\tau_z(\gamma) = \gamma$ es también perpendicular a $\tau_z(\partial D(0, r)) = \partial D(w, s)$ (ya que $\tau_z$ es conforme). Por tanto, $w \in \gamma$ estará en el punto medio entre $w_m = \tau_z\left(r \, z/\abs{z}\right)$ y $w_M = \tau_z\left(-r \, z/\abs{z}\right)$, es decir, $w = \frac{1}{2}(w_m + w_M)$. Operando, obtenemos que
     \[
     w_m = \tau_z\left(r \, \frac{z}{\abs{z}}\right) = \frac{z - r \, \frac{z}{\abs{z}}}{1 - \bar{z} r \, \frac{z}{\abs{z}}} = \frac{z (1 - r/\abs{z})}{1 - r \abs{z}} \cdot \frac{\abs{z}}{\abs{z}} = \frac{\abs{z} - r}{1 - r \abs{z}} \cdot \frac{z}{\abs{z}} = \tau_{\abs{z}}\left(r\right) \cdot \frac{z}{\abs{z}}. 
     \]
@@ -188,7 +187,7 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
 
 
 % \begin{obs}\label{obs:schur-contraccion-metrica-pseudohiperbolica}
-%     Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$, entonces, por el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick}, tenemos que
+%     Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$, entonces, por el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick}, tenemos que
 %     \[
 %     \forall z, w \in \mathbb{D} : \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(f(z), f(w)) = \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}} \leq \abs{\frac{z - w}{1 - \overline{w} z}} = \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w).
 %     \]  
@@ -358,7 +357,7 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
 \end{dem}
 
 \begin{obs}
-    Al igual que ocurría con la métrica pseudohiperbólica, los automorfismos del disco unidad son isometrías para la métrica de Poincaré y podemos reescribir el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick} de la siguiente forma: Sea $f \in \mathcal{S}$, entonces
+    Al igual que ocurría con la métrica pseudohiperbólica, los automorfismos del disco unidad son isometrías para la métrica de Poincaré y podemos reescribir el \hyperref[teo:schwarz-pick]{Teorema de Schwarz-Pick} de la siguiente forma: Sea $f \in \mathscr{S}$, entonces
     \[
     \Big(\forall z, w \in \mathbb{D} : \wp(f(z), f(w)) \leq \wp(z, w)\Big) \we \Big(\wp(f(z), f(w)) = \wp(z, w) \iff f \in \mathrm{Aut} \left(\mathbb{D}\right)\Big). 
     \]
@@ -471,9 +470,7 @@ Para probarlo, partiremos de la definición de longitud hiperbólica de un camin
 % \end{obs}
 
 \begin{teo}\label{teo:camino-minimo-poincare}
-    Sean $z_1, z_2 \in \mathbb{D}$ distintos, entonces $\forall t \in [0,1] : \Gamma(t) =  \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_2) \, t)$ define el único camino (salvo reparametrización) entre $z_1$ y $z_2$ de \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{longitud hiperbólica} mínima.
-    
-    Además, $\ell(\Gamma) = \wp(z_1, z_2)$.
+    Sean $z_1, z_2 \in \mathbb{D}$ distintos, entonces $\forall t \in [0,1] : \Gamma(t) =  \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_2) \, t)$ define el único camino (salvo reparametrización) entre $z_1$ y $z_2$ de \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{longitud hiperbólica} mínima. Además, $\ell(\Gamma) = \wp(z_1, z_2)$.
 \end{teo}
 \begin{dem}
     Por la \excref[prop:aut-disco-unidad-traslada-z1-0-z2-01]{prop-aut-disco-unidad-traslada-z1-0-z2-01}, $f = \rho_\gamma \circ \tau_{z_1}$ con $\gamma = \sfrac{\abs{\tau_{z_1}(z_2)}}{\tau_{z_1}(z_2)} \in \mathbb{D}$ es  un automorfismo del disco unidad que lleva $z_1$ a $0$ y $z_2$ a $\abs{\tau_{z_1}(z_2)}$.
@@ -509,63 +506,63 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     \]
 \end{defn}
 
-\begin{figure}[ht]
-    \centering
-    \begin{tikzpicture}[scale=2]
-        % Circunferencia soporte ortogonal al borde del disco
-        \def\Rgeo{1.2738}
-        \coordinate (C) at (1.6,0.25);
-        \coordinate (A) at (0.489,0.873);
-        \coordinate (B) at (0.731,-0.682);
-
-        % Dos puntos interiores sobre la geodesica
-        \coordinate (ZOne) at (0.355,0.515);
-        \coordinate (ZTwo) at (0.445,-0.288);
-
-        % Borde del disco unidad
-        \draw (0,0) circle [radius=1];
-
-        % Centro de la circunferencia unidad
-        \fill (0,0) circle (0.015) node[below left] {$0$};
-
-        % Circunferencia euclidea soporte (discontinua)
-        \draw[dashed] (C) circle [radius=\Rgeo];
-
-        % Arco interior (recta hiperbólica)
-        \draw[very thick] (A) arc[start angle=150.8, end angle=227.0, radius=\Rgeo];
-
-        % Segmento hiperbólico entre z1 y z2 (subarco de la geodésica)
-        \draw[ultra thick, gray!70] (ZOne) arc[start angle=168, end angle=205, radius=\Rgeo];
-
-        % Centro de la circunferencia soporte
-        \fill (C) circle (0.015) node[right] {$c$};
-
-        % Puntos z1 y z2 en la recta hiperbólica
-        \fill (ZOne) circle (0.02) node[above left] {$z_1$};
-        \fill (ZTwo) circle (0.02) node[below left] {$z_2$};
-
-        % Puntos de interseccion ortogonal con la frontera
-        \fill (A) circle (0.015);
-        \fill (B) circle (0.015);
-
-        % Marcas de angulo recto en las intersecciones (ortogonalidad)
-        \path (A) ++(60.7:0.08) coordinate (Aone);
-        \path (A) ++(-29.2:0.08) coordinate (Atwo);
-        \path (Aone) ++(-29.2:0.08) coordinate (Acorner);
-        \draw[thick] (Aone) -- (Acorner) -- (Atwo);
-
-        \path (B) ++(137.0:0.08) coordinate (Bone);
-        \path (B) ++(47.0:0.08) coordinate (Btwo);
-        \path (Bone) ++(47.0:0.08) coordinate (Bcorner);
-        \draw[thick] (Bone) -- (Bcorner) -- (Btwo);
-    \end{tikzpicture}
-    \caption{Recta hiperbólica que pasa por $z_1$ y $z_2$.}
-    \label{fig:recta-hiperbolica-disco}
-\end{figure}
-
 \begin{obs}
     Como podemos ver en la \autoref{fig:recta-hiperbolica-disco}, las rectas hiperbólicas en el disco aparecen como arcos de circunferencia que cortan ortogonalmente a $\mathbb{T}$.
     
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[scale=2]
+            % Circunferencia soporte ortogonal al borde del disco
+            \def\Rgeo{1.2738}
+            \coordinate (C) at (1.6,0.25);
+            \coordinate (A) at (0.489,0.873);
+            \coordinate (B) at (0.731,-0.682);
+
+            % Dos puntos interiores sobre la geodesica
+            \coordinate (ZOne) at (0.355,0.515);
+            \coordinate (ZTwo) at (0.445,-0.288);
+
+            % Borde del disco unidad
+            \draw (0,0) circle [radius=1];
+
+            % Centro de la circunferencia unidad
+            \fill (0,0) circle (0.015) node[below left] {$0$};
+
+            % Circunferencia euclidea soporte (discontinua)
+            \draw[dashed] (C) circle [radius=\Rgeo];
+
+            % Arco interior (recta hiperbólica)
+            \draw[very thick] (A) arc[start angle=150.8, end angle=227.0, radius=\Rgeo];
+
+            % Segmento hiperbólico entre z1 y z2 (subarco de la geodésica)
+            \draw[ultra thick, gray!70] (ZOne) arc[start angle=168, end angle=205, radius=\Rgeo];
+
+            % Centro de la circunferencia soporte
+            \fill (C) circle (0.015) node[right] {$c$};
+
+            % Puntos z1 y z2 en la recta hiperbólica
+            \fill (ZOne) circle (0.02) node[above left] {$z_1$};
+            \fill (ZTwo) circle (0.02) node[below left] {$z_2$};
+
+            % Puntos de interseccion ortogonal con la frontera
+            \fill (A) circle (0.015);
+            \fill (B) circle (0.015);
+
+            % Marcas de angulo recto en las intersecciones (ortogonalidad)
+            \path (A) ++(60.7:0.08) coordinate (Aone);
+            \path (A) ++(-29.2:0.08) coordinate (Atwo);
+            \path (Aone) ++(-29.2:0.08) coordinate (Acorner);
+            \draw[thick] (Aone) -- (Acorner) -- (Atwo);
+
+            \path (B) ++(137.0:0.08) coordinate (Bone);
+            \path (B) ++(47.0:0.08) coordinate (Btwo);
+            \path (Bone) ++(47.0:0.08) coordinate (Bcorner);
+            \draw[thick] (Bone) -- (Bcorner) -- (Btwo);
+        \end{tikzpicture}
+        \caption{Recta hiperbólica que pasa por $z_1$ y $z_2$.}
+        \label{fig:recta-hiperbolica-disco}
+    \end{figure}
+
     Esto se debe a que, como $\{\tau_{z_1}(z_2)\,t:t\in\R\}$ es una recta euclídea que pasa por el origen, corta ortogonalmente a $\mathbb{T}$. Entonces, al aplicar $\tau_{z_1}$, que es una transformación de Möbius (por tanto manda circunferencias generalizadas en circunferencias generalizadas) y además es conforme, su imagen sigue siendo una circunferencia generalizada ortogonal a $\mathbb{T}$.
 \end{obs}
 
@@ -601,7 +598,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
 
 % También podemos permitir que $\mu$ tenga singularidades aisladas en puntos de $\Omega$, es decir, que $\mu$ tome el valor infinito en dichos puntos, siempre que exista un camino entre dos puntos cualesquiera de $\Omega$ que evite esas singularidades y tenga longitud finita.
 
-\subsection{Densidad métrica inducida por una aplicación holomorfa}
+% \subsection{Densidad métrica inducida por una aplicación holomorfa}
 
 \begin{defn}[Densidad métrica inducida]\label{defn:densidad-metrica-inducida-fn-holomorfa}
     Sea $\mu \colon \Omega \subset \C \to (0, \infty)$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} en un \exhyperref[defn:dominio]{dominio}{dominio} $\Omega$ y sea $f \colon \Omega_1 \subset \C \to \Omega$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} en el \exhyperref[defn:dominio]{dominio}{dominio} $\Omega_1$, llamamos \emph{densidad métrica inducida por $f$ y $\mu$ en $\Omega_1$} a la aplicación $f^* \mu \colon \Omega_1 \to (0, \infty)$ dada por
@@ -627,7 +624,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     \]
     Por tanto, $d_{\mu}(f(z), f(w)) \leq d_{\mu}(z, w)$, es decir, $f$ es una contracción respecto a $d_{\mu}$.
     
-    % En particular, para la métrica de Poincaré en el disco unidad, la densidad métrica es $\mu(z) = \frac{2}{1 - \abs{z}^2}$ (por el \excref[teo:camino-minimo-poincare]{teo-camino-minimo-poincare}). Entonces, si $f \in \mathcal{S}$, por el \hyperref[teo:schwarz-pick]{teorema de Schwarz-Pick}, se tiene que
+    % En particular, para la métrica de Poincaré en el disco unidad, la densidad métrica es $\mu(z) = \frac{2}{1 - \abs{z}^2}$ (por el \excref[teo:camino-minimo-poincare]{teo-camino-minimo-poincare}). Entonces, si $f \in \mathscr{S}$, por el \hyperref[teo:schwarz-pick]{teorema de Schwarz-Pick}, se tiene que
     % \[
     % \forall z \in \mathbb{D} : (f^* \mu)(z) = \frac{2}{1 - \abs{f(z)}^2} \, \abs{f'(z)} \leq \frac{2}{1 - \abs{z}^2} = \mu(z).
     % \]
@@ -770,70 +767,13 @@ tenemos que los espacios métricos $(\mathbb{D}, \wp)$ y $(\mathbb{H}, d_{\mu_{\
     Dado que las rectas hiperbólicas en el disco unidad son arcos de circunferencia ortogonales a $\mathbb{T}$ y $\varphi$ es una transformación de Möbius (manda circunferencias generalizadas en circunferencias generalizadas y preserva ángulos), las rectas hiperbólicas en el semiplano superior son imágenes mediante $\varphi^{-1}$ de dichos arcos, es decir, son semicircunferencias ortogonales a la recta real y rectas perpendiculares a la recta real puesto que $\varphi(\mathbb{T}) = \R \cup \{\infty\}$.
 \end{obs}
 
-\section{Métrica esférica en el plano complejo extendido}
+% \section{Métrica esférica en el plano complejo extendido}
 
-La métrica esférica en el plano complejo extendido $\widehat{\C} = \C \cup \{\infty\}$ se define mediante la densidad métrica $\mu_{\mathrm{esf}} \colon \widehat{\C} \to (0, \infty)$ dada por
-\[
-\forall z \in \C : \mu_{\mathrm{esf}}(z) = \frac{2}{1 + \abs{z}^2} \quad\we \quad \mu_{\mathrm{esf}}(\infty) = 0.
-\]
-Esta densidad métrica es la pullback de la métrica estándar en la esfera unidad mediante la proyección estereográfica $\pi \colon \widehat{\C} \to S^2$ dada por
-\[
-\forall z \in \C : \pi(z) = \left(\frac{2 \Re(z)}{1 + \abs{z}^2}, \frac{2 \Im(z)}{1 + \abs{z}^2}, \frac{\abs{z}^2 - 1}{1 + \abs{z}^2}\right) \quad\we\quad \pi(\infty) = (0, 0, 1).
-\]
-
-\section{Ejercicios}
-
-\begin{ejer}
-    Demuestra que la métrica de Poincaré $\wp$ satisface que
-    \[
-    \forall z, w \in \mathbb{D} : \wp(z, w) = 2 \tanh^{-1} \abs{\frac{z - w}{1 - \overline{w}z}}.
-    \]
-\end{ejer}
-\begin{sol}
-    Recordemos la definición de la tangente hiperbólica:
-    \[
-    \tanh(z) = \frac{\sinh(x)}{\cosh(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \frac{e^{2x} - 1}{e^{2x} + 1}.
-    \]
-    Entonces, despejando, tenemos que $e^{2x} \left(1 - \tanh(x)\right) = 1 + \tanh(x)$, luego
-    \[
-    e^{2x} = \frac{1 + \tanh(x)}{1 - \tanh(x)} \implies \tanh^{-1}(y) = \frac{1}{2} \, \log \frac{1 + y}{1 - y}.
-    \]
-    En particular, para $y = \varrho (z, w)$ con $z, w \in \mathbb{D}$, tenemos que
-    \[
-    \tanh^{-1} \left(\varrho(z, w)\right) = \frac{1}{2} \, \log \frac{1 + \varrho(z, w)}{1 - \varrho(z, w)} = \frac{1}{2} \, \wp(z, w)
-    \]
-    por definición de la métrica de Poincaré. Por tanto, como $\varrho(z, w) = \abs{\frac{z - w}{1 - \overline{w} z}}$, se tiene que
-    \[
-    \implies \wp(z, w) = 2 \, \tanh^{-1} \left(\varrho(z, w)\right) = 2 \, \tanh^{-1} \abs{\frac{z - w}{1 - \overline{w} z}}.
-    \]
-
-    \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}
-    \hfill\qedsymbol
-\end{sol}
-
-\begin{ejer}
-    Sea $f \colon \Omega_1 \to \Omega_2$ una aplicación holomorfa entre dos dominios $\Omega_1, \Omega_2 \subset \C$ dotados de densidades métricas $\mu_1, \mu_2$ respectivamente. Demuestra que
-    \[
-    f \tex{ es una isometría entre } (\Omega_1, d_{\mu_1}) \tex{ y } (\Omega_2, d_{\mu_2}) \iff \forall z \in \Omega_1 : (f^* \mu_2)(z) = \mu_1(z).
-    \]
-\end{ejer}
-% \begin{sol}
-%     Veamos ambas implicaciones por separado:
-%     \begin{itemize}
-%         \item[$\boxed{\Rightarrow}$]
-%         \item[$\boxed{\Leftarrow}$] 
-%     \end{itemize}
-% \end{sol}
-%DEMOSTRACIÓN
-
-\begin{ejer}%EJERCICIO 
-    Demuestra que la curvatura de la métrica esférica es constante e igual a $+1$.
-\end{ejer}
-% \begin{sol}
-
-% \end{sol}
-
-%COMPLETAR mirar Geometry: Euclid and Beyond.
-
-% 3.1 y 3.2 para el jueves 20 de noviembre
+% La métrica esférica en el plano complejo extendido $\widehat{\C} = \C \cup \{\infty\}$ se define mediante la densidad métrica $\mu_{\mathrm{esf}} \colon \widehat{\C} \to (0, \infty)$ dada por
+% \[
+% \forall z \in \C : \mu_{\mathrm{esf}}(z) = \frac{2}{1 + \abs{z}^2} \quad\we \quad \mu_{\mathrm{esf}}(\infty) = 0.
+% \]
+% Esta densidad métrica es la pullback de la métrica estándar en la esfera unidad mediante la proyección estereográfica $\pi \colon \widehat{\C} \to S^2$ dada por
+% \[
+% \forall z \in \C : \pi(z) = \left(\frac{2 \Re(z)}{1 + \abs{z}^2}, \frac{2 \Im(z)}{1 + \abs{z}^2}, \frac{\abs{z}^2 - 1}{1 + \abs{z}^2}\right) \quad\we\quad \pi(\infty) = (0, 0, 1).
+% \]

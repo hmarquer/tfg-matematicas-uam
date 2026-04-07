@@ -1,11 +1,11 @@
 \chapter{Geometría de la clase de Schur}\label{chap1}
 
 \begin{defn}\label{defn:clase-schur}
-    Definimos la \textit{clase de Schur} como $\mathcal{S} \defeq \left\{ f \colon \mathbb{D}  \longrightarrow \bar{\mathbb{D}} : f \tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}} \right\}$.
+    Definimos la \textit{clase de Schur} como $\mathscr{S} \defeq \left\{ f \colon \mathbb{D}  \longrightarrow \bar{\mathbb{D}} : f \tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}} \right\}$.
 \end{defn}
 
 \begin{lem}[de Schwarz]\label{lem:schwarz}
-    Sea $f \in \mathcal{S}$ tal que $f(0) = 0$, entonces
+    Sea $f \in \mathscr{S}$ tal que $f(0) = 0$, entonces
     \begin{enu}[2][label=\textnormal{(\arabic*)}, ref=\textnormal{(\arabic*)}]
         \item\label{lem:schwarz:1} $\forall z \in \mathbb{D} : \abs{f(z)} \leq \abs{z}$.
         \item\label{lem:schwarz:2} $\abs{f\exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{'}(0)} \leq 1$.
@@ -28,16 +28,12 @@
     \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{$\mathrm{Aut} \left(\mathbb{D} \right)$} es un \exhyperref[defn:grupo]{grupo}{grupo} bajo la composición de funciones.
 \end{lem}
 \begin{dem}
-    Comprobamos las propiedades de la definición de grupo:
-    \begin{enumerate}[label=(\roman*)]
+    % Comprobamos las propiedades de la definición de grupo:
+    \begin{enumerate}[label=(\roman*), wide, labelindent=0pt]
         \item Asociatividad: $\forall f, g, h \in \mathrm{Aut} \left(\mathbb{D} \right) : (f \circ g) \circ h = f \circ (g \circ h)$.
         \item Elemento neutro: $\operatorname{id} \in \mathrm{Aut} \left(\mathbb{D} \right)$ cumple que $\forall f \in \mathrm{Aut} \left(\mathbb{D} \right) : f \circ \operatorname{id} = f = \operatorname{id} \circ f$.
-        \item Elemento inverso: $\forall f \in \mathrm{Aut} \left(\mathbb{D} \right) : f^{-1}$ satisface $f \circ f^{-1} = \operatorname{id} = f^{-1} \circ f$. Veamos que $f^{-1} \in \mathrm{Aut} \left(\mathbb{D} \right)$. Como $f$ es biyectiva, $f^{-1}$ es (localmente) inyectiva y al aplicar el \excref[lem:localmente-inyectiva-implica-inversa-no-nula]{lem-localmente-inyectiva-implica-inversa-no-nula}, obtenemos que $\forall w \in \mathbb{D} : (f^{-1})'(w) \neq 0$. Entonces, por el \exhyperref[teo:fn-inversa-holomorfas]{teo-fn-inversa-holomorfas}{teorema de la función inversa}, $f^{-1} \in \mathcal{H}(\mathbb{D})$, luego $f^{-1} \in \mathrm{Aut} \left(\mathbb{D} \right)$ ya que $f^{-1}$ es biyectiva.
+        \item Elemento inverso: $\forall f \in \mathrm{Aut} \left(\mathbb{D} \right) : f^{-1}$ satisface $f \circ f^{-1} = \operatorname{id} = f^{-1} \circ f$. Veamos que $f^{-1} \in \mathrm{Aut} \left(\mathbb{D} \right)$. Como $f$ es biyectiva, $f^{-1}$ es (localmente) inyectiva y al aplicar el \excref[lem:localmente-inyectiva-implica-inversa-no-nula]{lem-localmente-inyectiva-implica-inversa-no-nula}, obtenemos que $\forall w \in \mathbb{D} : (f^{-1})'(w) \neq 0$. Entonces, por el \exhyperref[teo:fn-inversa-holomorfas]{teo-fn-inversa-holomorfas}{teorema de la función inversa}, $f^{-1} \in \mathcal{H}(\mathbb{D})$, luego $f^{-1} \in \mathrm{Aut} \left(\mathbb{D} \right)$ ya que $f^{-1}$ es biyectiva.\hfill\qedsymbol
     \end{enumerate}
-
-    \vspace{-\baselineskip}
-    % \vspace{-\belowdisplayskip}
-    \hfill\qedsymbol
 \end{dem}
 
 \subsection{Involuciones del disco unidad}
@@ -56,7 +52,7 @@
     \end{enu}
 \end{lem}
 \begin{dem}
-    \begin{enumerate}[label=\textnormal{(\arabic*)}]
+    \begin{enumerate}[label=\textnormal{(\arabic*)}, wide, labelindent=0pt]
         \item Usaremos que $\abs{z_1 + z_2}^2 = \abs{z_1}^2 + 2\, \Re\left(\bar{z_1} z_2\right) + \abs{z_2}^2$ para todo $z_1, z_2 \in \C$. Sea $z \in \C$, entonces $\abs{\tau_w(z)} < 1$ si y solo si
         \[
         \begin{aligned}
@@ -228,10 +224,12 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
     Finalmente, tenemos que $\ds \gamma_2 \cdot \tau_{\bar{a_1} a_2 \bar{\gamma_2}}(1) = \gamma_2 \cdot \frac{\bar{a_1} a_2 \bar{\gamma_2} - 1}{1 - a_1 \bar{a_2} \gamma_2} = \frac{\bar{a_1} a_2 - \gamma_2}{1 - a_1 \bar{a_2} \gamma_2} = \tau_{\bar{a_1} a_2}(\gamma_2)$ y se sigue el resultado deseado.\hfill\qedsymbol
 \end{dem}
 
+{\color{red}Incluir estudio de $\mathrm{Aut}(\mathbb{D})$ como subgrupo de las aplicaciones de Möbius isomorfo a $\operatorname{PSL}_2(\mathbb{R})$.}
+
 \section{Teorema de Schwarz-Pick}
 
 \begin{teo}[Schwarz-Pick]\label{teo:schwarz-pick}
-    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$, entonces
+    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$, entonces
     \begin{enumerate}[label=\textnormal{(\arabic*)}]
         \item\label{teo:schwarz-pick:eq1} $\ds \forall w, z \in \mathbb{D} : \abs{\frac{f(w) - f(z)}{1 - \overline{f(w)} f(z)}} \leq \abs{\frac{w - z}{1 - \bar{w} z}}$
         \hspace{2em}\inlineitem\label{teo:schwarz-pick:eq2} $\ds \forall z \in \mathbb{D} : \abs{f'(z)} \leq \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2}$
@@ -269,7 +267,7 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
     \end{aligned}
     \]
 
-    \begin{itemize}[wide]
+    \begin{itemize}[wide, labelindent=0pt]
         \item[$\text{\ref{teo:schwarz-pick:i}} \!\Rightarrow \!\text{\ref{teo:schwarz-pick:v}}$:] Si para $z \neq w$ hay igualdad en \ref{teo:schwarz-pick:eq1}, entonces $\tau_{w}(z) \neq 0$, luego hay igualdad en el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} aplicado a $g_w$ para un punto no nulo y, por tanto, $g_w$ es una rotación. Así, $f = \tau_{f(w)} \circ g_w \circ \tau_{w} \in \mathrm{Aut}\left(\mathbb{D}\right)$.
 
         \item[$\text{\ref{teo:schwarz-pick:iii}} \!\Rightarrow \!\text{\ref{teo:schwarz-pick:v}}$:] Si hay igualdad en \ref{teo:schwarz-pick:eq2} para $w \in \mathbb{D}$, por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} aplicado a $g_w$, tenemos que $\abs{g_w'(0)} = 1$ implica que $g_w$ es una rotación, de donde $f \in \mathrm{Aut}\left(\mathbb{D}\right)$.
@@ -293,14 +291,14 @@ El siguiente teorema nos da una caracterización completa de los automorfismos d
     \end{enumerate}
 \end{cor}
 \begin{dem}
-    Basta con aplicar el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} a $f = \tau_w \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$.\hfill\qedsymbol
+    Basta con aplicar el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} a $f = \tau_w \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$.\hfill\qedsymbol
 \end{dem}
 
 \subsection{Un problema extremal}
 
 El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} nos permite resolver problemas extremales relacionados con la clase de Schur fácilmente. Veamos un ejemplo concreto.
 
-Sean $\alpha, \beta \in \mathbb{D}$, definimos $\mathcal{A}_{\alpha, \beta} \defeq \{ f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}} : f(\alpha) = \beta \}$. Observamos que, como $f = \tau_\beta \circ \tau_\alpha \in \mathcal{H}\left(\mathbb{D} \right)$ cumple que $f(\alpha) = \tau_\beta(0) = \beta$, entonces $\mathcal{A}_{\alpha, \beta} \neq \varnothing$. Calculemos
+Sean $\alpha, \beta \in \mathbb{D}$, definimos $\mathcal{A}_{\alpha, \beta} \defeq \{ f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}} : f(\alpha) = \beta \}$. Observamos que, como $f = \tau_\beta \circ \tau_\alpha \in \mathcal{H}\left(\mathbb{D} \right)$ cumple que $f(\alpha) = \tau_\beta(0) = \beta$, entonces $\mathcal{A}_{\alpha, \beta} \neq \varnothing$. Calculemos
 \[
 M = \sup_{f \in \mathcal{A}_{\alpha, \beta}} \abs{f'(\alpha)}.
 \]

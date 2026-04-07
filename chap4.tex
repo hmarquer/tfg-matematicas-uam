@@ -42,7 +42,7 @@
 %     Es trivial.
 % \end{dem}
 
-\section{Aproxiomación de funciones en $\mathcal{S}$}
+\section{Aproximación de funciones en $\mathscr{S}$}
 
 \begin{prop}\label{prop:convergencia-uniforme-continuidad-uniforme}
     Sean $X, Y$ \exhyperref[defn:esp-metrico]{esp-metrico}{espacios métricos}, $f \colon X \to Y$ y sea $\left(f_n\right)_{n \in \N}$ una sucesión de funciones $f_n \colon X \to Y$ \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continuas} que \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{converge uniformemente} a $f$
@@ -62,10 +62,10 @@
 \end{dem}
 
 \begin{obs}
-    Si $f \in \mathcal{S}$ es límite uniforme en $\mathbb{D}$ de productos finitos de Blaschke, entonces cada aproximante es holomorfo, está acotado por $1$ y es unimodular en $\mathbb{T}$. La convergencia uniforme asegura que $f$ se prolonga de forma continua y única a $\overline{\mathbb{D}}$ y que la restricción a $\mathbb{T}$ sigue siendo unimodular. Por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-prod-finito-blaschke-algebra-disco}, $f$ debe ser un producto finito de Blaschke. En particular, los productos finitos de Blaschke forman un subconjunto de $\mathcal{S}$ cerrado para la norma $\norm{\cdot}_\infty$.
+    Si $f \in \mathscr{S}$ es límite uniforme en $\mathbb{D}$ de productos finitos de Blaschke, entonces cada aproximante es holomorfo, está acotado por $1$ y es unimodular en $\mathbb{T}$. La convergencia uniforme asegura que $f$ se prolonga de forma continua y única a $\overline{\mathbb{D}}$ y que la restricción a $\mathbb{T}$ sigue siendo unimodular. Por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-prod-finito-blaschke-algebra-disco}, $f$ debe ser un producto finito de Blaschke. En particular, los productos finitos de Blaschke forman un subconjunto de $\mathscr{S}$ cerrado para la norma $\norm{\cdot}_\infty$.
 \end{obs}
 
-\begin{ejem}[de función en $\mathcal{S}$ sin extensión continua a $\bar{\mathbb{D}}$]
+\begin{ejem}[de función en $\mathscr{S}$ sin extensión continua a $\bar{\mathbb{D}}$]
     Consideramos
     \[
     \forall z \in \mathbb{D} : f(z) = \exp \left(- \frac{1 + z}{1 - z} \right).
@@ -78,7 +78,7 @@
     \[
     \frac{1 + z}{1 - z} = \frac{(1+x+iy)(1-x+iy)}{(1-x)^2 + y^2} = \frac{(1-x^2-y^2) + 2iy}{(1-x)^2 + y^2}.
     \]
-    Por lo tanto, $\Re \left( \frac{1 + z}{1 - z} \right) = \frac{1 - x^2 - y^2}{(1-x)^2 + y^2} > 0$, ya que el numerador es positivo (pues $x^2 + y^2 < 1$) y el denominador es positivo. Así, $\abs{f(z)} < 1$ para todo $z \in \mathbb{D}$, lo que demuestra que $f \in \mathcal{S}$.
+    Por lo tanto, $\Re \left( \frac{1 + z}{1 - z} \right) = \frac{1 - x^2 - y^2}{(1-x)^2 + y^2} > 0$, ya que el numerador es positivo (pues $x^2 + y^2 < 1$) y el denominador es positivo. Así, $\abs{f(z)} < 1$ para todo $z \in \mathbb{D}$, lo que demuestra que $f \in \mathscr{S}$.
 
     Sin embargo, $f$ no se puede prolongar de forma continua a $\bar{\mathbb{D}}$. Para verlo, consideramos dos caminos que tienden a $1$:
     \begin{itemize}
@@ -88,19 +88,19 @@
     Como los límites difieren, $f$ no se puede prolongar de forma continua a $\bar{\mathbb{D}}$.
 \end{ejem}
 
-Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos aproximar cualquier función en $\mathcal{S}$ por productos finitos de Blaschke.
+Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos aproximar cualquier función en $\mathscr{S}$ por productos finitos de Blaschke.
 
 \begin{lem}\label{lem:aprox-clase-schur-prod-finito-blaschke-orden-cero}
-    $\forall n \in \N, f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}} : \exists B_n$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $: \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{\operatorname{ord}}(f - B_n, 0) \geq n$.
+    $\forall n \in \N, f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}} : \exists B_n$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $: \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{\operatorname{ord}}(f - B_n, 0) \geq n$.
 \end{lem}
 \begin{dem}
-    Lo probaremos por inducción en $n$. Para $n = 1$ y $f \in \mathcal{S}$ arbitraria, basta tomar $B_1(z) = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{c_0}}(z)$, ya que entonces $(f - B_1)(0) = f(0) - \tau_{c_0}(0) = c_0 - c_0 = 0$.
+    Lo probaremos por inducción en $n$. Para $n = 1$ y $f \in \mathscr{S}$ arbitraria, basta tomar $B_1(z) = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{c_0}}(z)$, ya que entonces $(f - B_1)(0) = f(0) - \tau_{c_0}(0) = c_0 - c_0 = 0$.
 
-    Sea $n \in \N$, supongamos que $\forall f \in \mathcal{S} : \exists B_n$ producto finito de Blaschke $ : \operatorname{ord}(f - B_n, 0) \geq n$. Sea $f \in \mathcal{S}$. Definimos $g \colon \mathbb{D} \to \C$ mediante
+    Sea $n \in \N$, supongamos que $\forall f \in \mathscr{S} : \exists B_n$ producto finito de Blaschke $ : \operatorname{ord}(f - B_n, 0) \geq n$. Sea $f \in \mathscr{S}$. Definimos $g \colon \mathbb{D} \to \C$ mediante
     \[
     \forall z \in \mathbb{D} \setminus \{0\} : g(z) = \frac{\tau_{c_0}(f(z))}{z}.
     \]
-    Por un lado, como $\tau_{c_0} (f(0)) = \tau_{c_0}(c_0) = 0$, $g$ se puede prolongar de forma holomorfa a todo $\mathbb{D}$. Por otro lado, como $f \in \mathcal{S}$ y $\tau_{c_0} \in \mathrm{Aut} (\mathbb{D})$, se tiene que $\tau_{c_0} \circ f \in \mathcal{S}$ y, como además $\tau_{c_0} (f(0)) = 0$, el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} nos garantiza que $\forall z \in \mathbb{D} : \abs{\tau_{c_0} (f(z))} \leq \abs{z}$. En consecuencia, $\forall z \in \mathbb{D} : \abs{g(z)} \leq 1$, es decir, $g \in \mathcal{S}$.
+    Por un lado, como $\tau_{c_0} (f(0)) = \tau_{c_0}(c_0) = 0$, $g$ se puede prolongar de forma holomorfa a todo $\mathbb{D}$. Por otro lado, como $f \in \mathscr{S}$ y $\tau_{c_0} \in \mathrm{Aut} (\mathbb{D})$, se tiene que $\tau_{c_0} \circ f \in \mathscr{S}$ y, como además $\tau_{c_0} (f(0)) = 0$, el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} nos garantiza que $\forall z \in \mathbb{D} : \abs{\tau_{c_0} (f(z))} \leq \abs{z}$. En consecuencia, $\forall z \in \mathbb{D} : \abs{g(z)} \leq 1$, es decir, $g \in \mathscr{S}$.
 
     %COMPLETAR para ver que $K \in H^\infty$ hay que separar el dominio $\mathbb{D}$ en dos partes, una cerca de $0$ y otra lejos de $0$ 
     Por la hipótesis de inducción, $\exists B_n$ producto finito de Blaschke $ : \operatorname{ord}(g - B_n, 0) \geq n$. Es decir, $\exists K \in H^\infty \left(\mathbb{D}\right) : \forall z \in \mathbb{D} : g(z) - B_n(z) = z^n K(z)$. 
@@ -120,7 +120,7 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
 \end{dem}
 
 \begin{teo}[Carathéodory]\label{teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}
-    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$. Entonces, $\exists \left(B_n\right)_{n \in \mathbb{N}}$ una sucesión de productos \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{finitos de Blaschke} tal que $\forall K \exhyperref[defn:compacidad]{compacidad}{\Subset} \mathbb{D} : B_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{K}} f$. 
+    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$. Entonces, $\exists \left(B_n\right)_{n \in \mathbb{N}}$ una sucesión de productos \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{finitos de Blaschke} tal que $\forall K \exhyperref[defn:compacidad]{compacidad}{\Subset} \mathbb{D} : B_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{K}} f$. 
 \end{teo}
 \begin{dem}
     Por el \excref[lem:aprox-clase-schur-prod-finito-blaschke-orden-cero]{lem-aprox-clase-schur-prod-finito-blaschke-orden-cero}, sabemos que $\forall n \in \N : \exists B_n$ producto finito de Blaschke tal que $\operatorname{ord}(f - B_n, 0) \geq n$. Es decir, $\exists g_n \in H^\infty : \forall z \in \mathbb{D} : f(z) - B_n(z) = z^{n-1} g_n(z) \we g_n(0) = 0$.
@@ -130,9 +130,9 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
     %REVISAR: esto está mal, tomar sucesión maximizante 
     \norm{g_n}_{\infty} = \sup_{z \in \mathbb{D}} \abs{g_n(z)} = \sup_{z \in \mathbb{T}} \abs{g_n(z)} = \sup_{z \in \mathbb{T}} \abs{z^{n-1} g_n(z)} = \sup_{z \in \mathbb{D}} \abs{z^{n-1} g_n(z)} = \norm{z^{n-1} g_n}_{\infty}.
     \]
-    Por otro lado, $\norm{f - B_n}_{\infty} = \sup_{z \in \mathbb{D}} \abs{f(z) - B_n(z)} \leq \sup_{z \in \mathbb{D}} \abs{f(z)} + \sup_{z \in \mathbb{D}} \abs{B_n(z)} \leq 2$, ya que $f, B_n \in \mathcal{S}$. Por lo tanto, $\norm{g_n}_{\infty} = \norm{z^{n-1} g_n}_{\infty} = \norm{f - B_n}_{\infty} \leq 2$.
+    Por otro lado, $\norm{f - B_n}_{\infty} = \sup_{z \in \mathbb{D}} \abs{f(z) - B_n(z)} \leq \sup_{z \in \mathbb{D}} \abs{f(z)} + \sup_{z \in \mathbb{D}} \abs{B_n(z)} \leq 2$, ya que $f, B_n \in \mathscr{S}$. Por lo tanto, $\norm{g_n}_{\infty} = \norm{z^{n-1} g_n}_{\infty} = \norm{f - B_n}_{\infty} \leq 2$.
 
-    Entonces, $h_n \defeq \sfrac{g_n}{2} \in \mathcal{S}$ y $h(0) = 0$, luego, por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz}, $\forall z \in \mathbb{D} : \abs{h_n(z)} \leq \abs{z}$. En consecuencia, $\forall z \in \mathbb{D} : \abs{f(z) - B_n (z)} = \abs{z^{n-1} g_n(z)} = 2 \abs{z^{n-1} h_n(z)} \leq 2 \abs{z}^n$.
+    Entonces, $h_n \defeq \sfrac{g_n}{2} \in \mathscr{S}$ y $h(0) = 0$, luego, por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz}, $\forall z \in \mathbb{D} : \abs{h_n(z)} \leq \abs{z}$. En consecuencia, $\forall z \in \mathbb{D} : \abs{f(z) - B_n (z)} = \abs{z^{n-1} g_n(z)} = 2 \abs{z^{n-1} h_n(z)} \leq 2 \abs{z}^n$.
 
     Por tanto, para $K \subset \mathbb{D}$ compacto, existe $r \in (0, 1)$ tal que $\forall z \in K : \abs{z} \leq r$. Así, $\sup_{z \in K} \abs{f(z) - B_n(z)} \leq 2 r^n \xrightarrow[n \to \infty]{} 0$, i.e. $B_n \xrightrightarrows[n \to \infty]{K} f$.\hfill\qedsymbol
 \end{dem}
@@ -216,7 +216,7 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
 \begin{dem}
     Sea $\varepsilon > 0$. Como $f \in \mathcal{C} \left(\bar{\mathbb{D}}\right)$ y $\bar{\mathbb{D}}$ es compacto, $f$ es uniformemente continua en $\overline{\mathbb{D}}$. Por lo tanto, $\exists t \in [0, 1) : \norm{f_t(z) - f(z)}_{\infty} < \sfrac{\varepsilon}{2}$ donde $f_t(z) \defeq f(tz)$.
 
-    Ahora bien, como $f \in \mathcal{S}$, por el \excref[teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos]{teo-caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}, $\exists B$ producto finito de Blaschke tal que $\sup_{z \in \overline{t\mathbb{D}}} \abs{f(z) - B(z)} < \sfrac{\varepsilon}{2}$. Como además se cumple que
+    Ahora bien, como $f \in \mathscr{S}$, por el \excref[teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos]{teo-caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}, $\exists B$ producto finito de Blaschke tal que $\sup_{z \in \overline{t\mathbb{D}}} \abs{f(z) - B(z)} < \sfrac{\varepsilon}{2}$. Como además se cumple que
     \[
     \norm{f_t - B_t}_{\infty} = \sup_{z \in \mathbb{D}} \abs{f(tz) - B(tz)} = \sup_{w \in t\mathbb{D}} \abs{f(w) - B(w)} < \frac{\varepsilon}{2},
     \]

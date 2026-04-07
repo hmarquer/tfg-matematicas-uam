@@ -24,7 +24,7 @@
 \end{obs}
 
 \begin{obs}\label{obs:prod-finito-blaschke-clase-schur}
-    Por ser un producto de \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad}, un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $B$ pertenece a la \exhyperref[defn:clase-schur]{clase-schur}{clase de Schur}, $\mathcal{S}$, y satisface
+    Por ser un producto de \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad}, un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $B$ pertenece a la \exhyperref[defn:clase-schur]{clase-schur}{clase de Schur}, $\mathscr{S}$, y satisface
     \begin{enu}[1][label=(\arabic*), ref=\arabic*]
         \item $\forall z \in \mathbb{D} : \abs{B(z)} < 1$,
         \inlineitem $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$,
@@ -105,7 +105,7 @@
 \end{dem}
 
 \begin{teo}\label{teo:unicidad-prod-finitos-blaschke}
-    Para $B_1$ y $B_2$ productos finitos de Blaschke mónicos de grado $n$,
+    Para $B_1$ y $B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke mónicos de grado $n$},
     \[
     \Big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \tex{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\Big) \implies B_1 = B_2 \tex{ en } \mathbb{D}.
     \]
@@ -120,7 +120,8 @@
     Por el \excref[lem:prod-finitos-blaschke-igualdad-n-puntos]{lem-prod-finitos-blaschke-igualdad-n-puntos}, $\exists \xi \in \mathbb{T} : R(\xi) = 1$. Por tanto, tenemos al menos $2n + 1$ puntos distintos en los que $R$ toma el valor $1$. Como $R$ es una función racional de grado a lo sumo $2n$, concluimos que $R \equiv 1$ en $\widehat{\mathbb{C}}$, es decir, $B_1 \equiv B_2$ en $\mathbb{D}$. 
 \end{dem}
 
-\begin{ejem}[de necesidad de ser mónicos en el {\excref[teo:unicidad-prod-finitos-blaschke]{teo-unicidad-prod-finitos-blaschke}}]\mbox{}\\
+\begin{ejem}[de necesidad de ser mónicos en el {\excref[teo:unicidad-prod-finitos-blaschke]{teo-unicidad-prod-finitos-blaschke}}]\mbox{}
+
     Sean $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D} \setminus \{0\}$ distintos, definimos:
     \[
     B_1(z) = i \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} \quad \we \quad B_2(z) = \frac{iz_n - z}{1 + i \bar{z_n} z} \cdot \prod_{k=1}^{n-1} \frac{z_k - z}{1 - \overline{z_k} z}.
@@ -138,8 +139,8 @@
 
 \section{Productos de Blaschke como funciones racionales}
 
-%REVISAR
-Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen factores comunes salvo unidades (polinomios constantes).
+%ORDENAR: esto lo he quitado porque creo que ni se usa
+% Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen factores comunes salvo unidades (polinomios constantes).
 
 % \begin{defn}[Función racional]\label{defn:fn-racional}
 %     %COMPLETAR (meter luego en el anexo)
@@ -164,23 +165,23 @@ Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen
 \begin{lem}\label{lem:polinomio-conjugado-reverso}
     Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$. Entonces:
     \begin{enumerate}[label=\textnormal{(\arabic*)}]
-        \item $\deg{P^{\#_n}} \leq n$ y la igualdad se cumple si y sólo si $P(0) \neq 0$.
-        \item $\left(P^{\#_n}\right)^{\#_n} = P$.
-        \item $\forall z \in \C \setminus \{0\} : \big(P(z) = 0 \iff P^{\#_n} \left(\sfrac{1}{\bar{z}}\right) = 0\big)$.
+        \item $\deg{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}} \leq n$ y la igualdad se cumple si y sólo si $P(0) \neq 0$.
+        \item $\left(P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}\right)^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} = P$.
+        \item $\forall z \in \C \setminus \{0\} : \big(P(z) = 0 \iff P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} \left(\sfrac{1}{\bar{z}}\right) = 0\big)$.
     \end{enumerate}
 \end{lem}%DEMOSTRACIÓN
 
 \begin{prop}\label{prop:conjugado-reverso-producto}
     Sean $P, Q \in \C[z]$ tales que $\deg P \leq n, \deg Q \leq m$. Entonces,
     \[
-    \left(P \cdot Q\right)^{\#_{n+m}} = P^{\#_n} \cdot Q^{\#_m}.
+    \left(P \cdot Q\right)^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_{n+m}}} = P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} \cdot Q^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_m}}.
     \]
 \end{prop}%DEMOSTRACIÓN
 
 \begin{teo}\label{teo:carac-prod-finito-blaschke-fn-racional}
-    Sea $f$ una función racional de grado $n >0$, entonces $f$ es un producto finito de Blaschke si y sólo si
+    Sea $f$ una función racional de grado $n >0$, entonces $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} si y sólo si
     \[
-    \exists P \in \C[z] \tex{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\#_n}}.
+    \exists P \in \C[z] \tex{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}.
     \]
 \end{teo}
 \begin{dem}
@@ -219,8 +220,8 @@ Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen
     Sea $f$ una función racional de grado $n$, entonces
     \[
     \begin{aligned}
-        \exists B_1, B_2 \tex{ productos finitos de Blaschke} &: f = \frac{B_1}{B_2}\\
-        &\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\iff \exists P \in \C[z] : \big(\forall z \in \mathbb{T} : P(z) \neq 0\big) : f = \frac{P}{P^{\#_n}}. %REVISAR: ¿$P$ es de grado n?
+        \exists B_1, B_2 \tex{ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}} &: f = \frac{B_1}{B_2}\\
+        &\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\iff \exists P \in \C[z] : \big(\forall z \in \mathbb{T} : P(z) \neq 0\big) : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}. %REVISAR: ¿$P$ es de grado n?
     \end{aligned}
     \]
     Además, en tal caso, $\deg B_1 + \deg B_2 \leq n$ y $\deg P = n$.
@@ -359,78 +360,80 @@ Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen
 \end{dem}
 
 %REVISAR: de cosecha propia.
-\begin{cor}\label{cor:n-valencia-prod-finito-blaschke-circunferencia}
-    Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n$ es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\mathbb{T}$.
-\end{cor}
-\begin{dem}
-    Sea $\gamma \in \mathbb{T}$. Como $B$ es racional de grado $n$, la ecuación $B(z)=\gamma$ tiene exactamente $n$ soluciones en $\widehat{\mathbb{C}}$ (contando multiplicidades).
+% \begin{cor}\label{cor:n-valencia-prod-finito-blaschke-circunferencia}
+%     Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n$ es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\mathbb{T}$.
+% \end{cor}
+% \begin{dem}
+%     Sea $\gamma \in \mathbb{T}$. Como $B$ es racional de grado $n$, la ecuación $B(z)=\gamma$ tiene exactamente $n$ soluciones en $\widehat{\mathbb{C}}$ (contando multiplicidades).
 
-    Por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur}, si $z \in \mathbb{D}$ entonces $\abs{B(z)}<1$, y si $z \in \widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$ entonces $\abs{B(z)}>1$. Luego, para $\gamma \in \mathbb{T}$, no hay soluciones de $B(z)=\gamma$ ni en $\mathbb{D}$ ni en $\widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$.
+%     Por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur}, si $z \in \mathbb{D}$ entonces $\abs{B(z)}<1$, y si $z \in \widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$ entonces $\abs{B(z)}>1$. Luego, para $\gamma \in \mathbb{T}$, no hay soluciones de $B(z)=\gamma$ ni en $\mathbb{D}$ ni en $\widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$.
 
-    En consecuencia, las $n$ soluciones de $B(z)=\gamma$ pertenecen a $\mathbb{T}$, es decir, $B$ es $n$-valente en $\mathbb{T}$.\hfill\qedsymbol
-\end{dem}
+%     En consecuencia, las $n$ soluciones de $B(z)=\gamma$ pertenecen a $\mathbb{T}$, es decir, $B$ es $n$-valente en $\mathbb{T}$.\hfill\qedsymbol
+% \end{dem}
 
 \section{Álgebra del disco}
 
 \begin{defn}[Álgebra del disco unidad]\label{defn:algebra-disco-unidad}
-    $\mathscr{A}(\mathbb{D}) = \left\{f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\mathbb{D}) \cap \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}}\left(\exhyperref[defn:clausura]{clausura}{\bar{\mathbb{D}}}\right) \right\}$.
+    El conjunto de funciones holomorfas en $\mathbb{D}$ que se extienden de forma continua a $\bar{\mathbb{D}}$ es un álgebra con la suma y el producto de funciones y el producto por escalares. Lo llamamos \emph{álgebra del disco unidad} y se denota por $\mathscr{A}(\mathbb{D})$.
 \end{defn}
 
-\begin{ejems}[de funciones en el álgebra del disco]
-    \begin{enumerate}
-        \item Todo producto finito de Blaschke pertenece al álgebra del disco.
-        \item Cualquier función racional sin polos en $\bar{\mathbb{D}}$ pertenece al álgebra del disco.
-        \item La función dada por $z \mapsto \sum_{n=0}^\infty \sfrac{z^n}{n^2}$ pertenece al álgebra del disco.
-    \end{enumerate}
-\end{ejems}
+Por ejemplo, todo producto finito de Blaschke pertenece al álgebra del disco. De hecho, cualquier función racional sin polos en $\bar{\mathbb{D}}$ pertenece a $\mathscr{A}(\mathbb{D})$. 
 
-\subsection{Productos finitos de Blaschke como funciones del álgebra del disco}
+\begin{ejem}
+    Consideramos $f$ dada por $f(z) = \sqrt{1-z}$ para $z \in \mathbb{D}$. Entonces, tomando la rama principal de la raíz cuadrada, vemos que $f$ es holomorfa en $\mathbb{D}$. Observamos que $f$ se extiende de forma continua a $\bar{\mathbb{D}} \setminus \{1\}$ directamente.
 
-\begin{cor}\label{cor:fn-holomorfa-compacto-imp-finitud-ceros}
-    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $K \subset \Omega$ un \exhyperref[defn:compacidad]{compacidad}{compacto} y sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ no identicamente nula. Entonces, $f$ tiene un número finito de ceros en $K$.
-\end{cor}
-\begin{dem}
-    Supongamos por contradicción que existe una sucesión $\left(z_n\right)_{n \in \N} \subset K$ tal que $\forall n \neq m : z_n \neq z_m \we f(z_n) = 0$. Como $K$ es compacto, $\exists \left(z_{n_k}\right)_{k \in \N} \subset \left(z_n\right)_{n \in \N}$ tal que $z_{n_k} \xrightarrow{k \to \infty} z_0 \in K$. Entonces, por el \exhyperref[teo:ceros-aislados]{teo-ceros-aislados}{principio de los ceros aislados}, $f \equiv 0$ en $\Omega$. $\contr$
-\end{dem}%ORDENAR: meterlo al anexo
+    Para estudiar el límite en $1$, escribimos $z = re^{it}$ con $0 \leq r < 1$. Si $z \to 1$ dentro de $\bar{\mathbb{D}}$, entonces $r \to 1$ y $t \to 0$ (m\'odulo $2\pi$). Como
+    \[
+    \abs{1-z}^2 = \abs{1-re^{it}}^2 = 1+r^2-2r\cos t \longrightarrow 0,
+    \]
+    tenemos que $\abs{\sqrt{1-z}} = \sqrt{\abs{1-z}} \to 0$. Definiendo $f(1)=0$, obtenemos una extensión continua a $\bar{\mathbb{D}}$, es decir, $f \in \mathscr{A}(\mathbb{D})$.
+\end{ejem}
+
+% \begin{ejems}[de funciones en el álgebra del disco]
+%     \begin{enumerate}
+%         \item Todo producto finito de Blaschke pertenece al álgebra del disco.
+%         \item Cualquier función racional sin polos en $\bar{\mathbb{D}}$ pertenece al álgebra del disco.
+%         \item La función dada por $z \mapsto \sum_{n=0}^\infty \sfrac{z^n}{n^2}$ pertenece al álgebra del disco.
+%     \end{enumerate}
+% \end{ejems}
+
+% \subsection{Productos de Blaschke como funciones del álgebra del disco}
 
 \begin{teo}[Fatou]\label{teo:fatou-carac-prod-finito-blaschke-algebra-disco}
     Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\mathbb{D}\right)$ tal que $\exhyperref[defn:convergencia]{convergencia}{\lim_{\abs{z} \to 1^-}} \abs{f(z)} = 1$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke}.
 \end{teo}
 \begin{dem}
-    Como $\abs{f(z)} \xrightarrow{\abs{z} \to 1^-} 1$, tenemos que $\forall \varepsilon > 0 : \exists \delta \in (0, 1) : \forall z \in \mathbb{D} : \left(1 - \delta < \abs{z} \implies \abs{\abs{f(z)} - 1} < \varepsilon\right)$. En particular, tomando $\varepsilon < 1$, tenemos que $\exists r \in (0, 1) : \forall z \in \mathbb{D} : \left(r < \abs{z} \implies \abs{f(z)} > 0\right)$, i.e. $f$ no se anula en $\left\{z \in \mathbb{D} : r < \abs{z} < 1\right\}$.
-
-    Entonces, $f$ tiene todos sus ceros en el compacto $\bar{\mathbb{D}}_r = \left\{z \in \C : \abs{z} \leq r\right\}$, luego por el \excref[cor:fn-holomorfa-compacto-imp-finitud-ceros]{cor-fn-holomorfa-compacto-imp-finitud-ceros}, $f$ tiene un número finito de ceros en $\mathbb{D}$. 
+    Como $\abs{f(z)} \xrightarrow{\abs{z} \to 1^-} 1$, tenemos que
+    \[
+    \forall \varepsilon > 0 : \exists \delta \in (0, 1) : \forall z \in \mathbb{D} : \left(1 - \delta < \abs{z} \implies \abs{\abs{f(z)} - 1} < \varepsilon\right).
+    \]
+    En particular, tomando $\varepsilon < 1$, $\exists r \in (0, 1) : \forall z \in \mathbb{D} : \left(r < \abs{z} \implies \abs{f(z)} > 0\right)$, i.e. $f$ no se anula en $\left\{z \in \mathbb{D} : r < \abs{z} < 1\right\}$. Entonces, $f$ tiene todos sus ceros en el compacto $\bar{D(0, r)} = \left\{z \in \C : \abs{z} \leq r\right\}$, luego por el \excref[cor:fn-holomorfa-compacto-imp-finitud-ceros]{cor-fn-holomorfa-compacto-imp-finitud-ceros}, $f$ tiene un número finito de ceros en $\mathbb{D}$.
     
-    %DEMOSTRACIÓN terminarla
+    Sea $B$ el producto finito de Blaschke con los mismos ceros que $f$ (contando multiplicidades). Entonces, $\sfrac{f}{B}$ y $\sfrac{B}{f}$ son holomorfas en $\mathbb{D}$ y satisfacen que
+    \[
+    \lim_{\abs{z} \to 1^-} \abs{\frac{f(z)}{B(z)}} = \lim_{\abs{z} \to 1^-} \abs{\frac{B(z)}{f(z)}} = 1.
+    \]
+    Por el principio del módulo máximo, $\forall z \in \mathbb{D} : \abs{\sfrac{f(z)}{B(z)}}, \abs{\sfrac{B(z)}{f(z)}} \leq 1$, luego $\abs{\sfrac{f}{B}}$ es constante igual a $1$. Por la \excref[prop:modulo-constante-imp-constante]{prop-modulo-constante-imp-constante}, $\exists \gamma \in \mathbb{T} : f = \gamma B$, es decir, $f$ es un producto finito de Blaschke.\hfill\qedsymbol
 \end{dem}
 
 \begin{cor}\label{cor:carac-prod-finito-blaschke-algebra-disco}
-    Si $f \in \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{\mathscr{A}(\mathbb{D})}$ y $f(\mathbb{T}) \subseteq \mathbb{T}$, entonces $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke}.
+    Si $f \in \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{\mathscr{A}(\mathbb{D})}$ y $f(\mathbb{T}) \subseteq \mathbb{T}$, entonces $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto de Blaschke}.
 \end{cor}
 \begin{dem}
-    Por hipótesis, $\abs{f(\zeta)} = 1 $ para todo $\zeta \in \mathbb{T}$. Como $f$ es continua en $\overline{\mathbb{D}}$, para todo $z \in \mathbb{D}$ con $\abs{z}$ suficientemente cercano a 1, tenemos que $\abs{f(z)}$ está cercano a 1. Por tanto, $\abs{f(z)} \to 1$ cuando $\abs{z} \to 1^-$. Aplicamos el teorema anterior.
-\end{dem}%COMPLETAR: mirar el teorema de Cantor
-
-Compacidad implica que existe una subsucesión convergente, por eso hay un número finito de polos % Mirar foto del día 11/12/2025
-
-
-
-\begin{ejer}
-    ¿Está la función $f(z) = \sqrt{1-z}$ definida en el disco unidad en el álgebra del disco? Es decir, ¿$\exists \lim_{\substack{z \to 1 \\ z \in \bar{\mathbb{D}}}} \sqrt{1-z}$?
-\end{ejer}
-\begin{sol}
-    Veamos que sí. Tomamos la rama principal de la raíz cuadrada, es decir, la que tiene corte de rama en $(-\infty, 0]$ y envía $z$ al único $w$ tal que $w^2 = z$ y $\Re z \geq 0$. Entonces,
+    Por hipótesis, $\abs{f(\zeta)} = 1 $ para todo $\zeta \in \mathbb{T}$. Como $f$ es continua en el compacto $\overline{\mathbb{D}}$, $f$ es uniformemente continua en $\overline{\mathbb{D}}$. Entonces, dado $\varepsilon > 0$, existe $\eta > 0$ tal que $\forall z,w \in \overline{\mathbb{D}}:\ \abs{z-w}<\eta \implies \abs{f(z)-f(w)}<\varepsilon$.
+    Si $z \in \mathbb{D}$ y $1-\eta < \abs{z} < 1$, tomando $\zeta = z/\abs{z} \in \mathbb{T}$ se tiene $\abs{z-\zeta}=1-\abs{z}<\eta$, luego
     \[
-    f(z) = \sqrt{1-z} \implies f \colon \underbrace{\mathbb{D} \setminus [1, \infty)}_{\mathbb{D}} \to \left\{w \in \C : \Re w \geq 0\right\}.
+    \abs{\abs{f(z)}-1}=\abs{\abs{f(z)}-\abs{f(\zeta)}}\leq \abs{f(z)-f(\zeta)}<\varepsilon.
     \]
-    Entonces $f \in \mathcal{H} \left(\mathbb{D}\right)$. Veamos que $\exists \lim_{\substack{z \to 1 \\ z \in \bar{\mathbb{D}}}} \sqrt{1-z}$. Sea $\varepsilon > 0$. Tomamos $\delta = \varepsilon^2$. Entonces, si $z \in \bar{\mathbb{D}}$ y $\abs{z - 1} < \delta$, tenemos que
-    \[
-    \abs{\sqrt{1-z} - 0} = \abs{\sqrt{1-z}} = \sqrt{\abs{1-z}} < \sqrt{\delta} = \varepsilon.
-    \]
-    Por tanto, tomando $f(1) = 0$, tenemos que $f \in \mathscr{A}(\mathbb{D})$.
-\end{sol}%REVISAR con la foto del dia 11/12/2025
+    Por tanto, $\abs{f(z)} \to 1$ cuando $\abs{z} \to 1^-$ y aplicamos el \excref[teo:fatou-carac-prod-finito-blaschke-algebra-disco]{teo-fatou-carac-prod-finito-blaschke-algebra-disco}.\hfill\qedsymbol
+\end{dem}
 
-%COMPLETAR: falta un corolario
+\begin{cor}\label{cor:carac-cociente-prod-finito-blaschke-algebra-disco-meromorfa}
+    Sea $f$ una \exhyperref[defn:fn-meromorfa]{fn-meromorfa}{función meromorfa} en $\mathbb{D}$ tal que $f \in \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}} \left(\bar{\mathbb{D}}\right)$ y $f(\mathbb{T}) \subseteq \mathbb{T}$. Entonces, $f$ es el cociente de dos \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
+\end{cor}
+\begin{dem}
+    Como $f$ es continua en el compacto $\bar{\mathbb{D}}$, $f$ tiene un número finito de polos en $\mathbb{D}$. Sea $B_1$ un producto finito de Blaschke cuyos ceros coinciden con los polos de $f$ (contando multiplicidades). Entonces, $B_2 \defeq B_1 f$ es holomorfa en $\mathbb{D}$ y se extiende de forma continua a $\bar{\mathbb{D}}$. Además, $\forall \zeta \in \mathbb{T} : \abs{B_2(\zeta)} = \abs{B_1(\zeta) f(\zeta)} = 1$. Por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-carac-prod-finito-blaschke-algebra-disco}, $B_2$ es un producto finito de Blaschke. Por tanto, $f = \sfrac{B_2}{B_1}$ es el cociente de dos productos finitos de Blaschke.\hfill\qedsymbol
+\end{dem}
 
 \section{Composición de productos finitos de Blaschke}
 
@@ -444,11 +447,11 @@ Compacidad implica que existe una subsucesión convergente, por eso hay un núme
 \end{dem}
 
 \begin{obs}
-    Sea $B$ un producto finito de Blaschke de grado $n$ y $w \in \mathbb{D}$. Entonces, como $\forall \gamma \in \mathbb{T} : \rho_\gamma \circ B, B \circ \rho_\gamma$ son productos finitos de Blaschke de grado $n$, el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} y el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion} aseguran que $\forall \varphi \in \mathrm{Aut}(\mathbb{D}) : \varphi \circ B, B \circ \varphi$ son productos finitos de Blaschke de grado $n$.
+    Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$} y $w \in \mathbb{D}$. Entonces, como $\forall \gamma \in \mathbb{T} : \rho_\gamma \circ B, B \circ \rho_\gamma$ son productos finitos de Blaschke de grado $n$, el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} y el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion} aseguran que $\forall \varphi \in \mathrm{Aut}(\mathbb{D}) : \varphi \circ B, B \circ \varphi$ son \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} de grado $n$.
 \end{obs}
 
 \begin{teo}\label{teo:composicion-prod-finito-blaschke}
-    Sean $B_1, B_2$ productos finitos de Blaschke de grados $n_1$ y $n_2$ respectivamente. Entonces, $B_1 \circ B_2$ es un producto finito de Blaschke de grado $n_1 n_2$.
+    Sean $B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} de grados $n_1$ y $n_2$ respectivamente. Entonces, $B_1 \circ B_2$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n_1 n_2$.
 \end{teo}
 \begin{dem}
     Por definición, $\exists \left\{z_k\right\}_{k=1}^{n_1} \subset \mathbb{D}, \gamma \in \mathbb{T}$ tales que $B_1 = \rho_\gamma \circ \prod_{k=1}^{n_1} \tau_{z_k}$.
@@ -457,32 +460,32 @@ Compacidad implica que existe una subsucesión convergente, por eso hay un núme
 
 \section{Caracterización de los productos finitos de Blaschke en la clase de Schur}
 
-%REVISAR: este teorema es de cosecha propia, hecho por la chati
-\begin{teo}[de factorización de ceros]\label{teo:factorizacion-ceros-fn-holomorfa}
-    Sea $\Omega \subset \C$ un abierto, $f \in \mathcal{H}(\Omega)$ y $a \in \Omega$ un cero de $f$ de orden $m \geq 1$. Entonces, $\exists \delta > 0 : D(a, \delta) \subset \Omega : \exists h \in \mathcal{H}(D(a, \delta))$ que no se anula en $D(a, \delta)$ tal que $\forall z \in D(a, \delta) : f(z) = (z - a)^m \, h(z)$.
-\end{teo}
-\begin{dem}
-    Como $\operatorname{ord}\left(f, a\right) = m$, la expansión en serie de Taylor de $f$ en $a$ es
-    \[
-    f(z) = \sum_{k=m}^\infty \frac{f^{(k)}(a)}{k!} (z - a)^k = (z - a)^m \sum_{k=m}^\infty \frac{f^{(k)}(a)}{k!} (z - a)^{k-m} = (z - a)^m \sum_{j=0}^\infty \frac{f^{(j+m)}(a)}{(j+m)!} (z - a)^j.
-    \]
+%ORDENAR: este teorema es de cosecha propia, hecho por la chati
+% \begin{teo}[de factorización de ceros]\label{teo:factorizacion-ceros-fn-holomorfa}
+%     Sea $\Omega \subset \C$ un abierto, $f \in \mathcal{H}(\Omega)$ y $a \in \Omega$ un cero de $f$ de orden $m \geq 1$. Entonces, $\exists \delta > 0 : D(a, \delta) \subset \Omega : \exists h \in \mathcal{H}(D(a, \delta))$ que no se anula en $D(a, \delta)$ tal que $\forall z \in D(a, \delta) : f(z) = (z - a)^m \, h(z)$.
+% \end{teo}
+% \begin{dem}
+%     Como $\operatorname{ord}\left(f, a\right) = m$, la expansión en serie de Taylor de $f$ en $a$ es
+%     \[
+%     f(z) = \sum_{k=m}^\infty \frac{f^{(k)}(a)}{k!} (z - a)^k = (z - a)^m \sum_{k=m}^\infty \frac{f^{(k)}(a)}{k!} (z - a)^{k-m} = (z - a)^m \sum_{j=0}^\infty \frac{f^{(j+m)}(a)}{(j+m)!} (z - a)^j.
+%     \]
     
-    Definimos $h(z) = \sum_{j=0}^\infty \frac{f^{(j+m)}(a)}{(j+m)!} (z - a)^j$. Entonces, $h \in \mathcal{H}(D(a, r))$ donde $r$ es el radio de convergencia de la serie de Taylor de $f$ en $a$. Además,
-    \[
-    h(a) = \frac{f^{(m)}(a)}{m!} \neq 0.
-    \]
+%     Definimos $h(z) = \sum_{j=0}^\infty \frac{f^{(j+m)}(a)}{(j+m)!} (z - a)^j$. Entonces, $h \in \mathcal{H}(D(a, r))$ donde $r$ es el radio de convergencia de la serie de Taylor de $f$ en $a$. Además,
+%     \[
+%     h(a) = \frac{f^{(m)}(a)}{m!} \neq 0.
+%     \]
     
-    Como $h$ es continua y $h(a) \neq 0$, existe $\delta > 0$ tal que $D(a, \delta) \subset D(a, r)$ y $\forall z \in D(a, \delta) : h(z) \neq 0$. Por tanto, $\forall z \in D(a, \delta) : f(z) = (z - a)^m h(z)$ donde $h$ no se anula en $D(a, \delta)$.
+%     Como $h$ es continua y $h(a) \neq 0$, existe $\delta > 0$ tal que $D(a, \delta) \subset D(a, r)$ y $\forall z \in D(a, \delta) : h(z) \neq 0$. Por tanto, $\forall z \in D(a, \delta) : f(z) = (z - a)^m h(z)$ donde $h$ no se anula en $D(a, \delta)$.
     
-    Para la segunda parte, como $h$ es holomorfa y no se anula en $D(a, \delta)$, podemos reducir $\delta$ si es necesario para asegurar que $D(a, \delta)$ es simplemente conexo (lo cual ya se cumple por ser un disco) y que $h(D(a, \delta))$ está contenido en un dominio simplemente conexo que no contiene al origen. Por tanto, existe una rama holomorfa del logaritmo $\log h$ en $D(a, \delta)$.
+%     Para la segunda parte, como $h$ es holomorfa y no se anula en $D(a, \delta)$, podemos reducir $\delta$ si es necesario para asegurar que $D(a, \delta)$ es simplemente conexo (lo cual ya se cumple por ser un disco) y que $h(D(a, \delta))$ está contenido en un dominio simplemente conexo que no contiene al origen. Por tanto, existe una rama holomorfa del logaritmo $\log h$ en $D(a, \delta)$.
     
-    Definimos $g(z) = \exp\left(\frac{\log h(z)}{m}\right)$. Entonces, $g \in \mathcal{H}(D(a, \delta))$ y $\forall z \in D(a, \delta) : \big(g(z)\big)^m = \exp(\log h(z)) = h(z)$. Además, como $h$ no se anula en $D(a, \delta)$, también $g$ no se anula en $D(a, \delta)$.
+%     Definimos $g(z) = \exp\left(\frac{\log h(z)}{m}\right)$. Entonces, $g \in \mathcal{H}(D(a, \delta))$ y $\forall z \in D(a, \delta) : \big(g(z)\big)^m = \exp(\log h(z)) = h(z)$. Además, como $h$ no se anula en $D(a, \delta)$, también $g$ no se anula en $D(a, \delta)$.
     
-    Por tanto, $\forall z \in D(a, \delta) : f(z) = (z - a)^m h(z) = (z - a)^m \big(g(z)\big)^m = \Big((z - a) \cdot g(z)\Big)^m$.
-\end{dem}
+%     Por tanto, $\forall z \in D(a, \delta) : f(z) = (z - a)^m h(z) = (z - a)^m \big(g(z)\big)^m = \Big((z - a) \cdot g(z)\Big)^m$.
+% \end{dem}
 
 \begin{teo}%[]\label{teo:}
-    Sea $f \in \mathcal{S}$ una función $n$-valente en $\mathbb{D}$. Entonces, $f$ es un producto finito de Blaschke de grado $n$.
+    Sea $f \in \mathscr{S}$ una \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{función $n$-valente} en $\mathbb{D}$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$}.
 \end{teo}
 \begin{dem}%REVISAR esta DEMOSTRACIÓN
     Por el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco}, basta ver que $\lim_{\abs{z} \to 1^-} \abs{f(z)} = 1$. Suponemos por contradicción que $\exists \left(z_m\right)_{m\in \N} \subset \mathbb{D}$ tal que $\abs{z_m} \to 1 \we \neg \left(\abs{f(z_m)} \to 1\right)$. Entonces, existe $r \in (0, 1)$ y una subsucesión $\left(z_{m_j}\right)_{j \in \N}$ tal que $\forall k \in \N : \abs{f(z_{m_j})} \leq r$. Como $\left\{z \in \mathbb{D} : \abs{z} \leq r\right\}$ es compacto, $\exists \big(z_{m_{j_k}}\big)_{k \in \N}$ subsucesión de $\left(z_{m_j}\right)_{j \in \N}$ y $w_0 \in \mathbb{D}$ tales que $f(z_{m_{j_k}}) \xrightarrow{k \to \infty} w_0$. La denotaremos por $\left(z_k\right)_{k \in \N}$.
@@ -509,10 +512,12 @@ Compacidad implica que existe una subsucesión convergente, por eso hay un núme
     \[
     \exists k_0 \in \N : \forall k \geq k_0 : f(z_k) \in D(w_0, \varepsilon') \setminus \{w_0\} \we f(z_k) \neq w_0 \we z_k \notin \bigcup_{j=1}^r V_j.
     \]
-    Tomamos la sucesión $\left(w_k\right)_{k\in \N}$ dada por $w_k = f(z_{k_0 + k})$. Entonces, $\forall j \in \N_r : V_j$ contiene $n_j$ puntos distintos que van a $w_k$ por $f$. Por tanto, la ecuación $f(z) = w_k$ tiene al menos $n_1 + \dots + n_r + 1 = n + 1$ soluciones. $\contr$
+    Tomamos la sucesión $\left(w_k\right)_{k\in \N}$ dada por $w_k = f(z_{k_0 + k})$. Entonces, $\forall j \in \N_r : V_j$ contiene $n_j$ puntos distintos que van a $w_k$ por $f$. Por tanto, la ecuación $f(z) = w_k$ tiene al menos $n_1 + \dots + n_r + 1 = n + 1$ soluciones. Contradicción. \hfill\qedsymbol
 \end{dem}
 
 \section{Productos finitos de Blaschke en $\mathbb{H}$}
+
+{\color{red} Está sección no sé si incluirla.}
 
 %REVISAR: lo ha escrito la chati
 
