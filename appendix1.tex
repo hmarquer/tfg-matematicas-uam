@@ -103,7 +103,32 @@ También podemos expresar las derivadas parciales habituales en términos de las
 
 \transclude[teo]{teo-cauchy-goursat}
 
+\transclude[teo]{teo-formula-integral-cauchy-disco}
+
+\begin{cor}[Propiedad del valor medio para funciones holomorfas]\label{teo:valor-medio-fn-holomorfa}\mbox{}\\
+    Sea $\Omega \subset \C$ abierto, $f \in \mathcal{H}(\Omega)$, $z_0 \in \Omega$ y $r > 0$ tales que $\overline{D(z_0,r)} \subset \Omega$. Entonces,
+    \[
+    f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f\left(z_0 + re^{it}\right) \, \odif{t}.
+    \]
+\end{cor}
+\begin{dem}
+    Por la \exhyperref[teo:formula-integral-cauchy-disco]{teo-formula-integral-cauchy-disco}{fórmula integral de Cauchy para discos},
+    \[
+    f(z_0) = \frac{1}{2\pi i} \int_{\abs{\zeta-z_0}=r} \frac{f(\zeta)}{\zeta-z_0} \, \odif{\zeta}.
+    \]
+    Parametrizando $\zeta(t) = z_0 + re^{it}$, $t \in [0,2\pi]$, se tiene $\odif{\zeta} = ire^{it} \, \odif{t}$ y $\zeta-z_0 = re^{it}$:
+    \[
+    f(z_0) = \frac{1}{2\pi i} \int_0^{2\pi} \frac{f\left(z_0+re^{it}\right)}{re^{it}} \, ire^{it} \, \odif{t} = \frac{1}{2\pi} \int_0^{2\pi} f\left(z_0+re^{it}\right) \, \odif{t}.
+    \]
+
+    \vspace{-\baselineskip}
+    \vspace{-\belowdisplayskip}
+\end{dem}
+
 \transclude[teo]{teo-formula-integral-cauchy-derivadas}
+
+
+
 
 \transclude[teo]{teo-ceros-aislados}
 \vspace{0.3em}
@@ -257,3 +282,20 @@ También podemos expresar las derivadas parciales habituales en términos de las
 % \end{sol}
 
 %COMPLETAR mirar Geometry: Euclid and Beyond.
+
+
+\chapter{Convergencia y continuidad uniformes}
+
+\begin{prop}\label{prop:convergencia-uniforme-continuidad-uniforme}
+    Sean $X, Y$ \exhyperref[defn:esp-metrico]{esp-metrico}{espacios métricos}, $f \colon X \to Y$ y sea $\left(f_n\right)_{n \in \N}$ una sucesión de funciones $f_n \colon X \to Y$ \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continuas} que \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{converge uniformemente} a $f$. Entonces, $f$ es uniformemente continua.
+\end{prop}
+\begin{dem}
+    Sea $\varepsilon > 0$. Entonces, $\exists N \in \mathbb{N} : \forall x \in X : d_Y(f_N(x), f(x)) < \frac{\varepsilon}{3}$.
+
+    Por otro lado, como $f_N$ es uniformemente continua, $\exists \delta > 0 : \forall x_1, x_2 \in X : d_X(x_1, x_2) < \delta \implies d_Y(f_N(x_1), f_N(x_2)) < \frac{\varepsilon}{3}$. Por tanto, si $d_X(x_1, x_2) < \delta$, por la \exhyperref[defn:metrica:desigualdad-triangular]{metrica}{desigualdad triangular}, se tiene que
+    \begin{align*}
+        d_Y(f(x_1), f(x_2)) &\leq d_Y(f(x_1), f_N(x_1)) + d_Y(f_N(x_1), f_N(x_2)) + d_Y(f_N(x_2), f(x_2)) \\
+        &< \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon.
+    \end{align*}
+    Luego $f$ es uniformemente continua.
+\end{dem}

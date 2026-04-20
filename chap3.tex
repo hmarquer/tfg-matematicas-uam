@@ -9,6 +9,8 @@
     \]
     donde $\gamma \in \mathbb{T}$ y $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$.
     Un producto finito de Blaschke es mónico si $\gamma = 1$.
+
+    Denotaremos por $\mathscr{B}_n$ al conjunto de productos finitos de Blaschke de grado $n$ y por $\mathscr{B}$ al conjunto de productos finitos de Blaschke, es decir, $\mathscr{B} = \bigcup_{n \in \N} \mathscr{B}_n$.
 \end{defn}
 
 \begin{obs}\label{obs:producto-finito-blaschke-automorfismos-disco-unidad}
@@ -35,7 +37,7 @@
     \[
     \forall \zeta \in \mathbb{T} : \ds B(\zeta) = \frac{1}{\bar{B(\zeta)}} = \frac{1}{\bar{B \left(\sfrac{1}{\bar{\zeta}}\right)}}
     \]
-    Ahora bien, como $\sfrac{1}{\bar{B \left(\bar{z}\right)}}$ define una función meromorfa en $\widehat{\mathbb{C}}$ que coincide con $B$ en $\mathbb{T}$, el {principio de identidad} nos dice que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$. %ORDENAR: referenciar
+    Ahora bien, como $\sfrac{1}{\bar{B \left(\bar{z}\right)}}$ define una función meromorfa en $\widehat{\mathbb{C}}$ que coincide con $B$ en $\mathbb{T}$, el \exhyperref[cor:principio-identidad]{cor-principio-identidad}{principio de identidad} nos dice que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$.
 \end{obs}
 
 % \transclude{teo-reflexion-schwarz}
@@ -89,8 +91,7 @@
     \[
     \prod_{k=1}^n \frac{(z_k - z)(\bar{z} - \bar{v_k})}{(v_k - z)(\bar{z} - \bar{z_k})} = 1 \iff \prod_{k=1}^n \left(\frac{z_k - z}{v_k - z}\right) \bigg/\, \bar{\left(\frac{z_k - z}{v_k - z}\right)} = 1.
     \]
-    Ahora bien, como $\forall w \in \mathbb{C} \setminus \left\{0\right\} : \ds \sfrac{w}{\bar{w}} = e^{2i \arg(w)}$, %REVISAR: comprobar
-    basta con probar que
+    Ahora bien, como $\forall w \in \mathbb{C} \setminus \left\{0\right\} : \ds \sfrac{w}{\bar{w}} = e^{2i \arg(w)}$, basta con probar que
     \[
     \exists \xi \in \mathbb{T} : \arg \left(\prod_{k=1}^n \frac{z_k - \xi}{v_k - \xi}\right) \equiv 0 \mod \pi. 
     \]
@@ -101,7 +102,7 @@
     \[
     h(0) = \frac{1}{2\pi} \int_0^{2\pi} h\left(e^{i\theta}\right) \odif{\theta} \implies 0 = \frac{1}{2\pi} \int_0^{2\pi} h \left(e^{i\theta}\right) \odif{\theta}.
     \]
-    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\im H$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado. %REVISAR: explicar mejor porque no lo entiendo.
+    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\im H$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado.
 \end{dem}
 
 \begin{teo}\label{teo:unicidad-prod-finitos-blaschke}
@@ -139,19 +140,12 @@
 
 \section{Productos de Blaschke como funciones racionales}
 
-%ORDENAR: esto lo he quitado porque creo que ni se usa
-% Recordemos que dos polinomios $P, Q \in \C[z]$ son primos relativos si no tienen factores comunes salvo unidades (polinomios constantes).
-
-% \begin{defn}[Función racional]\label{defn:fn-racional}
-%     %COMPLETAR (meter luego en el anexo)
-% \end{defn}
-
 \begin{defn}[Polinomio conjugado reverso]\label{defn:polinomio-conjugado-reverso}
     Dado $n > 0$ y $P \in \C[z]$ tal que $\deg P \leq n$, el \emph{polinomio conjugado reverso} de $P$ respecto a $n$ se denota por $P^{\#_n}$ y se define mediante 
     \[
     \forall z \in \C : P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)}.
     \]
-    % Es decir, para $P(z) = \sum_{k=0}^n \alpha_k z^k$, tenemos que $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$.
+    Es decir, para $P(z) = \sum_{k=0}^n \alpha_k z^k$, tenemos que $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$.
 \end{defn}
 
 \begin{obs}
@@ -179,9 +173,9 @@
 \end{prop}%DEMOSTRACIÓN
 
 \begin{teo}\label{teo:carac-prod-finito-blaschke-fn-racional}
-    Sea $f$ una función racional de grado $n >0$, entonces $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} si y sólo si
+    Sea $f$ una función racional de grado $n > 0$, entonces
     \[
-    \exists P \in \C[z] \tex{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}.
+    f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}} \iff \exists P \in \C[z] \tex{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}.
     \]
 \end{teo}
 \begin{dem}
@@ -220,8 +214,7 @@
     Sea $f$ una función racional de grado $n$, entonces
     \[
     \begin{aligned}
-        \exists B_1, B_2 \tex{ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}} &: f = \frac{B_1}{B_2}\\
-        &\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\iff \exists P \in \C[z] : \big(\forall z \in \mathbb{T} : P(z) \neq 0\big) : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}. %REVISAR: ¿$P$ es de grado n?
+        \exists B_1, B_2  \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}} : f = \frac{B_1}{B_2} \iff \exists P \in \C[z] : \big(\forall z \in \mathbb{T} : P(z) \neq 0\big) : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}.
     \end{aligned}
     \]
     Además, en tal caso, $\deg B_1 + \deg B_2 \leq n$ y $\deg P = n$.
@@ -288,7 +281,7 @@
 \end{defn}
 
 \begin{lem}\label{lem:derivada-logaritmica-prod-finito-blaschke}
-    Sea $B = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}}$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke}, entonces su \exhyperref[defn:derivada-logaritmica]{derivada-logaritmica}{derivada logarítmica} viene dada por  
+    Sea $B = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}} \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$, entonces su \exhyperref[defn:derivada-logaritmica]{derivada-logaritmica}{derivada logarítmica} es
     \[
     \forall z \in \mathbb{D} : \frac{B'(z)}{B(z)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} z\right) (z_k - z)}. 
     \]
@@ -438,24 +431,24 @@ Por ejemplo, todo producto finito de Blaschke pertenece al álgebra del disco. D
 \section{Composición de productos finitos de Blaschke}
 
 \begin{lem}\label{lem:prod-finito-blaschke-composicion-involucion}
-    Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$} y $w \in \mathbb{D}$. Entonces, $\tau_w \circ B$ y $B \circ \tau_w$ son \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke de grado $n$}.
+    Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ y $w \in \mathbb{D}$. Entonces, $\tau_w \circ B, B \circ \tau_w \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$.
 \end{lem}
 \begin{dem}
     Ya sabemos que $\tau_w \circ B \in \mathcal{H}(\mathbb{D}) \cap \mathcal{C}\left(\bar{\mathbb{D}}\right)$ y que $\forall \zeta \in \mathbb{T} : \abs{\tau_w \circ B(\zeta)} = 1$. Por tanto, el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco} asegura que $\tau_w \circ B$ es un producto finito de Blaschke. Además, como $\tau_w \circ B (z) = 0 \iff B(z) = w$, por el \cref{teo:n-valencia-prod-finito-blaschke-disco-unidad}, la ecuación $\tau_w \circ B(z) = 0$ tiene exactamente $n$ soluciones en $\mathbb{D}$ (contando multiplicidades). Por tanto, $\tau_w \circ B$ es un producto finito de Blaschke de grado $n$. 
     
-    Análogamente, el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco} asegura que $B \circ \tau_w$ es un producto finito de Blaschke. Además, como $\tau_w$ es biyectiva, por el \cref{teo:n-valencia-prod-finito-blaschke-disco-unidad}, existen $n$ soluciones en $\mathbb{D}$ para la ecuación $B \circ \tau_w(z) = 0$. Por tanto, $B \circ \tau_w$ es un producto finito de Blaschke de grado $n$.
+    Análogamente, el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco} asegura que $B \circ \tau_w$ es un producto finito de Blaschke. Además, como $\tau_w$ es biyectiva, por el \cref{teo:n-valencia-prod-finito-blaschke-disco-unidad}, existen $n$ soluciones en $\mathbb{D}$ para la ecuación $B \circ \tau_w(z) = 0$. Por tanto, $B \circ \tau_w \in \mathscr{B}_n$.\hfill\qedsymbol
 \end{dem}
 
 \begin{obs}
-    Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$} y $w \in \mathbb{D}$. Entonces, como $\forall \gamma \in \mathbb{T} : \rho_\gamma \circ B, B \circ \rho_\gamma$ son productos finitos de Blaschke de grado $n$, el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} y el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion} aseguran que $\forall \varphi \in \mathrm{Aut}(\mathbb{D}) : \varphi \circ B, B \circ \varphi$ son \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} de grado $n$.
+    Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ y $w \in \mathbb{D}$. Entonces, como $\forall \gamma \in \mathbb{T} : \rho_\gamma \circ B, B \circ \rho_\gamma \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$, el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} y el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion} aseguran que $\forall \varphi \in \mathrm{Aut}(\mathbb{D}) : \varphi \circ B, B \circ \varphi \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$.
 \end{obs}
 
 \begin{teo}\label{teo:composicion-prod-finito-blaschke}
-    Sean $B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} de grados $n_1$ y $n_2$ respectivamente. Entonces, $B_1 \circ B_2$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n_1 n_2$.
+    Sean $B_1 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_{n_1}}$ y $B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_{n_2}}$. Entonces, $B_1 \circ B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_{n_1 n_2}}$.
 \end{teo}
 \begin{dem}
     Por definición, $\exists \left\{z_k\right\}_{k=1}^{n_1} \subset \mathbb{D}, \gamma \in \mathbb{T}$ tales que $B_1 = \rho_\gamma \circ \prod_{k=1}^{n_1} \tau_{z_k}$.
-    Entonces, $B_1 \circ B_2 = \rho_\gamma \circ \prod_{k=1}^{n_1} \left(\tau_{z_k} \circ B_2\right)$. Por el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion}, cada uno de los factores $\tau_{z_k} \circ B_2$ es un producto finito de Blaschke de grado $n_2$. Por tanto, $B_1 \circ B_2$ es un producto finito de Blaschke de grado $n_1 n_2$.
+    Entonces, $B_1 \circ B_2 = \rho_\gamma \circ \prod_{k=1}^{n_1} \left(\tau_{z_k} \circ B_2\right)$. Por el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion}, cada uno de los factores $\tau_{z_k} \circ B_2$ es un producto finito de Blaschke de grado $n_2$. Por tanto, $B_1 \circ B_2$ es un producto finito de Blaschke de grado $n_1 n_2$.\hfill\qedsymbol
 \end{dem}
 
 \section{Caracterización de los productos finitos de Blaschke en la clase de Schur}
@@ -485,7 +478,7 @@ Por ejemplo, todo producto finito de Blaschke pertenece al álgebra del disco. D
 % \end{dem}
 
 \begin{teo}%[]\label{teo:}
-    Sea $f \in \mathscr{S}$ una \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{función $n$-valente} en $\mathbb{D}$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$}.
+    Sea $f \in \mathscr{S}$ una \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{función $n$-valente} en $\mathbb{D}$. Entonces, $f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$.
 \end{teo}
 \begin{dem}%REVISAR esta DEMOSTRACIÓN
     Por el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco}, basta ver que $\lim_{\abs{z} \to 1^-} \abs{f(z)} = 1$. Suponemos por contradicción que $\exists \left(z_m\right)_{m\in \N} \subset \mathbb{D}$ tal que $\abs{z_m} \to 1 \we \neg \left(\abs{f(z_m)} \to 1\right)$. Entonces, existe $r \in (0, 1)$ y una subsucesión $\left(z_{m_j}\right)_{j \in \N}$ tal que $\forall k \in \N : \abs{f(z_{m_j})} \leq r$. Como $\left\{z \in \mathbb{D} : \abs{z} \leq r\right\}$ es compacto, $\exists \big(z_{m_{j_k}}\big)_{k \in \N}$ subsucesión de $\left(z_{m_j}\right)_{j \in \N}$ y $w_0 \in \mathbb{D}$ tales que $f(z_{m_{j_k}}) \xrightarrow{k \to \infty} w_0$. La denotaremos por $\left(z_k\right)_{k \in \N}$.

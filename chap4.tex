@@ -1,25 +1,13 @@
 \chapter{Aproximación por productos finitos de Blaschke}
 
-\begin{prop}\label{prop:fn-holomorfa-esencialmente-acotada-imp-acotada}
-    Sea $f \in \mathcal{H}\left(\mathbb{D}\right)$ esencialmente acotada (i.e. $f \in \mathcal{L}^{\infty} \left(\mathbb{D} \right)$). Entonces, $f$ es acotada.
+Consideramos el espacio de Hardy $H^{\infty} \left(\mathbb{D}\right) \defeq \mathcal{H} \left(\mathbb{D}\right) \cap \mathcal{L}^\infty \left(\mathbb{D}\right)$. Por la \excref[prop:fn-holomorfa-esencialmente-acotada-imp-acotada]{prop-fn-holomorfa-esencialmente-acotada-imp-acotada}, tenemos que $H^{\infty} \left(\mathbb{D}\right) = \left\{f \in \mathcal{H} \left(\mathbb{D}\right) : f \tex{ está acotada en } \mathbb{D}\right\}$.
 
-    Al conjunto de funciones holomorfas acotadas en el disco unidad lo denotamos por $H^{\infty} \left(\mathbb{D}\right)$.
-\end{prop}
-% \begin{dem}
-%     %DEMOSTRACIÓN
-% \end{dem}
-
-
-\begin{ejem}
-    Consideramos $l(z)= \frac{1+z}{1-i}$ 
-\end{ejem}
-
-\begin{obs}
+\begin{obs}\label{obs:hinfty-subespacio-vectorial-holomorfas}
     Como $\mathcal{H}\left(\mathbb{D}\right)$ es un espacio vectorial y $H^\infty$ es cerrado bajo suma y producto por escalares, $H^\infty \left(\mathbb{D}\right)$ es un subespacio vectorial de $\mathcal{H}\left(\mathbb{D}\right)$.
 \end{obs}
 
-\begin{prop}\label{prop-hinfty-esp-normado}
-    La aplicación $\norm{\cdot}_{\infty} \colon H^\infty \left(\mathbb{D}\right) \to \mathbb{R}_{\geq 0}$ dada por $\norm{f}_{\infty} = \sup_{z \in \mathbb{D}} \abs{f(z)}$ es una norma en $H^\infty \left(\mathbb{D}\right)$. Además, se tiene que $\forall f, g \in H^\infty \left(\mathbb{D}\right) : \norm{f \cdot g}_{\infty} \leq \norm{f}_{\infty} \norm{g}_{\infty}$.
+\begin{prop}\label{prop:hinfty-esp-normado}
+    La aplicación $\norm{\cdot}_{\infty} \colon H^\infty \left(\mathbb{D}\right) \to \mathbb{R}_{\geq 0}$ dada por $\norm{f}_{\infty} = \sup_{z \in \mathbb{D}} \abs{f(z)}$ es una norma en $H^\infty \left(\mathbb{D}\right)$. Además, $\forall f, g \in H^\infty \left(\mathbb{D}\right) : \norm{f \cdot g}_{\infty} \leq \norm{f}_{\infty} \norm{g}_{\infty}$.
 \end{prop}
 \begin{dem}
     Sean $f, g \in H^\infty \left(\mathbb{D}\right)$ y $\alpha \in \mathbb{C}$. Entonces,
@@ -36,33 +24,26 @@
 \end{dem}
 
 \begin{cor}
-    $H^\infty \left(\mathbb{D}\right)$ es un álgebra conmutativa con unidad respecto a la suma y el producto de funciones.
+    $H^\infty \left(\mathbb{D}\right)$ es un álgebra conmutativa con unidad.
 \end{cor}
 % \begin{dem}
-%     Es trivial.
+%     Por la observación anterior, $H^\infty \left(\mathbb{D}\right)$ es un espacio vectorial.
+
+%     Sean $f, g \in H^\infty \left(\mathbb{D}\right)$. Como $f$ y $g$ son holomorfas, $f \cdot g$ es holomorfa en $\mathbb{D}$. Además, por la \excref[prop:hinfty-esp-normado]{prop-hinfty-esp-normado}, $f \cdot g$ es acotada y, en consecuencia, $f \cdot g \in H^\infty \left(\mathbb{D}\right)$.
+
+%     La conmutatividad, asociatividad y distributividad se heredan de las operaciones puntuales en $\mathbb{C}$. Finalmente, la función constante $1$ pertenece a $H^\infty \left(\mathbb{D}\right)$ y satisface $1 \cdot f = f$ para todo $f \in H^\infty \left(\mathbb{D}\right)$. \hfill\qedsymbol
 % \end{dem}
+
+\begin{obs}\label{obs:hinfty-bola-unidad}
+    La bola unidad cerrada en $H^\infty \left(\mathbb{D}\right)$ según la métrica inducida por $\norm{\cdot}_{\infty}$ es precisamente la clase de Schur $\mathscr{S}$, es decir, $\left\{f \in H^\infty \left(\mathbb{D}\right) : \norm{f}_{\infty} \leq 1\right\} = \mathscr{S}$.
+\end{obs}
 
 \section{Aproximación de funciones en $\mathscr{S}$}
 
-\begin{prop}\label{prop:convergencia-uniforme-continuidad-uniforme}
-    Sean $X, Y$ \exhyperref[defn:esp-metrico]{esp-metrico}{espacios métricos}, $f \colon X \to Y$ y sea $\left(f_n\right)_{n \in \N}$ una sucesión de funciones $f_n \colon X \to Y$ \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continuas} que \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{converge uniformemente} a $f$
-    \[
-    \implies f \text{ es \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continua}.}
-    \]
-\end{prop}
-\begin{dem}
-    Sea $\varepsilon > 0$. Como $f_n \xrightrightarrows[n \to \infty]{} f$, $\exists N \in \mathbb{N} : \forall x \in X : d_Y(f_N(x), f(x)) < \frac{\varepsilon}{3}$.
-
-    Entonces, como $f_N$ es uniformemente continua, $\exists \delta > 0 : \forall x_1, x_2 \in X : d_X(x_1, x_2) < \delta \implies d_Y(f_N(x_1), f_N(x_2)) < \frac{\varepsilon}{3}$. Por tanto, si $d_X(x_1, x_2) < \delta$, por la \exhyperref[defn:metrica:desigualdad-triangular]{metrica}{desigualdad triangular},
-    \begin{align*}
-        d_Y(f(x_1), f(x_2)) &\leq d_Y(f(x_1), f_N(x_1)) + d_Y(f_N(x_1), f_N(x_2)) + d_Y(f_N(x_2), f(x_2)) \\
-        &< \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon.
-    \end{align*}
-    Luego $f$ es uniformemente continua.
-\end{dem}
-
 \begin{obs}
-    Si $f \in \mathscr{S}$ es límite uniforme en $\mathbb{D}$ de productos finitos de Blaschke, entonces cada aproximante es holomorfo, está acotado por $1$ y es unimodular en $\mathbb{T}$. La convergencia uniforme asegura que $f$ se prolonga de forma continua y única a $\overline{\mathbb{D}}$ y que la restricción a $\mathbb{T}$ sigue siendo unimodular. Por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-prod-finito-blaschke-algebra-disco}, $f$ debe ser un producto finito de Blaschke. En particular, los productos finitos de Blaschke forman un subconjunto de $\mathscr{S}$ cerrado para la norma $\norm{\cdot}_\infty$.
+    Sean $f \in \mathscr{S}$ y $\left(B_n\right)_{n \in \N} \subset \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ tales que $B_n \xrightrightarrows[n \to \infty]{\mathbb{D}} f$. Como cada $B_n$ es holomorfa, está acotada por $1$ y es unimodular en $\mathbb{T}$, la convergencia uniforme asegura que $f$ se prolonga de forma continua y única a $\overline{\mathbb{D}}$ y que la restricción a $\mathbb{T}$ sigue siendo unimodular.
+    
+    Entonces, por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-prod-finito-blaschke-algebra-disco}, $f$ es un producto finito de Blaschke. En particular, los productos finitos de Blaschke forman un subconjunto de $\mathscr{S}$ cerrado bajo la topología de la convergencia uniforme en $\mathbb{D}$. El siguiente ejemplo muestra que también se trata de un subconjunto propio.
 \end{obs}
 
 \begin{ejem}[de función en $\mathscr{S}$ sin extensión continua a $\bar{\mathbb{D}}$]
@@ -70,7 +51,7 @@
     \[
     \forall z \in \mathbb{D} : f(z) = \exp \left(- \frac{1 + z}{1 - z} \right).
     \]
-    Entonces, $f$ es holomorfa en $\mathbb{D}$ por ser composición de funciones holomorfas en $\mathbb{D}$. Además,
+    Entonces, $f \in \mathcal{H} \left(\mathbb{D}\right)$ por ser composición de funciones holomorfas ($1 \notin \mathbb{D}$). Además,
     \[
     \forall z \in \mathbb{D} : \abs{f(z)} = \exp \left( - \Re \left( \frac{1 + z}{1 - z} \right) \right) \leq 1 \iff \Re \left( \frac{1 + z}{1 - z} \right) \geq 0.
     \]
@@ -78,7 +59,7 @@
     \[
     \frac{1 + z}{1 - z} = \frac{(1+x+iy)(1-x+iy)}{(1-x)^2 + y^2} = \frac{(1-x^2-y^2) + 2iy}{(1-x)^2 + y^2}.
     \]
-    Por lo tanto, $\Re \left( \frac{1 + z}{1 - z} \right) = \frac{1 - x^2 - y^2}{(1-x)^2 + y^2} > 0$, ya que el numerador es positivo (pues $x^2 + y^2 < 1$) y el denominador es positivo. Así, $\abs{f(z)} < 1$ para todo $z \in \mathbb{D}$, lo que demuestra que $f \in \mathscr{S}$.
+    Por lo tanto, $\Re \left( \frac{1 + z}{1 - z} \right) = \frac{1 - x^2 - y^2}{(1-x)^2 + y^2} > 0$, ya que el numerador es positivo (pues $x^2 + y^2 < 1$) y el denominador es positivo. Así, $\forall z \in \mathbb{D} : \abs{f(z)} < 1$, lo que demuestra que $f \in \mathscr{S}$.
 
     Sin embargo, $f$ no se puede prolongar de forma continua a $\bar{\mathbb{D}}$. Para verlo, consideramos dos caminos que tienden a $1$:
     \begin{itemize}
@@ -88,42 +69,56 @@
     Como los límites difieren, $f$ no se puede prolongar de forma continua a $\bar{\mathbb{D}}$.
 \end{ejem}
 
-Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos aproximar cualquier función en $\mathscr{S}$ por productos finitos de Blaschke.
+Sin embargo, si nos limitamos a subconjuntos compactos de $\mathbb{D}$, podemos aproximar cualquier función en $\mathscr{S}$ por productos finitos de Blaschke. En otras palabras, $\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ es denso en $\mathscr{S}$ para la topología de la convergencia uniforme sobre compactos de $\mathbb{D}$.
 
 \begin{lem}\label{lem:aprox-clase-schur-prod-finito-blaschke-orden-cero}
-    $\forall n \in \N, f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}} : \exists B_n$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $: \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{\operatorname{ord}}(f - B_n, 0) \geq n$.
+    $\forall n \in \N, f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}} : \exists B_n \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}} : \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{\operatorname{ord}}(f - B_n, 0) \geq n$.
 \end{lem}
 \begin{dem}
-    Lo probaremos por inducción en $n$. Para $n = 1$ y $f \in \mathscr{S}$ arbitraria, basta tomar $B_1(z) = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{c_0}}(z)$, ya que entonces $(f - B_1)(0) = f(0) - \tau_{c_0}(0) = c_0 - c_0 = 0$.
+    Dados $n \in \N$ y $f \in \mathscr{S}$, si $\abs{f(0)} = 1$, por el \exhyperref[cor:modulo-maximo]{cor-modulo-maximo}{principio del módulo máximo}, $f$ es una constante unimodular y, por tanto, $f \in \mathscr{B}$. En consecuencia, basta tomar $B_n = f$. Supongamos entonces que $f(0) \in \mathbb{D}$.
 
-    Sea $n \in \N$, supongamos que $\forall f \in \mathscr{S} : \exists B_n$ producto finito de Blaschke $ : \operatorname{ord}(f - B_n, 0) \geq n$. Sea $f \in \mathscr{S}$. Definimos $g \colon \mathbb{D} \to \C$ mediante
-    \[
-    \forall z \in \mathbb{D} \setminus \{0\} : g(z) = \frac{\tau_{c_0}(f(z))}{z}.
-    \]
-    Por un lado, como $\tau_{c_0} (f(0)) = \tau_{c_0}(c_0) = 0$, $g$ se puede prolongar de forma holomorfa a todo $\mathbb{D}$. Por otro lado, como $f \in \mathscr{S}$ y $\tau_{c_0} \in \mathrm{Aut} (\mathbb{D})$, se tiene que $\tau_{c_0} \circ f \in \mathscr{S}$ y, como además $\tau_{c_0} (f(0)) = 0$, el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} nos garantiza que $\forall z \in \mathbb{D} : \abs{\tau_{c_0} (f(z))} \leq \abs{z}$. En consecuencia, $\forall z \in \mathbb{D} : \abs{g(z)} \leq 1$, es decir, $g \in \mathscr{S}$.
+    Lo probaremos por inducción en $n$. Para $n = 1$ y $f \in \mathscr{S}$ arbitraria, basta tomar $B_1 = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{f(0)}} \in \mathscr{B}$, ya que $(f - B_1)(0) = f(0) - \tau_{f(0)}(0) = f(0) - f(0) = 0$.
 
-    %COMPLETAR para ver que $K \in H^\infty$ hay que separar el dominio $\mathbb{D}$ en dos partes, una cerca de $0$ y otra lejos de $0$ 
-    Por la hipótesis de inducción, $\exists B_n$ producto finito de Blaschke $ : \operatorname{ord}(g - B_n, 0) \geq n$. Es decir, $\exists K \in H^\infty \left(\mathbb{D}\right) : \forall z \in \mathbb{D} : g(z) - B_n(z) = z^n K(z)$. 
+    Sea $n \in \N$, supongamos que $\forall f \in \mathscr{S} : \exists B_n \in \mathscr{B} : \operatorname{ord}(f - B_n, 0) \geq n$. Sea $f \in \mathscr{S}$ y escribimos $c_0 \defeq f(0)$. Consideramos $g \colon \mathbb{D} \to \C$ dada por
+    \begin{equation}\label{dem:aprox-clase-schur-prod-finito-blaschke-orden-cero:ecu:g}
+        \forall z \in \mathbb{D} \setminus \{0\} : g(z) \defeq \frac{\tau_{c_0}(f(z))}{z}.
+    \end{equation}
+    Por un lado, como $\tau_{c_0} (f(0)) = 0$, por el \excref[teo:singularidad-evitable-riemann]{teo-singularidad-evitable-riemann}, $g$ se puede prolongar de forma holomorfa a todo $\mathbb{D}$. Por otro lado, como $f \in \mathscr{S}$ y $\tau_{c_0} \in \mathrm{Aut} (\mathbb{D})$, se tiene que $\tau_{c_0} \circ f \in \mathscr{S}$ y el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} nos garantiza que $\forall z \in \mathbb{D} : \abs{\tau_{c_0} (f(z))} \leq \abs{z}$. En consecuencia, $\forall z \in \mathbb{D} : \abs{g(z)} \leq 1$, es decir, $g \in \mathscr{S}$.
 
-    Definimos $\forall z \in \mathbb{D} : B_{n+1}(z) = \tau_{c_0}\left( z B_n(z) \right)$. Entonces, $B_{n+1}$ es un producto finito de Blaschke  %ORDENAR: referenciar
-    y, además, como $f(z) = \tau_{c_0}^{-1} (z g(z)) = \tau_{c_0} (z g(z))$, %ORDENAR: referenciar
+    Por la hipótesis de inducción, $\exists B_n \in \mathscr{B} : \operatorname{ord}(g - B_n, 0) \geq n$. Es decir, $\exists G_1 \in \mathcal{H}(\mathbb{D})$ tal que $\forall z \in \mathbb{D} : g(z) - B_n(z) = z^n G_1(z)$. Además, como $g, B_n \in \mathscr{S}$, se tiene que $\norm{g - B_n}_{\infty} \leq 2$. Fijamos $r = \sfrac{1}{2}$. Entonces:
+    \begin{itemize}
+        \item Si $\abs{z} \geq r$, $\ds \abs{G_1(z)} = \frac{\abs{g(z) - B_n(z)}}{\abs{z}^n} \leq \frac{2}{r^n}$.
+        \item Si $\abs{z} < r$, por el \exhyperref[cor:modulo-maximo]{cor-modulo-maximo}{principio del módulo máximo}, $\ds \abs{G_1(z)} \leq \max_{\abs{w}=r} \abs{G_1(w)} \leq \frac{2}{r^n}$.
+    \end{itemize}
+    Por tanto, $G_1$ es acotada en $\mathbb{D}$ y $G_1 \in H^\infty\left(\mathbb{D}\right)$.
+
+    Definimos $\forall z \in \mathbb{D} : B_{n+1}(z) \defeq \tau_{c_0}\left( z B_n(z) \right)$. Entonces, $B_{n+1} \in \mathscr{B}$ por el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion}. De \eqref{dem:aprox-clase-schur-prod-finito-blaschke-orden-cero:ecu:g}, tenemos que $f(z) = \tau_{c_0}^{-1} (z g(z)) = \tau_{c_0} (z g(z))$ aplicando el \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}. Por tanto, obtenemos que $\forall z \in \mathbb{D} : $
     \[
     \begin{aligned}
-        \forall z \in \mathbb{D} : f(z) - B_{n+1}(z) &= \tau_{c_0} (z g(z)) - \tau_{c_0} (z B_n(z)) \\
-        &= \underbrace{\frac{\left(1 - \abs{c_0}^2 \right)}{\left(1 - \bar{c_0} z g(z) \right) \left(1 - \bar{c_0} z B_n(z) \right)}}_{\eqdef H(z)} \cdot z \left( g(z) - B_n(z) \right) \\
+        f(z) - B_{n+1}(z) &= \tau_{c_0} (z g(z)) - \tau_{c_0} (z B_n(z)) = \frac{c_0 - z g(z)}{1 - \bar{c_0} z g(z)} - \frac{c_0 - z B_n(z)}{1 - \bar{c_0} z B_n(z)}
+        \\
+        % &= \frac{(c_0 - z g(z))(1 - \bar{c_0} z B_n(z)) - (c_0 - z B_n(z))(1 - \bar{c_0} z g(z))}{(1 - \bar{c_0} z g(z)) (1 - \bar{c_0} z B_n(z))} \\
+        % &= \frac{c_0 - z g(z) - \bar{c_0} c_0 z B_n(z) + \bar{c_0} z^2 g(z) B_n(z) - c_0 + z B_n(z) + \bar{c_0} c_0 z g(z) - \bar{c_0} z^2 g(z) B_n(z)}{(1 - \bar{c_0} z g(z)) (1 - \bar{c_0} z B_n(z))} \\
+        % &= \frac{z (g(z) - B_n(z)) + \bar{c_0} c_0 z (g(z) - B_n(z))}{(1 - \bar{c_0} z g(z)) (1 - \bar{c_0} z B_n(z))} \\
+        &= \underbrace{\frac{\left(1 - \abs{c_0}^2 \right)}{\left(1 - \bar{c_0} z g(z) \right) \left(1 - \bar{c_0} z B_n(z) \right)}}_{\eqdef G_2(z)} \cdot z \left( g(z) - B_n(z) \right) = G_2(z)\, z^{n+1} G_1(z).
     \end{aligned}
-    \]%COMPLETAR usar desigualdad triangular inversa
-    
+    \]
+    Además, como $\abs{g(z)} \leq 1$ y $\abs{B_n(z)} \leq 1$, por la desigualdad triangular inversa 
+    \[
+        \forall z \in \mathbb{D} : \abs{1 - \bar{c_0} z g(z)} \geq 1 - \abs{c_0}\abs{z}\abs{g(z)} > 1 - \abs{c_0} > 0,
+    \]
+    y análogamente $\abs{1 - \bar{c_0} z B_n(z)} > 0$. Luego $G_2 \in \mathcal{H}(\mathbb{D})$, y por tanto $G_2G_1 \in \mathcal{H}(\mathbb{D})$. En consecuencia, $\operatorname{ord}(f - B_{n+1}, 0) \geq n+1$. 
+
     \vspace{-\baselineskip}
     \vspace{-\belowdisplayskip}
     \hfill\qedsymbol
 \end{dem}
 
 \begin{teo}[Carathéodory]\label{teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}
-    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$. Entonces, $\exists \left(B_n\right)_{n \in \mathbb{N}}$ una sucesión de productos \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{finitos de Blaschke} tal que $\forall K \exhyperref[defn:compacidad]{compacidad}{\Subset} \mathbb{D} : B_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{K}} f$. 
+    $\forall f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}} : \exists \left(B_n\right)_{n \in \mathbb{N}} \subset \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}} : B_n \xRightarrow[n \to \infty]{\mathbb{D}} f$. 
 \end{teo}
 \begin{dem}
-    Por el \excref[lem:aprox-clase-schur-prod-finito-blaschke-orden-cero]{lem-aprox-clase-schur-prod-finito-blaschke-orden-cero}, sabemos que $\forall n \in \N : \exists B_n$ producto finito de Blaschke tal que $\operatorname{ord}(f - B_n, 0) \geq n$. Es decir, $\exists g_n \in H^\infty : \forall z \in \mathbb{D} : f(z) - B_n(z) = z^{n-1} g_n(z) \we g_n(0) = 0$.
+    Sea $f \in \mathscr{S}$. Por el \excref[lem:aprox-clase-schur-prod-finito-blaschke-orden-cero]{lem-aprox-clase-schur-prod-finito-blaschke-orden-cero}, $\forall n \in \N : \exists B_n \in \mathscr{B} : \operatorname{ord}(f - B_n, 0) \geq n$. Es decir, dado $n \in \N$, $\exists g_n \in H^\infty : \forall z \in \mathbb{D} : f(z) - B_n(z) = z^{n-1} g_n(z) \we g_n(0) = 0$.
     
     Además, por el \exhyperref[teo:modulo-maximo]{teo-modulo-maximo}{principio del módulo máximo}, se cumple que
     \[
@@ -571,3 +566,7 @@ Sin embargo, si nos limitamos a subconjuntos compacto de $\mathbb{D}$, podemos a
     $Z_{B_1 f}(\mathbb{T}) = Z_{B_2 g}(\mathbb{T})$ y como $Z_{f} (\mathbb{T}) = Z_{g}(\mathbb{T})$, se tiene que $Z_{B_1}(\mathbb{T}) = Z_{B_2}(\mathbb{T})$, es decir, $B_1$ y $B_2$ tienen el mismo grado.
 \end{dem}
 
+
+\newpage
+
+\lipsum[1-10]
