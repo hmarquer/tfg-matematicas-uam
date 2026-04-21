@@ -286,6 +286,10 @@ También podemos expresar las derivadas parciales habituales en términos de las
 
 \chapter{Convergencia y continuidad uniformes}
 
+\transclude{convergencia-uniforme}
+
+\transclude{continuidad-uniforme}
+
 \begin{prop}\label{prop:convergencia-uniforme-continuidad-uniforme}
     Sean $X, Y$ \exhyperref[defn:esp-metrico]{esp-metrico}{espacios métricos}, $f \colon X \to Y$ y sea $\left(f_n\right)_{n \in \N}$ una sucesión de funciones $f_n \colon X \to Y$ \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continuas} que \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{converge uniformemente} a $f$. Entonces, $f$ es uniformemente continua.
 \end{prop}
@@ -299,3 +303,25 @@ También podemos expresar las derivadas parciales habituales en términos de las
     \end{align*}
     Luego $f$ es uniformemente continua.
 \end{dem}
+
+\section{Combinaciones y envolventes convexas}
+
+\begin{defn}[Combinación convexa]\label{defn:combinacion-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $\left\{x_i\right\}_{i=1}^n \subset V$, $y \in V$ es una combinación convexa de $\left\{x_i\right\}_{i=1}^n$
+    \[
+    \iff \exists \left\{\lambda_i\right\}_{i=1}^n \subset \mathbb{R}_{\geq 0} : \sum_{i=1}^n \lambda_i = 1 \we y = \sum_{i=1}^n \lambda_i x_i
+    \]
+
+    Sea $A \subset V$, $y \in V$ es una combinación convexa de elementos de $A \iff \exists \left\{a_i\right\}_{i=1}^n \subset A$ tal que $y \tex{ es una combinación convexa de } \left\{a_i\right\}_{i=1}^n$.
+\end{defn} %ORDENAR enviar al anexo
+
+\begin{defn}[Envolvente convexa]\label{defn:envolvente-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$, $\operatorname{conv}(A)$ es la envolvente convexa de $A \iff \operatorname{conv}(A)$ es el \exhyperref[defn:con-convexo]{con-convexo}{convexo} más pequeño que contiene a $A$.
+\end{defn} %ORDENAR enviar al anexo
+
+\begin{prop}\label{prop:envolvente-convexa-combinacion-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$. Entonces,
+    \[
+    \operatorname{conv}(A) = \left\{y \in V : v \tex{ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de elementos de } A \right\}.
+    \]
+\end{prop}%ORDENAR enviar al anexo

@@ -367,10 +367,10 @@
 \section{Álgebra del disco}
 
 \begin{defn}[Álgebra del disco unidad]\label{defn:algebra-disco-unidad}
-    El conjunto de funciones holomorfas en $\mathbb{D}$ que se extienden de forma continua a $\bar{\mathbb{D}}$ es un álgebra con la suma y el producto de funciones y el producto por escalares. Lo llamamos \emph{álgebra del disco unidad} y se denota por $\mathscr{A}(\mathbb{D})$.
+    El conjunto de funciones holomorfas en $\mathbb{D}$ que se extienden de forma continua a $\bar{\mathbb{D}}$ es un álgebra con la suma, el producto de funciones y el producto por escalares. Lo llamamos \emph{álgebra del disco unidad} y se denota por $\mathscr{A}(\mathbb{D})$.
 \end{defn}
 
-Por ejemplo, todo producto finito de Blaschke pertenece al álgebra del disco. De hecho, cualquier función racional sin polos en $\bar{\mathbb{D}}$ pertenece a $\mathscr{A}(\mathbb{D})$. 
+Por ejemplo, $\mathscr{B} \subset \mathscr{A}(\mathbb{D})$. De hecho, cualquier función racional sin polos en $\bar{\mathbb{D}}$ pertenece al álgebra del disco.
 
 \begin{ejem}
     Consideramos $f$ dada por $f(z) = \sqrt{1-z}$ para $z \in \mathbb{D}$. Entonces, tomando la rama principal de la raíz cuadrada, vemos que $f$ es holomorfa en $\mathbb{D}$. Observamos que $f$ se extiende de forma continua a $\bar{\mathbb{D}} \setminus \{1\}$ directamente.
@@ -393,7 +393,7 @@ Por ejemplo, todo producto finito de Blaschke pertenece al álgebra del disco. D
 % \subsection{Productos de Blaschke como funciones del álgebra del disco}
 
 \begin{teo}[Fatou]\label{teo:fatou-carac-prod-finito-blaschke-algebra-disco}
-    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\mathbb{D}\right)$ tal que $\exhyperref[defn:convergencia]{convergencia}{\lim_{\abs{z} \to 1^-}} \abs{f(z)} = 1$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke}.
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\mathbb{D}\right)$ tal que $\ds \exhyperref[defn:convergencia]{convergencia}{\lim_{\abs{z} \to 1^-}} \abs{f(z)} = 1$. Entonces, $f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$.
 \end{teo}
 \begin{dem}
     Como $\abs{f(z)} \xrightarrow{\abs{z} \to 1^-} 1$, tenemos que

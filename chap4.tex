@@ -43,7 +43,7 @@ Consideramos el espacio de Hardy $H^{\infty} \left(\mathbb{D}\right) \defeq \mat
 \begin{obs}
     Sean $f \in \mathscr{S}$ y $\left(B_n\right)_{n \in \N} \subset \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ tales que $B_n \xrightrightarrows[n \to \infty]{\mathbb{D}} f$. Como cada $B_n$ es holomorfa, está acotada por $1$ y es unimodular en $\mathbb{T}$, la convergencia uniforme asegura que $f$ se prolonga de forma continua y única a $\overline{\mathbb{D}}$ y que la restricción a $\mathbb{T}$ sigue siendo unimodular.
     
-    Entonces, por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-prod-finito-blaschke-algebra-disco}, $f$ es un producto finito de Blaschke. En particular, los productos finitos de Blaschke forman un subconjunto de $\mathscr{S}$ cerrado bajo la topología de la convergencia uniforme en $\mathbb{D}$. El siguiente ejemplo muestra que también se trata de un subconjunto propio.
+    Entonces, por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-prod-finito-blaschke-algebra-disco}, $f \in \mathscr{B}$. En particular, $\mathscr{B}$ es un subconjunto de $\mathscr{S}$ cerrado respecto de la topología de la convergencia uniforme en $\mathbb{D}$. El siguiente ejemplo muestra que también se trata de un subconjunto propio.
 \end{obs}
 
 \begin{ejem}[de función en $\mathscr{S}$ sin extensión continua a $\bar{\mathbb{D}}$]
@@ -107,11 +107,7 @@ Sin embargo, si nos limitamos a subconjuntos compactos de $\mathbb{D}$, podemos 
     \[
         \forall z \in \mathbb{D} : \abs{1 - \bar{c_0} z g(z)} \geq 1 - \abs{c_0}\abs{z}\abs{g(z)} > 1 - \abs{c_0} > 0,
     \]
-    y análogamente $\abs{1 - \bar{c_0} z B_n(z)} > 0$. Luego $G_2 \in \mathcal{H}(\mathbb{D})$, y por tanto $G_2G_1 \in \mathcal{H}(\mathbb{D})$. En consecuencia, $\operatorname{ord}(f - B_{n+1}, 0) \geq n+1$. 
-
-    \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}
-    \hfill\qedsymbol
+    y análogamente $\abs{1 - \bar{c_0} z B_n(z)} > 0$. Luego $G_2 \in \mathcal{H}(\mathbb{D})$, y por tanto $G_2G_1 \in \mathcal{H}(\mathbb{D})$. En consecuencia, $\operatorname{ord}(f - B_{n+1}, 0) \geq n+1$.\hfill\qedsymbol
 \end{dem}
 
 \begin{teo}[Carathéodory]\label{teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}
@@ -120,105 +116,90 @@ Sin embargo, si nos limitamos a subconjuntos compactos de $\mathbb{D}$, podemos 
 \begin{dem}
     Sea $f \in \mathscr{S}$. Por el \excref[lem:aprox-clase-schur-prod-finito-blaschke-orden-cero]{lem-aprox-clase-schur-prod-finito-blaschke-orden-cero}, $\forall n \in \N : \exists B_n \in \mathscr{B} : \operatorname{ord}(f - B_n, 0) \geq n$. Es decir, dado $n \in \N$, $\exists g_n \in H^\infty : \forall z \in \mathbb{D} : f(z) - B_n(z) = z^{n-1} g_n(z) \we g_n(0) = 0$.
     
-    Además, por el \exhyperref[teo:modulo-maximo]{teo-modulo-maximo}{principio del módulo máximo}, se cumple que
+    Además, $\norm{z^{n-1}g_n}_{\infty} \leq \norm{g_n}_{\infty}$, ya que $\forall z \in \mathbb{D} : \abs{z}^{n-1} \leq 1$. Veamos la desigualdad recíproca. Tomamos una sucesión maximizante $\left(z_m\right)_{m \in \N} \subset \mathbb{D}$ de $g_n$, es decir,
     \[
-    %REVISAR: esto está mal, tomar sucesión maximizante 
-    \norm{g_n}_{\infty} = \sup_{z \in \mathbb{D}} \abs{g_n(z)} = \sup_{z \in \mathbb{T}} \abs{g_n(z)} = \sup_{z \in \mathbb{T}} \abs{z^{n-1} g_n(z)} = \sup_{z \in \mathbb{D}} \abs{z^{n-1} g_n(z)} = \norm{z^{n-1} g_n}_{\infty}.
+    \abs{g_n(z_m)} \xrightarrow[m \to \infty]{} \norm{g_n}_{\infty}.
     \]
-    Por otro lado, $\norm{f - B_n}_{\infty} = \sup_{z \in \mathbb{D}} \abs{f(z) - B_n(z)} \leq \sup_{z \in \mathbb{D}} \abs{f(z)} + \sup_{z \in \mathbb{D}} \abs{B_n(z)} \leq 2$, ya que $f, B_n \in \mathscr{S}$. Por lo tanto, $\norm{g_n}_{\infty} = \norm{z^{n-1} g_n}_{\infty} = \norm{f - B_n}_{\infty} \leq 2$.
+    Supongamos $\norm{g_n}_{\infty} > 0$ (si $\norm{g_n}_{\infty} = 0$, no hay nada que probar). Sea $\left(z_{m_j}\right)_{j \in \N}$ una subsucesión convergente a $\zeta \in \overline{\mathbb{D}}$. Si $\abs{\zeta} < 1$, por continuidad se tendría
+    \[
+    \abs{g_n(\zeta)} = \lim_{j \to \infty} \abs{g_n(z_{m_j})} = \norm{g_n}_{\infty},
+    \]
+    luego, por el \exhyperref[teo:modulo-maximo]{teo-modulo-maximo}{principio del módulo máximo}, $g_n$ sería constante en $\mathbb{D}$; y como $g_n(0) = 0$, esto contradice que $\norm{g_n}_{\infty} > 0$. Por tanto, $\abs{\zeta} = 1$ y $\smash{\abs{z_{m_j}}^{n-1} \xrightarrow[j \to \infty]{} 1}$. Por lo tanto,
+    \[
+    \norm{g_n}_{\infty} = \lim_{j \to \infty} \abs{g_n(z_{m_j})} = \lim_{j \to \infty} \frac{\abs{z_{m_j}^{n-1} g_n(z_{m_j})}}{\abs{z_{m_j}}^{n-1}} \leq \norm{z^{n-1} g_n}_{\infty}.
+    \]
+    Así, $\norm{g_n}_{\infty} = \norm{z^{n-1} g_n}_{\infty}$. Por otro lado, como $f, B_n \in \mathscr{S}$, $\norm{f - B_n}_{\infty} \leq 2$. Por lo tanto, $\norm{g_n}_{\infty} = \norm{z^{n-1} g_n}_{\infty} = \norm{f - B_n}_{\infty} \leq 2$.
 
-    Entonces, $h_n \defeq \sfrac{g_n}{2} \in \mathscr{S}$ y $h(0) = 0$, luego, por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz}, $\forall z \in \mathbb{D} : \abs{h_n(z)} \leq \abs{z}$. En consecuencia, $\forall z \in \mathbb{D} : \abs{f(z) - B_n (z)} = \abs{z^{n-1} g_n(z)} = 2 \abs{z^{n-1} h_n(z)} \leq 2 \abs{z}^n$.
-
+    Entonces, $h_n \defeq \sfrac{g_n}{2} \in \mathscr{S}$ y $h_n(0) = 0$, luego, por el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} aplicado a $h_n$, tenemos que $\forall z \in \mathbb{D} : \abs{h_n(z)} \leq \abs{z}$. En consecuencia,
+    \[
+    \forall z \in \mathbb{D} : \abs{f(z) - B_n (z)} = \abs{z^{n-1} g_n(z)} = 2 \abs{z^{n-1} h_n(z)} \leq 2 \abs{z}^n.
+    \]
     Por tanto, para $K \subset \mathbb{D}$ compacto, existe $r \in (0, 1)$ tal que $\forall z \in K : \abs{z} \leq r$. Así, $\sup_{z \in K} \abs{f(z) - B_n(z)} \leq 2 r^n \xrightarrow[n \to \infty]{} 0$, i.e. $B_n \xrightrightarrows[n \to \infty]{K} f$.\hfill\qedsymbol
 \end{dem}
 
-\section{La envolvente convexa de los productos finitos de Blaschke}
-
-\begin{defn}[Combinación convexa]\label{defn:combinacion-convexa}
-    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $\left\{x_i\right\}_{i=1}^n \subset V$, $y \in V$ es una combinación convexa de $\left\{x_i\right\}_{i=1}^n$
-    \[
-    \iff \exists \left\{\lambda_i\right\}_{i=1}^n \subset \mathbb{R}_{\geq 0} : \sum_{i=1}^n \lambda_i = 1 \we y = \sum_{i=1}^n \lambda_i x_i
-    \]
-
-    Sea $A \subset V$, $y \in V$ es una combinación convexa de elementos de $A \iff \exists \left\{a_i\right\}_{i=1}^n \subset A$ tal que $y \tex{ es una combinación convexa de } \left\{a_i\right\}_{i=1}^n$.
-\end{defn} %ORDENAR enviar al anexo
-
-\begin{defn}[Envolvente convexa]\label{defn:envolvente-convexa}
-    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$, $\operatorname{conv}(A)$ es la envolvente convexa de $A \iff \operatorname{conv}(A)$ es el \exhyperref[defn:con-convexo]{con-convexo}{convexo} más pequeño que contiene a $A$.
-\end{defn} %ORDENAR enviar al anexo
-
-\begin{prop}\label{prop-envolvente-convexa-combinacion-convexa}
-    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$. Entonces,
-    \[
-    \operatorname{conv}(A) = \left\{y \in V : v \tex{ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de elementos de } A \right\}.
-    \]
-\end{prop}%ORDENAR enviar al anexo
+\section{La envolvente convexa de $\mathscr{B}$}
 
 \begin{lem}\label{lem:prod-combinacion-convexa-prod-finito-blaschke}
-    Sean $f$ y $g$ \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinaciones convexas} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}. Entonces, $f \cdot g$ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
+    Sean $f, g \in \exhyperref[defn:envolvente-convexa]{envolvente-convexa}{\operatorname{conv}} \left(\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}\right)$. Entonces, $f \cdot g \in \exhyperref[defn:envolvente-convexa]{envolvente-convexa}{\operatorname{conv}} \left(\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}\right)$.
 \end{lem}
 \begin{dem}
-    Por definición, sabemos que $\exists \left\{f_k\right\}_{k=1}^n, \left\{g_\ell\right\}_{\ell=1}^m$ productos finitos de Blaschke y $\left\{\alpha_k\right\}_{k=1}^n, \left\{\beta_\ell\right\}_{\ell=1}^m \subset \R_{\geq 0} : \sum_{k} \alpha_k = 1 \we \sum_{\ell} \beta_\ell = 1 \we f = \sum_{k} \alpha_k f_k \we g = \sum_{l} \beta_\ell g_\ell$. Luego,
+    Por la \excref[prop:envolvente-convexa-combinacion-convexa]{prop-envolvente-convexa-combinacion-convexa}, sabemos que $\exists \left\{f_k\right\}_{k=1}^n, \left\{g_\ell\right\}_{\ell=1}^m \subset \mathscr{B}$ y $\left\{\alpha_k\right\}_{k=1}^n, \left\{\beta_\ell\right\}_{\ell=1}^m \subset \R_{\geq 0} : \sum_{k} \alpha_k = 1 \we \sum_{\ell} \beta_\ell = 1 \we f = \sum_{k} \alpha_k f_k \we g = \sum_{\ell} \beta_\ell g_\ell$.
     \[
-    f \cdot g = \left( \sum_{k=1}^n \alpha_k f_k \right) \cdot \left( \sum_{\ell=1}^m \beta_\ell g_\ell \right) = \sum_{k=1}^n \sum_{\ell=1}^m \alpha_k \beta_\ell f_k g_\ell.
+    \therefore \quad f \cdot g = \left( \sum_{k=1}^n \alpha_k f_k \right) \cdot \left( \sum_{\ell=1}^m \beta_\ell g_\ell \right) = \sum_{k=1}^n \sum_{\ell=1}^m \alpha_k \beta_\ell \, f_k \cdot g_\ell.
     \]
-    Como $f_k$ y $g_\ell$ son productos finitos de Blaschke, $f_k g_\ell$ es un producto finito de Blaschke. Además, $\sum_{k} \sum_{l} \alpha_k \beta_\ell = \left( \sum_{k} \alpha_k \right) \left( \sum_{\ell} \beta_\ell \right) = 1$. Por lo tanto, $f \cdot g$ es una combinación convexa de productos finitos de Blaschke.
+    Como $f_k, g_\ell \in \mathscr{B}$, $f_k \cdot g_\ell \in \mathscr{B}$. Además, $\sum_{k} \sum_{\ell} \alpha_k \beta_\ell = \left( \sum_{k} \alpha_k \right) \left( \sum_{\ell} \beta_\ell \right) = 1$. Por lo tanto, $f \cdot g$ es una combinación convexa de productos finitos de Blaschke.\hfill\qedsymbol
 \end{dem}%ORDENAR enviar al anexo
 
 \begin{lem}\label{lem:dilatacion-prod-finito-blaschke}
-    Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} y $t \in [0, 1)$. Entonces, $B_t$ dado por $\forall z \in \mathbb{D} : B_t(z) = B(tz)$ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
+    Sean $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ y $t \in [0, 1)$. Entonces, $B_t$ dado por $\forall z \in \mathbb{D} : B_t(z) = B(tz)$ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
 \end{lem}
-\begin{dem}%REVISAR
-    Por el \excref[lem:prod-combinacion-convexa-prod-finito-blaschke]{lem-prod-combinacion-convexa-prod-finito-blaschke}, el producto de combinaciones convexas de productos finitos de Blaschke es una combinación convexa de productos finitos de Blaschke. Además, $(fg)_t = f_t g_t$. Por lo tanto, basta probar el resultado para $\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_w}$ con $w \in \mathbb{D}$. Calculamos:
+\begin{dem}
+    Sea $B = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{w_k}}$ con $\gamma \in \mathbb{T}$, $n \in \N$ y $w_1, \dots, w_n \in \mathbb{D}$. Entonces, $B_t = \gamma \prod_{k=1}^n (\tau_{w_k})_t$ y, como por el \excref[lem:prod-combinacion-convexa-prod-finito-blaschke]{lem-prod-combinacion-convexa-prod-finito-blaschke}, el producto de combinaciones convexas de productos finitos de Blaschke es una combinación convexa de productos finitos de Blaschke, basta probar que el lema se cumple para $B = \tau_w$ con $w \in \mathbb{D}$.
+
+    Si $w = 0$, el resultado es inmediato. Suponemos $w \neq 0$. Escribimos $\tau_w(tz)$ como una combinación lineal de $\tau_{wt}(z)$ y una constante:
     \[
-    \left(\tau_w\right)_t(z) = \tau_w(tz) = \frac{w - tz}{1 - \bar{w} tz}.
+    c_1 \tau_{wt}(z) + \kappa = c_1 \frac{wt - z}{1 - \overline{w} t z} + \kappa = (\tau_w)_t(z) = \frac{w - t z}{1 - \overline{w} t z}.
     \]
-    Buscamos escribir esta expresión como combinación lineal de $\tau_{wt}$ y una constante. Planteamos
+    Resolviendo el sistema de ecuaciones resultante, obtenemos que
     \[
-    (\tau_w)_t(z) = c_1 \tau_{wt}(z) + K = c_1 \frac{wt - z}{1 - \overline{w} t z} + K.
+    % \begin{cases}
+    %     c_1 wt + \kappa = w \\
+    %     \bar{w}t \kappa + c_1 = t
+    % \end{cases}
+    % \implies
+    c_1 = \frac{t(1 - \abs{w}^2)}{1 - \abs{w}^2 t^2} \quad \we \quad \kappa = \frac{w(1 - t^2)}{1 - \abs{w}^2 t^2} = \frac{\abs{w}(1 - t^2)}{1 - \abs{w}^2 t^2} e^{i \arg w}.
     \]
-    Igualando numeradores, obtenemos el sistema 
+    Definiendo $c_2 \defeq \frac{\abs{w}(1 - t^2)}{1 - \abs{w}^2 t^2}$, $(\tau_w)_t$ queda escrito como combinación lineal de dos productos finitos de Blaschke: $\tau_{wt}, \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_{\arg w}} \in \mathscr{B}$.
+    Ahora bien, esta no es una combinación convexa, pues la suma de los coeficientes es
     \[
-    \begin{cases}
-        -t = -c_1 - K \bar{w} t \\
-        w = c_1 w t + K
-    \end{cases}
+    c_1 + c_2 = \frac{t - t\abs{w}^2 + \abs{w} - \abs{w}t^2}{(1 - \abs{w}t)(1 + \abs{w}t)} = \frac{(t + \abs{w})\cancel{(1 - t\abs{w})}}{\cancel{(1 - \abs{w}t)}(1 + \abs{w}t)} = \frac{t + \abs{w}}{1 + \abs{w}t} < 1.
     \]
-    cuya solución es 
+    El defecto es $\delta = 1 - (c_1 + c_2) = \frac{(1-t)(1-\abs{w})}{1 + \abs{w}t}$, por lo que si añadimos los términos $\frac{\delta}{2} \cdot 1 + \frac{\delta}{2} \cdot (-1)$, completamos la combinación convexa:
     \[
-    c_1 = \frac{t(1 - \abs{w}^2)}{1 - \abs{w}^2 t^2}, \quad K = \frac{\abs{w}(1 - t^2)}{1 - \abs{w}^2 t^2} e^{i \arg w}.
+    \begin{aligned}
+        {(\tau_w)}_t &= c_1 \tau_{wt} + c_2 \rho_{\arg w} + \frac{\delta}{2} \rho_{0} + \frac{\delta}{2} \rho_{\pi} \\
+        &= \frac{t(1 - \abs{w}^2)}{1 - \abs{w}^2 t^2} \tau_{wt} + \frac{\abs{w}(1 - t^2)}{1 - \abs{w}^2 t^2} \rho_{\arg w} + \frac{(1-t)(1-\abs{w})}{2(1 + \abs{w}t)} \rho_{0} + \frac{(1-t)(1-\abs{w})}{2(1 + \abs{w}t)} \rho_{\pi},
+    \end{aligned}
     \]
-    Definimos $c_2 = \frac{\abs{w}(1 - t^2)}{1 - \abs{w}^2 t^2}$. La suma de los coeficientes es
-    \[
-    c_1 + c_2 = \frac{t - t\abs{w}^2 + \abs{w} - \abs{w}t^2}{(1 - \abs{w}t)(1 + \abs{w}t)} = \frac{(t + \abs{w})(1 - t\abs{w})}{(1 - \abs{w}t)(1 + \abs{w}t)} = \frac{t + \abs{w}}{1 + \abs{w}t} < 1.
-    \]
-    El defecto es $\delta = 1 - (c_1 + c_2) = \frac{(1-t)(1-\abs{w})}{1 + \abs{w}t}$. Añadimos los términos $\frac{\delta}{2} \cdot 1 + \frac{\delta}{2} \cdot (-1)$ para completar la combinación convexa:
-    \[
-    {(\tau_w)}_t(z) = c_1 \tau_{wt}(z) + c_2 e^{i \arg w} + \frac{\delta}{2} \cdot 1 + \frac{\delta}{2} \cdot (-1).
-    \]
-    Sustituyendo los valores, llegamos a la expresión deseada:
-    \[
-    {(\tau_w)}_t(z) = \frac{t(1 - \abs{w}^2)}{1 - \abs{w}^2 t^2} \tau_{wt}(z) + \frac{\abs{w}(1 - t^2)}{1 - \abs{w}^2 t^2} e^{i \arg w} + \frac{(1 - t)(1 - \abs{w})}{2(1 + \abs{w} t)} \cdot 1 + \frac{(1 - t)(1 - \abs{w})}{2(1 + \abs{w} t)} \cdot (-1).
-    \]
+    donde $c_1, c_2, \frac{\delta}{2} \geq 0$ y $c_1 + c_2 + \frac{\delta}{2} + \frac{\delta}{2} = 1$. \hfill\qedsymbol
 \end{dem}
 
 \begin{teo}[Fisher]\label{teo:fisher-aproximacion-algebra-disco-conv-prod-finito-blaschke}
-    Sea $f \in \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{\mathcal{A}} \left(\mathbb{D} \right)$ tal que $\norm{f}_{\infty} \leq 1$
+    Sea $f \in \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{\mathscr{A}} \left(\mathbb{D} \right)$ tal que $\norm{f}_{\infty} \leq 1$. Entonces,
     \[
-    \implies \exists \left(f_n\right)_{n\in \N} \subset \operatorname{conv} \left\{ B \textrm{ producto finito de Blaschke} \right\} \text{ tal que } f_n \xrightrightarrows[n \to \infty]{\overline{\mathbb{D}}} f.
+    \exists \left(f_n\right)_{n\in \N} \subset \operatorname{conv} (\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}) : f_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{\overline{\mathbb{D}}}} f.
     \]
 \end{teo}
 \begin{dem}
-    Sea $\varepsilon > 0$. Como $f \in \mathcal{C} \left(\bar{\mathbb{D}}\right)$ y $\bar{\mathbb{D}}$ es compacto, $f$ es uniformemente continua en $\overline{\mathbb{D}}$. Por lo tanto, $\exists t \in [0, 1) : \norm{f_t(z) - f(z)}_{\infty} < \sfrac{\varepsilon}{2}$ donde $f_t(z) \defeq f(tz)$.
+    Sea $\varepsilon > 0$. Como $f \in \mathcal{C} \left(\bar{\mathbb{D}}\right)$ y $\bar{\mathbb{D}}$ es compacto, $f$ es uniformemente continua en $\overline{\mathbb{D}}$. Por lo tanto, $\exists t \in [0, 1) : \max_{z \in \overline{\mathbb{D}}} \abs{f(tz) - f(z)} < \sfrac{\varepsilon}{2}$.
 
-    Ahora bien, como $f \in \mathscr{S}$, por el \excref[teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos]{teo-caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}, $\exists B$ producto finito de Blaschke tal que $\sup_{z \in \overline{t\mathbb{D}}} \abs{f(z) - B(z)} < \sfrac{\varepsilon}{2}$. Como además se cumple que
+    Como $\overline{t\mathbb{D}} \Subset \mathbb{D}$ y $f \in \mathscr{S}$, por el \excref[teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos]{teo-caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}, $\exists B \in \mathscr{B} :\ds \smash{\max_{w \in \overline{t\mathbb{D}}} \abs{f(w) - B(w)} < \sfrac{\varepsilon}{2}}$. Definiendo $f_t(z) \defeq f(tz)$ y $B_t(z) \defeq B(tz)$,
     \[
-    \norm{f_t - B_t}_{\infty} = \sup_{z \in \mathbb{D}} \abs{f(tz) - B(tz)} = \sup_{w \in t\mathbb{D}} \abs{f(w) - B(w)} < \frac{\varepsilon}{2},
+    \max_{z \in \overline{\mathbb{D}}} \abs{f_t(z) - B_t(z)} = \max_{z \in \overline{\mathbb{D}}} \abs{f(tz) - B(tz)} = \max_{w \in \overline{t\mathbb{D}}} \abs{f(w) - B(w)} < \frac{\varepsilon}{2}.
     \]
-    %TODO: hace falta estimar hasta el borde para que el resultado quede demostrado, luego hay que tomar una cota más pequeña y tomar el límite
-    tenemos que $\norm{f - B_t}_{\infty} \leq \norm{f - f_t}_{\infty} + \norm{f_t - B_t}_{\infty} < \varepsilon$.
+    En consecuencia, $\ds \max_{z \in \overline{\mathbb{D}}} \abs{f(z) - B_t(z)} \leq \max_{z \in \overline{\mathbb{D}}} \abs{f(z) - f_t(z)} + \max_{z \in \overline{\mathbb{D}}} \abs{f_t(z) - B_t(z)} < \varepsilon$.
 
-    Como, por el \excref[lem:dilatacion-prod-finito-blaschke]{lem-dilatacion-prod-finito-blaschke}, $B_t$ es una combinación convexa de productos finitos de Blaschke, el resultado queda demostrado.
+    Además, por el \excref[lem:dilatacion-prod-finito-blaschke]{lem-dilatacion-prod-finito-blaschke}, $B_t$ es una combinación convexa de productos finitos de Blaschke. Como $\varepsilon > 0$ es arbitrario, tomando $\varepsilon = \sfrac{1}{n}$ para $n \in \N$ obtenemos una sucesión $\left(f_n\right)_{n \in \N} \subset \operatorname{conv}(\mathscr{B})$ tal que $f_n$ converge uniformemente a $f$ en $\overline{\mathbb{D}}$.\hfill\qedsymbol
 \end{dem}
 
 \section{Aproximación de funciones unimodulares continuas}
@@ -569,4 +550,4 @@ Sin embargo, si nos limitamos a subconjuntos compactos de $\mathbb{D}$, podemos 
 
 \newpage
 
-\lipsum[1-10]
+\lipsum[1-15]
