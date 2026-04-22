@@ -185,9 +185,9 @@ Sin embargo, si nos limitamos a subconjuntos compactos de $\mathbb{D}$, podemos 
 \end{dem}
 
 \begin{teo}[Fisher]\label{teo:fisher-aproximacion-algebra-disco-conv-prod-finito-blaschke}
-    Sea $f \in \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{\mathscr{A}} \left(\mathbb{D} \right)$ tal que $\norm{f}_{\infty} \leq 1$. Entonces,
+    Sea $f \in \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{\mathscr{A}} \left(\mathbb{D} \right)$ tal que $\exhyperref[defn:norma-lp]{norma-lp}{\norm{f}_{\infty}} \leq 1$. Entonces,
     \[
-    \exists \left(f_n\right)_{n\in \N} \subset \operatorname{conv} (\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}) : f_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{\overline{\mathbb{D}}}} f.
+    \exists \left(f_n\right)_{n\in \N} \subset \exhyperref[defn:envolvente-convexa]{envolvente-convexa}{\operatorname{conv}} (\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}) : f_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{\overline{\mathbb{D}}}} f.
     \]
 \end{teo}
 \begin{dem}
@@ -204,11 +204,9 @@ Sin embargo, si nos limitamos a subconjuntos compactos de $\mathbb{D}$, podemos 
 
 \section{Aproximación de funciones unimodulares continuas}
 
-\begin{obs}%REVISAR noe entiendo lo que el libro quiere decir
-    Sean $B_1, B_2$ productos finitos de Blaschke. Consideramos la función $f \colon \mathbb{T} \to \mathbb{C}$ dada por $f(z) = \frac{B_1(z)}{B_2(z)}$. Entonces, $f$ es continua y unimodular en $\mathbb{T}$ (i.e. $\forall z \in \mathbb{T} : \abs{f(z)} = 1$). 
-\end{obs}
+Recordemos que para $f$ meromorfa en $\mathbb{D}$ tal que $f \in \mathcal{C}\left(\bar{\mathbb{D}}\right)$ y $f (\mathbb{T}) \subset \mathbb{T}$, el \excref[cor:carac-cociente-prod-finito-blaschke-algebra-disco-meromorfa]{cor-carac-cociente-prod-finito-blaschke-algebra-disco-meromorfa} nos garantiza que existen $B_1, B_2 \in \mathscr{B}$ tal que $f = \sfrac{B_1}{B_2}$.
 
-% Si $B_1$ y $B_2$ son productos finitos de Blaschke, entonces la restricción del cociente $B_1/B_2$ a la circunferencia unidad $\mathbb{T}$ es una función continua y unimodular. Supongamos que $u$ es la función frontera de una función meromorfa en $\mathbb{D}$ que tiene un número finito de ceros y polos en $\mathbb{D}$ y toma valores unimodulares en $\mathbb{T}$ (es decir, $u$ es la restricción a la frontera de dicha función). En tal caso, el  establece que $u$ es la forma $B_1/B_2$, donde $B_1$ y $B_2$ son productos finitos de Blaschke. El resultado principal de esta sección mejora este hecho.
+Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y demostrar un resultado de aproximación. Para ello, necesitamos el siguiente lema, que esencialmente afirma que una curva cerrada que no pasa por el origen da un número par o impar de vueltas alrededor de este.
 
 \begin{lem}\label{lem:fn-continua-toro-imp-vueltas-par-impar}
     Sea $\gamma \colon \mathbb{T} \to \mathbb{T}$ \exhyperref[defn:continuidad-pnt]{continuidad}{continua}. Entonces, $\exists \eta \in \mathcal{C}\left(\mathbb{T} \right)$ unimodular tal que
@@ -241,47 +239,22 @@ Sin embargo, si nos limitamos a subconjuntos compactos de $\mathbb{D}$, podemos 
     \hfill\qedsymbol
 \end{dem}
 
-\begin{dem}[Alternativa]%SEGURAMENTE esté mal
-    Consideramos la aplicación $p \colon \mathbb{T} \to \mathbb{T}$ dada por $p(z) = z^2$, la cual es una aplicación recubridora de grado $2$. La teoría de espacios de recubrimiento establece que una aplicación continua $\gamma \colon \mathbb{T} \to \mathbb{T}$ admite un levantamiento $\eta \colon \mathbb{T} \to \mathbb{T}$ tal que $p \circ \eta = \gamma$ (es decir, $\gamma = \eta^2$) si y solo si
+\begin{teo}[Stone--Weierstrass en $\mathbb{T}$]\label{teo:stone-weierstrass-toro}
+    Sean $\eta \in \mathcal{C}(\mathbb{T})$ y $\varepsilon > 0$. Entonces, existen $N \in \N$ y $\left(a_k\right)_{k=-N}^N \subset \C$ tales que
     \[
-    \gamma_* \left( \pi_1 (\mathbb{T}) \right) \subseteq p_* \left( \pi_1 (\mathbb{T}) \right),
+    \max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - \sum_{k=-N}^N a_k \xi^k} < \varepsilon.
     \]
-    donde $\gamma_*$ y $p_*$ son los homomorfismos inducidos en el grupo fundamental.
-
-    Sabemos que $\pi_1(\mathbb{T}) \cong \mathbb{Z}$ y que, bajo esta identificación, el homomorfismo inducido por una aplicación continua $f \colon \mathbb{T} \to \mathbb{T}$ viene dado por la multiplicación por su grado, $\deg(f)$. En particular:
-    \begin{itemize}
-        \item $p_*(\mathbb{Z}) = 2\mathbb{Z}$ (los enteros pares).
-        \item $\gamma_*(\mathbb{Z}) = \deg(\gamma)\mathbb{Z}$.
-    \end{itemize}
-
-    Analizamos los dos casos posibles para la paridad de $\deg(\gamma)$:
-    \begin{enumerate}[label=\Roman*.]
-        \item Si $\deg(\gamma)$ es par, entonces $\deg(\gamma) = 2k$ para algún $k \in \mathbb{Z}$, por lo que $\gamma_*(\mathbb{Z}) \subseteq 2\mathbb{Z} = p_*(\pi_1(\mathbb{T}))$. Por la propiedad de levantamiento mencionada, existe $\eta \in \mathcal{C}(\mathbb{T})$ tal que $\eta^2 = \gamma$.
-        \item Si $\deg(\gamma)$ es impar, definimos $\tilde{\gamma} \colon \mathbb{T} \to \mathbb{T}$ como $\tilde{\gamma}(z) = \bar{z}\gamma(z)$. Usando la propiedad de la aditividad del grado para el producto de funciones, tenemos 
-        \[
-        \deg(\tilde{\gamma}) = \deg(\bar{z}) + \deg(\gamma) = -1 + \deg(\gamma).
-        \]
-        Como $\deg(\gamma)$ es impar, $\deg(\tilde{\gamma})$ es par. Aplicando el caso anterior a $\tilde{\gamma}$, existe $\eta \in \mathcal{C}(\mathbb{T})$ tal que $\eta^2 = \tilde{\gamma}$. Despejando $\gamma$, y recordando que en $\mathbb{T}$ se tiene $\bar{z} = z^{-1}$, obtenemos
-        \[
-        \gamma(z) = z \tilde{\gamma}(z) = z \eta^2(z).
-        \]
-    \end{enumerate}
-
-    \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}\hfill\qedsymbol
-\end{dem}
+\end{teo}
 
 \begin{teo}[Helson--Sarason]\label{teo:helson-sarason-aproximacion-fn-unimodular-continua-cociente-prod-finito-blaschke}
-    Sea $u \colon \mathbb{T} \to \mathbb{T}$ \exhyperref[defn:continuidad-pnt]{continuidad}{continua} y sea $\varepsilon > 0$. Entonces, $\exists B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} tal que $\max_{\xi \in \mathbb{T}} \abs{u(\xi) - \frac{B_1(\xi)}{B_2(\xi)}} < \varepsilon$. 
+    Sea $u \colon \mathbb{T} \to \mathbb{T}$ \exhyperref[defn:continuidad-pnt]{continuidad}{continua} y sea $\varepsilon > 0$. Entonces, existen $B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} tales que $\max_{\xi \in \mathbb{T}} \abs{u(\xi) - \frac{B_1(\xi)}{B_2(\xi)}} < \varepsilon$. 
 \end{teo}
 \begin{dem}
-    Por el \excref[lem:fn-continua-toro-imp-vueltas-par-impar]{lem-fn-continua-toro-imp-vueltas-par-impar}, $\exists \eta \in \mathcal{C}(\mathbb{T})$ unimodular tal que $\forall \zeta \in \mathbb{T} : u(\zeta) = \eta^2(\zeta)$ o $\forall \zeta \in \mathbb{T} : u(\zeta) = \zeta \cdot \eta^2(\zeta)$. Como $f(\zeta) = \zeta$ es la función frontera del producto finito de Blaschke $B(z) = z$, en ambos casos basta probar el resultado para $\eta^2$.
+    Por el \excref[lem:fn-continua-toro-imp-vueltas-par-impar]{lem-fn-continua-toro-imp-vueltas-par-impar}, $\exists \eta \in \mathcal{C}(\mathbb{T})$ unimodular $ : \forall \zeta \in \mathbb{T} : u(\zeta) = \eta^2(\zeta)$ o $\forall \zeta \in \mathbb{T} : u(\zeta) = \zeta \cdot \eta^2(\zeta)$. Como $f(\zeta) = \zeta$ es la función frontera de $B \in \mathscr{B}$ dado por $B(z) = z$, en ambos casos basta probar el resultado para $\eta^2$.
     Sin pérdida de generalidad, suponemos que $\varepsilon < 1$.
     
-    Por el teorema de Stone--Weierstrass, %ORDENAR: referenciar mirar los apuntes de Dragan: https://verso.mat.uam.es/~dragan.vukotic/grado/mat-doc/FAM-notes-metr-approx.pdf
-    $\exists h \colon \mathbb{T} \to \C$ dada por $h(\zeta) = \sum_{k=-N}^N a_k \zeta^k$ tal que $\max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - h(\xi)} < \frac{\varepsilon}{2}$. Entonces, como $\eta$ es unimodular y $\varepsilon < 1$, $h$ no se anula en $\mathbb{T}$.
-
-    Por tanto, podemos definir $\forall z \in \mathbb{T} : h^* (z) \defeq \bar{h \left(\sfrac{1}{\bar{z}}\right)} \we f(z) \defeq \frac{h(z)}{h^*(z)}$. Entonces, % hay que definir f en todo el plano excepto en los ceros de $h^*$ y el $0$ (el polo de $h$)
+    Por el \exhyperref[teo:stone-weierstrass-toro]{teo-stone-weierstrass-toro}{teorema de Stone--Weierstrass en $\mathbb{T}$},
+    $\exists h \colon \mathbb{T} \to \C$ dada por $h(\zeta) = \sum_{k=-N}^N a_k \zeta^k$ tal que $\max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - h(\xi)} < \frac{\varepsilon}{2}$. Entonces, como $\eta$ es unimodular y $\varepsilon < 1$, $h$ no se anula en $\mathbb{T}$. Por tanto, podemos definir $\forall z \in \mathbb{T} : h^* (z) \defeq \bar{h \left(\sfrac{1}{\bar{z}}\right)} \we f(z) \defeq \frac{h(z)}{h^*(z)}$. Entonces, % hay que definir f en todo el plano excepto en los ceros de $h^*$ y el $0$ (el polo de $h$)
     \[
     \begin{aligned}
         \forall \zeta \in \mathbb{T} : \abs{f(\zeta)} = \abs{\frac{h(\zeta)}{h^*(\zeta)}} = \frac{\abs{h(\zeta)}}{\abs{h \left(\sfrac{1}{\bar{\zeta}}\right)}} = \frac{\abs{h(\zeta)}}{\abs{h(\zeta)}} = 1,

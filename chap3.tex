@@ -269,7 +269,7 @@
     Por tanto, por \exhyperref[teo:rouche]{teo-rouche}{teorema de Rouché}, $f$ y $g$ tienen el mismo número de ceros en $\mathbb{D}$. Como $B$ tiene $n$ ceros en $\mathbb{D}$, concluimos que $B(z) - w$ también tiene $n$ ceros en $\mathbb{D}$, es decir, la ecuación $B(z) = w$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).\hfill\qedsymbol
 \end{dem}
 % \begin{dem}[Alternativa]
-%     Usamos que $B = \sfrac{P}{P^{\#_n}}$ y jugamos con los coeficientes para ver que hay $n$ soluciones por el teorema fundamental del álgebra.%DEMOSTRACIÓN págs 48-49
+%     Usamos que $B = \sfrac{P}{P^{\#_n}}$ y jugamos con los coeficientes para ver que hay $n$ soluciones por el teorema fundamental del álgebra. págs 48-49
 % \end{dem}
 
 
@@ -316,10 +316,7 @@
 \end{obs}
 
 \begin{cor}\label{cor:derivada-arg-prod-finito-blaschke-toro}
-    Sea $B$ un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} entonces
-    \[
-    \forall t \in \R : \odv{}{t} \arg B\left(e^{it}\right) = \abs{B'\left(e^{it}\right)}.
-    \]
+    Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathcal{B}}$, entonces $\ds \forall t \in \R : \odv{}{t} \arg B\left(e^{it}\right) = \abs{B'\left(e^{it}\right)}$.
 \end{cor}
 \begin{dem}
     Como $\forall t \in \R : B\left(e^{it}\right) \in \mathbb{T}$, podemos escribir $B\left(e^{it}\right) = e^{i \psi(t)}$ para alguna función $\psi \colon \R \to \R$ tal que $\psi(2\pi) - \psi(0) = 2\pi m$ para algún $m \in \Z$. Entonces,
@@ -400,7 +397,7 @@ Por ejemplo, $\mathscr{B} \subset \mathscr{A}(\mathbb{D})$. De hecho, cualquier 
     \[
     \forall \varepsilon > 0 : \exists \delta \in (0, 1) : \forall z \in \mathbb{D} : \left(1 - \delta < \abs{z} \implies \abs{\abs{f(z)} - 1} < \varepsilon\right).
     \]
-    En particular, tomando $\varepsilon < 1$, $\exists r \in (0, 1) : \forall z \in \mathbb{D} : \left(r < \abs{z} \implies \abs{f(z)} > 0\right)$, i.e. $f$ no se anula en $\left\{z \in \mathbb{D} : r < \abs{z} < 1\right\}$. Entonces, $f$ tiene todos sus ceros en el compacto $\bar{D(0, r)} = \left\{z \in \C : \abs{z} \leq r\right\}$, luego por el \excref[cor:fn-holomorfa-compacto-imp-finitud-ceros]{cor-fn-holomorfa-compacto-imp-finitud-ceros}, $f$ tiene un número finito de ceros en $\mathbb{D}$.
+    En particular, tomando $\varepsilon < 1$, $\exists r \in (0, 1) : \forall z \in \mathbb{D} : \left(r < \abs{z} < 1 \implies \abs{f(z)} > 0\right)$, i.e. $f$ no se anula en $\left\{z \in \mathbb{D} : r < \abs{z} < 1\right\}$. Entonces, $f$ tiene todos sus ceros en el compacto $\bar{D(0, r)} = \left\{z \in \C : \abs{z} \leq r\right\}$, luego por el \excref[cor:fn-holomorfa-compacto-imp-finitud-ceros]{cor-fn-holomorfa-compacto-imp-finitud-ceros}, $f$ tiene un número finito de ceros en $\mathbb{D}$.
     
     Sea $B$ el producto finito de Blaschke con los mismos ceros que $f$ (contando multiplicidades). Entonces, $\sfrac{f}{B}$ y $\sfrac{B}{f}$ son holomorfas en $\mathbb{D}$ y satisfacen que
     \[
@@ -478,39 +475,41 @@ Por ejemplo, $\mathscr{B} \subset \mathscr{A}(\mathbb{D})$. De hecho, cualquier 
 % \end{dem}
 
 \begin{teo}%[]\label{teo:}
-    Sea $f \in \mathscr{S}$ una \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{función $n$-valente} en $\mathbb{D}$. Entonces, $f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$.
+    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$ una \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{función $n$-valente} en $\mathbb{D}$. Entonces, $f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$.
 \end{teo}
 \begin{dem}%REVISAR esta DEMOSTRACIÓN
-    Por el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco}, basta ver que $\lim_{\abs{z} \to 1^-} \abs{f(z)} = 1$. Suponemos por contradicción que $\exists \left(z_m\right)_{m\in \N} \subset \mathbb{D}$ tal que $\abs{z_m} \to 1 \we \neg \left(\abs{f(z_m)} \to 1\right)$. Entonces, existe $r \in (0, 1)$ y una subsucesión $\left(z_{m_j}\right)_{j \in \N}$ tal que $\forall k \in \N : \abs{f(z_{m_j})} \leq r$. Como $\left\{z \in \mathbb{D} : \abs{z} \leq r\right\}$ es compacto, $\exists \big(z_{m_{j_k}}\big)_{k \in \N}$ subsucesión de $\left(z_{m_j}\right)_{j \in \N}$ y $w_0 \in \mathbb{D}$ tales que $f(z_{m_{j_k}}) \xrightarrow{k \to \infty} w_0$. La denotaremos por $\left(z_k\right)_{k \in \N}$.
+    Por el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco}, basta ver que $\lim_{\abs{z} \to 1^-} \abs{f(z)} = 1$. Suponemos por contradicción que $\exists \left(z_m\right)_{m\in \N} \subset \mathbb{D}$ tal que $\abs{z_m} \to 1 \we \neg \left(\abs{f(z_m)} \to 1\right)$. Entonces, existe $r \in (0, 1)$ y una subsucesión $\left(z_{m_j}\right)_{j \in \N}$ tal que $\forall j \in \N : \abs{f(z_{m_j})} \leq r$. Como $\left\{z \in \mathbb{D} : \abs{z} \leq r\right\}$ es compacto, $\exists \big(z_{m_{j_k}}\big)_{k \in \N}$ subsucesión de $\left(z_{m_j}\right)_{j \in \N}$ y $w_0 \in \mathbb{D}$ tales que $f(z_{m_{j_k}}) \xrightarrow{k \to \infty} w_0$. La denotaremos por $\left(z_k\right)_{k \in \N}$.
 
-    Como $f$ es $n$-valente, $f(z) = w_0$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades), digamos $a_1, \dots, a_r$ con multiplicidades $m_1, \dots, m_r$ respectivamente tales que $n_1 + \dots + n_r = n$. Entonces, en cada $a_j$, tenemos la expansión en serie de Taylor
+    Sin pérdida de generalidad, podemos suponer que $w_0 = 0$. En caso contrario, tomamos $g \defeq \tau_{w_0} \circ f$. Entonces, $g \in \mathscr{S}$, $g$ es $n$-valente en $\mathbb{D}$, $g(z_k) \xrightarrow{k \to \infty} 0$ y, si $g \in \mathscr{B}$, entonces $f = \tau_{w_0}^{-1} \circ g \in \mathscr{B}$ por el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion}.
+
+    Como $f$ es $n$-valente, $f(z) = 0$ tiene $n$ soluciones en $\mathbb{D}$, digamos $\left\{a_\ell\right\}_{\ell=1}^s \subset \mathbb{D}$ con multiplicidades $\left\{m_\ell\right\}_{\ell=1}^s$ respectivamente tales que $\sum_{\ell=1}^s m_\ell = n$. Entonces,
     \[
-    f(z) = w_0 + \sum_{k=n_j}^\infty \frac{f^{(k)}(a_j)}{k!} (z - a_j)^k
+    \forall \ell \in \N_s : \exists g_\ell \in \mathcal{H}\left(\mathbb{D}\right) : \forall z \in D(a_\ell, \varepsilon_\ell) : \bigl(g_\ell(z) \neq 0 \we f(z) = (z - a_\ell)^{m_\ell} g_\ell(z)\bigr).
     \]
-    que converge en $z \in D(a_j, 1 - \abs{a_j}) \subset \mathbb{D}$. Entonces sacando factor común $(z - a_j)^{m_j}$, tenemos que
-    \[
-    f(z) = w_0 + (z - a_j)^{m_j} \underbrace{\sum_{k=m_j}^\infty \frac{f^{(k)}(a_j)}{k!} (z - a_j)^{k - m_j}}_{g_j(z)}.
-    \] 
-    Tomando un entorno todavía más pequeño alrededor de $a_j$ donde $g$ no se anule, obtenemos tenemos que 
-    \[
-    \forall z \in D(a_j, \varepsilon_j) : f(z) = w_0 + \left(\left(z-a_j\right)f_j(z)\right)^{m_j}
-    \]
-    donde $f_j \in \mathcal{H}\left(D(a_j, \varepsilon_j)\right)$ no se anula en $D(a_j, \varepsilon_j)$. Sin pérdida de generalidad, podemos suponer que las bolas $D(a_j, \varepsilon_j)$ son disjuntas dos a dos.
+    Sin pérdida de generalidad, podemos suponer que las bolas $D(a_\ell, \varepsilon_\ell)$ son disjuntas dos a dos y están contenidas en $\mathbb{D}$ (reduciendo $\varepsilon_\ell$ en caso de que fuese necesario).
     
-    Definimos $g_j(z) = \left(z - a_j\right) f_j(z)$ para $j \in \N_r$, entonces $g_j$ es localmente inyectiva en $a_j$. Por tanto, sin pérdida de generalidad, podemos suponer que es inyectiva en $D(a_j, \varepsilon_j)$ (reduciendo $\varepsilon_j$ en caso de que fuese necesario). Entonces, por el \exhyperref[teo:apl-abierta-compleja]{teo-apl-abierta-compleja}{Teorema de la aplicación abierta}, $g_j\left(D(a_j, \varepsilon_j)\right)$ es abierto, luego $E \defeq \bigcap_{j=1}^r g_j\left(D(a_j, \varepsilon_j)\right)$ es abierto. Además, como $g_j(a_j) = 0$ para todo $j \in \N_r$, tenemos que $0 \in E$.
+    Como $D(a_\ell, \varepsilon_\ell)$ es simplemente conexo y $g_\ell$ no se anula en él, existe $h_\ell \in \mathcal{H}\left(D(a_\ell, \varepsilon_\ell)\right)$ tal que $h_\ell^{m_\ell} = g_\ell$. Definimos $\phi_\ell(z) \defeq \left(z - a_\ell\right) h_\ell(z)$ para $z \in D(a_\ell, \varepsilon_\ell)$. Entonces, $\forall z \in D(a_\ell, \varepsilon_\ell) : f(z) = \phi_\ell(z)^{m_\ell}$ y, como $\phi_\ell'(a_\ell) = h_\ell(a_\ell) \neq 0$, por el \exhyperref[teo:fn-inversa-holomorfas]{teo-fn-inversa-holomorfas}{teorema de la función inversa}, $\phi_\ell$ es \exhyperref[defn:inyectividad-local]{inyectividad-local}{localmente inyectiva} en $a_\ell$.
+    Reduciendo de nuevo $\varepsilon_\ell$ si es necesario, podemos suponer que $\phi_\ell$ es inyectiva en $D(a_\ell, \varepsilon_\ell)$. Entonces, por el \exhyperref[teo:apl-abierta-compleja]{teo-apl-abierta-compleja}{teorema de la aplicación abierta}, $\phi_\ell\left(D(a_\ell, \varepsilon_\ell)\right)$ es abierto, luego $E \defeq \bigcap_{\ell=1}^s \phi_\ell\left(D(a_\ell, \varepsilon_\ell)\right)$ es abierto. Además, como $\phi_\ell(a_\ell) = 0$ para todo $\ell \in \N_s$, tenemos que $0 \in E$.
 
-    Entonces, $\exists \varepsilon > 0 : D(0, \varepsilon) \subset E$ y tomamos $V_j \defeq g_j^{-1}\left(D(0, \varepsilon)\right) \subset D(a_j, \varepsilon_j)$ para $j \in \N_r$. Observamos que $g_j \colon V_j \to D(0, \varepsilon)$ es biyectiva, $g_j\left(a_j\right) = 0$ y los abiertos $V_j \subset \mathbb{D}$ son disjuntos dos a dos. Entonces,  $\forall w \in D(w_0, \varepsilon') \setminus \{w_0\} : f(z) = w$ tiene exactamente $n_j$ soluciones en $V_j$ donde $\varepsilon' = \min_{j \in \N_r} \varepsilon^{m_j} = \varepsilon^{\max_{j \in \N_r} m_j}$.
+    Entonces, $\exists \varepsilon > 0 : D(0, \varepsilon) \subset E$ y tomamos $V_\ell \defeq \phi_\ell^{-1}\left(D(0, \varepsilon)\right) \subset D(a_\ell, \varepsilon_\ell)$ para $\ell \in \N_s$. Observamos que $\phi_\ell\big|_{V_\ell}$ es biyectiva sobre $D(0, \varepsilon)$, $\phi_\ell\left(a_\ell\right) = 0$ y los abiertos $V_\ell \subset \mathbb{D}$ son disjuntos dos a dos. Entonces, tomando $\varepsilon' \defeq \min_{\ell \in \N_s} \varepsilon^{m_\ell}$, para cada $\ell \in \N_s$ y todo $w \in D(0, \varepsilon') \setminus \{0\}$, el conjunto $U_{\ell,w} \defeq \left\{u \in \mathbb{C} : u^{m_\ell} = w\right\}$ tiene exactamente $m_\ell$ elementos y satisface $U_{\ell,w} \subset D(0, \varepsilon)$. Por la biyección $\phi_\ell\big|_{V_\ell}$, a cada $u \in U_{\ell,w}$ le corresponde un único $z \in V_\ell$ con $\phi_\ell(z) = u$ y, recíprocamente, de $f(z) = w$ se sigue que $\phi_\ell(z) \in U_{\ell,w}$. Como $f = \phi_\ell^{m_\ell}$ en $V_\ell$, concluimos que $f(z) = w$ tiene exactamente $m_\ell$ soluciones en $V_\ell$.
 
-    Como $f(z_k) \xrightarrow{k \to \infty} w_0 \we \abs{z_k} \xrightarrow{k \to \infty} 1$, tenemos que
+    Como $V_\ell \subset D(a_\ell, \varepsilon_\ell)$ para todo $\ell \in \N_s$, se tiene
     \[
-    \exists k_0 \in \N : \forall k \geq k_0 : f(z_k) \in D(w_0, \varepsilon') \setminus \{w_0\} \we f(z_k) \neq w_0 \we z_k \notin \bigcup_{j=1}^r V_j.
+    \bigcup_{\ell=1}^s V_\ell \subset \bigcup_{\ell=1}^s D(a_\ell, \varepsilon_\ell) \subset D(0, \sigma), \quad \text{donde } \sigma \defeq \max_{\ell \in \N_s}\left(\abs{a_\ell}+\varepsilon_\ell\right) < 1.
     \]
-    Tomamos la sucesión $\left(w_k\right)_{k\in \N}$ dada por $w_k = f(z_{k_0 + k})$. Entonces, $\forall j \in \N_r : V_j$ contiene $n_j$ puntos distintos que van a $w_k$ por $f$. Por tanto, la ecuación $f(z) = w_k$ tiene al menos $n_1 + \dots + n_r + 1 = n + 1$ soluciones. Contradicción. \hfill\qedsymbol
+    Como $f(z_k) \xrightarrow{k \to \infty} 0$, existe $k_1 \in \N$ tal que $\forall k \geq k_1 : f(z_k) \in D(0, \varepsilon') \setminus \{0\}$.
+    Como $\abs{z_k} \xrightarrow{k \to \infty} 1$ y $\sigma < 1$, existe $k_2 \in \N$ tal que $\forall k \geq k_2 : \abs{z_k} > \sigma$ y, por tanto,
+    \[
+    \forall k \geq k_2 : z_k \notin \bigcup_{\ell=1}^s V_\ell.
+    \]
+    Tomamos $k_0 \defeq \max\{k_1, k_2\}$ y la sucesión $\left(w_k\right)_{k\in \N}$ dada por $w_k = f(z_{k_0 + k})$. Fijado $k \in \N$, para cada $\ell \in \N_s$, la ecuación $f(z) = w_k$ tiene exactamente $m_\ell$ soluciones en $V_\ell$.
+    Como los abiertos $V_\ell$ son disjuntos dos a dos, estas soluciones son distintas y suman $m_1 + \dots + m_s = n$. Además, $f(z_{k_0+k}) = w_k$ y $z_{k_0+k} \notin \bigcup_{\ell=1}^s V_\ell$, así que obtenemos una solución adicional.
+    Por tanto, la ecuación $f(z) = w_k$ tiene al menos $n + 1$ soluciones. Contradicción. \hfill\qedsymbol
 \end{dem}
 
-\section{Productos finitos de Blaschke en $\mathbb{H}$}
+% \section{Productos finitos de Blaschke en $\mathbb{H}$}
 
-{\color{red} Está sección no sé si incluirla.}
+% {\color{red} Está sección no sé si incluirla.}
 
 %REVISAR: lo ha escrito la chati
 
