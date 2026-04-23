@@ -239,13 +239,6 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \hfill\qedsymbol
 \end{dem}
 
-\begin{teo}[Stone--Weierstrass en $\mathbb{T}$]\label{teo:stone-weierstrass-toro}
-    Sean $\eta \in \mathcal{C}(\mathbb{T})$ y $\varepsilon > 0$. Entonces, existen $N \in \N$ y $\left(a_k\right)_{k=-N}^N \subset \C$ tales que
-    \[
-    \max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - \sum_{k=-N}^N a_k \xi^k} < \varepsilon.
-    \]
-\end{teo}
-
 \begin{teo}[Helson--Sarason]\label{teo:helson-sarason-aproximacion-fn-unimodular-continua-cociente-prod-finito-blaschke}
     Sea $u \colon \mathbb{T} \to \mathbb{T}$ \exhyperref[defn:continuidad-pnt]{continuidad}{continua} y sea $\varepsilon > 0$. Entonces, existen $B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} tales que $\max_{\xi \in \mathbb{T}} \abs{u(\xi) - \frac{B_1(\xi)}{B_2(\xi)}} < \varepsilon$. 
 \end{teo}
@@ -267,24 +260,69 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
         &\leq \frac{\abs{\eta - h} \cdot \abs{h^*} + \abs{h^* - \eta^*} \cdot \abs{h}}{\abs{\eta^*} \cdot \abs{h^*}} = \frac{\abs{\eta - h} \cdot \abs{h} + \abs{h - \eta} \cdot \abs{h}}{\abs{\eta} \cdot \abs{h}} = 2 \abs{\eta - h} < \varepsilon.
     \end{aligned}
     \]
-    Como $f$ es una función meromorfa en $\mathbb{D}$, unimodular y continua en $\mathbb{T}$, por el %ORDENAR referenciar
-    $f$ es un cociente de productos finitos de Blaschke.
+    Como $f$ es una función meromorfa en $\mathbb{D}$, unimodular y continua en $\mathbb{T}$, por el \excref[cor:carac-cociente-prod-finito-blaschke-algebra-disco-meromorfa]{cor-carac-cociente-prod-finito-blaschke-algebra-disco-meromorfa}, $f$ es un cociente de productos finitos de Blaschke.
 \end{dem}
 
 \section{Aproximación por productos finitos de blaschke con ceros simples}
 
-\begin{lem}\label{lem:diferencia-productos-leq-suma-diferencias}
-    Sean $\left\{a_k\right\}_{k =1}^n, \left\{b_k\right\}_{k=1}^n \subset \bar{\mathbb{D}}$. Entonces, $\ds \abs{\prod_{k=1}^n a_k - \prod_{k=1}^n b_k} \leq \sum_{k=1}^n \abs{a_k - b_k}$. 
+%ORDENAR es innecesario
+% \begin{lem}\label{lem:diferencia-productos-leq-suma-diferencias}
+%     Sean $\left\{a_k\right\}_{k =1}^n, \left\{b_k\right\}_{k=1}^n \subset \bar{\mathbb{D}}$. Entonces, $\ds \abs{\prod_{k=1}^n a_k - \prod_{k=1}^n b_k} \leq \sum_{k=1}^n \abs{a_k - b_k}$. 
+% \end{lem}
+% \begin{dem}
+%     Lo probaremos por inducción en $n$. Para $n = 1$, el resultado es trivial. Supongamos que el resultado se cumple para $n$. Consideramos $\left\{a_k\right\}_{k =1}^{n+1}, \left\{b_k\right\}_{k=1}^{n+1} \subset \bar{\mathbb{D}}$. Entonces,
+%     \[
+%     \begin{aligned}
+%         \abs{\prod_{k=1}^{n+1} a_k - \prod_{k=1}^{n+1} b_k} &= \abs{\left(\prod_{k=1}^{n+1} a_k - a_{n+1} \prod_{k=1}^{n} b_k + a_{n+1} \prod_{k=1}^{n} b_k - \prod_{k=1}^{n+1} b_k\right)} \\
+%         &= \abs{a_{n+1} \left(\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k\right) + \left(\prod_{k=1}^{n} b_k\right) (a_{n+1} - b_{n+1})} \\
+%         &\leq \abs{a_{n+1}} \abs{\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k} + \prod_{k=1}^{n} \abs{b_k} \abs{a_{n+1} - b_{n+1}} \\
+%         &\upexpl{\leq}{$\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\! a_k, b_k \in \bar{\mathbb{D}}$} \abs{\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k} + \abs{a_{n+1} - b_{n+1}} \leq \sum_{k=1}^n \abs{a_k - b_k} + \abs{a_{n+1} - b_{n+1}}.
+%     \end{aligned}
+%     \]
+
+%     \vspace{-\baselineskip}
+%     % \vspace{-\belowdisplayskip}
+%     \hfill\qedsymbol
+% \end{dem}
+
+\begin{lem}\label{lem:convergencia-ceros-imp-convergencia-prod-finito-blaschke}
+    Sea $\left(w_k\right)_{k=1}^n \subset \mathbb{D}$ y sea $B = \prod_{k} \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{w_k}} \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$. Sea $\left(\underline{z}^m\right)_{m \in \N} \subset \mathbb{D}^n$ tal que
+    \[
+    \bigl(\forall m \in \N : \underline{z}^m = \left(z_k^m\right)_{k=1}^n \subset \mathbb{D}\bigr) \quad \we \quad \bigl(\forall k \in \N_n : \exhyperref[defn:convergencia]{convergencia}{\lim_{m \to \infty}} z_k^m = w_k\bigr).
+    \]
+    Definimos $B_m \defeq \prod_{k} \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k^m}} \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$. Entonces, para todo $K \exhyperref[defn:compacidad]{compacidad}{\Subset} \C$ que no contenga ningún \exhyperref[defn:polo]{polo}{polo} de $B$, se tiene que $B_m \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[m \to \infty]{K}} B$.
+    En particular, $B_m \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[m \to \infty]{\bar{\mathbb{D}}}} B$.
 \end{lem}
 \begin{dem}
-    Lo probaremos por inducción en $n$. Para $n = 1$, el resultado es trivial. Supongamos que el resultado se cumple para $n$. Consideramos $\left\{a_k\right\}_{k =1}^{n+1}, \left\{b_k\right\}_{k=1}^{n+1} \subset \bar{\mathbb{D}}$. Entonces,
+    Para cada $k \in \N_n$, calculamos
     \[
-    \begin{aligned}
-        \abs{\prod_{k=1}^{n+1} a_k - \prod_{k=1}^{n+1} b_k} &= \abs{\left(\prod_{k=1}^{n+1} a_k - a_{n+1} \prod_{k=1}^{n} b_k + a_{n+1} \prod_{k=1}^{n} b_k - \prod_{k=1}^{n+1} b_k\right)} \\
-        &= \abs{a_{n+1} \left(\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k\right) + \left(\prod_{k=1}^{n} b_k\right) (a_{n+1} - b_{n+1})} \\
-        &\leq \abs{a_{n+1}} \abs{\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k} + \prod_{k=1}^{n} \abs{b_k} \abs{a_{n+1} - b_{n+1}} \\
-        &\upexpl{\leq}{$\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\!\! a_k, b_k \in \bar{\mathbb{D}}$} \abs{\prod_{k=1}^{n} a_k - \prod_{k=1}^{n} b_k} + \abs{a_{n+1} - b_{n+1}} \leq \sum_{k=1}^n \abs{a_k - b_k} + \abs{a_{n+1} - b_{n+1}}.
-    \end{aligned}
+    \tau_{w_k}(z) - \tau_{z_k^m}(z) = \frac{\left(w_k - z\right)\left(1 - \bar{z_k^m}z\right) - \left(z_k^m - z\right)\left(1 - \bar{w_k}z\right)}{\left(1 - \bar{w_k}z\right)\left(1 - \bar{z_k^m}z\right)}.
+    \]
+    Expandiendo el numerador, lo podemos escribir como un polinomio cuadrático en $z$:
+    \[
+    N_k^m(z) \defeq (w_k - z_k^m) + z\bigl(z_k^m \bar{w_k} - w_k \bar{z_k^m}\bigr) + z^2(\bar{z_k^m} - \bar{w_k}).
+    \]
+    Como $z_k^m \bar{w_k} - w_k \bar{z_k^m} = (z_k^m - w_k)\bar{w_k} - w_k(\bar{z_k^m} - \bar{w_k})$, se tiene que
+    \[
+    \abs{N_k^m(z)} \leq \abs{w_k - z_k^m}\left(1 + 2\abs{z}\abs{w_k} + \abs{z}^2\right) \leq \abs{w_k - z_k^m}(1 + \abs{z})^2.
+    \]
+
+    Sea $K \Subset \C \setminus \left\{1/\bar{w_k} : k \in \N_n \we w_k \neq 0\right\}$. Entonces, $\delta_k \defeq \min_{z \in K} \abs{1 - \bar{w_k}z} > 0$ están bien definidos. Sea $R \defeq \max_{z \in K} \abs{z}$. Como $z_k^m \to w_k$ y hay un número finito de índices $k$, $\exists m_0 \in \N : \forall m \geq m_0 : \forall k \in \N_n : \abs{z_k^m - w_k} < \frac{\delta_k}{2(R + 1)}$. En particular,
+    \[
+    \forall z \in K : \abs{1 - \bar{z_k^m}z} \geq \abs{1 - \bar{w_k}z} - \abs{z_k^m - w_k}\abs{z} \geq \delta_k - \frac{\delta_k R}{2(R+1)} \geq \frac{\delta_k}{2},
+    \]
+    de modo que, para $m \geq m_0$:
+    \[
+    \sup_{z \in K} \abs{\tau_{w_k}(z) - \tau_{z_k^m}(z)} \leq \frac{(1+R)^2}{\delta_k \cdot \delta_k / 2} \abs{w_k - z_k^m} = \frac{2(1+R)^2}{\delta_k^2} \abs{w_k - z_k^m}.
+    \]
+
+    Para pasar del control de cada factor al del producto, procedemos por inducción en $n$. Para $n = 1$, el resultado es inmediato. Supongamos que el resultado se cumple para productos de $n - 1$ factores y definimos $\widetilde{B} = \prod_{k=2}^n \tau_{w_k}$ y $\widetilde{B}_m = \prod_{k=2}^n \tau_{z_k^m}$, de modo que $B = \tau_{w_1} \cdot \widetilde{B}$ y $B_m = \tau_{z_1^m} \cdot \widetilde{B}_m$. Entonces,
+    \[
+    B(z) - B_m(z) = \tau_{w_1}(z) \bigl(\widetilde{B}(z) - \widetilde{B}_m(z)\bigr) + \bigl(\tau_{w_1}(z) - \tau_{z_1^m}(z)\bigr) \widetilde{B}_m(z).
+    \]
+    Por hipótesis de inducción, $\widetilde{B}_m \xrightrightarrows[m \to \infty]{K} \widetilde{B}$. Además, como $K$ es compacto y no contiene polos de $B$ ni, para $m$ suficientemente grande, de $B_m$, los factores $\tau_{w_1}$ y $\widetilde{B}_m$ están uniformemente acotados en $K$, i.e. $\exists M < \infty$ tal que $\sup_{z \in K} \abs{\tau_{w_1}(z)} \leq M$ y $\sup_{z \in K} \abs{\widetilde{B}_m(z)} \leq M$ para $m$ suficientemente grande. Por tanto,
+    \[
+    \sup_{z \in K} \abs{B(z) - B_m(z)} \leq M \sup_{z \in K} \abs{\widetilde{B}(z) - \widetilde{B}_m(z)} + M \sup_{z \in K} \abs{\tau_{w_1}(z) - \tau_{z_1^m}(z)} \xrightarrow[m \to \infty]{} 0.
     \]
 
     \vspace{-\baselineskip}
@@ -292,81 +330,39 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \hfill\qedsymbol
 \end{dem}
 
-\begin{lem}%\label{lem:}
-    Sea $\left(z_k\right)_{k=1}^n \subset \mathbb{D}$ y $B = \prod_{k} \tau_{z_k}$ el producto finito de Blaschke mónico asociado. Sea $\left(\left(z_k^m\right)_{k=1}^n\right)_{m \in \N}$ tal que $\forall k \in \N_n : z_k^m \in \mathbb{D} \we \lim_{m} z_k^m = z_k$. Sea $B_m = \prod_{k} \tau_{z_k^m}$ el producto finito de Blaschke mónico asociado a $\left(z_k^m\right)_{k=1}^n$. Entonces,
-    \[
-    \forall K \Subset \C : K \tex{ no contiene ningún polo de } B : B_m \xrightrightarrows[m \to \infty]{K} B.
-    \]
-    En particular, $B_m \xrightrightarrows[m \to \infty]{\bar{\mathbb{D}}} B$.
-\end{lem}
-\begin{dem}
-    Para cada $k \in \N_n$, calculamos
-    \[
-    \tau_{z_k}(z) - \tau_{z_k^m}(z) = \frac{(z_k - z)(1 - \bar{z_k^m}z) - (z_k^m - z)(1 - \bar{z_k}z)}{(1 - \bar{z_k}z)(1 - \bar{z_k^m}z)}.
-    \]
-    Expandiendo el numerador, lo podemos escribir como un polinomio cuadrático en $z$:
-    \[
-    N_k^m(z) \defeq (z_k - z_k^m) + z\bigl(z_k^m \bar{z_k} - z_k \bar{z_k^m}\bigr) + z^2(\bar{z_k^m} - \bar{z_k}).
-    \]
-    Como $z_k^m \bar{z_k} - z_k \bar{z_k^m} = (z_k^m - z_k)\bar{z_k} - z_k(\bar{z_k^m} - \bar{z_k})$, se tiene
-    \[
-    \abs{N_k^m(z)} \leq \abs{z_k - z_k^m}\left(1 + 2\abs{z}\abs{z_k} + \abs{z}^2\right) \leq \abs{z_k - z_k^m}(1 + \abs{z})^2,
-    \]
-    donde la última desigualdad usa que $\abs{z_k} < 1$.
-
-    Sea $K \Subset \C$ que no contiene ningún polo de $B$. Como $1/\bar{z_k} \notin K$ para todo $k$, los mínimos $\delta_k \defeq \min_{z \in K} \abs{1 - \bar{z_k}z} > 0$ están bien definidos. Sea $R \defeq \max_{z \in K} \abs{z}$. Como $z_k^m \to z_k$ y hay un número finito de índices $k$, $\exists m_0 \in \N : \forall m \geq m_0 : \forall k \in \N_n : \abs{z_k^m - z_k} < \frac{\delta_k}{2(R + 1)}$. En particular, $\forall z \in K :$
-    \[
-    \abs{1 - \bar{z_k^m}z} \geq \abs{1 - \bar{z_k}z} - \abs{z_k^m - z_k}\abs{z} \geq \delta_k - \frac{\delta_k R}{2(R+1)} \geq \frac{\delta_k}{2},
-    \]
-    de modo que, para $m \geq m_0$:
-    \[
-    \sup_{z \in K} \abs{\tau_{z_k}(z) - \tau_{z_k^m}(z)} \leq \frac{(1+R)^2}{\delta_k \cdot \delta_k / 2} \abs{z_k - z_k^m} = \frac{2(1+R)^2}{\delta_k^2} \abs{z_k - z_k^m}.
-    \]
-
-    Para pasar del control de cada factor al del producto, procedemos por inducción en $n$. Para $n = 1$, el resultado es inmediato. Supongamos que el resultado se cumple para productos de $n - 1$ factores y definimos $\tilde{B} = \prod_{k=2}^n \tau_{z_k}$ y $\tilde{B}_m = \prod_{k=2}^n \tau_{z_k^m}$, de modo que $B = \tau_{z_1} \cdot \tilde{B}$ y $B_m = \tau_{z_1^m} \cdot \tilde{B}_m$. Entonces,
-    \[
-    B(z) - B_m(z) = \tau_{z_1}(z) \bigl(\tilde{B}(z) - \tilde{B}_m(z)\bigr) + \bigl(\tau_{z_1}(z) - \tau_{z_1^m}(z)\bigr) \tilde{B}_m(z).
-    \]
-    Por la hipótesis de inducción, $\tilde{B}_m \xrightrightarrows[m \to \infty]{K} \tilde{B}$. Además, como $K$ es compacto y no contiene polos de $B$ ni, para $m$ suficientemente grande, de $B_m$ (pues $1/\bar{z_k^m} \to 1/\bar{z_k} \notin K$), los factores $\tau_{z_1}$ y $\tilde{B}_m$ están uniformemente acotados en $K$: $\exists M < \infty$ tal que $\sup_{z \in K} \abs{\tau_{z_1}(z)} \leq M$ y $\sup_{z \in K} \abs{\tilde{B}_m(z)} \leq M$ para $m$ suficientemente grande. Por tanto,
-    \[
-    \sup_{z \in K} \abs{B(z) - B_m(z)} \leq M \sup_{z \in K} \abs{\tilde{B}(z) - \tilde{B}_m(z)} + M \sup_{z \in K} \abs{\tau_{z_1}(z) - \tau_{z_1^m}(z)} \xrightarrow[m \to \infty]{} 0.
-    \]
-    Nótese que si $K \subset \bar{\mathbb{D}}$, las involuciones de Blaschke satisfacen $\abs{\tau_{z_k}}, \abs{\tau_{z_k^m}} \leq 1$ en $K$, luego $M = 1$ y la cota se reduce, por el \excref[lem:diferencia-productos-leq-suma-diferencias]{lem-diferencia-productos-leq-suma-diferencias}, a $\abs{B - B_m} \leq \sum_{k=1}^n \abs{\tau_{z_k} - \tau_{z_k^m}}$.\hfill\qedsymbol
-\end{dem}
-
-\begin{teo}%[]\label{teo:}
-    Sea $B$ un producto finito de Blaschke. Entonces, existe una sucesión $\left(B_n\right)_{n \in \N}$ de productos finitos de Blaschke con las siguientes propiedades:
-    \begin{enumerate}
-        \item $\forall n \in \N : \deg B_n = \deg B$.
-        \item $\forall n \in \N : B_n$ tiene ceros simples.
-        \item $\forall n \in \N : B_n(0) \neq 0 \we B_n'(0) \neq 0$.
-        \item $\forall K \Subset \C : K$ no contiene ningún polo de $B : B_n \xrightrightarrows[n \to \infty]{K} B$.
+\begin{teo}\label{teo:aproximacion-prod-finito-blaschke-ceros-simples}
+    Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$. Entonces, $\exists \left(B_m\right)_{m \in \N} \subset \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$  tal que:
+    \begin{enumerate}[ref=(\arabic*)]
+        \item\label{teo:aproximacion-prod-finito-blaschke-ceros-simples:ceros-simples} $\forall m \in \N : B_m$ tiene \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{ceros simples}.
+        \item\label{teo:aproximacion-prod-finito-blaschke-ceros-simples:origen} $\forall m \in \N : B_m(0) \neq 0 \we B_m'(0) \neq 0$.
+        \item\label{teo:aproximacion-prod-finito-blaschke-ceros-simples:convergencia} $\forall K \exhyperref[defn:compacidad]{compacidad}{\Subset} \C : K$ no contiene ningún \exhyperref[defn:polo]{polo}{polo} de $B : B_m \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[m \to \infty]{K}} B$.
     \end{enumerate}
 \end{teo}
 \begin{dem}
-    Observamos que $B$ viene dado por
+    Por definición, $\exists \left\{z_k\right\}_{k=1}^r \subset \mathbb{D}, \left\{j_k\right\}_{k=1}^r \subset \N, j_0 \in \N \cup \{0\}, \beta \in [0, 2\pi) : $ tales que $B$ viene dada por
     \[
-    B(z) = e^{i\beta} z^{j_0} \prod_{k=1}^m \left(\frac{z_k - z}{1 - \bar{z_k}z}\right)^{j_k} 
+    B(z) = e^{i\beta} z^{j_0} \prod_{k=1}^r \left(\frac{z_k - z}{1 - \bar{z_k}z}\right)^{j_k} \quad \tex{donde} \quad \sum_{k=0}^r j_k = n
     \]
-    donde $\beta \in [0, 2\pi)$, $\forall k \in \N_m : j_k \in \N$, $\sum_{k=0}^m j_k = \deg B$ y $z_1, \dots, z_m$ son los ceros distintos de $B$ en $\mathbb{D} \setminus \{0\}$. Tomando $z_0$, definimos
+    y $\left\{z_k\right\}_{k=1}^r$ son los distintos ceros de $B$ en $\mathbb{D} \setminus \{0\}$. Definiendo $z_0 = 0$, consideramos
     \[
-    \varepsilon_0 = \min \left\{ \frac{1}{2} \abs{z_k - z_\ell} : 0 \leq k, \ell \leq m \we k \neq \ell \right\} > 0.
+    \varepsilon_0 \defeq \min \left\{ \frac{1}{2} \abs{z_k - z_\ell} : 0 \leq k, \ell \leq r \we k \neq \ell \right\} > 0.
     \]
-    Entonces, existe un $N$ tal que $\frac{1}{N} < \varepsilon_0$. Fijamos $n \in \N$. Definimos los discos
+    Entonces, existe un $N$ tal que $\frac{1}{N} < \varepsilon_0$. Fijamos $m \in \N$. Definimos los discos
     \[
-    \forall k \in \N_m : \Gamma_{k, n} \defeq \left\{z \in \mathbb{C} : \abs{z - z_k} < \frac{1}{n+N} \right\}
+    \forall k \in \N_r \cup \{0\} : \Gamma_{k, m} \defeq \left\{z \in \mathbb{C} : \abs{z - z_k} < \frac{1}{m+N} \right\}
     \]
     que son disjuntos dos a dos y no contienen al origen.
     
-    Para cada $k \in \N_m$, tomamos $\forall \ell \in \N_{j_k} : z_{k, n, \ell} = z_k + \frac{1}{2(n+N)} \cdot \omega_{j_k}^\ell$ donde $\omega_{j_k} = e^{\frac{2\pi i}{j_k}}$ es la raíz $j_k$-ésima de la unidad. Entonces, $\forall k \in \N_m : \left\{z_{k, n, \ell} \right\}_{\ell=1}^{j_k} \subset \Gamma_{k, n}$ y los $z_{k, n, \ell}$ son distintos entre sí. Consideramos el producto finito de Blaschke mónico $B_n$ dado por
+    Para cada $m \in \N$ y $k \in \N_r \cup \{0\}$, tomamos $\forall \ell \in \N_{j_k} : z_{m, k, \ell} = z_k + \frac{1}{(m+N)} \cdot \omega_{j_k}^\ell$ donde $\omega_{j_k}$ es la raíz $j_k$-ésima de la unidad. Entonces, $\forall k \in \N_r \cup \{0\} : \left\{z_{m, k, \ell} \right\}_{\ell=1}^{j_k} \subset \Gamma_{k, m}$ y los $z_{k, m, \ell}$ son distintos entre sí. Para $m \in \N$, consideramos $B_m \in \mathscr{B}_n$ mónico dado por
     \[
-    B_n(z) = e^{i\beta} \prod_{k=1}^m \prod_{\ell=1}^{j_k} \frac{z_{k, n, \ell} - z}{1 - \bar{z_{k, n, \ell}} z}.
+    B_m(z) = e^{i\beta} \prod_{k=0}^r \prod_{\ell=1}^{j_k} \frac{z_{m, k, \ell} - z}{1 - \bar{z_{m, k, \ell}} z}.
     \]
-    Las condiciones (1), (2) y la primera parte de (3) se cumplen por construcción. La condición (4) se sigue del lema anterior. %ORDENAR referenciar
-    Para ver que $B_n'(0) \neq 0$, reindexamos los $\left\{z_{k, n, \ell}\right\}_{k=1, \ell=1}^{m, j_k}$ como $\left\{w_p\right\}_{p=1}^{\deg B}$ para obtener:
+    Las condiciones \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:ceros-simples} y la primera parte de \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:origen} se cumplen por construcción. La condición \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:convergencia} se sigue del \excref[lem:convergencia-ceros-imp-convergencia-prod-finito-blaschke]{lem-convergencia-ceros-imp-convergencia-prod-finito-blaschke}.
+    Para comprobar si $B_m'(0) \neq 0$, reindexamos los $\left\{z_{k, m, \ell}\right\}_{k=1, \ell=1}^{r, j_k}$ como $\left\{w_p\right\}_{p=1}^{n}$ para obtener: $B_m = e^{i\beta} \prod_{p=1}^{n} \tau_{w_p}$. Entonces, por el \excref[lem:derivada-logaritmica-prod-finito-blaschke]{lem-derivada-logaritmica-prod-finito-blaschke}, se tiene que 
     \[
-    B_n (z) = e^{i\beta} (-1)^{j_0} %COMPLETAR
+    \frac{B_m'(0)}{B_m(0)} = \sum_{p=1}^n \frac{\abs{w_p}^2 - 1}{w_p} = \sum_{p=1}^n \left(\bar{w_p} - \frac{1}{w_p}\right) = \left(\bar{w_n} - \frac{1}{w_n}\right) + \sum_{p=1}^{n-1} \left(\bar{w_p} - \frac{1}{w_p}\right).
     \]
+    En caso de que $B_m'(0) = 0$ y el sumario anterior se anule, tomamos $w_{n} = z_{m, r, j_r} = z_r + \frac{1}{m+N} \cdot \gamma$ con $\gamma \in \mathbb{T}$ apropiadamente elegido en lugar de la expresión original, de modo que $B_m'(0) \neq 0$.%REVISAR y COMPLETAR
 \end{dem}
 
 \section{Generalización del Teorema de Rouché y su inverso}

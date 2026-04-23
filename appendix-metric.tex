@@ -1,0 +1,56 @@
+\chapter{Resultados auxiliares sobre espacios métricos}
+
+\section{Convergencia y continuidad uniformes}
+
+\transclude{convergencia-uniforme}
+
+\transclude{continuidad-uniforme}
+
+\begin{prop}\label{prop:convergencia-uniforme-continuidad-uniforme}
+    Sean $X, Y$ \exhyperref[defn:esp-metrico]{esp-metrico}{espacios métricos}, $f \colon X \to Y$ y sea $\left(f_n\right)_{n \in \N}$ una sucesión de funciones $f_n \colon X \to Y$ \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continuas} que \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{converge uniformemente} a $f$. Entonces, $f$ es uniformemente continua.
+\end{prop}
+\begin{dem}
+    Sea $\varepsilon > 0$. Entonces, $\exists N \in \mathbb{N} : \forall x \in X : d_Y(f_N(x), f(x)) < \frac{\varepsilon}{3}$.
+
+    Por otro lado, como $f_N$ es uniformemente continua, $\exists \delta > 0 : \forall x_1, x_2 \in X : d_X(x_1, x_2) < \delta \implies d_Y(f_N(x_1), f_N(x_2)) < \frac{\varepsilon}{3}$. Por tanto, si $d_X(x_1, x_2) < \delta$, por la \exhyperref[defn:metrica:desigualdad-triangular]{metrica}{desigualdad triangular}, se tiene que
+    \begin{align*}
+        d_Y(f(x_1), f(x_2)) &\leq d_Y(f(x_1), f_N(x_1)) + d_Y(f_N(x_1), f_N(x_2)) + d_Y(f_N(x_2), f(x_2)) \\
+        &< \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon.
+    \end{align*}
+    Luego $f$ es uniformemente continua.
+\end{dem}
+
+\subsection{Convergencia uniforme sobre compactos}
+
+\transclude{convergencia-uniforme-compactos}
+
+\section{Combinaciones y envolventes convexas}
+
+\begin{defn}[Combinación convexa]\label{defn:combinacion-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $\left\{x_i\right\}_{i=1}^n \subset V$, $y \in V$ es una combinación convexa de $\left\{x_i\right\}_{i=1}^n$
+    \[
+    \iff \exists \left\{\lambda_i\right\}_{i=1}^n \subset \mathbb{R}_{\geq 0} : \sum_{i=1}^n \lambda_i = 1 \we y = \sum_{i=1}^n \lambda_i x_i
+    \]
+
+    Sea $A \subset V$, $y \in V$ es una combinación convexa de elementos de $A \iff \exists \left\{a_i\right\}_{i=1}^n \subset A$ tal que $y \tex{ es una combinación convexa de } \left\{a_i\right\}_{i=1}^n$.
+\end{defn} %ORDENAR enviar al anexo
+
+\begin{defn}[Envolvente convexa]\label{defn:envolvente-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$, $\operatorname{conv}(A)$ es la envolvente convexa de $A \iff \operatorname{conv}(A)$ es el \exhyperref[defn:con-convexo]{con-convexo}{convexo} más pequeño que contiene a $A$.
+\end{defn} %ORDENAR enviar al anexo
+
+\begin{prop}\label{prop:envolvente-convexa-combinacion-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$. Entonces,
+    \[
+    \operatorname{conv}(A) = \left\{y \in V : v \tex{ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de elementos de } A \right\}.
+    \]
+\end{prop}%ORDENAR enviar al anexo
+
+
+%ORDENAR: reposicionar este teorema
+\begin{teo}[Stone--Weierstrass en $\mathbb{T}$]\label{teo:stone-weierstrass-toro}
+    Sean $\eta \in \mathcal{C}(\mathbb{T})$ y $\varepsilon > 0$. Entonces, existen $N \in \N$ y $\left(a_k\right)_{k=-N}^N \subset \C$ tales que
+    \[
+    \max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - \sum_{k=-N}^N a_k \xi^k} < \varepsilon.
+    \]
+\end{teo}
