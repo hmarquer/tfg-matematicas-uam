@@ -245,9 +245,9 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
 \end{dem}
 
 \begin{obs}
-    La métrica de Poincaré se puede escribir como $\wp(z, w) = f(\varrho(z, w))$ donde $f \colon [0,1) \to [0, \infty)$ es la función dada por $f(t) = \log \frac{1+t}{1-t}$.
+    La métrica de Poincaré se puede escribir como $\wp(z, w) = f(\varrho(z, w))$ donde $f \colon [0,1) \to [0, \infty)$ es la función dada por $\varphi(t) = \log \frac{1+t}{1-t}$.
     
-    Esta función es continua y estrictamente creciente en $[0,1)$, con $f(0) = 0$ y $\lim_{t \to 1^-} f(t) = \infty$. Por tanto, $f$ es una biyección entre $[0,1)$ y $[0, \infty)$ (véase la \autoref{fig:funcion-log-poincare}).
+    Esta función es continua y estrictamente creciente en $[0,1)$, con $\varphi(0) = 0$ y $\lim_{t \to 1^-} \varphi(t) = \infty$. Por tanto, $\varphi$ es una biyección entre $[0,1)$ y $[0, \infty)$ (véase la \autoref{fig:funcion-log-poincare}).
     
     \begin{figure}[ht]
         \centering
@@ -295,7 +295,7 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
     \]
     y tampoco es de Cauchy respecto a $\wp$.
 
-    En este sentido, podemos ver con precisión cómo se deforma la geometría euclídea cerca del borde: para sucesiones que convergen euclídeamente a $\partial\mathbb{D}$, la distancia pseudohiperbólica a un punto interior no tiende a $0$ sino a $1$, y la distancia de Poincaré correspondiente diverge a $\infty$. Es decir, $\varrho$ separa el borde lo suficiente para destruir la propiedad de Cauchy euclídea, mientras que $\wp$ sitúa el borde a distancia infinita.
+    En este sentido, podemos ver con precisión cómo se deforma la geometría euclídea cerca del borde: para sucesiones que convergen euclídeamente a $\partial\mathbb{D}$, la distancia pseudohiperbólica a un punto interior no tiende a $0$ sino a $1$, y la distancia de Poincaré correspondiente diverge a $\infty$. Es decir, $\varrho$ separa el borde lo suficiente para perder la propiedad de Cauchy euclídea, mientras que $\wp$ sitúa el borde a distancia infinita.
 \end{obs}
 
 % Con la observación anterior, este ejemplo ya no es relevante
@@ -404,14 +404,14 @@ Para probarlo, partiremos de la definición de longitud hiperbólica de un camin
 % \end{dem}
 
 \begin{defn}[Longitud hiperbólica]\label{defn:longitud-hiperbolica}
-    Así, dado un camino\footnote{Aquí y en lo sucesivo, un camino es una función continua y $\mathcal{C}^1$ a trozos $\Gamma \colon [a,b] \to \mathbb{D}$.} $\Gamma \colon [a,b] \to \mathbb{D}$, su \emph{longitud hiperbólica} se define como
+    Así, dado un \exhyperref[defn:camino]{camino}{camino}\footnote{Aquí y en lo sucesivo, un camino es una función continua y $\mathcal{C}^1$ a trozos $\Gamma \colon [a,b] \to \mathbb{D}$.} $\Gamma \colon [a,b] \to \mathbb{D}$, su \emph{longitud hiperbólica} se define como
     \[
     \ell(\Gamma) = \int_a^b \frac{2\abs{\Gamma'(t)}}{1 - \abs{\Gamma(t)}^2} \odif{t}.
     \]
 \end{defn}
 
 \begin{lem}\label{lem:invariancia-conforme-longitud-hiperbolica}
-    Sea $\Gamma$ un camino en $\mathbb{D}$ y $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D}\right)}$, entonces $\exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell} \left(f \circ \Gamma\right) = \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell} \left(\Gamma\right)$.
+    Sea $\Gamma$ un \exhyperref[defn:camino]{camino}{camino} en $\mathbb{D}$ y $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D}\right)}$, entonces $\exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell} \left(f \circ \Gamma\right) = \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell} \left(\Gamma\right)$.
 \end{lem}
 \begin{dem}
     Como $f \in \mathrm{Aut} \left(\mathbb{D}\right)$, $f \circ \Gamma$ es un camino en $\mathbb{D}$.
@@ -575,7 +575,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
 
 %COMPLETAR ¿nada de paralelas? REVISAR: mirar ejercicios
 
-\section{Versión de Alhfors del Lema de Schwarz}
+\section{Versión de Alhfors del lema de Schwarz}
 
 \subsection{Densidad de una métrica}
 
@@ -687,7 +687,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
 
 Ahlfors enunció el Lema de Schwarz como un resultado acerca de la curvatura.
 
-\begin{lem}%[]\label{lem:}
+\begin{lem}\label{lem:alhfors-schwarz}
     Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} dotado de una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\sigma$ tal que $\exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\sigma}}(z) \leq -1$ para todo $z \in \Omega$. Sea $f \colon \mathbb{D} \to \Omega$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa}, entonces
     \[
     \forall z \in \mathbb{D} : \left(\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \sigma}\right) (z) \leq \mu(z)

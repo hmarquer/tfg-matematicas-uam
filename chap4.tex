@@ -263,7 +263,7 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     Como $f$ es una función meromorfa en $\mathbb{D}$, unimodular y continua en $\mathbb{T}$, por el \excref[cor:carac-cociente-prod-finito-blaschke-algebra-disco-meromorfa]{cor-carac-cociente-prod-finito-blaschke-algebra-disco-meromorfa}, $f$ es un cociente de productos finitos de Blaschke.
 \end{dem}
 
-\section{Aproximación por productos finitos de blaschke con ceros simples}
+\section{Aproximación con ceros simples}
 
 %ORDENAR es innecesario
 % \begin{lem}\label{lem:diferencia-productos-leq-suma-diferencias}
@@ -362,94 +362,77 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \[
     \frac{B_m'(0)}{B_m(0)} = \sum_{p=1}^n \frac{\abs{w_p}^2 - 1}{w_p} = \sum_{p=1}^n \left(\bar{w_p} - \frac{1}{w_p}\right) = \left(\bar{w_n} - \frac{1}{w_n}\right) + \sum_{p=1}^{n-1} \left(\bar{w_p} - \frac{1}{w_p}\right).
     \]
-    En caso de que $B_m'(0) = 0$ y el sumario anterior se anule, tomamos $w_{n} = z_{m, r, j_r} = z_r + \frac{1}{m+N} \cdot \gamma$ con $\gamma \in \mathbb{T}$ apropiadamente elegido en lugar de la expresión original, de modo que $B_m'(0) \neq 0$.%REVISAR y COMPLETAR
+    En caso de que $B_m'(0) = 0$ y el sumatorio anterior se anule, redifinimos el último cero como $w_{n} = z_{m, r, j_r} = z_r + \frac{1}{m+N} \cdot \gamma$ con $\gamma \in \mathbb{T}$ apropiadamente elegido de modo que $B_m'(0) \neq 0$ y se mantengan el resto de propiedades. \hfill\qedsymbol
+
+    %ORDENAR: a lo mejor incluyo más detalles sobre la elección de $\gamma$ y el control de los ceros simples, aunque es un poco engorroso. De hecho, se podría evitar esta parte si en la construcción de $B_m$ se sustituyese el último cero del bloque asociado a $z_r$ por $z_r + \frac{1}{m+N} \cdot \gamma$ con $\gamma$ elegido desde el principio, pero me parecía más natural construir $B_m$ con los ceros equiespaciados y luego modificarlo solo si es necesario para garantizar que $B_m'(0) \neq 0$.
+    % Las condiciones \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:ceros-simples} y la primera parte de \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:origen} se cumplen por construcción. La condición \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:convergencia} se sigue del \excref[lem:convergencia-ceros-imp-convergencia-prod-finito-blaschke]{lem-convergencia-ceros-imp-convergencia-prod-finito-blaschke}.
+    % Para comprobar la segunda parte de \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:origen}, reindexamos $\left\{z_{m, k, \ell}\right\}_{k=0, \ell=1}^{r, j_k}$ como $\left\{w_p\right\}_{p=1}^{n}$, de modo que
+    % \[
+    % B_m = e^{i\beta} \prod_{p=1}^{n} \tau_{w_p}.
+    % \]
+    % Entonces, por el \excref[lem:derivada-logaritmica-prod-finito-blaschke]{lem-derivada-logaritmica-prod-finito-blaschke},
+    % \[
+    % \frac{B_m'(0)}{B_m(0)} = \sum_{p=1}^n \left(\bar{w_p} - \frac{1}{w_p}\right) = \left(\bar{w_n} - \frac{1}{w_n}\right) + S_m,
+    % \qquad
+    % S_m \defeq \sum_{p=1}^{n-1} \left(\bar{w_p} - \frac{1}{w_p}\right).
+    % \]
+    % Si esta cantidad ya es no nula, no hay nada que probar. Supongamos que es nula. Definimos $\rho_m \defeq \frac{1}{m+N}$ y sustituimos solo el último cero por
+    % \[
+    % w_n = z_r + \rho_m\,\gamma, \qquad \gamma \in \mathbb{T}.
+    % \]
+    % Entonces, la condición de anulación se escribe como
+    % \[
+    % \bar{z_r} + \frac{\rho_m}{\gamma} - \frac{1}{z_r + \rho_m\gamma} + S_m = 0,
+    % \]
+    % que equivale (multiplicando por $\gamma\left(z_r + \rho_m\gamma\right)$) a $Q_m(\gamma) = 0$, donde
+    % \[
+    % Q_m(\gamma) \defeq \rho_m\left(\bar{z_r} + S_m\right)\gamma^2 + \left(\abs{z_r}^2 + z_r S_m + \rho_m^2 - 1\right)\gamma + \rho_m z_r.
+    % \]
+    % Como $Q_m$ es un polinomio no nulo de grado a lo sumo $2$, el conjunto
+    % \[
+    % F_m \defeq \left\{\gamma \in \mathbb{T} : Q_m(\gamma) = 0\right\}
+    % \]
+    % tiene cardinal a lo sumo $2$. Además, para mantener ceros simples, debemos evitar
+    % \[
+    % E_m \defeq \left\{\omega_{j_r}^{\ell} : 1 \leq \ell \leq j_r - 1\right\},
+    % \]
+    % pues esos valores repetirían alguno de los otros ceros del bloque asociado a $z_r$. Consideramos
+    % \[
+    % \Omega_m \defeq \left\{e^{2\pi i q/(j_r+2)} : q = 0, \dots, j_r + 1\right\} \subset \mathbb{T}.
+    % \]
+    % Como $\abs{\Omega_m} = j_r + 2$ y $\abs{E_m \cup F_m} \leq (j_r - 1) + 2 = j_r + 1$, existe
+    % \[
+    % \gamma_m \in \Omega_m \setminus (E_m \cup F_m).
+    % \]
+    % Tomando $\gamma = \gamma_m$ en la definición de $w_n$, se preserva la simplicidad de los ceros y además
+    % \[
+    % \frac{B_m'(0)}{B_m(0)} = \left(\bar{w_n} - \frac{1}{w_n}\right) + S_m \neq 0.
+    % \]
+    % Luego $B_m'(0) \neq 0$.\hfill\qedsymbol
 \end{dem}
 
-\section{Generalización del Teorema de Rouché y su inverso}
+\section{Generalización del teorema de Rouché y su inverso}
 
-\begin{defn}\label{defn:fn-holomorfa-dentro-camino}
-    Sea $\gamma \colon [0, 1] \to \C$ un camino cerrado, $f$ es holomorfa dentro de $\gamma$
-    \[
-    \iff \exists \Omega \subset \C \tex{ abierto y simplemente conexo} : \gamma([0, 1]) \subset \Omega \we f \in \mathcal{H}(\Omega).
-    \]
-\end{defn}
+\transclude{fn-holomorfa-dentro-camino} %ORDENAR: enviar al anexo (a lo mejor no)
 
-\begin{defn}[Polo]\label{defn:polo-fn-meromorfa}
-    Sea $\Omega \subset \C$ abierto, $z_0 \in \Omega$ y $f \in \mathcal{H}(\Omega \setminus \{z_0\})$,
-    \[
-    z_0 \tex{ es un polo de } f \iff \lim_{z \to z_0} \abs{f(z)} = \infty.
-    \]
-\end{defn}
+\transclude{numero-ceros-fn-holomorfa-camino} %ORDENAR: enviar al anexo (a lo mejor no)
 
-\begin{defn}[Orden de un polo]\label{defn:orden-polo-fn-meromorfa}
-    Sea $z_0$ un polo de $f$, $\operatorname{ord}(f, z_0)$ es el orden de $z_0$
-    \[
-    \iff \operatorname{ord}(f, z_0) = \min \left\{ n \in \N : \lim_{z \to z_0} \abs{(z - z_0)^n f(z)} < \infty \right\}.
-    \]
-\end{defn}
-
-\begin{defn}\label{defn:numero-ceros-fn-holomorfa-camino}
-    Sea $\Gamma \colon [0, 1] \to \C$ un camino cerrado y $f$ holomorfa dentro de $\Gamma$, $Z_f(\Gamma)$ es el número de ceros de $f$ dentro de $\Gamma$ contado con multiplicidad
-    \[
-    \iff Z_f(\Gamma) = \sum_{\substack{z \in \operatorname{int}(\Gamma) \\ f(z) = 0}} \operatorname{ord}(f, z).
-    \]
-\end{defn}
-
-\begin{defn}\label{defn:numero-polos-fn-meromorfa-camino}
-    Sea $\Gamma \colon [0, 1] \to \C$ un camino cerrado y $f$ meromorfa dentro de $\Gamma$, $P_f(\Gamma)$ es el número de polos de $f$ dentro de $\Gamma$ contado con multiplicidad
-    \[
-    \iff P_f(\Gamma) = \sum_{\substack{z \in \operatorname{int}(\Gamma) \\ z \tex{ es un polo de } f}} \operatorname{ord}(f, z).
-    \]
-\end{defn}
-
-\begin{teo}[Principio del argumento]\label{teo:principio-argumento}
-    Sea $\Omega \subset \C$ un dominio, $\Gamma \colon [0, 1] \to \Omega$ un camino simple y cerrado orientado positivamente. Sea $f$ meromorfa en $\Omega$ y sin ceros ni polos en $\Gamma$. Entonces,
-    \[
-    Z_f(\Gamma) - P_f(\Gamma) = \frac{1}{2\pi i} \int_{\Gamma} \frac{f'(z)}{f(z)} \odif{z}.
-    \]
-\end{teo}%DEMOSTRACIÓN
-
-\begin{teo}[de Rouché]\label{teo:rouche}
-    Sea $\Omega \subset \C$ un abierto, $f, g \in \mathcal{H}(\Omega)$ y sea $\gamma$ una \exhyperref[defn:curva-jordan]{Curva-jordan}{curva de Jordan} rectificable contenida en $\Omega$ tal que su interior $\operatorname{int}(\gamma) \subset \Omega$. Si
-    \[
-    \forall z \in \gamma : \abs{f(z) - g(z)} < \abs{f(z)},
-    \]
-    entonces $f$ y $g$ tienen el mismo número de ceros en $\operatorname{int}(\gamma)$ (contando multiplicidades).
-\end{teo}
-\begin{dem}
-    Supongamos por contradicción que $\exists z_0 \in \gamma$ tal que $f(z_0) = 0$. Entonces, $\abs{g(z_0)} = \abs{f(z_0) - g(z_0)} < \abs{f(z_0)} = 0$, lo cual es imposible.
-    
-    Además, por la desigualdad triangular inversa, $\forall z \in \gamma : \abs{g(z)} \geq \abs{f(z)} - \abs{f(z) - g(z)} > 0$, luego ni $f$ ni $g$ tienen ceros en $\gamma$.
-
-    Consideramos $h(z) = 1 - \frac{g(z)}{f(z)}$. Entonces, $h \in \mathcal{H} \left(\Omega \setminus \left\{z \in \Omega : f(z) = 0\right\}\right)$ y se cumple que
-    \[
-    \forall z \in \gamma : \abs{h(z)} = \abs{1 - \frac{g(z)}{f(z)}} = \abs{\frac{f(z) - g(z)}{f(z)}} = \frac{\abs{f(z) - g(z)}}{\abs{f(z)}} < 1.
-    \]
-    Por tanto, $h(\gamma) \subset \mathbb{D}$. En particular, la curva cerrada $h \circ \gamma$ está contenida en $\mathbb{D}$ y no pasa por el origen (pues $h$ no se anula en $\gamma$, ya que $h(z) = 0 \iff g(z) = f(z)$, lo cual implicaría $\abs{f(z) - g(z)} = 0 < \abs{f(z)}$ $\contr$).%REVISAR demostración a partir de aquí, consultar fuentes.
-    
-    Como $h \circ \gamma$ es una curva cerrada en $\mathbb{D} \setminus \{0\}$ y el origen no está en la imagen, podemos considerar una homotopía continua que contrae $h \circ \gamma$ al punto $h(\gamma(0)) \in \mathbb{D}$ sin pasar por el origen. Por tanto, el índice de $h \circ \gamma$ respecto al origen es cero, es decir,
-    \[
-    \frac{1}{2\pi i} \int_\gamma \frac{h'(z)}{h(z)} \odif{z} = 0.
-    \]
-
-    Ahora bien, como $h(z) = 1 - \sfrac{g(z)}{f(z)} = \frac{f(z) - g(z)}{f(z)}$, tenemos que
-    \[
-    \frac{h'(z)}{h(z)} = \frac{\odv{}{z} \left(\frac{f(z) - g(z)}{f(z)}\right)}{\frac{f(z) - g(z)}{f(z)}} = \frac{f(z)(f'(z) - g'(z)) - (f(z) - g(z))f'(z)}{f(z) - g(z)} = \frac{f'(z)}{f(z)} - \frac{g'(z)}{g(z)}.
-    \]
-
-    Por tanto,
-    \[
-    0 = \frac{1}{2\pi i} \int_\gamma \frac{h'(z)}{h(z)} \odif{z} = \frac{1}{2\pi i} \int_\gamma \frac{f'(z)}{f(z)} \odif{z} - \frac{1}{2\pi i} \int_\gamma \frac{g'(z)}{g(z)} \odif{z}.
-    \]
-
-    Por el principio del argumento para funciones holomorfas, tenemos que $Z_f(\gamma) = Z_g(\gamma)$. Es decir, $f$ y $g$ tienen el mismo número de ceros dentro de $\gamma$ contando multiplicidades.
-\end{dem}
+% \begin{defn}\label{defn:numero-polos-fn-meromorfa-camino}
+%     Sea $\Gamma \colon [0, 1] \to \C$ un \exhyperref[defn:camino]{camino}{camino} cerrado y \exhyperref[defn:fn-meromorfa-dentro-camino]{fn-meromorfa-dentro-camino}{$f$ meromorfa dentro de $\Gamma$}, $P_f(\Gamma)$ es el número de polos de $f$ dentro de $\Gamma$ contado con multiplicidad
+%     \[
+%     \iff P_f(\Gamma) = \!\!\!\!\!\!\!\!\!\!\!\sum_{\substack{z \in \operatorname{int}(\Gamma) \\ z \tex{ es un \exhyperref[defn:polo-fn-meromorfa]{polo-fn-meromorfa}{polo} de } f}} \!\!\!\!\!\!\!\!\!\!\! \exhyperref[defn:orden-polo-fn-meromorfa]{orden-polo-fn-meromorfa}{\operatorname{ord}}(f, z).
+%     \]
+% \end{defn}
 
 \begin{teo}[Glicksberg]\label{teo:glicksberg}
-    Sea $\Gamma \colon [0, 1] \to \C$ un camino cerrado simple y $f, g$ holomorfas dentro de $\Gamma$ tales que $\forall z \in \Gamma : \abs{f(z) - g(z)} < \abs{f(z)} + \abs{g(z)}$. Entonces, $f$ y $g$ tienen el mismo número de ceros dentro de $\Gamma$ contando multiplicidades.
+    Sea $\Gamma \colon [0, 1] \to \C$ un \exhyperref[defn:camino]{camino}{camino} \exhyperref[defn:curva-cerrada]{curva-cerrada}{cerrado} \exhyperref[defn:curva-simple]{curva-simple}{simple} y $f, g$ \exhyperref[defn:fn-holomorfa-dentro-camino]{fn-holomorfa-dentro-camino}{holomorfas dentro de $\Gamma$} tales que $\forall z \in \Gamma : \abs{f(z) - g(z)} < \abs{f(z)} + \abs{g(z)}$. Entonces,
+    \[
+    \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\Gamma) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\Gamma).
+    \]
+    % $f$ y $g$ tienen el mismo número de ceros dentro de $\Gamma$ contando multiplicidades.
 \end{teo}
 \begin{dem}
-    Supongamos por contradicción que $\exists z_0 \in \Gamma$ tal que $f(z_0) = 0$. Entonces, $\abs{g(z_0)} = \abs{f(z_0) - g(z_0)} < \abs{f(z_0)} + \abs{g(z_0)} = \abs{g(z_0)}$, lo cual es imposible. Por tanto, $f$ no se anula en $\Gamma$. De forma análoga, $g$ no se anula en $\Gamma$. Entonces, sabemos que
+    Supongamos por contradicción que $\exists z_0 \in \Gamma$ tal que $f(z_0) = 0$. Entonces, $\abs{g(z_0)} = \abs{f(z_0) - g(z_0)} < \abs{f(z_0)} + \abs{g(z_0)} = \abs{g(z_0)}$, lo cual es imposible. Por tanto, $f$ no se anula en $\Gamma$. De forma análoga, $g$ no se anula en $\Gamma$. Entonces,
     \[
     \forall z \in \Gamma : \abs{\frac{f(z)}{g(z)} - 1} < \abs{\frac{f(z)}{g(z)}} + 1.
     \]
@@ -519,4 +502,4 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
 
 \newpage
 
-\lipsum[1-15]
+\lipsum[1-20]

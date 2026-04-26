@@ -161,7 +161,21 @@ También podemos expresar las derivadas parciales habituales en términos de las
 
 \transclude{singularidad-evitable}
 
-\transclude{polo}
+% \transclude{polo}
+
+\begin{defn}[Polo]\label{defn:polo-fn-meromorfa}
+    Sea $\Omega \subset \C$ abierto, $z_0 \in \Omega$ y $f \in \mathcal{H}(\Omega \setminus \{z_0\})$,
+    \[
+    z_0 \tex{ es un polo de } f \iff \lim_{z \to z_0} \abs{f(z)} = \infty.
+    \]
+\end{defn}
+
+\begin{defn}[Orden de un polo]\label{defn:orden-polo-fn-meromorfa}
+    Sea $z_0$ un polo de $f$, $\operatorname{ord}(f, z_0)$ es el orden de $z_0$
+    \[
+    \iff \operatorname{ord}(f, z_0) = \min \left\{ n \in \N : \lim_{z \to z_0} \abs{(z - z_0)^n f(z)} < \infty \right\}.
+    \]
+\end{defn}
 
 \transclude{singularidad-esencial}
 
@@ -169,118 +183,9 @@ También podemos expresar las derivadas parciales habituales en términos de las
 
 \transclude{fn-meromorfa}
 
-\chapter{Ejercicios}
+\transclude{teo-residuos}
 
-\section{Ejercicios del capítulo 1}
+\transclude{teo-principio-argumento}
 
-\begin{ejer}\label{ejer:identidad-auxiliar-disco-unidad}
-    Sean $\alpha, \beta \in \mathbb{D}$. Demuestra la siguiente identidad:
-    \[
-    1 - \abs{\frac{\alpha - \beta}{1 - \overline{\beta} \alpha}}^2 = \frac{(1 - \abs{\alpha}^2)(1 - \abs{\beta}^2)}{\abs{1 - \overline{\beta} \alpha}^2}.
-    \]
-\end{ejer}
-\begin{sol}
-    Partiendo del lado izquierdo, tenemos que
-    \[
-    1 - \abs{\frac{\alpha - \beta}{1 - \bar{\beta} \alpha}}^2 = \frac{\abs{1 - \bar{\beta} \alpha}^2 - \abs{\alpha - \beta}^2}{\abs{1 - \bar{\beta} \alpha}^2}.
-    \]
-    En el numerador, desarrollando ambos términos, obtenemos
-    \[
-    \begin{aligned}
-        \abs{1 - \bar{\beta} \alpha}^2 - \abs{\alpha - \beta}^2 &= \left(1 - \bar{\beta} \alpha\right)\left(1 - \beta \bar{\alpha}\right) - (\alpha - \beta)(\bar{\alpha} - \bar{\beta}) \\
-        &= 1 - \cancel{\bar{\alpha} \beta} - \cancel{\alpha \bar{\beta}} + \abs{\alpha}^2 \abs{\beta}^2 - \left(\abs{\alpha}^2 - \cancel{\alpha \bar{\beta}} - \cancel{\bar{\alpha} \beta} + \abs{\beta}^2\right) \\
-        &= 1 - \abs{\alpha}^2 - \abs{\beta}^2 + \abs{\alpha}^2 \abs{\beta}^2 = (1 - \abs{\alpha}^2)(1 - \abs{\beta}^2).
-    \end{aligned}
-    \]
-    Por tanto, se sigue la identidad deseada.\hfill \qedsymbol
-\end{sol}
-
-\begin{ejer}\label{ejer:desigualdad-schwarz-pick}
-    Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathcal{S}}$. Demuestra que
-    \[
-    \forall z, w \in \mathbb{D} : \abs{\frac{f(z) - f(w)}{z-w}}^2 \leq \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
-    \]
-\end{ejer}
-\begin{sol}
-    Como $f \in \mathcal{S}$, por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick}, tenemos que
-    \[
-    \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}} \leq \abs{\frac{z - w}{1 - \bar{w} z}} \implies 1 - \abs{\frac{z - w}{1 - \bar{w} z}}^2 \leq 1 - \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}}^2. 
-    \]
-
-    Por el \excref[ejer:identidad-auxiliar-disco-unidad]{ejer-identidad-auxiliar-disco-unidad}, esta desigualdad se traduce a
-    \[
-    \begin{aligned}
-        \frac{(1 - \abs{z}^2)(1 - \abs{w}^2)}{\abs{1 - \bar{w} z}^2} &\leq \frac{(1 - \abs{f(z)}^2)(1 - \abs{f(w)}^2)}{\abs{1 - \overline{f(w)} f(z)}^2} \\
-        \implies \abs{\frac{1 - \bar{f(w)} f(z)}{1 - \bar{w} z}}^2 &\leq \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
-    \end{aligned}
-    \]
-
-    Finalmente, observamos que:
-    \[
-    \begin{aligned}
-        \abs{\frac{f(z) - f(w)}{z - w}}^2 &= \abs{\frac{f(z) - f(w)}{1 - \overline{f(w)} f(z)}}^2 \cdot \abs{\frac{1 - \overline{f(w)} f(z)}{1 - \bar{w} z}}^2 \cdot \abs{\frac{1 - \bar{w} z}{z - w}}^2 \\
-        &\leq 1 \cdot \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2} \cdot 1 = \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2} \cdot \frac{1 - \abs{f(w)}^2}{1 - \abs{w}^2}.
-    \end{aligned}
-    \]
-
-    \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}
-    \hfill \qedsymbol
-\end{sol}
-
-\section{Ejercicios del capítulo 2}
-
-\begin{ejer}
-    Demuestra que la métrica de Poincaré $\wp$ satisface que
-    \[
-    \forall z, w \in \mathbb{D} : \wp(z, w) = 2 \tanh^{-1} \abs{\frac{z - w}{1 - \overline{w}z}}.
-    \]
-\end{ejer}
-\begin{sol}
-    Recordemos la definición de la tangente hiperbólica:
-    \[
-    \tanh(z) = \frac{\sinh(x)}{\cosh(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}} = \frac{e^{2x} - 1}{e^{2x} + 1}.
-    \]
-    Entonces, despejando, tenemos que $e^{2x} \left(1 - \tanh(x)\right) = 1 + \tanh(x)$, luego
-    \[
-    e^{2x} = \frac{1 + \tanh(x)}{1 - \tanh(x)} \implies \tanh^{-1}(y) = \frac{1}{2} \, \log \frac{1 + y}{1 - y}.
-    \]
-    En particular, para $y = \varrho (z, w)$ con $z, w \in \mathbb{D}$, tenemos que
-    \[
-    \tanh^{-1} \left(\varrho(z, w)\right) = \frac{1}{2} \, \log \frac{1 + \varrho(z, w)}{1 - \varrho(z, w)} = \frac{1}{2} \, \wp(z, w)
-    \]
-    por definición de la métrica de Poincaré. Por tanto, como $\varrho(z, w) = \abs{\frac{z - w}{1 - \overline{w} z}}$, se tiene que
-    \[
-    \implies \wp(z, w) = 2 \, \tanh^{-1} \left(\varrho(z, w)\right) = 2 \, \tanh^{-1} \abs{\frac{z - w}{1 - \overline{w} z}}.
-    \]
-
-    \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}
-    \hfill\qedsymbol
-\end{sol}
-
-\begin{ejer}
-    Sea $f \colon \Omega_1 \to \Omega_2$ una aplicación holomorfa entre dos dominios $\Omega_1, \Omega_2 \subset \C$ dotados de densidades métricas $\mu_1, \mu_2$ respectivamente. Demuestra que
-    \[
-    f \tex{ es una isometría entre } (\Omega_1, d_{\mu_1}) \tex{ y } (\Omega_2, d_{\mu_2}) \iff \forall z \in \Omega_1 : (f^* \mu_2)(z) = \mu_1(z).
-    \]
-\end{ejer}
-% \begin{sol}
-%     Veamos ambas implicaciones por separado:
-%     \begin{itemize}
-%         \item[$\boxed{\Rightarrow}$]
-%         \item[$\boxed{\Leftarrow}$] 
-%     \end{itemize}
-% \end{sol}
-%DEMOSTRACIÓN
-
-\begin{ejer}%EJERCICIO 
-    Demuestra que la curvatura de la métrica esférica es constante e igual a $+1$.
-\end{ejer}
-% \begin{sol}
-
-% \end{sol}
-
-%COMPLETAR mirar Geometry: Euclid and Beyond.
-
+\transclude{teo-rouche}
 
