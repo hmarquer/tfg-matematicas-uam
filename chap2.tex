@@ -40,7 +40,7 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \begin{tikzpicture}[scale=3]
+        \begin{tikzpicture}[scale=2.5]
             % Parámetros ajustables: |z|, r y dirección (ángulo en grados)
             \def\absz{0.7}   % |z| \in (0,1)
             \def\r{0.6}      % r \in (0,1)
@@ -81,7 +81,7 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \begin{tikzpicture}[scale=3]
+        \begin{tikzpicture}[scale=2.5]
             % Parámetros ajustables: |z|, r y dirección (ángulo en grados)
             \def\absz{0.4}   % |z| \in (0,1)
             \def\r{0.7}      % r \in (0,1)
@@ -119,7 +119,7 @@ Denotaremos por $B_{\varrho}(z, r)$ a la bola abierta centrada en $z$ y de radio
         \caption{Caso 2: $r > |z|$}
         \label{fig:caso2}
     \end{subfigure}
-    \caption{Borde de $\mathbb{D}$, segmento radial en dirección $z/\lvert z\rvert$, y $B_{\varrho}(z,r)=\tau_z(D(0,r))$ con centro $w$ y radio $s$; se señalan $w_m$ y $w_M$.}
+    \caption{Borde de $\mathbb{D}$, segmento radial en dirección $z/\lvert z\rvert$, y $B_{\varrho}(z,r)=\tau_z(D(0,r))$ con centro $w$ y radio $s$; se señalan $w_m$ y $w_M$. Figura tomada de \cite{garciaFiniteBlaschkeProducts2018}.}
     \label{fig:bolas-pseudohiperbolicas}
 \end{figure}
 
@@ -251,14 +251,14 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
     
     \begin{figure}[ht]
         \centering
-        \begin{tikzpicture}
+        \begin{tikzpicture}%[scale=0.5]
         \begin{axis}[
             domain=0:0.9999, samples=401,
             xlabel={$t$}, ylabel={$\log\frac{1+t}{1-t}$},
             % axis equal,
             axis lines=middle,
             grid=both, 
-            width=8cm, height=8cm,
+            width=6cm, height=8cm,
             ymin=-0.5, ymax=10.5, xmin=-0.1, xmax=1.1,
             % restrict y to domain=-50:50, % evita picos numéricos
             % every axis x label/.style={at={(axis description cs:0.95,0.05)},anchor=north east},
@@ -367,7 +367,7 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
 
 Hasta ahora hemos trabajado con $\wp$ definida mediante una distancia entre puntos pero, como ya se mencionó al comienzo de esta sección, $\wp$ es una métrica riemanniana. Esto significa que existe una densidad local positiva $\mu$ tal que la distancia se obtiene minimizando longitudes de caminos. Es decir, para todo $z,w\in\mathbb{D}$,
 \[
-\wp(z,w)=\inf\left\{\ell_{\mu}(\gamma):\gamma\tex{ camino en }\mathbb{D}\tex{ entre }z\tex{ y }w\right\},\qquad
+\wp(z,w)=\inf\left\{\ell_{\mu}(\gamma):\gamma\text{ camino en }\mathbb{D}\text{ entre }z\text{ y }w\right\},\qquad
 \ell_{\mu}(\gamma)=\int_a^b \mu(\gamma(t))\abs{\gamma'(t)}\odif{t}.
 \]
 Para probarlo, partiremos de la definición de longitud hiperbólica de un camino, cuya densidad viene del límite del cociente incremental de $\wp$:
@@ -511,7 +511,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     
     \begin{figure}[ht]
         \centering
-        \begin{tikzpicture}[scale=2]
+        \begin{tikzpicture}[scale=1.5]
             % Circunferencia soporte ortogonal al borde del disco
             \def\Rgeo{1.2738}
             \coordinate (C) at (1.6,0.25);
@@ -583,11 +583,11 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
 \begin{teo}\label{teo:densidad-induce-metrica}
     Sea $\mu \colon \Omega \subset \R^n \to \R$ \exhyperref[defn:continuidad-pnt]{continuidad}{continua} y positiva con $\Omega$ \exhyperref[defn:con-convexo]{con-convexo}{conexo}, definimos
     \[
-    \forall \, \Gamma \tex{ \exhyperref[defn:camino]{camino}{camino} inyectivo en } \Omega : \ell_{\mu}(\Gamma) = \int_a^b \mu(\Gamma(t)) \, \exhyperref[defn:norma]{norma}{\norm{\exhyperref[defn:fn-diferenciable-pnt]{fn-diferenciable}{\Gamma'}(t)}} \odif{t}.
+    \forall \, \Gamma \text{ \exhyperref[defn:camino]{camino}{camino} inyectivo en } \Omega : \ell_{\mu}(\Gamma) = \int_a^b \mu(\Gamma(t)) \, \exhyperref[defn:norma]{norma}{\norm{\exhyperref[defn:fn-diferenciable-pnt]{fn-diferenciable}{\Gamma'}(t)}} \odif{t}.
     \]
     Entonces, la aplicación $d \colon \Omega \times \Omega \to [0, \infty)$ dada por
     \[
-    \forall x, y \in \Omega : d(x, y) = \inf \left\{\ell_{\mu}(\Gamma) : \Gamma \tex{ \exhyperref[defn:camino]{camino}{camino} inyectivo en } \Omega \tex{ entre } x \tex{ e } y\right\},
+    \forall x, y \in \Omega : d(x, y) = \inf \left\{\ell_{\mu}(\Gamma) : \Gamma \text{ \exhyperref[defn:camino]{camino}{camino} inyectivo en } \Omega \text{ entre } x \text{ e } y\right\},
     \]
     es una \exhyperref[defn:metrica]{metrica}{métrica} en $\Omega$. A la aplicación $\mu$ se le llama la \emph{densidad métrica} de $d$.
 \end{teo} %DEMOSTRACIÓN
@@ -618,8 +618,8 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     Ahora bien, como $\forall \Gamma$ camino en $\Omega$ entre $z$ y $w : f \circ \Gamma$ es un camino en $\Omega$ entre $f(z)$ y $f(w)$, se tiene que
     \[
     \begin{aligned}
-        d_{\mu}(f(z), f(w)) &= \inf \left\{\ell_{\mu}(\Gamma') : \Gamma' \tex{ camino en } \Omega \tex{ entre } f(z) \tex{ y } f(w)\right\} \\
-        &\leq \inf \left\{\ell_{\mu}(f \circ \Gamma) : \Gamma \tex{ camino en } \Omega \tex{ entre } z \tex{ y } w\right\} = d_{f^* \mu}(z, w).
+        d_{\mu}(f(z), f(w)) &= \inf \left\{\ell_{\mu}(\Gamma') : \Gamma' \text{ camino en } \Omega \text{ entre } f(z) \text{ y } f(w)\right\} \\
+        &\leq \inf \left\{\ell_{\mu}(f \circ \Gamma) : \Gamma \text{ camino en } \Omega \text{ entre } z \text{ y } w\right\} = d_{f^* \mu}(z, w).
     \end{aligned}
     \]
     Por tanto, $d_{\mu}(f(z), f(w)) \leq d_{\mu}(z, w)$, es decir, $f$ es una contracción respecto a $d_{\mu}$.

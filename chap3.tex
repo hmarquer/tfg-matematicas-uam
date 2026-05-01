@@ -13,17 +13,15 @@
     Denotaremos por $\mathscr{B}_n$ al conjunto de productos finitos de Blaschke de grado $n$ y por $\mathscr{B}$ al conjunto de productos finitos de Blaschke, es decir, $\mathscr{B} = \bigcup_{n \in \N} \mathscr{B}_n$.
 \end{defn}
 
-\begin{obs}\label{obs:producto-finito-blaschke-automorfismos-disco-unidad}
-    Un producto finito de Blaschke es el producto de una constante de módulo $1$ y un número finito de \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{involuciones del disco unidad}.
+% \begin{obs}%\label{obs:producto-finito-blaschke-automorfismos-disco-unidad}
+    Un producto finito de Blaschke es el producto de una constante de módulo $1$ y un número finito de \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{involuciones del disco unidad}. Por el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad}, esto significa que $B \in \mathscr{B}$ si, y sólo si, es el producto de un número finito de elementos en \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{$\mathrm{Aut}(\mathbb{D})$}.
+% \end{obs}
 
-    Por el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad}, esto significa que $B$ es un producto finito de Blaschke si, y sólo si, es el producto de un número finito de \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad}.
-\end{obs}
+% \begin{obs}
+    Como cada $\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}}$ tiene un cero en $z_k$ y un polo en $\sfrac{1}{\bar{z_k}}$, el producto finito de Blaschke $B$ tiene $n$ ceros en $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $n$ polos en $\left\{\sfrac{1}{\bar{z_k}}\right\}_{k=1}^n \subset \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
 
-\begin{obs}
-    Como cada $\tau_{z_k}$ tiene un cero en $z_k$ y un polo en $\sfrac{1}{\bar{z_k}}$, el producto finito de Blaschke $B$ tiene $n$ ceros en $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $n$ polos en $\left\{\sfrac{1}{\bar{z_k}}\right\}_{k=1}^n \subset \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
-
-    Además, $B$ es una función meromorfa en $\widehat{\mathbb{C}}$ y holomorfa en $\mathbb{D}$.
-\end{obs}
+    Además, $B$ es una \exhyperref[defn:fn-meromorfa]{fn-meromorfa}{función meromorfa} en $\widehat{\mathbb{C}}$ y \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en $\mathbb{D}$.
+% \end{obs}
 
 \begin{obs}\label{obs:prod-finito-blaschke-clase-schur}
     Por ser un producto de \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad}, un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $B$ pertenece a la \exhyperref[defn:clase-schur]{clase-schur}{clase de Schur}, $\mathscr{S}$, y satisface
@@ -37,14 +35,14 @@
     \[
     \forall \zeta \in \mathbb{T} : \ds B(\zeta) = \frac{1}{\bar{B(\zeta)}} = \frac{1}{\bar{B \left(\sfrac{1}{\bar{\zeta}}\right)}}
     \]
-    Ahora bien, como $\sfrac{1}{\bar{B \left(\bar{z}\right)}}$ define una función meromorfa en $\widehat{\mathbb{C}}$ que coincide con $B$ en $\mathbb{T}$, el \exhyperref[cor:principio-identidad]{cor-principio-identidad}{principio de identidad} nos dice que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$.
+    Ahora bien, como $\sfrac{1}{\bar{B \left(\bar{z}\right)}}$ define una \exhyperref[defn:fn-meromorfa]{fn-meromorfa}{función meromorfa} en $\widehat{\mathbb{C}}$ que coincide con $B$ en $\mathbb{T}$, el \exhyperref[cor:principio-identidad]{cor-principio-identidad}{principio de identidad} nos dice que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$.
 \end{obs}
 
 % \transclude{teo-reflexion-schwarz}
 
 % \transclude{cor-reflexion-schwarz-disco-unidad}
 
-\section{Caracterización de los productos finitos de Blaschke}
+\subsection{Caracterización de los productos finitos de Blaschke}
 
 % Consideramos el producto de Blaschke $B(z) = \gamma \prod_{k=1}^n \tau_{z_k}(z)$ de grado $n$. Entonces, $B \in \mathcal{H} \left(\mathbb{D} \right)$ ya que el denominador no se anula en $\mathbb{D}$ por la desigualdad triangular inversa:
 % \[
@@ -57,15 +55,28 @@
 %     \item $B$ tiene $n$ ceros en $\mathbb{D}$ (contando multiplicidades).
 % \end{enumerate}
 
-% Además, toda función que cumple estas cuatro propiedades es un producto finito de Blaschke de grado $n$.
+% Además, toda función que cumple estas cuatro propiedades es un producto finito de Blaschke de grado $n$
+
+\begin{defn}\label{defn:fn-holomorfa-dentro-camino}
+    Diremos que una función $f$ es holomorfa dentro de un \exhyperref[defn:camino]{camino}{camino} \exhyperref[defn:curva-cerrada]{curva-cerrada}{cerrado} $\Gamma$ si y solo si existe un abierto $\Omega$ \exhyperref[defn:conexion-simple]{conexion-simple}{simplemente conexo} tal que $\Gamma \subset \Omega$ y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\Omega\right)$.
+\end{defn}
+
+\begin{defn}\label{defn:numero-ceros-fn-holomorfa-camino}
+    Usaremos $Z_f(\Gamma)$ para denotar al número de ceros de una función $f$ holomorfa dentro de un camino cerrado $\Gamma$ contando multiplicidades. Formalmente,
+    \[
+    Z_f(\Gamma) = \!\!\!\!\!\!\!\!\! \sum_{z \in \operatorname{int}(\Gamma) : f(z) = 0} \!\!\!\!\!\!\!\!\! \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{\operatorname{ord}}(f, z).
+    \]
+\end{defn}
+
+Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguiente caracterización de los productos finitos de Blaschke:
 
 \begin{teo}\label{teo:carac-prod-finito-blaschke}
-    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\mathbb{D}\right) \cap \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}} \left(\bar{\mathbb{D}}\right)$ tal que $\forall \zeta \in \mathbb{T} : \abs{f(\zeta)} = 1$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado igual al número de ceros de $f$ en $\mathbb{D}$ (contando multiplicidades).
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\mathbb{D}\right) \cap \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}} \left(\bar{\mathbb{D}}\right)$ tal que $\forall \zeta \in \mathbb{T} : \abs{f(\zeta)} = 1$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T})$.% igual al número de ceros de $f$ en $\mathbb{D}$ (contando multiplicidades).
 \end{teo}
 \begin{dem}
-    Por el \exhyperref[cor:continuacion-analitica]{cor-continuacion-analitica}{principio de identidad}, $f$ tiene un número finito de ceros en $\mathbb{D}$, digamos $n$. Sean $\left\{z_k\right\}_{k=1}^n$ los ceros de $f$ en $\mathbb{D}$. Consideramos el producto finito de Blaschke mónico de grado $n$: $B = \prod_{k=1}^n \tau_{z_k}$.
+    Por el \exhyperref[cor:principio-identidad]{cor-principio-identidad}{principio de identidad}, $f$ tiene un número finito de ceros en $\mathbb{D}$, digamos $\left(z_k\right)_{k=1}^n \subset \mathbb{D}$ repetidos con multiplicidad. Consideramos $B = \prod_{k=1}^n \tau_{z_k} \in \mathscr{B}_n$.
 
-    Entonces, la función $g = \sfrac{f}{B}$ es holomorfa en $\mathbb{D} \setminus \left\{z_k\right\}_{k=1}^n$ y, como los ceros de $B$ coinciden con los de $f$, las singularidades de $g$ en $\left\{z_k\right\}_{k=1}^n$ son \exhyperref[defn:singularidad-evitable]{singularidad-evitable}{evitables}, dando lugar a una función holomorfa en todo $\mathbb{D}$ (\excref[teo:singularidad-evitable-riemann]{teo-singularidad-evitable-riemann}).
+    Entonces, la función $g = \sfrac{f}{B}$ es holomorfa en $\mathbb{D} \setminus \left\{z_k\right\}_{k=1}^n$ y, como los ceros de $B$ (y sus \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{órdenes}) coinciden con los de $f$, las singularidades de $g$ en $\left\{z_k\right\}_{k=1}^n$ son \exhyperref[defn:singularidad-evitable]{singularidad-evitable}{evitables}, dando lugar a una función holomorfa en $\mathbb{D}$ (\excref[teo:singularidad-evitable-riemann]{teo-singularidad-evitable-riemann}) que no se anula en $\mathbb{D}$.
 
     Además, para $\zeta \in \mathbb{T}$, tenemos que $\abs{g(\zeta)} = \sfrac{\abs{f(\zeta)}}{\abs{B(\zeta)}} = 1$, luego por el \exhyperref[teo:modulo-maximo]{teo-modulo-maximo}{principio del módulo máximo}, $\forall z \in \mathbb{D} : \abs{g(z)} \leq 1$. Como lo mismo se cumple para $\sfrac{1}{g}$, concluimos que $\forall z \in \mathbb{D} : \abs{g(z)} = 1$. Por el \exhyperref[teo:apl-abierta-compleja]{teo-apl-abierta-compleja}{teorema de la aplicación abierta}, $g$ es constante y de módulo $1$, es decir, $\exists \gamma \in \mathbb{T} : g \equiv \gamma$. Por tanto, $f(z) = \gamma B(z)$.\hfill\qedsymbol
 \end{dem}
@@ -73,10 +84,10 @@
 \section{Unicidad y no unicidad}
 
 \begin{lem}\label{lem:prod-finitos-blaschke-igualdad-n-puntos}
-    Sean $B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke mónicos de grado $n$}, entonces
-    \[
-    \exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \tex{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k) \implies \exists \xi \in \mathbb{T} : B_1(\xi) = B_2(\xi). 
-    \]
+    Sean $B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke mónicos de grado $n$} tales que existen $n$ puntos distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$ con $B_1(w_k) = B_2(w_k)$ para todo $k \in \N_n$. Entonces, existe $\xi \in \mathbb{T}$ tal que $B_1(\xi) = B_2(\xi)$.
+    % \[
+    % \big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \text{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\big) \implies \exists \xi \in \mathbb{T} : B_1(\xi) = B_2(\xi). 
+    % \]
 \end{lem}
 \begin{dem}
     Tenemos que $\exists \left\{z_k\right\}_{k=1}^n, \left\{v_k\right\}_{k=1}^n \subset \mathbb{D}$ tales que $B_1(z) = B_2(z)$
@@ -102,171 +113,61 @@
     \[
     h(0) = \frac{1}{2\pi} \int_0^{2\pi} h\left(e^{i\theta}\right) \odif{\theta} \implies 0 = \frac{1}{2\pi} \int_0^{2\pi} h \left(e^{i\theta}\right) \odif{\theta}.
     \]
-    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\im H$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado.
+    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\im H$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado.\hfill\qedsymbol
 \end{dem}
 
 \begin{teo}\label{teo:unicidad-prod-finitos-blaschke}
-    Para $B_1$ y $B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke mónicos de grado $n$},
-    \[
-    \Big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \tex{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\Big) \implies B_1 = B_2 \tex{ en } \mathbb{D}.
-    \]
+    Sean $B_1$ y $B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke mónicos de grado $n$} tales que existen $n$ puntos distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$ con $B_1(w_k) = B_2(w_k)$ para todo $k \in \N_n$. Entonces, $B_1 = B_2$ en $\mathbb{D}$.
+    % \[
+    % \Big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \text{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\Big) \implies B_1 = B_2 \text{ en } \mathbb{D}.
+    % \]
 \end{teo}
 \begin{dem}
-    Definimos la función $R$ mediante $R(z) = \frac{B_1(z)}{B_2(z)}$. Como $B_1$ y $B_2$ son productos finitos de Blaschke, $\forall \zeta \in \mathbb{T} : \abs{R(\zeta)} = 1$. Además, por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur},
+    Definimos la función $R$ mediante $R(z) = \frac{B_1(z)}{B_2(z)}$. Como $B_1, B_2 \in \mathscr{B}$, por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur}, $\forall \zeta \in \mathbb{T} : \abs{R(\zeta)} = 1$ y, además,
     \[
     \Big(\forall j \in \{1, 2\} : B_j(z)\cdot \bar{B_j \left(\sfrac{1}{\bar{z}}\right)} = 1\Big) \implies R(z) \cdot \bar{R \left(\sfrac{1}{\bar{z}}\right)} = 1.
     \]
     Por hipótesis, $\forall k \in \N_n : R(w_k) = 1$, luego tenemos que $\forall k \in \N_n : R\left(\sfrac{1}{\bar{w_k}}\right) = 1$.
     
-    Por el \excref[lem:prod-finitos-blaschke-igualdad-n-puntos]{lem-prod-finitos-blaschke-igualdad-n-puntos}, $\exists \xi \in \mathbb{T} : R(\xi) = 1$. Por tanto, tenemos al menos $2n + 1$ puntos distintos en los que $R$ toma el valor $1$. Como $R$ es una función racional de grado a lo sumo $2n$, concluimos que $R \equiv 1$ en $\widehat{\mathbb{C}}$, es decir, $B_1 \equiv B_2$ en $\mathbb{D}$. 
+    Por el \excref[lem:prod-finitos-blaschke-igualdad-n-puntos]{lem-prod-finitos-blaschke-igualdad-n-puntos}, $\exists \xi \in \mathbb{T} : R(\xi) = 1$. Por tanto, tenemos al menos $2n + 1$ puntos distintos en los que $R$ toma el valor $1$. Como $R$ es una función racional de grado a lo sumo $2n$, concluimos que $R \equiv 1$ en $\widehat{\mathbb{C}}$, es decir, $B_1 = B_2$ en $\mathbb{D}$.\hfill\qedsymbol
 \end{dem}
 
-\begin{ejem}[de necesidad de ser mónicos en el {\excref[teo:unicidad-prod-finitos-blaschke]{teo-unicidad-prod-finitos-blaschke}}]\mbox{}
-
+\begin{ejem}%[de necesidad de ser mónicos en el {\excref[teo:unicidad-prod-finitos-blaschke]{teo-unicidad-prod-finitos-blaschke}}]\mbox{}
     Sean $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D} \setminus \{0\}$ distintos, definimos:
     \[
     B_1(z) = i \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} \quad \we \quad B_2(z) = \frac{iz_n - z}{1 + i \bar{z_n} z} \cdot \prod_{k=1}^{n-1} \frac{z_k - z}{1 - \overline{z_k} z}.
     \]
-    Entonces, ambos $B_1$ y $B_2$ son productos finitos de Blaschke de grado $n$ que coinciden en los $n-1$ puntos $\left\{z_k\right\}_{k=1}^{n-1}$ y en el punto $0$:
+    Entonces, $B_1, B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ coinciden en los $n-1$ puntos distintos $\left\{z_k\right\}_{k=1}^{n-1}$ y en $0$, ya que
     \[
     B_1(0) = i \cdot \prod_{k=1}^n z_k  \quad \we \quad B_2(0) = iz_n \cdot \prod_{k=1}^{n-1} z_k = i \cdot \prod_{k=1}^n z_k. 
     \]
-    Es decir, cumplen todas las hipótesis del teorema salvo la de ser mónicos. Sin embargo, $B_1 \not\equiv B_2$ en $\mathbb{D}$ ya que en caso contrario, tendríamos que
+    Es decir, cumplen todas las hipótesis del \excref[teo:unicidad-prod-finitos-blaschke]{teo-unicidad-prod-finitos-blaschke} salvo la de ser mónicos. Sin embargo, $B_1 \neq B_2$ en $\mathbb{D}$ ya que si $B_1 = B_2$ en $\mathbb{D}$, tendríamos que
     \[
     \forall z \in \mathbb{D} : 1 = \frac{B_1(z)}{B_2(z)} = i \frac{\tau_{z_n}(z)}{\tau_{iz_n}(z)} \implies \tau_{iz_n} = i \tau_{z_n},
     \]
     luego, usando que $\tau_{iz_n} \circ \tau_{i z_n} = \operatorname{id}$, obtendríamos que $\forall z \in \mathbb{D} : \tau_{z_n} \circ \tau_{i z_n} (z) = i z$, lo cual es falso poque $\tau_{z_n} \circ \tau_{i z_n} (i z_n) = \tau_{z_n}(0) = z_n \neq i^2 z_n = -z_n$.
 \end{ejem}
 
-\section{Productos de Blaschke como funciones racionales}
-
-\begin{defn}[Polinomio conjugado reverso]\label{defn:polinomio-conjugado-reverso}
-    Dado $n > 0$ y $P \in \C[z]$ tal que $\deg P \leq n$, el \emph{polinomio conjugado reverso} de $P$ respecto a $n$ se denota por $P^{\#_n}$ y se define mediante 
-    \[
-    \forall z \in \C : P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)}.
-    \]
-    Es decir, para $P(z) = \sum_{k=0}^n \alpha_k z^k$, tenemos que $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$.
-\end{defn}
-
-\begin{obs}
-    Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$. Entonces:
-    \begin{enumerate}[label=(\arabic*)]
-        \item Si $P(z) = \sum_{k=0}^n \alpha_k z^k$, entonces $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$.
-        \item Si $P(z) = 1$, entonces $P^{\#_n}(z) = z^n$ y si $P(z) = z^n$, entonces $P^{\#_n}(z) = 1$.
-    \end{enumerate}
-\end{obs}
-
-\begin{lem}\label{lem:polinomio-conjugado-reverso}
-    Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$. Entonces:
-    \begin{enumerate}[label=\textnormal{(\arabic*)}]
-        \item $\deg{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}} \leq n$ y la igualdad se cumple si y sólo si $P(0) \neq 0$.
-        \item $\left(P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}\right)^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} = P$.
-        \item $\forall z \in \C \setminus \{0\} : \big(P(z) = 0 \iff P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} \left(\sfrac{1}{\bar{z}}\right) = 0\big)$.
-    \end{enumerate}
-\end{lem}%DEMOSTRACIÓN
-
-\begin{prop}\label{prop:conjugado-reverso-producto}
-    Sean $P, Q \in \C[z]$ tales que $\deg P \leq n, \deg Q \leq m$. Entonces,
-    \[
-    \left(P \cdot Q\right)^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_{n+m}}} = P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} \cdot Q^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_m}}.
-    \]
-\end{prop}%DEMOSTRACIÓN
-
-\begin{teo}\label{teo:carac-prod-finito-blaschke-fn-racional}
-    Sea $f$ una función racional de grado $n > 0$, entonces
-    \[
-    f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}} \iff \exists P \in \C[z] \tex{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}.
-    \]
-\end{teo}
-\begin{dem}
-    Veamos ambas implicaciones por separado.
-    \begin{itemize}[wide, labelindent=0pt]
-        \item[$\boxed{\Rightarrow}$] Sea $f$ un producto de Blaschke de grado $n$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}, \gamma \in \mathbb{T} : $
-        \[
-        \forall z \in \mathbb{D} : f(z) = \gamma \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = e^{t_0i} \cdot \frac{\prod_{k=1}^n (z_k - z)}{\prod_{k=1}^n (1 - \overline{z_k} z)}
-        \]
-        para algún $t_0 \in \R$. Definimos ahora el polinomio $P$ mediante
-        \[
-        \forall z \in \C : P(z) = e^{t_0i/2} \cdot \prod_{k=1}^n (z_k - z).
-        \]
-        Entonces, $P$ es un polinomio de grado como mucho $n$ cuyos ceros están en $\mathbb{D}$ y
-        \[
-        P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n \cdot e^{-t_0i/2} \cdot \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = e^{-t_0i/2} \cdot \prod_{k=1}^n (1 - \overline{z_k} z).
-        \]
-        Por tanto, $\forall z \in \mathbb{D} : f(z) = \sfrac{P(z)}{P^{\#_n}(z)}$.
-
-        \item[$\boxed{\Leftarrow}$] Supongamos que $f = \sfrac{P}{P^{\#_n}}$ para $P \in \C[z]$ de grado $n$ y dado por
-        \[
-        P(z) = \alpha_n z^n + \alpha_{n-1} z^{n-1} + \cdots + \alpha_1 z + \alpha_0,
-        \]
-        cuyos ceros están en $\mathbb{D}$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}: P(z) = \alpha_n \prod_{k=1}^n (z_k - z)$.
-        \[
-        \begin{aligned}
-            \therefore \quad P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n\, \bar{\alpha_n} \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = \bar{\alpha_n} \prod_{k=1}^n (1 - \overline{z_k} z).
-        \end{aligned}
-        \]
-        Por tanto, $\forall z \in \mathbb{D} : \ds f(z) = \frac{P(z)}{P^{\#_n}(z)} = \frac{\alpha_n}{\bar{\alpha_n}} \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}$ donde $\ds \abs{\frac{\alpha_n}{\bar{\alpha_n}}} = 1$.\hfill\qedsymbol
-    \end{itemize}
-\end{dem}
-
-%ORDENAR: me ha dicho Dragan que es muy prescindible
-\begin{cor}\label{cor:carac-cociente-prod-finito-blaschke-fn-racional}
-    Sea $f$ una función racional de grado $n$, entonces
-    \[
-    \begin{aligned}
-        \exists B_1, B_2  \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}} : f = \frac{B_1}{B_2} \iff \exists P \in \C[z] : \big(\forall z \in \mathbb{T} : P(z) \neq 0\big) : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}.
-    \end{aligned}
-    \]
-    Además, en tal caso, $\deg B_1 + \deg B_2 \leq n$ y $\deg P = n$.
-\end{cor}
-\begin{dem}
-    Veamos ambas implicaciones por separado.
-    \begin{itemize}[wide, labelindent=0pt]
-        \item[$\boxed{\Rightarrow}$] Por el \excref[teo:carac-prod-finito-blaschke-fn-racional]{teo:carac-prod-finito-blaschke-fn-racional}, $\exists Q, R \in \C[z]$ de grados $n_1 \defeq \deg B_1$ y $n_2 \defeq\deg B_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $B_1 = \sfrac{Q}{Q^{\#_{n_1}}}$ y $B_2 = \sfrac{R}{R^{\#_{n_2}}}$.
-        
-        Por tanto, los ceros de $P \defeq Q \cdot R^{\#_{n_2}}$ están en $\mathbb{D} \cup \C \setminus \bar{\mathbb{D}} = \C \setminus \mathbb{T}$ y, además,
-        \[
-        f = \frac{B_1}{B_2} = \frac{Q / Q^{\#_{n_1}}}{R / R^{\#_{n_2}}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} \upexpl{=}{\exref[prop:conjugado-reverso-producto]{prop-conjugado-reverso-producto}} \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_{n_1 + n_2}}} = \frac{P}{P^{\#_n}}.
-        \]
-
-        Como $\deg R^{\#_{n_2}} \leq n_2$ y $\deg Q^{\#_{n_1}} \leq n_1$ y se tiene que
-        \[
-        n = \max \left\{\deg \left(Q R^{\#_{n_2}}\right), \deg \left(Q^{\#_{n_1}} R\right)\right\} = \max\left\{n_1 + \deg R^{ \#_{n_2}}, n_2 + \deg Q^{\#_{n_1}}\right\},
-        \]
-        concluimos que $\deg B_1 + \deg B_2 = n_1 + n_2 \leq n$.
-
-        \item[$\boxed{\Leftarrow}$] Sea $f$ una función racional de la forma $f(z) = \sfrac{P(z)}{P^\#(z)}$ donde $P$ es un polinomio sin ceros en $\mathbb{T}$. Entonces, podemos separar sus $n$ ceros en dos grupos: los $n_1$ que están en $\mathbb{D}$ y los $n_2$ que están en $\C \setminus \bar{\mathbb{D}}$. Por tanto, existen $Q, R$ polinomios de grados $n_1$ y $n_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $P = Q \cdot R^{\#_{n_2}}$.
-        
-        Por la \excref[prop:conjugado-reverso-producto]{prop-conjugado-reverso-producto}, se tiene que
-        \[
-        f = \frac{P}{P^{\#_n}} = \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_n}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} = \frac{Q}{Q^{\#_{n_1}}} \bigg/ \frac{R}{R^{\#_{n_2}}}.
-        \]%REVISAR: explicar mejor la igualdad
-        Luego, por el \excref[teo:carac-prod-finito-blaschke-fn-racional]{teo:carac-prod-finito-blaschke-fn-racional}, existen $B_1$ y $B_2$ productos finitos de Blaschke tales que $\sfrac{Q}{Q^{\#_{n_1}}} = B_1$ y $\sfrac{R}{R^{\#_{n_2}}} = B_2$. Por tanto, $f = \sfrac{B_1}{B_2}$.
-
-        Por último, tenemos que $n = \deg f = \max \left\{\deg P, \deg P^{\#_n}\right\} = \deg P$.\hfill\qedsymbol
-    \end{itemize}
-\end{dem}
-
-\begin{obs}
-    Sea $P$ un polinomio de grado $n$ sin ceros en $\mathbb{T}$. Entonces, por el \excref[cor:carac-cociente-prod-finito-blaschke-fn-racional]{cor-carac-cociente-prod-finito-blaschke-fn-racional}, %ORDENAR: referenciar
-    $\forall \zeta \in \mathbb{T} : \abs{P(\zeta)} = \abs{P^{\#_n}(\zeta)}$.
-\end{obs}
-
 \section{$n$-valencia de los productos finitos de Blaschke} %Esto puede ir de lo primero si las demostraciones no usan B=P/P^#
 
-% Consideramos la función $f(z) = z^2$. Esta función se dice bivalente, porque cada valor en la imagen tiene dos preimágenes (salvo el 0). En general, la función $f_n(z) = z^n$ es $n$-valente, es decir, cada valor en la imagen tiene $n$ preimágenes (salvo el 0).
-
 %ORDENAR: reescribir esta sección usando la definición de valencia  
+
+\begin{defn}\label{defn:valencia-fn-holomorfa}
+    Decimos que una función $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\Omega\right)$ es $n$-valente en el abierto $\Omega \subset \C$ si para cada $w \in f(\Omega)$, la ecuación $f(z) = w$ tiene exactamente $n$ soluciones en $\Omega$ (contando multiplicidades). Formalmente, $f$ es $n$-valente en $\Omega$ si, y sólo si,
+    \[
+    \forall w \in f(\Omega) : v_f(w) \defeq \!\!\!\!\!\! \sum_{z \in f^{-1}(\{w\})} \!\!\!\!\!\! \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{\operatorname{ord}}(f-w, z) = n.
+    \]
+\end{defn}
 
 \begin{teo}\label{teo:n-valencia-prod-finito-blaschke-disco-unidad}
     Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$} es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\mathbb{D}$.
 \end{teo}
 \begin{dem}
-    Sea $B$ un producto finito de Blaschke de grado $n$. Entonces, existe un abierto $\Omega \subset \C$ qu contiene a $\bar{\mathbb{D}}$ tal que $B \in \mathcal{H}\left(\Omega\right)$. Observamos que $\mathbb{T}$ es una curva de Jordan en $\Omega$ tal que $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$. Sea $w \in \mathbb{D}$, entonces, si tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, tenemos que
+    Sea $B \in \mathscr{B}_n$, entonces, existe un $R > 0$ tal que $\bar{\mathbb{D}} \subset D(0, R)$ tal que $B \in \mathcal{H}\left(\Omega\right)$. Sea $w \in \mathbb{D}$, entonces, si tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, como $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$ y $\abs{w} < 1$, se tiene que
     \[
     \forall \zeta \in \mathbb{T} : \abs{f(\zeta) - g(\zeta)} = \abs{B(\zeta) - (B(\zeta) - w)} = \abs{w} < 1 = \abs{B(\zeta)} = \abs{f(\zeta)}.
     \]
-    Por tanto, por \exhyperref[teo:rouche]{teo-rouche}{teorema de Rouché}, $f$ y $g$ tienen el mismo número de ceros en $\mathbb{D}$. Como $B$ tiene $n$ ceros en $\mathbb{D}$, concluimos que $B(z) - w$ también tiene $n$ ceros en $\mathbb{D}$, es decir, la ecuación $B(z) = w$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).\hfill\qedsymbol
+    Por tanto, por \exhyperref[teo:rouche]{teo-rouche}{teorema de Rouché}, $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T}) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\mathbb{T})$. Como $B$ tiene $n$ ceros en $\mathbb{D}$, concluimos que $B(z) - w$ también tiene $n$ ceros en $\mathbb{D}$, es decir, la ecuación $B(z) = w$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).\hfill\qedsymbol
 \end{dem}
 % \begin{dem}[Alternativa]
 %     Usamos que $B = \sfrac{P}{P^{\#_n}}$ y jugamos con los coeficientes para ver que hay $n$ soluciones por el teorema fundamental del álgebra. págs 48-49
@@ -361,13 +262,127 @@
 %     En consecuencia, las $n$ soluciones de $B(z)=\gamma$ pertenecen a $\mathbb{T}$, es decir, $B$ es $n$-valente en $\mathbb{T}$.\hfill\qedsymbol
 % \end{dem}
 
+\section{Productos de Blaschke como funciones racionales}
+
+\begin{defn}[Polinomio conjugado reverso]\label{defn:polinomio-conjugado-reverso}
+    Dado $n > 0$ y $P \in \C[z]$ tal que $\deg P \leq n$, el \emph{polinomio conjugado reverso} de $P$ respecto a $n$ se denota por $P^{\#_n}$ y se define mediante 
+    \[
+    \forall z \in \C : P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)}.
+    \]
+    Es decir, para $P(z) = \sum_{k=0}^n \alpha_k z^k$, tenemos que $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$.
+\end{defn}
+
+\begin{obs}
+    Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$. Entonces:
+    \begin{enumerate}[label=(\arabic*)]
+        \item Si $P(z) = \sum_{k=0}^n \alpha_k z^k$, entonces $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$.
+        \item Si $P(z) = 1$, entonces $P^{\#_n}(z) = z^n$ y si $P(z) = z^n$, entonces $P^{\#_n}(z) = 1$.
+    \end{enumerate}
+\end{obs}
+
+\begin{lem}\label{lem:polinomio-conjugado-reverso}
+    Sea $n > 0$ y $P \in \C[z] : \deg P \leq n$. Entonces:
+    \begin{enumerate}[label=\textnormal{(\arabic*)}]
+        \item $\deg{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}} \leq n$ y la igualdad se cumple si y sólo si $P(0) \neq 0$.
+        \item $\left(P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}\right)^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} = P$.
+        \item $\forall z \in \C \setminus \{0\} : \big(P(z) = 0 \iff P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} \left(\sfrac{1}{\bar{z}}\right) = 0\big)$.
+    \end{enumerate}
+\end{lem}%DEMOSTRACIÓN
+
+\begin{prop}\label{prop:conjugado-reverso-producto}
+    Sean $P, Q \in \C[z]$ tales que $\deg P \leq n, \deg Q \leq m$. Entonces,
+    \[
+    \left(P \cdot Q\right)^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_{n+m}}} = P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} \cdot Q^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_m}}.
+    \]
+\end{prop}%DEMOSTRACIÓN
+
+\begin{teo}\label{teo:carac-prod-finito-blaschke-fn-racional}
+    Sea $f$ una función racional de grado $n > 0$, entonces
+    \[
+    f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}} \iff \exists P \in \C[z] \text{ de grado } n : \left\{z \in \C : P(z) = 0\right\} \subset \mathbb{D} : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}.
+    \]
+\end{teo}
+\begin{dem}
+    Veamos ambas implicaciones por separado.
+    \begin{itemize}[wide, labelindent=0pt]
+        \item[$\boxed{\Rightarrow}$] Sea $f$ un producto de Blaschke de grado $n$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}, \gamma \in \mathbb{T} : $
+        \[
+        \forall z \in \mathbb{D} : f(z) = \gamma \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = e^{t_0i} \cdot \frac{\prod_{k=1}^n (z_k - z)}{\prod_{k=1}^n (1 - \overline{z_k} z)}
+        \]
+        para algún $t_0 \in \R$. Definimos ahora el polinomio $P$ mediante
+        \[
+        \forall z \in \C : P(z) = e^{t_0i/2} \cdot \prod_{k=1}^n (z_k - z).
+        \]
+        Entonces, $P$ es un polinomio de grado como mucho $n$ cuyos ceros están en $\mathbb{D}$ y
+        \[
+        P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n \cdot e^{-t_0i/2} \cdot \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = e^{-t_0i/2} \cdot \prod_{k=1}^n (1 - \overline{z_k} z).
+        \]
+        Por tanto, $\forall z \in \mathbb{D} : f(z) = \sfrac{P(z)}{P^{\#_n}(z)}$.
+
+        \item[$\boxed{\Leftarrow}$] Supongamos que $f = \sfrac{P}{P^{\#_n}}$ para $P \in \C[z]$ de grado $n$ y dado por
+        \[
+        P(z) = \alpha_n z^n + \alpha_{n-1} z^{n-1} + \cdots + \alpha_1 z + \alpha_0,
+        \]
+        cuyos ceros están en $\mathbb{D}$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}: P(z) = \alpha_n \prod_{k=1}^n (z_k - z)$.
+        \[
+        \begin{aligned}
+            \therefore \quad P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n\, \bar{\alpha_n} \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = \bar{\alpha_n} \prod_{k=1}^n (1 - \overline{z_k} z).
+        \end{aligned}
+        \]
+        Por tanto, $\forall z \in \mathbb{D} : \ds f(z) = \frac{P(z)}{P^{\#_n}(z)} = \frac{\alpha_n}{\bar{\alpha_n}} \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}$ donde $\ds \abs{\frac{\alpha_n}{\bar{\alpha_n}}} = 1$.\hfill\qedsymbol
+    \end{itemize}
+\end{dem}
+
+%ORDENAR: me ha dicho Dragan que es muy prescindible
+\begin{cor}\label{cor:carac-cociente-prod-finito-blaschke-fn-racional}
+    Sea $f$ una función racional de grado $n$, entonces
+    \[
+    \begin{aligned}
+        \exists B_1, B_2  \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}} : f = \frac{B_1}{B_2} \iff \exists P \in \C[z] : \big(\forall z \in \mathbb{T} : P(z) \neq 0\big) : f = \frac{P}{P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}}}.
+    \end{aligned}
+    \]
+    Además, en tal caso, $\deg B_1 + \deg B_2 \leq n$ y $\deg P = n$.
+\end{cor}
+\begin{dem}
+    Veamos ambas implicaciones por separado.
+    \begin{itemize}[wide, labelindent=0pt]
+        \item[$\boxed{\Rightarrow}$] Por el \excref[teo:carac-prod-finito-blaschke-fn-racional]{teo:carac-prod-finito-blaschke-fn-racional}, $\exists Q, R \in \C[z]$ de grados $n_1 \defeq \deg B_1$ y $n_2 \defeq\deg B_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $B_1 = \sfrac{Q}{Q^{\#_{n_1}}}$ y $B_2 = \sfrac{R}{R^{\#_{n_2}}}$.
+        
+        Por tanto, los ceros de $P \defeq Q \cdot R^{\#_{n_2}}$ están en $\mathbb{D} \cup \C \setminus \bar{\mathbb{D}} = \C \setminus \mathbb{T}$ y, además,
+        \[
+        f = \frac{B_1}{B_2} = \frac{Q / Q^{\#_{n_1}}}{R / R^{\#_{n_2}}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} \upexpl{=}{\exref[prop:conjugado-reverso-producto]{prop-conjugado-reverso-producto}} \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_{n_1 + n_2}}} = \frac{P}{P^{\#_n}}.
+        \]
+
+        Como $\deg R^{\#_{n_2}} \leq n_2$ y $\deg Q^{\#_{n_1}} \leq n_1$ y se tiene que
+        \[
+        n = \max \left\{\deg \left(Q R^{\#_{n_2}}\right), \deg \left(Q^{\#_{n_1}} R\right)\right\} = \max\left\{n_1 + \deg R^{ \#_{n_2}}, n_2 + \deg Q^{\#_{n_1}}\right\},
+        \]
+        concluimos que $\deg B_1 + \deg B_2 = n_1 + n_2 \leq n$.
+
+        \item[$\boxed{\Leftarrow}$] Sea $f$ una función racional de la forma $f(z) = \sfrac{P(z)}{P^\#(z)}$ donde $P$ es un polinomio sin ceros en $\mathbb{T}$. Entonces, podemos separar sus $n$ ceros en dos grupos: los $n_1$ que están en $\mathbb{D}$ y los $n_2$ que están en $\C \setminus \bar{\mathbb{D}}$. Por tanto, existen $Q, R$ polinomios de grados $n_1$ y $n_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $P = Q \cdot R^{\#_{n_2}}$.
+        
+        Por la \excref[prop:conjugado-reverso-producto]{prop-conjugado-reverso-producto}, se tiene que
+        \[
+        f = \frac{P}{P^{\#_n}} = \frac{Q \cdot R^{\#_{n_2}}}{\left(Q \cdot R^{\#_{n_2}}\right)^{\#_n}} = \frac{Q \cdot R^{\#_{n_2}}}{Q^{\#_{n_1}} \cdot R} = \frac{Q}{Q^{\#_{n_1}}} \bigg/ \frac{R}{R^{\#_{n_2}}}.
+        \]%REVISAR: explicar mejor la igualdad
+        Luego, por el \excref[teo:carac-prod-finito-blaschke-fn-racional]{teo:carac-prod-finito-blaschke-fn-racional}, existen $B_1$ y $B_2$ productos finitos de Blaschke tales que $\sfrac{Q}{Q^{\#_{n_1}}} = B_1$ y $\sfrac{R}{R^{\#_{n_2}}} = B_2$. Por tanto, $f = \sfrac{B_1}{B_2}$.
+
+        Por último, tenemos que $n = \deg f = \max \left\{\deg P, \deg P^{\#_n}\right\} = \deg P$.\hfill\qedsymbol
+    \end{itemize}
+\end{dem}
+
+\begin{obs}
+    Sea $P$ un polinomio de grado $n$ sin ceros en $\mathbb{T}$. Entonces, por el \excref[cor:carac-cociente-prod-finito-blaschke-fn-racional]{cor-carac-cociente-prod-finito-blaschke-fn-racional}, %ORDENAR: referenciar
+    $\forall \zeta \in \mathbb{T} : \abs{P(\zeta)} = \abs{P^{\#_n}(\zeta)}$.
+\end{obs}
+
 \section{Álgebra del disco}
 
 \begin{defn}[Álgebra del disco unidad]\label{defn:algebra-disco-unidad}
     El conjunto de funciones holomorfas en $\mathbb{D}$ que se extienden de forma continua a $\bar{\mathbb{D}}$ es un álgebra con la suma, el producto de funciones y el producto por escalares. Lo llamamos \emph{álgebra del disco unidad} y se denota por $\mathscr{A}(\mathbb{D})$.
 \end{defn}
 
-Por ejemplo, $\mathscr{B} \subset \mathscr{A}(\mathbb{D})$. De hecho, cualquier función racional sin polos en $\bar{\mathbb{D}}$ pertenece al álgebra del disco.
+Por ejemplo, $\mathscr{B} \subset \mathscr{A}(\mathbb{D})$. De hecho, cualquier función racional sin polos en $\bar{\mathbb{D}}$ pertenece al \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{álgebra del disco}.
 
 \begin{ejem}
     Consideramos $f$ dada por $f(z) = \sqrt{1-z}$ para $z \in \mathbb{D}$. Entonces, tomando la rama principal de la raíz cuadrada, vemos que $f$ es holomorfa en $\mathbb{D}$. Observamos que $f$ se extiende de forma continua a $\bar{\mathbb{D}} \setminus \{1\}$ directamente.
@@ -388,6 +403,8 @@ Por ejemplo, $\mathscr{B} \subset \mathscr{A}(\mathbb{D})$. De hecho, cualquier 
 % \end{ejems}
 
 % \subsection{Productos de Blaschke como funciones del álgebra del disco}
+
+El siguiente resultado nos permitirá caracterizar los productos finitos de Blaschke como funciones del álgebra del disco.
 
 \begin{teo}[Fatou]\label{teo:fatou-carac-prod-finito-blaschke-algebra-disco}
     Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\mathbb{D}\right)$ tal que $\ds \exhyperref[defn:convergencia]{convergencia}{\lim_{\abs{z} \to 1^-}} \abs{f(z)} = 1$. Entonces, $f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$.
@@ -427,16 +444,18 @@ Por ejemplo, $\mathscr{B} \subset \mathscr{A}(\mathbb{D})$. De hecho, cualquier 
 
 \section{Composición de productos finitos de Blaschke}
 
+Los resultados anteriores nos permiten demostrar que $\mathscr{B}$ es cerrado para la composición de funciones de forma sencilla, evitándonos un razonamiento puramente algebraico, que sería más largo y tedioso.
+
 \begin{lem}\label{lem:prod-finito-blaschke-composicion-involucion}
     Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ y $w \in \mathbb{D}$. Entonces, $\tau_w \circ B, B \circ \tau_w \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$.
 \end{lem}
 \begin{dem}
-    Ya sabemos que $\tau_w \circ B \in \mathcal{H}(\mathbb{D}) \cap \mathcal{C}\left(\bar{\mathbb{D}}\right)$ y que $\forall \zeta \in \mathbb{T} : \abs{\tau_w \circ B(\zeta)} = 1$. Por tanto, el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco} asegura que $\tau_w \circ B$ es un producto finito de Blaschke. Además, como $\tau_w \circ B (z) = 0 \iff B(z) = w$, por el \cref{teo:n-valencia-prod-finito-blaschke-disco-unidad}, la ecuación $\tau_w \circ B(z) = 0$ tiene exactamente $n$ soluciones en $\mathbb{D}$ (contando multiplicidades). Por tanto, $\tau_w \circ B$ es un producto finito de Blaschke de grado $n$. 
+    Sabemos que $\tau_w \circ B \in \mathcal{H}(\mathbb{D}) \cap \mathcal{C}\left(\bar{\mathbb{D}}\right)$ y que $\forall \zeta \in \mathbb{T} : \abs{\tau_w \circ B(\zeta)} = 1$. Por tanto, el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco} asegura que $\tau_w \circ B$ es un producto finito de Blaschke. Además, como $\tau_w \circ B (z) = 0 \iff B(z) = w$, por el \cref{teo:n-valencia-prod-finito-blaschke-disco-unidad}, la ecuación $\tau_w \circ B(z) = 0$ tiene exactamente $n$ soluciones en $\mathbb{D}$ (contando multiplicidades). Por tanto, $\tau_w \circ B$ es un producto finito de Blaschke de grado $n$. 
     
     Análogamente, el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco} asegura que $B \circ \tau_w$ es un producto finito de Blaschke. Además, como $\tau_w$ es biyectiva, por el \cref{teo:n-valencia-prod-finito-blaschke-disco-unidad}, existen $n$ soluciones en $\mathbb{D}$ para la ecuación $B \circ \tau_w(z) = 0$. Por tanto, $B \circ \tau_w \in \mathscr{B}_n$.\hfill\qedsymbol
 \end{dem}
 
-\begin{obs}
+\begin{obs}\label{obs:prod-finito-blaschke-composicion-automorfismo-disco-unidad}
     Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ y $w \in \mathbb{D}$. Entonces, como $\forall \gamma \in \mathbb{T} : \rho_\gamma \circ B, B \circ \rho_\gamma \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$, el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} y el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion} aseguran que $\forall \varphi \in \mathrm{Aut}(\mathbb{D}) : \varphi \circ B, B \circ \varphi \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$.
 \end{obs}
 

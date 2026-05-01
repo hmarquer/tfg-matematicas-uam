@@ -1,6 +1,6 @@
 \chapter{Aproximación por productos finitos de Blaschke}
 
-Consideramos el espacio de Hardy $H^{\infty} \left(\mathbb{D}\right) \defeq \mathcal{H} \left(\mathbb{D}\right) \cap \mathcal{L}^\infty \left(\mathbb{D}\right)$. Por la \excref[prop:fn-holomorfa-esencialmente-acotada-imp-acotada]{prop-fn-holomorfa-esencialmente-acotada-imp-acotada}, tenemos que $H^{\infty} \left(\mathbb{D}\right) = \left\{f \in \mathcal{H} \left(\mathbb{D}\right) : f \tex{ está acotada en } \mathbb{D}\right\}$.
+Consideramos el espacio de Hardy $H^{\infty} \left(\mathbb{D}\right) \defeq \mathcal{H} \left(\mathbb{D}\right) \cap \mathcal{L}^\infty \left(\mathbb{D}\right)$. Por la \excref[prop:fn-holomorfa-esencialmente-acotada-imp-acotada]{prop-fn-holomorfa-esencialmente-acotada-imp-acotada}, tenemos que $H^{\infty} \left(\mathbb{D}\right) = \left\{f \in \mathcal{H} \left(\mathbb{D}\right) : f \text{ está acotada en } \mathbb{D}\right\}$.
 
 \begin{obs}\label{obs:hinfty-subespacio-vectorial-holomorfas}
     Como $\mathcal{H}\left(\mathbb{D}\right)$ es un espacio vectorial y $H^\infty$ es cerrado bajo suma y producto por escalares, $H^\infty \left(\mathbb{D}\right)$ es un subespacio vectorial de $\mathcal{H}\left(\mathbb{D}\right)$.
@@ -220,8 +220,8 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     Dividimos $[0, 2\pi]$ y, por tanto, la circunferencia $\mathbb{T}$ en $N$ arcos de longitud $\frac{2\pi}{N}$:
     \[
     \begin{aligned}
-        [0, 2\pi] &= \bigcup_{k=1}^N I_k \quad \tex{donde}\quad \forall k \in \N_N : I_k = \left[\frac{2\pi (k-1)}{N}, \frac{2\pi k}{N} \right] \\
-        \implies \mathbb{T} &= \bigcup_{k=1}^N T_k \quad \tex{donde}\quad \forall k \in \N_N : T_k = \left\{ e^{i\theta} : \theta \in I_k \right\}.
+        [0, 2\pi] &= \bigcup_{k=1}^N I_k \quad \text{donde}\quad \forall k \in \N_N : I_k = \left[\frac{2\pi (k-1)}{N}, \frac{2\pi k}{N} \right] \\
+        \implies \mathbb{T} &= \bigcup_{k=1}^N T_k \quad \text{donde}\quad \forall k \in \N_N : T_k = \left\{ e^{i\theta} : \theta \in I_k \right\}.
     \end{aligned}
     \]
     Como $\gamma$ es continua y $\forall k \in \N_N : \forall \zeta, \zeta' \in T_k : \abs{\gamma(\zeta) - \gamma(\zeta')} < 2$ y $T_k$ es compacto y conexo, $\gamma(T_k)$ es un arco cerrado de $\mathbb{T}$ que abarca menos de $\pi$ radianes de ángulo.
@@ -341,7 +341,7 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
 \begin{dem}
     Por definición, $\exists \left\{z_k\right\}_{k=1}^r \subset \mathbb{D}, \left\{j_k\right\}_{k=1}^r \subset \N, j_0 \in \N \cup \{0\}, \beta \in [0, 2\pi) : $ tales que $B$ viene dada por
     \[
-    B(z) = e^{i\beta} z^{j_0} \prod_{k=1}^r \left(\frac{z_k - z}{1 - \bar{z_k}z}\right)^{j_k} \quad \tex{donde} \quad \sum_{k=0}^r j_k = n
+    B(z) = e^{i\beta} z^{j_0} \prod_{k=1}^r \left(\frac{z_k - z}{1 - \bar{z_k}z}\right)^{j_k} \quad \text{donde} \quad \sum_{k=0}^r j_k = n
     \]
     y $\left\{z_k\right\}_{k=1}^r$ son los distintos ceros de $B$ en $\mathbb{D} \setminus \{0\}$. Definiendo $z_0 = 0$, consideramos
     \[
@@ -413,14 +413,12 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
 
 \section{Generalización del teorema de Rouché y su inverso}
 
-\transclude{fn-holomorfa-dentro-camino} %ORDENAR: enviar al anexo (a lo mejor no)
 
-\transclude{numero-ceros-fn-holomorfa-camino} %ORDENAR: enviar al anexo (a lo mejor no)
 
 % \begin{defn}\label{defn:numero-polos-fn-meromorfa-camino}
 %     Sea $\Gamma \colon [0, 1] \to \C$ un \exhyperref[defn:camino]{camino}{camino} cerrado y \exhyperref[defn:fn-meromorfa-dentro-camino]{fn-meromorfa-dentro-camino}{$f$ meromorfa dentro de $\Gamma$}, $P_f(\Gamma)$ es el número de polos de $f$ dentro de $\Gamma$ contado con multiplicidad
 %     \[
-%     \iff P_f(\Gamma) = \!\!\!\!\!\!\!\!\!\!\!\sum_{\substack{z \in \operatorname{int}(\Gamma) \\ z \tex{ es un \exhyperref[defn:polo-fn-meromorfa]{polo-fn-meromorfa}{polo} de } f}} \!\!\!\!\!\!\!\!\!\!\! \exhyperref[defn:orden-polo-fn-meromorfa]{orden-polo-fn-meromorfa}{\operatorname{ord}}(f, z).
+%     \iff P_f(\Gamma) = \!\!\!\!\!\!\!\!\!\!\!\sum_{\substack{z \in \operatorname{int}(\Gamma) \\ z \text{ es un \exhyperref[defn:polo-fn-meromorfa]{polo-fn-meromorfa}{polo} de } f}} \!\!\!\!\!\!\!\!\!\!\! \exhyperref[defn:orden-polo-fn-meromorfa]{orden-polo-fn-meromorfa}{\operatorname{ord}}(f, z).
 %     \]
 % \end{defn}
 
@@ -436,17 +434,18 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \[
     \forall z \in \Gamma : \abs{\frac{f(z)}{g(z)} - 1} < \abs{\frac{f(z)}{g(z)}} + 1.
     \]
-    Esto implica que $\forall z \in \Gamma : \sfrac{f(z)}{g(z)} > 0$ (si $\sfrac{f(z)}{g(z)} \leq 0$, entonces $1 \leq \abs{\sfrac{f(z)}{g(z)} - 1} < \abs{\sfrac{f(z)}{g(z)}} + 1 \leq 1$, lo cual es imposible). %REVISAR esto está mal mirar la foto del 03/03/2026
-    Por tanto, $\sfrac{f}{g} \left(\Gamma\right) \subset \C \setminus (-\infty, 0]$. Entonces, tomando la rama principal del logaritmo, $\log \left(\sfrac{f}{g}\right) \in \mathcal{H} \left(\operatorname{int}(\Gamma)\right)$ y, al derivar, se tiene que
+    Por la desigualdad triangular, $\forall z \in \Gamma : \abs{\sfrac{f(z)}{g(z)} - 1} \leq \abs{\sfrac{f(z)}{g(z)}} + 1$ y la igualdad se cumple si y solo si $\sfrac{f(z)}{g(z)} \in (-\infty, 0]$. Por tanto, $\forall z \in \Gamma : \sfrac{f(z)}{g(z)} \in \C \setminus (-\infty, 0]$.
+
+    Entonces, tomando la rama principal del logaritmo, $\log \left(\sfrac{f}{g}\right) \in \mathcal{H} \left(\operatorname{int}(\Gamma)\right)$ y, al derivar, obtenemos que
     \[
     \odv{}{z} \log \left(\frac{f(z)}{g(z)}\right) = \frac{\odv{}{z} \left(\frac{f(z)}{g(z)}\right)}{\frac{f(z)}{g(z)}} = \frac{f'(z)g(z) - f(z)g'(z)}{f(z)g(z)} = \frac{f'(z)}{f(z)} - \frac{g'(z)}{g(z)}.
     \]
 
-    Por el principio del argumento para funciones holomorfas, como $Z_{\sfrac{f}{g}} (\Gamma) = 0$, tenemos que
+    Por el principio del argumento para funciones holomorfas, como $Z_{\sfrac{f}{g}} (\Gamma) = 0$,
     \[
     0 = \frac{1}{2\pi i} \int_\Gamma \odv{}{z} \log \left(\frac{f(z)}{g(z)}\right) \odif{z} = \frac{1}{2\pi i} \int_\Gamma \frac{f'(z)}{f(z)} \odif{z} - \frac{1}{2\pi i} \int_\Gamma \frac{g'(z)}{g(z)} \odif{z}.
     \]
-    De nuevo por el principio del argumento, $Z_f(\Gamma) = Z_g(\Gamma)$, es decir, $f$ y $g$ tienen el mismo número de ceros dentro de $\Gamma$ contando multiplicidades.
+    De nuevo por el principio del argumento, $Z_f(\Gamma) = Z_g(\Gamma)$, es decir, $f$ y $g$ tienen el mismo número de ceros dentro de $\Gamma$ contando multiplicidades.\hfill\qedsymbol
 \end{dem}
 
 \begin{obs}
@@ -500,6 +499,4 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
 \end{dem}
 
 
-\newpage
-
-\lipsum[1-20]
+\lipsum[1-253]
