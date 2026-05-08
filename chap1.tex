@@ -70,6 +70,14 @@
     \end{enumerate}
 \end{dem}
 
+\begin{obs}\label{obs:involucion-disco-unidad-diametro}
+    Sea $w \in \mathbb{D}$, entonces $\Gamma_w \defeq \left\{t \, w/\abs{w} : t  \in (-1,1)\right\} \subset \mathbb{D}$ es el diámetro del disco unidad en la dirección de $w$. Al aplicar $\tau_w$, obtenemos que
+    \[
+    \forall t \in (-1,1) : \tau_w\left(t \, \frac{w}{\abs{w}}\right) = \frac{w - t \, w/\abs{w}}{1 - \bar{w} t \, w/\abs{w}} = \frac{\abs{w} - t}{1 - t \abs{w}} \cdot \frac{w}{\abs{w}} \in \Gamma_w
+    \]
+    porque $\frac{\abs{w} - t}{1 - t \abs{w}} \in \R$ y $\tau_w(\mathbb{D}) \subset \mathbb{D}$. Por tanto, $\tau_w \left(\Gamma_w\right) \subset \Gamma_w$ y, aplicando el apartado \ref{lem:involucion-disco-unidad:4} del \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}, $\Gamma_w = \tau_w \circ \tau_w \left(\Gamma_w\right) \subset \tau_w \left(\Gamma_w\right)$. En consecuencia, $\tau_w \left(\Gamma_w\right) = \Gamma_w$. 
+\end{obs}
+
 \begin{lem}\label{lem:involucion-disco-unidad-derivada}
     Sea $w \in \mathbb{D}$, entonces $\ds \forall z \in \mathbb{D} : \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_w}\exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{'}(z) = \frac{\abs{w}^2 - 1}{(1 - \bar{w} z)^2}$.
 \end{lem}
@@ -252,6 +260,8 @@ donde $\gamma = e^{i\theta}$, $\alpha = \frac{i}{\sqrt{1 - \abs{w}^2}}$ y $\beta
 \end{pmatrix} : a, b \in \C \we \abs{a}^2 - \abs{b}^2 = 1 \right\} \big/ \{\pm I\} \subset \operatorname{PSL}_2(\mathbb{C}).
 \]
 % A su vez, $\operatorname{PSU}_{1, 1} \left(\C\right)$ es isomorfo a $\operatorname{PSL}_2(\mathbb{R})$. %ORDENAR no sé si poner esto o no
+
+%ORDENAR: aquí podría decir que con el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} se puede dotar al espacio topológico $\mathbb{T} \times \mathbb{D}$ de una estructura de grupo (y a $\mathrm{Aut} \left(\mathbb{D} \right) \cong \operatorname{PSU}_{1, 1} \left(\C\right)$ de una topología) de manera que se obtiene un grupo de Lie.
 
 \section{Teorema de Schwarz-Pick}
 

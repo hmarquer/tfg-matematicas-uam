@@ -55,7 +55,7 @@
 \usepackage{slashed}
 \usepackage{hyperref}
 \usepackage{hyperxmp}
-\usepackage[capitalize,nameinlink,noabbrev]{cleveref}
+\usepackage[nameinlink,noabbrev]{cleveref}
 \usepackage[backend=biber,style=numeric]{biblatex}
 \addbibresource{/home/hugo/texnotes/bibliography.bib}
 % Apellidos en versales pequeñas (small caps)
@@ -358,8 +358,7 @@
 
 % \setcounter{secnumdepth}{2}
 
-\newenvironment{defn}[1][]{
-}{}
+\newenvironment{defn}[1][]{}{}
 \AtBeginEnvironment{defn}{\setlist[enumerate, 1]{label=(\roman*), ref=(\roman*)}}
 
 \theoremstyle{definitionstyle}

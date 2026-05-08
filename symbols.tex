@@ -5,46 +5,36 @@
 \end{flushright}
 
 \begin{tabular}{ll}
+    $\N$ & Conjunto de los números naturales $\{1, 2, 3, \dots\}$ \\
+    $\N_n$ & Conjunto de los números naturales hasta el $n$-ésimo: $\{1,2,\dots,n\}$ \\
     $\mathbb{D}$ & Disco unidad en $\C$ \\
     $\mathbb{T}$ & Circunferencia unidad en $\C$, i.e. $\mathbb{T} = \partial \mathbb{D}$ \\
-    $\bar{\mathbb{D}}$ & Cierre del disco unidad \\
+    $\bar{A}$ & Clausura del conjunto $A$ \\
     $D(z, r)$ & Disco euclídeo centrado en $z$ y de radio $r$ \\
     $B_{\varrho}(z, r)$ & Bola de radio $r$ centrada en $z$ para la métrica $\varrho$ \\
     $\therefore$ & Por lo tanto \\
+    $\defeq$ & Definido mediante \\
+    % $\mathscr{S}$ & Clase de Schur: $\{f \colon \mathbb{D} \to \bar{\mathbb{D}} \text{ holomorfa}\}$ \\
+    % $\mathrm{Aut}(\mathbb{D})$ & Grupo de automorfismos holomorfos del disco unidad \\
+    % $\tau_w$ & Involución del disco unidad asociada a $w \in \mathbb{D}$: $\tau_w(z) = \frac{w - z}{1 - \bar{w} z}$ \\
+    % $\rho_\gamma$ & Rotación: $\rho_\gamma(z) = \gamma z$ con $\gamma \in \mathbb{T}$ \\
+    % $\varrho$ & Métrica pseudohiperbólica en $\mathbb{D}$: $\varrho(z,w) = |\tau_w(z)|$ \\
+    % $\wp$ & Métrica de Poincaré en $\mathbb{D}$: $\wp(z,w) = \log\frac{1+\varrho(z,w)}{1-\varrho(z,w)}$ \\
+    % $\ell(\Gamma)$ & Longitud hiperbólica de un camino $\Gamma$ en $\mathbb{D}$ \\
+    % $\mu$ & Densidad de la métrica de Poincaré: $\mu(z) = \frac{2}{1-|z|^2}$ \\
+    % $\kappa_\mu$ & Curvatura gaussiana de una densidad métrica $\mu$ \\
+    % $\mathscr{B}_n$ & Conjunto de productos finitos de Blaschke de grado $n$ \\
+    % $\mathscr{B}$ & Conjunto de todos los productos finitos de Blaschke: $\bigcup_{n\in\N}\mathscr{B}_n$ \\
+    % $P^{\#_n}$ & Polinomio conjugado reverso de $P$ respecto de $n$: $P^{\#_n}(z) = z^n \overline{P(1/\bar{z})}$ \\
+    % $\mathscr{A}(\mathbb{D})$ & Álgebra del disco: funciones holomorfas en $\mathbb{D}$ y continuas en $\bar{\mathbb{D}}$ \\
+    % $H^\infty(\mathbb{D})$ & Espacio de Hardy de funciones holomorfas acotadas en $\mathbb{D}$ \\
+    $\mathcal{H}(\Omega)$ & Conjunto de funciones holomorfas en el abierto $\Omega$ \\
+    $\operatorname{ord}(f,z_0)$ & Orden del cero (o del polo) de $f$ en $z_0$ \\
+    $Z_f(\Gamma)$ & Número de ceros de $f$ dentro de $\Gamma$ contando multiplicidades \\
+    $\widehat{\mathbb{C}}$ & Plano complejo extendido $\C \cup \{\infty\}$ \\
+    $\mathbb{H}$ & Semiplano superior $\{z\in\C : \Im(z) > 0\}$ \\
+    $\operatorname{conv}(A)$ & Envolvente convexa de $A$ \\
+    % $f^*\mu$ & Densidad métrica inducida por $f$ y $\mu$: $(f^*\mu)(z) = \mu(f(z))|f'(z)|$ \\
     $f_n \xrightrightarrows[n \to \infty]{\Omega} f$ & Convergencia uniforme de $f_n$ a $f$ en $\Omega$ \\
     $f_n \xRightarrow[n \to \infty]{\Omega} f$ & Convergencia uniforme sobre compactos de $f_n$ a $f$ en $\Omega$ \\
-    % $\in$ & Pertenece a \\
-    % $\notin$ & No pertenece a \\
-    % $\subseteq$ & Subconjunto de \\
-    % $\subset$ & Subconjunto propio de \\
-    % $\cup$ & Unión de conjuntos \\
-    % $\cap$ & Intersección de conjuntos \\
-    % $\emptyset$ & Conjunto vacío \\
-    % $\mathbb{N}$ & Conjunto de números naturales \\
-    % $\mathbb{Z}$ & Conjunto de números enteros \\
-    % $\mathbb{Q}$ & Conjunto de números racionales \\
-    % $\mathbb{R}$ & Conjunto de números reales \\
-    % $\mathbb{C}$ & Conjunto de números complejos \\
-    % $f: A \to B$ & Función de $A$ en $B$ \\
-    % $\mathrm{Id}$ & Identidad \\
-    % $\ker(f)$ & Núcleo de una aplicación \\
-    % $\mathrm{Im}(f)$ & Imagen de una aplicación \\
-    % $\|x\|$ & Norma de un vector \\
-    % $\langle x,y \rangle$ & Producto interno \\
-    % $|A|$ & Cardinal de $A$ \\
-    % $\forall$ & Para todo \\
-    % $\exists$ & Existe \\
-    % $\Rightarrow$ & Implica \\
-    % $\Leftrightarrow$ & Equivalencia (si y sólo si) \\
-    % $\sum_{i=1}^n a_i$ & Suma finita \\
-    % $\prod_{i=1}^n a_i$ & Producto finito \\
-    % $\lim_{x \to a} f(x)$ & Límite de $f$ en $a$ \\
-    % $f'(x)$ & Derivada de $f$ \\
-    % $\int_a^b f(x)\,dx$ & Integral definida \\
-    % $O(g(n))$ & Cota asintótica superior \\
-    % $\cong$ & Isomorfismo \\
-    % $\simeq$ & Equivalencia \\
-    % $\approx$ & Aproximadamente igual \\
-    % $\triangleq$ & Definido como \\
-    % $\mathbb{P}(A)$ & Probabilidad del suceso $A$ \\
 \end{tabular}
