@@ -26,6 +26,8 @@ Denotaremos por $B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{met
 \begin{dem}
     Por definición, $B_{\varrho}(z, r) = \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_z}^{-1}(D(0, r)) = \tau_z(D(0, r))$ (\excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}). Como $\tau_z$ es una \exhyperref[defn:transformacion-mobius]{transformacion-mobius}{transformación de Möbius}, por el \excref[teo:transformacion-mobius-circunferencias-generalizadas]{transformacion-mobius-circunferencias-generalizadas}, $B_{\varrho}(z, r)$ es un disco euclídeo. Es decir, $\exists w \in \mathbb{D}, s > 0 : B_{\varrho}(z, r) = \tau_{z}(D(0, r)) = D(w, s)$.
 
+    Si $z = 0$, entonces $\tau_z = - \operatorname{id}$ y $B_{\varrho}(0, r) = D(0, r)$, por lo que $w = 0$ y $s = r$, satisfaciendo la fórmula del enunciado trivialmente. Supongamos entonces que $z \neq 0$.
+
     Recordamos que, por la \excref[obs:involucion-disco-unidad-diametro]{obs-involucion-disco-unidad-diametro}, $\Gamma_z \defeq \left\{t \, z/\abs{z} : t  \in (-1,1)\right\} \subset \mathbb{D}$ satisface $\tau_z(\Gamma_z) = \Gamma_z$. Como además se trata de una recta perpendicular a $\partial D(0, r)$, $\tau_z(\Gamma_z) = \Gamma_z$ es también perpendicular a $\tau_z(\partial D(0, r)) = \partial D(w, s)$ (ya que $\tau_z$ es conforme). Por tanto, $w \in \Gamma_z$ estará en el punto medio entre $w_m = \tau_z\left(r \, z/\abs{z}\right)$ y $w_M = \tau_z\left(-r \, z/\abs{z}\right)$, es decir, $w = \frac{1}{2}(w_m + w_M)$. Operando, obtenemos que
     \[
     w_m = \tau_z\left(r \, \frac{z}{\abs{z}}\right) = \frac{z - r \, \frac{z}{\abs{z}}}{1 - \bar{z} r \, \frac{z}{\abs{z}}} = \frac{z (1 - r/\abs{z})}{1 - r \abs{z}} \cdot \frac{\abs{z}}{\abs{z}} = \frac{\abs{z} - r}{1 - r \abs{z}} \cdot \frac{z}{\abs{z}} = \tau_{\abs{z}}\left(r\right) \cdot \frac{z}{\abs{z}}. 
@@ -75,7 +77,6 @@ Denotaremos por $B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{met
             \fill ({\wm*cos(\theta)},{\wm*sin(\theta)}) circle (0.02) node[left] {$w_m$};
             \fill ({\w*cos(\theta)},{\w*sin(\theta)})   circle (0.02) node[below] {$w$};
             \fill ({\wM*cos(\theta)},{\wM*sin(\theta)}) circle (0.02) node[left] {$w_M$};
-
             % Borde dashed del disco imagen
             \draw[dashed, thick] ({\w*cos(\theta)},{\w*sin(\theta)}) circle [radius=\s];
         \end{tikzpicture}
@@ -116,7 +117,6 @@ Denotaremos por $B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{met
             \fill ({\wm*cos(\theta)},{\wm*sin(\theta)}) circle (0.02) node[left] {$w_m$};
             \fill ({\w*cos(\theta)},{\w*sin(\theta)})   circle (0.02) node[below] {$w$};
             \fill ({\wM*cos(\theta)},{\wM*sin(\theta)}) circle (0.02) node[left] {$w_M$};
-
             % Borde dashed del disco imagen
             \draw[dashed, thick] ({\w*cos(\theta)},{\w*sin(\theta)}) circle [radius=\s];
         \end{tikzpicture}
@@ -136,7 +136,7 @@ Denotaremos por $B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{met
     \]
 \end{lem}
 \begin{dem}
-    Por la \excref[prop:bola-pseudohiperbolica-bola-euclidea]{prop-bola-pseudohiperbolica-bola-euclidea}, $w_m = \frac{\abs{z} - r}{1 - r \abs{z}} \cdot \frac{z}{\abs{z}}$ y $w_M = \frac{\abs{z} + r}{1 + r \abs{z}} \cdot \frac{z}{\abs{z}}$ son los puntos de $\bar{B_{\varrho}(z, r)}$ más cercanos y más alejados del origen respectivamente (ver la \autoref{fig:bolas-pseudohiperbolicas}), luego el resultado se sigue de la desigualdad triangular de $\abs{\cdot}$.\hfill\qedsymbol
+    Si $z = 0$, entonces $B_{\varrho}(0, r) = D(0, r)$ y el resultado es trivial. Supongamos que $z \neq 0$. Entonces, por la \excref[prop:bola-pseudohiperbolica-bola-euclidea]{prop-bola-pseudohiperbolica-bola-euclidea}, $w_m = \frac{\abs{z} - r}{1 - r \abs{z}} \cdot \frac{z}{\abs{z}}$ y $w_M = \frac{\abs{z} + r}{1 + r \abs{z}} \cdot \frac{z}{\abs{z}}$ son los puntos de $\bar{B_{\varrho}(z, r)}$ más cercanos y más alejados del origen respectivamente (ver la \autoref{fig:bolas-pseudohiperbolicas}), luego el resultado se sigue de la desigualdad triangular de $\abs{\cdot}$.\hfill\qedsymbol
 \end{dem}
 
 \begin{cor}\label{cor:borde-bola-pseudohiperbolica-desigualdades-auxiliares}
@@ -227,7 +227,7 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
     \[
     \wp(z, w) = \log \frac{1 + \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho(z, w)}}{1 - \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho(z, w)}}
     \]
-    es una \exhyperref[defn:metrica]{Metrica}{métrica} en $\mathbb{D}$, llamada la métrica de Poincaré.
+    es una \exhyperref[defn:metrica]{metrica}{métrica} en $\mathbb{D}$, llamada la métrica de Poincaré.
 \end{prop}
 %</prop>
 \begin{dem}%ORDENAR: referenciar bien
@@ -246,9 +246,9 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
 \end{dem}
 
 \begin{obs}
-    La métrica de Poincaré se puede escribir como $\wp(z, w) = f(\varrho(z, w))$ donde $f \colon [0,1) \to [0, \infty)$ es la función dada por $\varphi(t) = \log \frac{1+t}{1-t}$.
+    La métrica de Poincaré se puede escribir como $\wp(z, w) = \psi(\varrho(z, w))$ donde $\psi \colon [0,1) \to [0, \infty)$ es la función dada por $\psi(t) = \log \frac{1+t}{1-t}$.
     
-    Esta función es continua y estrictamente creciente en $[0,1)$, con $\varphi(0) = 0$ y $\lim_{t \to 1^-} \varphi(t) = \infty$. Por tanto, $\varphi$ es una biyección de $[0,1)$ sobre $[0, \infty)$. % (véase la \cref{fig:funcion-log-poincare}).
+    Esta función es continua y estrictamente creciente en $[0,1)$, con $\psi(0) = 0$ y $\lim_{t \to 1^-} \psi(t) = \infty$. Por tanto, $\psi$ es una biyección de $[0,1)$ sobre $[0, \infty)$. % (véase la \cref{fig:funcion-log-poincare}).
     
     % \begin{figure}[ht]
     %     \centering
@@ -343,15 +343,15 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
     $\left(\mathbb{D}, \exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}\right)$ es un \exhyperref[defn:completitud-metrica]{completitud-metrica}{espacio métrico completo}.
 \end{teo}
 \begin{dem}
-    Sea $(z_n)_{n}\subset\mathbb{D}$ una sucesión de Cauchy para $\wp$. Observamos que la aplicación $f\colon[0,1)\to[0,\infty)$ dada por $f(t)=\log\frac{1+t}{1-t}$ es estrictamente creciente, cumple que $f(0)=0$ y satisface $f(t)\to 0 \iff t\to 0$.
+    Sea $(z_n)_{n}\subset\mathbb{D}$ una sucesión de Cauchy para $\wp$. Observamos que la aplicación $\psi\colon[0,1)\to[0,\infty)$ dada por $\psi(t)=\log\frac{1+t}{1-t}$ es estrictamente creciente, cumple que $\psi(0)=0$ y satisface $\psi(t)\to 0 \iff t\to 0$.
 
-    Sea $\varepsilon>0$ tal que $\varepsilon < 1$, tomamos $\eta:=f(\varepsilon)>0$. Como $(z_n)_{n}$ es Cauchy para $\wp$,
+    Sea $\varepsilon>0$ tal que $\varepsilon < 1$, tomamos $\eta \defeq \psi(\varepsilon) > 0$. Como $(z_n)_{n}$ es Cauchy para $\wp$,
     \[
     \exists N \in\N : \forall n, m \geq N : \wp(z_n,z_m) < \eta.
     \]
-    Como $f$ es creciente, $f(\varrho(z_n,z_m)) < f(\varepsilon)$ implica que $\varrho(z_n,z_m)<\varepsilon$, luego $(z_n)_n$ es de Cauchy para la métrica $\varrho$. Por el \excref[teo:completitud-metrica-pseudohiperbolica]{teo-completitud-metrica-pseudohiperbolica}, existe $z\in\mathbb{D}$ tal que $\varrho(z_n,z)\to 0$.
+    Como $\psi$ es creciente, $\psi(\varrho(z_n,z_m)) < \psi(\varepsilon)$ implica que $\varrho(z_n,z_m)<\varepsilon$, luego $(z_n)_n$ es de Cauchy para la métrica $\varrho$. Por el \excref[teo:completitud-metrica-pseudohiperbolica]{teo-completitud-metrica-pseudohiperbolica}, existe $z\in\mathbb{D}$ tal que $\varrho(z_n,z)\to 0$.
 
-    Usando que $f(t)\to 0 \iff t\to 0$, llegamos a que $\wp(z_n,z)=f(\varrho(z_n,z))\to 0$, es decir, $z_n\to z$ respecto a $\wp$.\hfill\qedsymbol
+    Usando que $\psi(t)\to 0 \iff t\to 0$, llegamos a que $\wp(z_n,z)=\psi(\varrho(z_n,z))\to 0$, es decir, $z_n\to z$ respecto a $\wp$.\hfill\qedsymbol
 \end{dem}
 
 \begin{obs}
@@ -363,10 +363,11 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
 
 \subsection{Naturaleza infinitesimal de la métrica de Poincaré}
 
-Hasta ahora hemos trabajado con $\exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}$ definida mediante la distancia entre puntos pero, como ya se mencionó al comienzo de esta sección, $\exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}$ es una métrica riemanniana. Esto significa que existe una densidad local positiva $\mu$ tal que la distancia se obtiene minimizando longitudes de caminos. Es decir, para todo $z,w\in\mathbb{D}$,
+Hasta ahora hemos trabajado con $\exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}$ definida mediante la distancia entre puntos; pero, como ya se mencionó al comienzo de esta sección, $\exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}$ es una métrica riemanniana. En el contexto de la métrica de Poincaré, esto significa que existe una función positiva y continua $\mu$ tal que la distancia se obtiene minimizando longitudes de caminos.
+Es decir, existe $\mu \colon \mathbb{D} \to \R$ continua y positiva tal que, para todo $z,w\in\mathbb{D}$,
 \[
-\exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}(z,w)=\inf\left\{\ell_{\mu}(\gamma):\gamma\text{ \exhyperref[defn:camino]{camino}{camino} en }\mathbb{D}\text{ entre }z\text{ y }w\right\},\quad
-\ell_{\mu}(\gamma)=\int_a^b \mu(\gamma(t))\abs{\gamma'(t)}\odif{t}.
+\exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}(z,w)=\inf\left\{\ell_{\mu}(\Gamma):\Gamma\text{ \exhyperref[defn:camino]{camino}{camino} en }\mathbb{D}\text{ entre }z\text{ y }w\right\},\quad
+\ell_{\mu}(\Gamma)=\int_a^b \mu(\Gamma(t))\abs{\Gamma'(t)}\odif{t}.
 \]
 Para probarlo, partiremos de la definición de longitud hiperbólica de un camino, cuya densidad viene del límite del cociente incremental de $\wp$:
 
@@ -402,7 +403,9 @@ Para probarlo, partiremos de la definición de longitud hiperbólica de un camin
 % \end{dem}
 
 \begin{defn}[Longitud hiperbólica]\label{defn:longitud-hiperbolica}
-    Así, dado un \exhyperref[defn:camino]{camino}{camino}\footnote{Aquí y en lo sucesivo, un camino es una función continua y $\mathcal{C}^1$ a trozos $\Gamma \colon [a,b] \to \mathbb{D}$.} $\Gamma \colon [a,b] \to \mathbb{D}$, su \emph{longitud hiperbólica} se define como
+    \noindent
+    Así, dado un \exhyperref[defn:camino]{camino}{camino} %\footnote{Aquí y en lo sucesivo, un camino es una función continua y $\mathcal{C}^1$ a trozos $\Gamma \colon [a,b] \to \mathbb{D}$.}
+    $\Gamma \colon [a,b] \to \mathbb{D}$, su \emph{longitud hiperbólica} se define como
     \[
     \ell(\Gamma) = \int_a^b \frac{2\abs{\Gamma'(t)}}{1 - \abs{\Gamma(t)}^2} \odif{t}.
     \]
@@ -416,7 +419,7 @@ Para probarlo, partiremos de la definición de longitud hiperbólica de un camin
     
     Por el \excref[teo:formula-aut-disco-unidad]{Teo-formula-aut-disco-unidad}, $\exists \gamma \in \mathbb{T}, w \in \mathbb{D} : f = \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{\rho_\gamma} \circ \exhyperref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}{\tau_w}$. Por tanto, para el integrando de la longitud hiperbólica de $f \circ \Gamma$ se tiene que
     \[
-    \frac{\abs{(f \circ \Gamma)'(t)}}{1 - \abs{(f \circ \Gamma)(t)}^2} = \frac{\abs{\gamma} \, \abs{(\tau_w \circ \Gamma)'(t)}}{1 - \abs{\gamma} \, \abs{(\tau_w \circ \Gamma)(t)}^2} = \frac{\abs{(\tau_w \circ \Gamma)'(t)}}{1 - \abs{(\tau_w \circ \Gamma)(t)}^2} = \frac{\abs{\tau_w'(\Gamma(t))} \, \abs{\Gamma'(t)}}{1 - \abs{\tau_w(\Gamma(t))}^2}.
+    \frac{\abs{(f \circ \Gamma)'(t)}}{1 - \abs{(f \circ \Gamma)(t)}^2} = \frac{\abs{\gamma} \, \abs{(\tau_w \circ \Gamma)'(t)}}{1 - \abs{\gamma}^2 \, \abs{(\tau_w \circ \Gamma)(t)}^2} = \frac{\abs{(\tau_w \circ \Gamma)'(t)}}{1 - \abs{(\tau_w \circ \Gamma)(t)}^2} = \frac{\abs{\tau_w'(\Gamma(t))} \, \abs{\Gamma'(t)}}{1 - \abs{\tau_w(\Gamma(t))}^2}.
     \]
     Ahora, por el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick}, sabemos que $\abs{\tau_w'(z)} = \frac{1 - \abs{\tau_w(z)}^2}{1 - \abs{z}^2}$, luego
     \[
@@ -429,7 +432,7 @@ Para probarlo, partiremos de la definición de longitud hiperbólica de un camin
 \end{dem}
 
 \begin{lem}\label{lem:camino-minimo-poincare-0-r}
-    Sea $r \in (0,1)$, entonces $\forall t \in [0, r] : \Gamma_r(t) = t$, define el único camino (salvo reparametrización) entre $0$ y $r$ de \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{longitud hiperbólica} mínima.
+    Sea $r \in (0,1)$, entonces $\Gamma_r \colon [0, r] \to \mathbb{D}$ dado por $\Gamma_r(t) = t$ es el único camino (salvo reparametrización) entre $0$ y $r$ de \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{longitud hiperbólica} mínima.
     
     Además, $\exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell}(\Gamma_r) = \exhyperref[prop:metrica-poincare]{prop-metrica-poincare}{\wp}(0, r)$.
 \end{lem}
@@ -442,7 +445,7 @@ Para probarlo, partiremos de la definición de longitud hiperbólica de un camin
     \end{aligned}
     \]
 
-    Sea $\Gamma \colon [0,1] \to \mathbb{D}$ un camino cualquiera entre $0$ y $r$. Podemos integrar en la concatenación de caminos $\Gamma_r^{-1} * \Gamma$ que es un camino cerrado y aplicar el \exhyperref[teo:cauchy-goursat]{teo-cauchy-goursat}{teorema de Cauchy-Goursat} a la función $f$ dada por $f(z) = \frac{2}{1 - z^2}$, que es holomorfa en $\mathbb{D}$:
+    Sea $\Gamma \colon [0,1] \to \mathbb{D}$ un camino cualquiera entre $0$ y $r$. Podemos integrar sobre la concatenación de caminos $\Gamma_r^{-1} * \Gamma$ que es un camino cerrado y aplicar el \exhyperref[teo:cauchy-goursat]{teo-cauchy-goursat}{teorema de Cauchy-Goursat} a la función $f$ dada por $f(z) = \frac{2}{1 - z^2}$, que es holomorfa en $\mathbb{D}$:
     \[
     0 = \int_{\Gamma_r^{-1} * \Gamma} f(z) \odif{z} = \int_{\Gamma} f(z) \odif{z} - \int_{\Gamma_r} f(z) \odif{z} \implies \int_{\Gamma} f(z) \odif{z} = \int_{\Gamma_r} f(z) \odif{z}.
     \]
@@ -471,7 +474,7 @@ Para probarlo, partiremos de la definición de longitud hiperbólica de un camin
     Sean $z_1, z_2 \in \mathbb{D}$ distintos, entonces $\forall t \in [0,1] : \Gamma(t) =  \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_1}}(z_2) \, t)$ define el único camino (salvo reparametrización) entre $z_1$ y $z_2$ de \exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{longitud hiperbólica} mínima. Además, $\exhyperref[defn:longitud-hiperbolica]{longitud-hiperbolica}{\ell}(\Gamma) = \exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}(z_1, z_2)$.
 \end{teo}
 \begin{dem}
-    Por la \excref[prop:aut-disco-unidad-traslada-z1-0-z2-01]{prop-aut-disco-unidad-traslada-z1-0-z2-01}, $f = \rho_\gamma \circ \tau_{z_1}$ con $\gamma = \sfrac{\abs{\tau_{z_1}(z_2)}}{\tau_{z_1}(z_2)} \in \mathbb{D}$ es  un automorfismo del disco unidad que lleva $z_1$ a $0$ y $z_2$ a $\abs{\tau_{z_1}(z_2)}$.
+    Por la \excref[prop:aut-disco-unidad-traslada-z1-0-z2-01]{prop-aut-disco-unidad-traslada-z1-0-z2-01}, $f = \rho_\gamma \circ \tau_{z_1}$ con $\gamma = \sfrac{\abs{\tau_{z_1}(z_2)}}{\tau_{z_1}(z_2)} \in \mathbb{T}$ es un automorfismo del disco unidad que lleva $z_1$ a $0$ y $z_2$ a $\abs{\tau_{z_1}(z_2)}$.
     
     Entonces, como $\ell$ es invariante conforme (\excref[lem:invariancia-conforme-longitud-hiperbolica]{lem-invariancia-conforme-longitud-hiperbolica}), el camino de menor longitud hiperbólica entre $z_1$ y $z_2$ es $f^{-1} \circ \Gamma_{\abs{\tau_{z_1}(z_2)}}$ donde $\Gamma_{\abs{\tau_{z_1}(z_2)}}$ es el camino más corto entre $0$ y $\abs{\tau_{z_1}(z_2)}$ dado por el \excref[lem:camino-minimo-poincare-0-r]{lem-camino-minimo-poincare-0-r}.
     
@@ -516,7 +519,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
             \coordinate (A) at (0.489,0.873);
             \coordinate (B) at (0.731,-0.682);
 
-            % Dos puntos interiores sobre la geodesica
+            % Dos puntos interiores sobre la geodésica
             \coordinate (ZOne) at (0.355,0.515);
             \coordinate (ZTwo) at (0.445,-0.288);
 
@@ -526,7 +529,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
             % Centro de la circunferencia unidad
             \fill (0,0) circle (0.015) node[below left] {$0$};
 
-            % Circunferencia euclidea soporte (discontinua)
+            % Circunferencia euclídea soporte (discontinua)
             \draw[dashed] (C) circle [radius=\Rgeo];
 
             % Arco interior (recta hiperbólica)
@@ -542,11 +545,11 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
             \fill (ZOne) circle (0.02) node[above left] {$z_1$};
             \fill (ZTwo) circle (0.02) node[below left] {$z_2$};
 
-            % Puntos de interseccion ortogonal con la frontera
+            % Puntos de intersección ortogonal con la frontera
             \fill (A) circle (0.015);
             \fill (B) circle (0.015);
 
-            % Marcas de angulo recto en las intersecciones (ortogonalidad)
+            % Marcas de ángulo recto en las intersecciones (ortogonalidad)
             \path (A) ++(60.7:0.08) coordinate (Aone);
             \path (A) ++(-29.2:0.08) coordinate (Atwo);
             \path (Aone) ++(-29.2:0.08) coordinate (Acorner);
@@ -561,7 +564,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
         \label{fig:recta-hiperbolica-disco}
     \end{figure}
 
-    Esto se debe a que, como $\{\tau_{z_1}(z_2)\,t:t\in\R\}$ es una recta euclídea que pasa por el origen, corta ortogonalmente a $\mathbb{T}$. Entonces, al aplicar $\tau_{z_1}$, que es una transformación de Möbius (por tanto manda circunferencias generalizadas en circunferencias generalizadas, ver \excref[teo:transformacion-mobius-circunferencias-generalizadas]{transformacion-mobius-circunferencias-generalizadas}) y además es conforme, su imagen sigue siendo una circunferencia generalizada ortogonal a $\mathbb{T}$.
+    Esto se debe a que, como $R \defeq \{\tau_{z_1}(z_2)\,t : t\in\R\}$ es una recta euclídea que pasa por el origen, corta ortogonalmente a $\mathbb{T}$. Entonces, al aplicar $\tau_{z_1}$, que es una transformación de Möbius (por tanto manda circunferencias generalizadas en circunferencias generalizadas, ver \excref[teo:transformacion-mobius-circunferencias-generalizadas]{transformacion-mobius-circunferencias-generalizadas}), $\tau_{z_1}(R)$ es una circunferencia generalizada. Como además $\tau_{z_1}$ es conforme, $\tau_{z_1}(R)$ corta ortogonalmente a $\tau_{z_1}(\mathbb{T}) = \mathbb{T}$.
 \end{obs}
 
 \begin{cor}%\label{cor:}
@@ -573,54 +576,86 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
 
 %COMPLETAR ¿nada de paralelas? REVISAR: mirar ejercicios
 
-\section{Versión de Alhfors del lema de Schwarz}
+\section{Versión de Ahlfors del lema de Schwarz}
+
+Aunque el \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} tiene una formulación puramente analítica, admite una interpretación geométrica profunda: la condición sobre la derivada habla sobre cómo $f$ contrae la métrica hiperbólica del disco. Así, Ahlfors consiguió reformular y generalizar el resultado en términos geométricos.
+
+% Para poder entender y enunciar esta versión del \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz}, necesitaremos 
 
 \subsection{Densidad de una métrica}
 
-% \transclude{desigualdad-triangular-inversa}
+En la sección anterior, vimos que la métrica de Poincaré se puede obtener minimizando la longitud de caminos dada por una función $\mu$, pero no es la única métrica con esta propiedad. De hecho, cualquier función continua y positiva define una métrica de esta forma: 
+
 \begin{teo}\label{teo:densidad-induce-metrica}
-    Sea $\mu \colon \Omega \subset \R^n \to \R$ \exhyperref[defn:continuidad-pnt]{continuidad}{continua} y positiva con $\Omega$ \exhyperref[defn:con-convexo]{con-convexo}{conexo}, definimos
+    Sea $\Omega \subset \R^n$ un \exhyperref[defn:dominio]{dominio}{dominio} y sea $\sigma \colon \Omega \to \R$ \exhyperref[defn:continuidad-pnt]{continuidad}{continua} y positiva, para cada \exhyperref[defn:camino]{camino}{camino} $\Gamma \colon [a, b] \to \Omega$ en $\Omega$, definimos
     \[
-    \forall \, \Gamma \text{ \exhyperref[defn:camino]{camino}{camino} inyectivo en } \Omega : \ell_{\mu}(\Gamma) = \int_a^b \mu(\Gamma(t)) \, \exhyperref[defn:norma]{norma}{\norm{\exhyperref[defn:fn-diferenciable-pnt]{fn-diferenciable}{\Gamma'}(t)}} \odif{t}.
+    \ell_{\sigma}(\Gamma) \defeq \int_a^b \sigma(\Gamma(t)) \, \exhyperref[defn:norma]{norma}{\norm{\exhyperref[defn:fn-diferenciable-pnt]{fn-diferenciable}{\Gamma'}(t)}} \odif{t}.
     \]
-    Entonces, la aplicación $d \colon \Omega \times \Omega \to [0, \infty)$ dada por
+    Entonces, la aplicación $d_\sigma \colon \Omega \times \Omega \to [0, \infty)$ dada por
     \[
-    \forall x, y \in \Omega : d(x, y) = \inf \left\{\ell_{\mu}(\Gamma) : \Gamma \text{ \exhyperref[defn:camino]{camino}{camino} inyectivo en } \Omega \text{ entre } x \text{ e } y\right\},
+    \forall x, y \in \Omega : d_\sigma(x, y) = \inf \left\{\ell_{\sigma}(\Gamma) : \Gamma \text{ \exhyperref[defn:camino]{camino}{camino} en } \Omega \text{ entre } x \text{ e } y\right\},
     \]
-    es una \exhyperref[defn:metrica]{metrica}{métrica} en $\Omega$. A la aplicación $\mu$ se le llama la \emph{densidad métrica} de $d$.
-\end{teo} %DEMOSTRACIÓN
+    es una \exhyperref[defn:metrica]{metrica}{métrica} en $\Omega$. A la aplicación $\sigma$ se le llama la \emph{densidad métrica} de $d_\sigma$.
+\end{teo}
+\begin{dem}
+    Comprobemos las tres propiedades de la definición de métrica:
+    \begin{enumerate}[label=(\roman*), wide, labelindent=0pt]
+        \item Positividad no degenerada: Es claro que $\ell_{\sigma}(\Gamma) \geq 0$ para todo camino $\Gamma$ en $\Omega$, luego $d_\sigma(x, y) \geq 0$ para todo $x, y \in \Omega$. Como para todo $x \in \Omega$ se tiene que $d_\sigma(x, x) = 0$ tomando el camino constante $\Gamma(t) = x$, solo falta ver que $d_\sigma(x, y) = 0$ implica $x = y$. 
+        
+        Supongamos que $d_\sigma(x, y) = 0$ con $x \neq y$. Entonces, como además $\Omega$ es abierto, existe $r > 0$ tal que $\bar{B}(x, r) \subset \Omega \setminus \{y\}$. Usando que $\sigma$ es continua y positiva, tenemos que $\sigma$ alcanza un mínimo $m > 0$ en $\bar{B}(x, r)$.
+
+        Sea $\Gamma$ un camino en $\Omega$ entre $x$ e $y$. Tomamos $t^* \defeq \inf \{t \in [a, b] : \Gamma(t) \notin B(x, r)\}$. Entonces, como $\Gamma$ es continuo y $\Gamma(a) = x$, se tiene que $t^* \in (a, b]$ y $\forall t \in [a, t^*] : \Gamma(t) \in \bar{B}(x, r)$. Por tanto,
+        \[
+        \ell_{\sigma}(\Gamma) \geq \int_a^{t^*} \sigma(\Gamma(t)) \, \norm{\Gamma'(t)} \odif{t} \geq m \int_a^{t^*} \norm{\Gamma'(t)} \odif{t} \geq m \, \norm{\Gamma(t^*) - \Gamma(a)} = m \, r > 0.
+        \]
+        En consecuencia, al tomar el ínfimo sobre todos los caminos entre $x$ e $y$, se obtiene que $d_\sigma(x, y) \geq m \, r > 0$, lo que contradice que $d_\sigma(x, y) = 0$. Por tanto, $x = y$.
+        \item Simetría: Sean $x, y \in \Omega$ y $\Gamma$ un camino en $\Omega$ entre $x$ e $y$. Entonces, $\tilde{\Gamma} \colon [a, b] \to \Omega$ dado por $\tilde{\Gamma}(t) = \Gamma(a + b - t)$ es un camino en $\Omega$ entre $y$ y $x$ tal que $\ell_{\sigma}(\tilde{\Gamma}) = \ell_{\sigma}(\Gamma)$ mediante el cambio de variable $s = a + b - t$. Por tanto, tomando el ínfimo sobre todos los caminos entre $y$ y $x$, se obtiene que $d_\sigma(x, y) = d_\sigma(y, x)$.
+        \item Desigualdad triangular: Sean $x, y, z \in \Omega$ y $\varepsilon > 0$. Por definición de ínfimo, existen caminos $\Gamma_1$ y $\Gamma_2$ en $\Omega$ entre $x$ e $y$ y entre $y$ e $z$, respectivamente, tales que
+        \[
+        \ell_{\sigma}(\Gamma_1) < d_\sigma(x, y) + \frac{\varepsilon}{2} \quad\we\quad \ell_{\sigma}(\Gamma_2) < d_\sigma(y, z) + \frac{\varepsilon}{2}. 
+        \]
+        Entonces, la concatenación de caminos $\Gamma_1 * \Gamma_2$ es un camino en $\Omega$ entre $x$ y $z$. Además, por linealidad de la integral, $\ell_{\sigma}(\Gamma_1 * \Gamma_2) = \ell_{\sigma}(\Gamma_1) + \ell_{\sigma}(\Gamma_2) < d_\sigma(x, y) + d_\sigma(y, z) + \varepsilon$. Como $d_\sigma(x, z) \leq \ell_{\sigma}(\Gamma_1 * \Gamma_2)$ y $\varepsilon$ era arbitrario, se concluye que $d_\sigma(x, z) \leq d_\sigma(x, y) + d_\sigma(y, z)$.\hfill\qedsymbol 
+    \end{enumerate}
+\end{dem}
 
 \begin{obs}
-    El ínfimo en el anterior teorema se alcanza para cualesquiera dos puntos $x, y \in \Omega$ por alguna curva que los une si y solo si el espacio métrico $(\Omega, d_{\mu})$ es \exhyperref[defn:espacio-metrico-completo]{Completo}{completo}. 
+    El ínfimo en el \excref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica} se alcanza para cualesquiera dos puntos $x, y \in \Omega$ si y solo si el espacio métrico resultante $(\Omega, d_{\sigma})$ es \exhyperref[defn:espacio-metrico-completo]{Completo}{completo}. 
 \end{obs}
 
-% También podemos permitir que $\mu$ tenga singularidades aisladas en puntos de $\Omega$, es decir, que $\mu$ tome el valor infinito en dichos puntos, siempre que exista un camino entre dos puntos cualesquiera de $\Omega$ que evite esas singularidades y tenga longitud finita.
+% También podemos permitir que $\sigma$ tenga singularidades aisladas en puntos de $\Omega$, es decir, que $\sigma$ tome el valor infinito en dichos puntos, siempre que exista un camino entre dos puntos cualesquiera de $\Omega$ que evite esas singularidades y tenga longitud finita.
 
-% \subsection{Densidad métrica inducida por una aplicación holomorfa}
+\subsection{Densidad métrica inducida por una aplicación holomorfa}
 
 \begin{defn}[Densidad métrica inducida]\label{defn:densidad-metrica-inducida-fn-holomorfa}
-    Sea $\mu \colon \Omega \subset \C \to (0, \infty)$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} en un \exhyperref[defn:dominio]{dominio}{dominio} $\Omega$ y sea $f \colon \Omega_1 \subset \C \to \Omega$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} en el \exhyperref[defn:dominio]{dominio}{dominio} $\Omega_1$, llamamos \emph{densidad métrica inducida por $f$ y $\mu$ en $\Omega_1$} a la aplicación $f^* \mu \colon \Omega_1 \to (0, \infty)$ dada por
+    Sea $\sigma \colon \Omega \subset \C \to (0, \infty)$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} definida en un \exhyperref[defn:dominio]{dominio}{dominio} $\Omega$ y sea $f \colon \Omega_1 \subset \C \to \Omega$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} en el \exhyperref[defn:dominio]{dominio}{dominio} $\Omega_1$ tal que $f'$ no se anula, llamamos \emph{densidad métrica inducida por $f$ y $\sigma$ en $\Omega_1$} a $f^* \sigma \colon \Omega_1 \to (0, \infty)$ dada por
     \[
-    \forall z \in \Omega_1 : (f^* \mu)(z) = \mu(f(z)) \, \abs{f'(z)}.
+    \forall z \in \Omega_1 : (f^* \sigma)(z) = \sigma(f(z)) \, \abs{f'(z)}
     \]
+    que, por ser $f$ holomorfa con derivada no nula, es una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} en $\Omega_1$.
 \end{defn}
 
-\begin{obs}\label{obs:longitud-camino-densidad-metrica-inducida}
+\begin{obs}\label{obs:longitud-camino-densidad-metrica-inducida-fn-holomorfa}
     Entonces, para un camino $\Gamma$ en $\Omega_1$, se tiene que
     \[
-    \ell_{\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \mu}} (\Gamma) = \int_a^b (\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \mu})(\Gamma(t)) \, \abs{\Gamma'(t)} \odif{t} = \int_a^b \underbrace{\mu(f(\Gamma(t)))}_{\mu \left(\left(f \circ \Gamma\right)(t)\right)} \, \underbrace{\abs{f'(\Gamma(t))} \, \abs{\Gamma'(t)}}_{\abs{(f \circ \Gamma)'(t)}} \odif{t} = \ell_{\mu} (f \circ \Gamma).
+    \ell_{\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \sigma}} (\Gamma) = \int_a^b (\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \sigma})(\Gamma(t)) \, \abs{\Gamma'(t)} \odif{t} = \int_a^b \underbrace{\sigma(f(\Gamma(t)))}_{\sigma \left(\left(f \circ \Gamma\right)(t)\right)} \, \underbrace{\abs{f'(\Gamma(t))} \, \abs{\Gamma'(t)}}_{\abs{(f \circ \Gamma)'(t)}} \odif{t} = \ell_{\sigma} (f \circ \Gamma).
     \]
+\end{obs}
 
-    En el caso particular en el que $\Omega_1 = \Omega_2 = \Omega$, podemos comparar $(f^*\mu)$ y $\mu$ en cualquier punto de $\Omega$. Por ejemplo, si $\forall z \in \Omega : (f^* \mu)(z) \leq \mu(z)$, entonces $\forall \Gamma$ camino en $\Omega : \ell_{f^* \mu}(\Gamma) \leq \ell_{\mu}(\Gamma)$ y, por tanto, $\forall x, y \in \Omega : d_{f^* \mu}(x, y) \leq d_{\mu}(x, y)$.
+\begin{obs}\label{obs:longitud-camino-densidad-metrica-inducida}
+    En el caso particular en el que $\Omega_1 = \Omega$, podemos comparar $(f^*\sigma)$ y $\sigma$ en cualquier punto de $\Omega$. Exploremos el caso en el que
+    \[
+    \forall z \in \Omega : (f^* \sigma)(z) \leq \sigma(z).
+    \]
+    Esto implica que para todo $\Gamma$ camino en $\Omega$, $\ell_{f^* \sigma}(\Gamma) \leq \ell_{\sigma}(\Gamma)$ y, por tanto, para cualesquiera $x, y \in \Omega$, tenemos que $d_{f^* \sigma}(x, y) \leq d_{\sigma}(x, y)$.
     
-    Ahora bien, como $\forall \Gamma$ camino en $\Omega$ entre $z$ y $w : f \circ \Gamma$ es un camino en $\Omega$ entre $f(z)$ y $f(w)$, se tiene que
+    Ahora bien, como para todo $\Gamma$ camino en $\Omega$ entre $z$ y $w$, $f \circ \Gamma$ es un camino en $\Omega$ entre $f(z)$ y $f(w)$, se tiene que
     \[
     \begin{aligned}
-        d_{\mu}(f(z), f(w)) &= \inf \left\{\ell_{\mu}(\Gamma') : \Gamma' \text{ camino en } \Omega \text{ entre } f(z) \text{ y } f(w)\right\} \\
-        &\leq \inf \left\{\ell_{\mu}(f \circ \Gamma) : \Gamma \text{ camino en } \Omega \text{ entre } z \text{ y } w\right\} = d_{f^* \mu}(z, w).
+        d_{\sigma}(f(z), f(w)) &= \inf \left\{\ell_{\sigma}(\Gamma') : \Gamma' \text{ camino en } \Omega \text{ entre } f(z) \text{ y } f(w)\right\} \\
+        &\leq \inf \left\{\ell_{\sigma}(f \circ \Gamma) : \Gamma \text{ camino en } \Omega \text{ entre } z \text{ y } w\right\} = d_{f^* \sigma}(z, w).
     \end{aligned}
     \]
-    Por tanto, $d_{\mu}(f(z), f(w)) \leq d_{\mu}(z, w)$, es decir, $f$ es una contracción respecto a $d_{\mu}$.
+    Por tanto, $d_{\sigma}(f(z), f(w)) \leq d_{\sigma}(z, w)$, es decir, $f$ es una contracción respecto a $d_{\sigma}$.
     
     % En particular, para la métrica de Poincaré en el disco unidad, la densidad métrica es $\mu(z) = \frac{2}{1 - \abs{z}^2}$ (por el \excref[teo:camino-minimo-poincare]{teo-camino-minimo-poincare}). Entonces, si $f \in \mathscr{S}$, por el \hyperref[teo:schwarz-pick]{teorema de Schwarz-Pick}, se tiene que
     % \[
@@ -632,17 +667,42 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     % \]
 \end{obs}
 
+\begin{prop}\label{prop:densidad-metrica-inducida-fn-biholomorfa-isometria-espacios-metricos}
+    Sea $\sigma \colon \Omega \to (0, \infty)$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} en un \exhyperref[defn:dominio]{dominio}{dominio} $\Omega$ y sea $f \colon \Omega_1 \to \Omega$ una función biholomorfa del \exhyperref[defn:dominio]{dominio}{dominio} $\Omega_1$ sobre $\Omega$. Entonces, $f$ es un isomorfismo de espacios métricos entre $(\Omega_1, d_{f^* \sigma})$ y $(\Omega, d_{\sigma})$.
+    
+    % Además, si $f$ es biholomorfa, es un isomorfismo de espacios métricos (i.e. es una isometría biyectiva). 
+\end{prop}
+\begin{dem}
+    Observamos que, como $f$ es biholomorfa, por el \excref[lem:localmente-inyectiva-implica-inversa-no-nula]{lem-localmente-inyectiva-implica-inversa-no-nula}, $f'$ no se anula así que $f^* \sigma$ es una densidad métrica en $\Omega_1$ y $d_{f^* \sigma}$ es una métrica en $\Omega_1$.
+
+    Como $f$ es biyectiva, basta ver que $\forall z, w \in \Omega_1 : d_{\sigma}(f(z), f(w)) = d_{f^* \sigma}(z, w)$.
+    Esta igualdad se sigue de la correspondencia biyectiva entre caminos en $\Omega_1$ entre $z$ y $w$ y caminos en $\Omega$ entre $f(z)$ y $f(w)$ dada por la aplicación $f \circ \cdot$ y su inversa $f^{-1} \circ \cdot$, que además preservan la longitud de los caminos por la \cref{obs:longitud-camino-densidad-metrica-inducida-fn-holomorfa}. \hfill\qedsymbol
+\end{dem}
+% \begin{dem}
+%     Observamos que como $f$ es biyectiva, por el \excref[lem:localmente-inyectiva-implica-inversa-no-nula]{lem-localmente-inyectiva-implica-inversa-no-nula}, $f'$ no se anula así que $f^* \sigma$ es una densidad métrica en $\Omega_1$. Por tanto, $d_{f^* \sigma}$ es una métrica en $\Omega_1$. Sean $z, w \in \Omega_1$. Queremos ver que $d_{\sigma}(f(z), f(w)) = d_{f^* \sigma}(z, w)$. 
+    
+%     Por la \cref{obs:longitud-camino-densidad-metrica-inducida-fn-holomorfa}, para todo camino $\Gamma$ en $\Omega_1$ entre $z$ y $w$, se tiene que $f \circ \Gamma$ es un camino en $\Omega$ entre $f(z)$ y $f(w)$ tal que $\ell_{\sigma}(f \circ \Gamma) = \ell_{f^* \sigma}(\Gamma)$. Por tanto,
+%     \[
+%     \begin{aligned}
+%         d_{\sigma}(f(z), f(w)) &= \inf \left\{\ell_{\sigma}(\Gamma') : \Gamma' \text{ camino en } \Omega \text{ entre } f(z) \text{ y } f(w)\right\} \\
+%         &\leq \inf \left\{\ell_{\sigma}(f \circ \Gamma) : \Gamma \text{ camino en } \Omega_1 \text{ entre } z \text{ y } w\right\} = d_{f^* \sigma}(z, w).
+%     \end{aligned}
+%     \]
+
+%     Por el mismo argumento aplicado a un camino $\Gamma'$ en $\Omega$ entre $f(z)$ y $f(w)$, $f^{-1} \circ \Gamma'$ es un camino en $\Omega_1$ entre $z$ y $w$ tal que $\ell_{f^* \sigma}(f^{-1} \circ \Gamma') = \ell_{\sigma}(\Gamma')$ y se obtiene la otra desigualdad $d_{f^* \sigma}(z, w) \leq d_{\sigma}(f(z), f(w))$. \hfill \qedsymbol
+% \end{dem}
+
 \subsection{Curvatura de una densidad métrica}
 
 \begin{defn}[Curvatura gaussiana]\label{defn:curvatura-gaussiana-densidad-metrica}
-    La curvatura gaussiana $\kappa_\mu \colon \Omega \to \R$ asociada a una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\mu$ es
+    La curvatura gaussiana $\kappa_\sigma \colon \Omega \to \R$ asociada a una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\sigma$ es
     \[
-    \forall z \in \Omega : \kappa_\mu(z) = -\frac{\exhyperref[defn:laplaciano]{laplaciano}{\Delta} (\log \mu)(z)}{\mu(z)^2}.
+    \forall z \in \Omega : \kappa_\sigma(z) = -\frac{\exhyperref[defn:laplaciano]{laplaciano}{\Delta} (\log \sigma)(z)}{\sigma(z)^2}.
     \]
-    Para una explicación más detallada del origen de esta fórmula, véase \cite{krantzComplexAnalysisGeometric2004}, Anexo.
+    Para una explicación detallada del origen de esta fórmula, véase \cite{krantzComplexAnalysisGeometric2004}, Apéndice B.
 \end{defn}
 
-\begin{ejem}%[de ]
+\begin{ejem}\label{ejem:curvatura-poincare}
     Para la métrica de Poincaré, por el \excref[lem:laplaciano-wirtinger]{lem-laplaciano-wirtinger} tenemos que
     \[
     \begin{aligned}
@@ -660,16 +720,13 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
 % Una de las propiedades más importantes de la curvatura es que es conformalmente invariante, es decir, se conserva al considerar la densidad métrica inducida por una aplicación conforme (holomorfa con derivada no nula). Más concretamente, tenemos el siguiente resultado.
 
 \begin{lem}\label{lem:curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa}
-    Sea $f\colon \Omega_1\to\Omega_2$ \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} y sea $\sigma$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^2}$. Entonces, 
-    \[
-        \forall z \in \Omega_1 : f'(z) \neq 0 : \exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^*\sigma}}}(z)=\exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\sigma}}\big(f(z)\big).
-    \]
+    Sea $f\colon \Omega_1\to\Omega_2$ \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}  tal que $f'$ no se anula y sea $\sigma$ una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^2}$. Entonces, $\forall z \in \Omega_1 : \exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^*\sigma}}}(z)=\exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\sigma}}\big(f(z)\big)$.
 \end{lem}   
 \begin{dem}
     Por definición de $f^*\sigma$, tenemos que $\log(f^*\sigma) = \log(\sigma\circ f) + \log \abs{f'}$.
-    Como $f'$ es holomorfa, en cualquier punto donde $f'\neq 0$ la función $f'$ no se anula localmente y $\log\abs{f'}$ es armónica, por tanto $\Delta \log\abs{f'} = 0$.
+    Como $f'$ es holomorfa y no se anula, $\log\abs{f'}$ es armónica, por tanto $\Delta \log\abs{f'} = 0$.
 
-    Además, por el \excref[lem:laplaciano-cambio-variable]{Lem-laplaciano-cambio-variable}, tenemos que
+    Además, por el \excref[lem:laplaciano-cambio-variable]{lem-laplaciano-cambio-variable}, tenemos que
     \[
         \Delta \log(f^*\sigma)(z) = \Delta \log(\sigma\circ f)(z) + \cancelto{0}{\Delta \log\abs{f'}(z)} = \abs{f'(z)}^2 \big(\Delta \log\sigma\big)(f(z)).
     \]
@@ -683,17 +740,17 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     \hfill\qedsymbol
 \end{dem}
 
-Ahlfors enunció el lema de Schwarz como un resultado acerca de la curvatura.
+Ahora sí, podemos enunciar la versión de Ahlfors del \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz}.
 
-\begin{lem}\label{lem:alhfors-schwarz}
+\begin{teo}[Ahlfors]\label{teo:ahlfors-schwarz}
     Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} dotado de una \exhyperref[teo:densidad-induce-metrica]{teo-densidad-induce-metrica}{densidad métrica} $\sigma$ tal que $\exhyperref[defn:curvatura-gaussiana-densidad-metrica]{curvatura-gaussiana-densidad-metrica}{\kappa_{\sigma}}(z) \leq -1$ para todo $z \in \Omega$. Sea $f \colon \mathbb{D} \to \Omega$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa}, entonces
     \[
     \forall z \in \mathbb{D} : \left(\exhyperref[defn:densidad-metrica-inducida-fn-holomorfa]{densidad-metrica-inducida-fn-holomorfa}{f^* \sigma}\right) (z) \leq \mu(z)
     \]
     donde $\mu$ es la \exhyperref[teo:densidad-induce-metrica]{densidad-induce-metrica}{densidad métrica} de la \exhyperref[prop:metrica-poincare]{prop-metrica-poincare}{métrica de Poincaré} en $\mathbb{D}$.
-\end{lem}
+\end{teo}
 \begin{dem}
-    Sea $r \in (0,1)$. Entonces, en el disco $D(0, r)$, la función dada por $\mu_r(z) = \frac{2}{r^2 - \abs{z}^2}$ está bien definida. Además, es una densidad métrica en $D(0, r)$ cuya curvatura es $\kappa_{\mu_r}(z) = -1$ para todo $z \in D(0, r)$ (el cálculo es análogo al realizado para $\mu$).
+    Sea $r \in (0,1)$. Entonces, en el disco $D(0, r)$, la función dada por $\mu_r(z) = \frac{2}{r^2 - \abs{z}^2}$ está bien definida. Además, es una densidad métrica en $D(0, r)$ cuya curvatura es $\kappa_{\mu_r}(z) = -1$ para todo $z \in D(0, r)$ (el cálculo es análogo al realizado para $\mu$, ver el \excref[ejem:curvatura-poincare]{ejem-curvatura-poincare}).
 
     Definimos la función $\phi \colon D(0, r) \to \R$ mediante $\forall z \in D(0, r) : \phi(z) = \frac{(f^* \sigma)(z)}{\mu_r(z)}$. Entonces, $\phi \geq 0$ y como $\mu_r$ no se anula y $f^* \sigma$ es continua, $\phi$ es continua en $D(0, r)$. Además, tenemos que
     \[
@@ -721,49 +778,114 @@ Ahlfors enunció el lema de Schwarz como un resultado acerca de la curvatura.
     \[
     \forall z \in \mathbb{D} : (f^* \mu)(z) = \mu(f(z)) \, \abs{f'(z)} = \frac{2}{1 - \abs{f(z)}^2} \, \abs{f'(z)} \leq \frac{2}{1 - \abs{z}^2} = \mu(z).
     \]
-    Y esta desigualdad, a su vez, implica la primera por la \autoref{obs:longitud-camino-densidad-metrica-inducida}.
+    Y esta desigualdad, a su vez, implica la primera por la \excref[obs:longitud-camino-densidad-metrica-inducida]{obs-longitud-camino-densidad-metrica-inducida}.
 \end{obs}
+
+\section{Métricas en otros dominios de $\widehat{\C}$}
+
+Una de las ventajas del enfoque de la sección anterior es que nos proporciona una manera sencilla de definir métricas en otros dominios de $\widehat{\C}$ distintos al disco unidad.
+
+\begin{ejem}%[Métrica euclídea en $\C$]
+    El ejemplo más sencillo es el de la métrica euclídea en $\C$ que se obtiene al tomar la densidad métrica constante $\mu_\C \equiv 1$. En este caso, la curvatura gaussiana es $\kappa_{\mu_\C}(z) = 0$ para todo $z \in \C$.
+\end{ejem}
+
+\begin{ejem}
+    Otro ejemplo de gran interés es el de la métrica esférica en $\widehat{\C}$ que se obtiene al tomar la densidad métrica $\mu_{\widehat{\C}} \colon \widehat{\C} \to [0, \infty)$ dada por
+    \[
+    \forall z \in \C : \mu_{\widehat{\C}}(z) = \frac{2}{1 + \abs{z}^2} \quad\we\quad \mu_{\widehat{\C}}(\infty) = 0.
+    \]
+    El término ``esférica'' se debe a que esta métrica coincide con la métrica inducida por la esfera de Riemann mediante la proyección estereográfica. Por tanto, el espacio métrico resultante es isomorfo a la esfera $\mathbb{S}^2 \subset \R^3$.
+
+    En este caso, por el \excref[lem:laplaciano-wirtinger]{lem-laplaciano-wirtinger} tenemos que
+    \[
+    \begin{aligned}
+        \Delta \log \mu_{\widehat{\C}}(z) &= \Delta \log \left(\frac{2}{1 + \abs{z}^2}\right) = 4 \,\pdv{}{z} \pdv{}{\bar{z}} \left(\log 2 - \log(1 + z \bar{z})\right) \\
+        &= -4 \,\pdv{}{z} \left(\frac{z}{1 + z \bar{z}}\right) = - 4 \, \frac{1 + \cancel{z \bar{z}} - \cancel{z \bar{z}}}{(1 + z \bar{z})^2} = -\frac{4}{{\left(1 + \abs{z}^2\right)}^2}.
+    \end{aligned}
+    \]
+    Por tanto, como $(\mu_{\widehat{\C}}(z))^2 = \left(\frac{2}{1 + \abs{z}^2}\right)^2 = \frac{4}{{\left(1 + \abs{z}^2\right)}^2}$, se obtiene que
+    \[
+    \Delta \log \mu_{\widehat{\C}}(z) = - (\mu_{\widehat{\C}}(z))^2 \implies \kappa_{\mu_{\widehat{\C}}}(z) = - \frac{\Delta \log \mu_{\widehat{\C}}(z)}{(\mu_{\widehat{\C}}(z))^2} = 1.
+    \]
+
+    Cabe destacar que, igual que en el ejemplo anterior, el espacio métrico resultante es completo.
+\end{ejem}
+
+Ahora bien, el concepto de densidad métrica inducida por una aplicación holomorfa nos permite definir métricas completas en cualquier dominio de $\widehat{\C}$ que sea conformemente equivalente al disco unidad, es decir, en cualquier $\Omega \subset \widehat{\C}$ tal que exista $f \colon \mathbb{D} \to \Omega$ holomorfa y biyectiva.
+
+\begin{ejem}%[de ]
+    Consideramos el semiplano superior $\mathbb{H} \defeq \{z \in \C : \Im(z) > 0\}$. Entonces, la transformación de Möbius $C \colon \mathbb{H} \to \mathbb{D}$ dada por
+    \[
+    \forall z \in \mathbb{H} : C(z) = \frac{z - i}{z + i},
+    \]
+    es una biyección holomorfa de $\mathbb{H}$ sobre $\mathbb{D}$. Esto es fácil de comprobar calculando la imagen de tres puntos en la frontera $-1, 0, 1 \in \partial \mathbb{H}$ y un punto interior $i \in \mathbb{H}$:
+    \[
+    C(-1) = \frac{-1 - i}{-1 + i} = i, \quad C(0) = \frac{-i}{i} = -1, \quad C(1) = \frac{1 - i}{1 + i} = -i, \quad C(i) = 0.
+    \]
+    Por el \excref[teo:transformacion-mobius-circunferencias-generalizadas]{transformacion-mobius-circunferencias-generalizadas}, $C (\partial \mathbb{H}) = \mathbb{T}$ y como $C(i) = 0$, $C(\mathbb{H}) = \mathbb{D}$.
+
+    Por tanto, podemos definir la métrica hiperbólica en el semiplano superior como la métrica cuya densidad es $\mu_{\mathbb{H}} \defeq C^* \mu$ donde $\mu$ es la densidad métrica de Poincaré en el disco unidad. Calculando la derivada de $C$, obtenemos que
+    \[
+    \forall z \in \mathbb{H} : C'(z) = \frac{(z + i) - (z - i)}{(z + i)^2} = \frac{2i}{(z + i)^2} \implies \abs{C'(z)} = \frac{2}{\abs{z + i}^2}.
+    \]
+    Ahora, como $\abs{C(z)}^2 = \frac{\abs{z - i}^2}{\abs{z + i}^2}$, se tiene que
+    \[
+    \begin{aligned}
+        \mu_{\mathbb{H}}(z) &= \left(C^* \mu\right)(z) = \mu(C(z)) \, \abs{C'(z)} = \frac{2}{1 - \abs{C(z)}^2} \cdot \frac{2}{\abs{z + i}^2} \\
+        &= \frac{2 \cdot \cancel{\abs{z + i}^2}}{\abs{z + i}^2 - \abs{z - i}^2} \cdot \frac{2}{\cancel{\abs{z + i}^2}} = \frac{4}{\abs{z + i}^2 - \abs{z - i}^2}.
+    \end{aligned}
+    \]
+    Por otro lado, como $\abs{z + i}^2 - \abs{z - i}^2 = (z + i)(\overline{z} - i) - (z - i)(\overline{z} + i) = 4\Im(z)$,
+    \[
+    \mu_{\mathbb{H}}(z) = \frac{4}{4\Im(z)} = \frac{1}{\Im(z)}.
+    \]
+    Podemos calcular la curvatura gaussiana de esta métrica a partir de la definición, pero el \excref[lem:curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa]{lem-curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa} ya nos asegura que $\kappa_{\mu_{\mathbb{H}}}(z) = \kappa_{\mu}(C(z)) = -1$ para todo $z \in \mathbb{H}$, es decir, la métrica hiperbólica en el semiplano superior también tiene curvatura constante igual a $-1$. De hecho, por la \excref[prop:densidad-metrica-inducida-fn-biholomorfa-isometria-espacios-metricos]{prop-densidad-metrica-inducida-fn-biholomorfa-isometria-espacios-metricos}, los espacios métricos $(\mathbb{D}, \wp)$ y $(\mathbb{H}, d_{\mu_{\mathbb{H}}})$ son isomorfos mediante la transformación $C$; así que la métrica hiperbólica en $\mathbb{H}$ también es completa.
+\end{ejem}
+
+
+
+%FALTA: métricas en otros dominios, por ejemplo, la métrica hiperbólica en el semiplano superior y la métrica esférica en el plano complejo extendido.
 
 %REVISAR COMPLETAR: mirarse \cite{krantzComplexAnalysisGeometric2004} capítulo 2 y \cite{pressleyElementaryDifferentialGeometry2012}
 
-\section{Métrica hiperbólica en el semiplano superior}
+% \section{Métrica hiperbólica en el semiplano superior}
 
-Recordemos que el semiplano superior es el conjunto $\mathbb{H} = \{z \in \C : \Im(z) > 0\}$. En lugar de empezar de nuevo desde cero, vamos a usar el hecho de que el semiplano superior es conformemente equivalente al disco unidad mediante la transformación de Möbius $\varphi \colon \mathbb{H} \to \mathbb{D}$ dada por 
-\[
-\forall z \in \mathbb{H} : \varphi(z) = \frac{z - i}{z + i}.
-\]
-Entonces, esta transformación es una biyección holomorfa de $\mathbb{H}$ sobre $\mathbb{D}$ con inversa también holomorfa dada por
-\[
-\forall w \in \mathbb{D} : \varphi^{-1}(w) = i \, \frac{1 + w}{1 - w}.
-\]
-
-Usando la \hyperref[defn:densidad-metrica-inducida]{definición de densidad métrica inducida}, podemos definir la densidad métrica en $\mathbb{H}$ inducida por la métrica de Poincaré en $\mathbb{D}$ mediante la transformación $\varphi$:
-\[
-\mu_{\mathbb{H}}(z) = \left(\varphi^* \mu\right)(z) = \mu(\varphi(z)) \, \abs{\varphi'(z)}.
-\]
-Calculamos primero la derivada de $\varphi$:
-\[
-\forall z \in \mathbb{H} : \varphi'(z) = \frac{(z + i) - (z - i)}{(z + i)^2} = \frac{2i}{(z + i)^2} \implies \abs{\varphi'(z)} = \frac{2}{\abs{z + i}^2}.
-\]
-% Por otro lado, tenemos que
+% Recordemos que el semiplano superior es el conjunto $\mathbb{H} = \{z \in \C : \Im(z) > 0\}$. En lugar de empezar de nuevo desde cero, vamos a usar el hecho de que el semiplano superior es conformemente equivalente al disco unidad mediante la transformación de Möbius $\varphi \colon \mathbb{H} \to \mathbb{D}$ dada por 
 % \[
-% \abs{\varphi(z)}^2 = \frac{\abs{z - i}^2}{\abs{z + i}^2} = \frac{(z -i) (\bar{z} + i)}{(z + i)(\bar{z} - i)} = \frac{\abs{z}^2 + 1 - 2 \Im(z)}{\abs{z}^2 + 1 + 2 \Im(z)}.
+% \forall z \in \mathbb{H} : \varphi(z) = \frac{z - i}{z + i}.
+% \]
+% Entonces, esta transformación es una biyección holomorfa de $\mathbb{H}$ sobre $\mathbb{D}$ con inversa también holomorfa dada por
+% \[
+% \forall w \in \mathbb{D} : \varphi^{-1}(w) = i \, \frac{1 + w}{1 - w}.
 % \]
 
-Por tanto, nos queda que
-\[
-\begin{aligned}
-    \forall z \in \mathbb{H} : \mu_{\mathbb{H}}(z) &= \frac{2}{1 - \abs{\varphi(z)}^2} \cdot \frac{2}{\abs{z + i}^2} = \frac{4}{\abs{z + i}^2 - \abs{z - i}^2} \\
-    &= \frac{4}{(z + i)(\overline{z} - i) - (z - i)(\overline{z} + i)} = \frac{4}{2i(z - \overline{z})} = \frac{2}{\Im(z)}.
-\end{aligned}
-\]
+% Usando la \hyperref[defn:densidad-metrica-inducida]{definición de densidad métrica inducida}, podemos definir la densidad métrica en $\mathbb{H}$ inducida por la métrica de Poincaré en $\mathbb{D}$ mediante la transformación $\varphi$:
+% \[
+% \mu_{\mathbb{H}}(z) = \left(\varphi^* \mu\right)(z) = \mu(\varphi(z)) \, \abs{\varphi'(z)}.
+% \]
+% Calculamos primero la derivada de $\varphi$:
+% \[
+% \forall z \in \mathbb{H} : \varphi'(z) = \frac{(z + i) - (z - i)}{(z + i)^2} = \frac{2i}{(z + i)^2} \implies \abs{\varphi'(z)} = \frac{2}{\abs{z + i}^2}.
+% \]
+% % Por otro lado, tenemos que
+% % \[
+% % \abs{\varphi(z)}^2 = \frac{\abs{z - i}^2}{\abs{z + i}^2} = \frac{(z -i) (\bar{z} + i)}{(z + i)(\bar{z} - i)} = \frac{\abs{z}^2 + 1 - 2 \Im(z)}{\abs{z}^2 + 1 + 2 \Im(z)}.
+% % \]
 
-Por el ejercicio 2, %ORDENAR: referenciar bien
-tenemos que los espacios métricos $(\mathbb{D}, \wp)$ y $(\mathbb{H}, d_{\mu_{\mathbb{H}}})$ son isométricos mediante la transformación $\varphi$. Por tanto, podemos definir la métrica hiperbólica en el semiplano superior como la métrica $d_{\mu_{\mathbb{H}}}$ inducida por la densidad métrica $\mu_{\mathbb{H}}(z) = \frac{2}{\Im(z)}$ que es el pullback de la métrica de Poincaré en el disco unidad mediante la transformación $\varphi$.
+% Por tanto, nos queda que
+% \[
+% \begin{aligned}
+%     \forall z \in \mathbb{H} : \mu_{\mathbb{H}}(z) &= \frac{2}{1 - \abs{\varphi(z)}^2} \cdot \frac{2}{\abs{z + i}^2} = \frac{4}{\abs{z + i}^2 - \abs{z - i}^2} \\
+%     &= \frac{4}{(z + i)(\overline{z} - i) - (z - i)(\overline{z} + i)} = \frac{4}{2i(z - \overline{z})} = \frac{2}{\Im(z)}.
+% \end{aligned}
+% \]
 
-\begin{obs}
-    Dado que las rectas hiperbólicas en el disco unidad son arcos de circunferencia ortogonales a $\mathbb{T}$ y $\varphi$ es una transformación de Möbius (manda circunferencias generalizadas en circunferencias generalizadas y preserva ángulos), las rectas hiperbólicas en el semiplano superior son imágenes mediante $\varphi^{-1}$ de dichos arcos, es decir, son semicircunferencias ortogonales a la recta real y rectas perpendiculares a la recta real puesto que $\varphi(\mathbb{T}) = \R \cup \{\infty\}$.
-\end{obs}
+% Por el ejercicio 2, %ORDENAR: referenciar bien
+% tenemos que los espacios métricos $(\mathbb{D}, \wp)$ y $(\mathbb{H}, d_{\mu_{\mathbb{H}}})$ son isométricos mediante la transformación $\varphi$. Por tanto, podemos definir la métrica hiperbólica en el semiplano superior como la métrica $d_{\mu_{\mathbb{H}}}$ inducida por la densidad métrica $\mu_{\mathbb{H}}(z) = \frac{2}{\Im(z)}$ que es el pullback de la métrica de Poincaré en el disco unidad mediante la transformación $\varphi$.
+
+% \begin{obs}
+%     Dado que las rectas hiperbólicas en el disco unidad son arcos de circunferencia ortogonales a $\mathbb{T}$ y $\varphi$ es una transformación de Möbius (manda circunferencias generalizadas en circunferencias generalizadas y preserva ángulos), las rectas hiperbólicas en el semiplano superior son imágenes mediante $\varphi^{-1}$ de dichos arcos, es decir, son semicircunferencias ortogonales a la recta real y rectas perpendiculares a la recta real puesto que $\varphi(\mathbb{T}) = \R \cup \{\infty\}$.
+% \end{obs}
 
 % \section{Métrica esférica en el plano complejo extendido}
 
