@@ -68,10 +68,10 @@ Consideramos el espacio de Hardy $H^{\infty} \left(\mathbb{D}\right) \defeq \mat
     \]
     Por lo tanto, $\Re \left( \frac{1 + z}{1 - z} \right) = \frac{1 - x^2 - y^2}{(1-x)^2 + y^2} > 0$, ya que el numerador es positivo (pues $x^2 + y^2 < 1$) y el denominador es positivo. Así, $\forall z \in \mathbb{D} : \abs{f(z)} < 1$, lo que demuestra que $f \in \mathscr{S}$.
 
-    Sin embargo, $f$ no se puede prolongar de forma continua a $\bar{\mathbb{D}}$. Para verlo, consideramos dos caminos que tienden a $1$:
+    Sin embargo, $f$ no se puede prolongar de forma continua a $\bar{\mathbb{D}}$. Para verlo, consideramos el límite de $\abs{f}$ a lo largo de dos caminos distintos hacia $1$:
     \begin{itemize}
-        \item $\ds \lim_{t \to 1^-} f(t) = \lim_{t \to 1^-} \exp \left( - \frac{1 + t}{1 - t} \right) = \exp(-\infty) = 0$.
-        \item $\ds \lim_{t \to 0} f \left(e^{it} \right) = \lim_{t \to 0} \exp \left( - \frac{1 + e^{it}}{1 - e^{it}} \right) = \lim_{t \to 0} \exp \left( - i \cot \left( \frac{t}{2} \right) \right) = 1$.
+        \item $\ds \lim_{t \to 1^-} \abs{f(t)} = \lim_{t \to 1^-} \abs{\exp \left( - \frac{1 + t}{1 - t} \right)} = \lim_{t \to 1^-} \exp \left( - \Re \left( \frac{1 + t}{1 - t} \right) \right) = 0$.
+        \item $\ds \lim_{t \to 0} \abs{f \left(e^{it} \right)} = \lim_{t \to 0} \exp \left( - \Re \left( \frac{1 + e^{it}}{1 - e^{it}} \right) \right) = \lim_{t \to 0} \exp \left( - \Re \left( i \cot(t/2) \right) \right) = 1$.
     \end{itemize}
     Como los límites difieren, $f$ no se puede prolongar de forma continua a $\bar{\mathbb{D}}$.
 \end{ejem}
@@ -158,10 +158,10 @@ Sin embargo, si nos limitamos a subconjuntos compactos de $\mathbb{D}$, podemos 
 \end{dem}%ORDENAR enviar al anexo
 
 \begin{lem}\label{lem:dilatacion-prod-finito-blaschke}
-    Sean $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ y $t \in [0, 1)$. Entonces, $B_t$ dado por $\forall z \in \mathbb{D} : B_t(z) = B(tz)$ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
+    Sean $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ y $t \in [0, 1)$. Entonces, $B_t$ dado por $\forall z \in \mathbb{D} : B_t(z) \defeq B(tz)$ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
 \end{lem}
 \begin{dem}
-    Sea $B = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{w_k}}$ con $\gamma \in \mathbb{T}$, $n \in \N$ y $w_1, \dots, w_n \in \mathbb{D}$. Entonces, $B_t = \gamma \prod_{k=1}^n (\tau_{w_k})_t$ y, como por el \excref[lem:prod-combinacion-convexa-prod-finito-blaschke]{lem-prod-combinacion-convexa-prod-finito-blaschke}, el producto de combinaciones convexas de productos finitos de Blaschke es una combinación convexa de productos finitos de Blaschke, basta probar que el lema se cumple para $B = \tau_w$ con $w \in \mathbb{D}$.
+    Sea $B = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{w_k}}$ con $\gamma \in \mathbb{T}$, $n \in \N$ y $w_1, \dots, w_n \in \mathbb{D}$. Entonces, $B_t = \gamma \prod_{k=1}^n (\tau_{w_k})_t$ y, puesto que por el \cref{lem:prod-combinacion-convexa-prod-finito-blaschke} el producto de combinaciones convexas de productos finitos de Blaschke es una combinación convexa de productos finitos de Blaschke, basta probar que el lema se cumple para $B = \tau_w$ con $w \in \mathbb{D}$.
 
     Si $w = 0$, el resultado es inmediato. Suponemos $w \neq 0$. Escribimos $\tau_w(tz)$ como una combinación lineal de $\tau_{wt}(z)$ y una constante:
     \[
@@ -233,7 +233,7 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \]
     Como $\gamma$ es continua y $\forall k \in \N_N : \forall \zeta, \zeta' \in T_k : \abs{\gamma(\zeta) - \gamma(\zeta')} < 2$ y $T_k$ es compacto y conexo, $\gamma(T_k)$ es un arco cerrado de $\mathbb{T}$ que abarca menos de $\pi$ radianes de ángulo.
 
-    Por tanto, $\forall k \in \N_N : \exists \phi_k \colon I_k \to \R$ continua tal que $\forall \theta \in I_k : \gamma\left(\theta \right) = e^{i\phi_k(\theta)}$. Cada $\phi_k$ está unívocamente determinada salvo por la suma de un múltiplo entero de $2\pi$. Como $\gamma$ es continua, podemos elegir las funciones $\phi_k$ de forma que $\phi_k \left( \frac{2k\pi}{N} \right) = \phi_{k+1} \left( \frac{2k\pi}{N} \right)$ para todo $k \in \N_{N-1}$. Así, la aplicación $\phi \colon \R \to \R$ dada por $\forall k \in \N_N : \forall \theta \in I_k : \phi(\theta) = \phi_k(\theta)$ es continua y, además, por la continuidad de $\gamma$, $\exists m \in \Z : \phi(2\pi) = \phi(0) + 2m\pi$.
+    Por tanto, $\forall k \in \N_N : \exists \phi_k \colon I_k \to \R$ continua tal que $\forall \theta \in I_k : \gamma\left(\theta \right) = e^{i\phi_k(\theta)}$. Cada $\phi_k$ está unívocamente determinada salvo por la suma de un múltiplo entero de $2\pi$. Como $\gamma$ es continua, podemos elegir las $\phi_k$ de forma que $\phi_k \left( \frac{2k\pi}{N} \right) = \phi_{k+1} \left( \frac{2k\pi}{N} \right)$ para todo $k \in \N_{N-1}$. Así, $\phi \colon \R \to \R$ dada por $\forall k \in \N_N : \forall \theta \in I_k : \phi(\theta) = \phi_k(\theta)$ es continua y, además, por la continuidad de $\gamma$, $\exists m \in \Z : \phi(2\pi) = \phi(0) + 2m\pi$.
 
     Entonces, se tiene uno de estos dos casos:
     \begin{enumerate}[label=\Roman*.]
@@ -254,7 +254,7 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     Sin pérdida de generalidad, suponemos que $\varepsilon < 1$.
     
     Por el \exhyperref[teo:stone-weierstrass-toro]{teo-stone-weierstrass-toro}{teorema de Stone--Weierstrass en $\mathbb{T}$},
-    $\exists h \colon \mathbb{T} \to \C$ dada por $h(\zeta) = \sum_{k=-N}^N a_k \zeta^k$ tal que $\max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - h(\xi)} < \frac{\varepsilon}{2}$. Entonces, como $\eta$ es unimodular y $\varepsilon < 1$, $h$ no se anula en $\mathbb{T}$. Por tanto, podemos definir $\forall z \in \mathbb{T} : h^* (z) \defeq \bar{h \left(\sfrac{1}{\bar{z}}\right)} \we f(z) \defeq \frac{h(z)}{h^*(z)}$. Entonces, % hay que definir f en todo el plano excepto en los ceros de $h^*$ y el $0$ (el polo de $h$)
+    $\exists h \colon \mathbb{T} \to \C$ dada por $h(\zeta) = \sum_{k=-N}^N a_k \zeta^k$ tal que $\max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - h(\xi)} < \frac{\varepsilon}{2}$. Entonces, como $\eta$ es unimodular y $\varepsilon < 1$, $h$ no se anula en $\mathbb{T}$. Por tanto, podemos definir $\forall z \in \mathbb{T} : h^*(z) \defeq \bar{h \left(\sfrac{1}{\bar{z}}\right)} \we f(z) \defeq \frac{h(z)}{h^*(z)}$. Entonces, % hay que definir f en todo el plano excepto en los ceros de $h^*$ y el $0$ (el polo de $h$)
     \[
     \begin{aligned}
         \forall \zeta \in \mathbb{T} : \abs{f(\zeta)} = \abs{\frac{h(\zeta)}{h^*(\zeta)}} = \frac{\abs{h(\zeta)}}{\abs{h \left(\sfrac{1}{\bar{\zeta}}\right)}} = \frac{\abs{h(\zeta)}}{\abs{h(\zeta)}} = 1,
@@ -314,7 +314,7 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \abs{N_k^m(z)} \leq \abs{w_k - z_k^m}\left(1 + 2\abs{z}\abs{w_k} + \abs{z}^2\right) \leq \abs{w_k - z_k^m}(1 + \abs{z})^2.
     \]
 
-    Sea $K \Subset \C \setminus \left\{1/\bar{w_k} : k \in \N_n \we w_k \neq 0\right\}$. Entonces, $\delta_k \defeq \min_{z \in K} \abs{1 - \bar{w_k}z} > 0$ están bien definidos. Sea $R \defeq \max_{z \in K} \abs{z}$. Como $z_k^m \to w_k$ y hay un número finito de índices $k$, $\exists m_0 \in \N : \forall m \geq m_0 : \forall k \in \N_n : \abs{z_k^m - w_k} < \frac{\delta_k}{2(R + 1)}$. En particular,
+    Sea $K \Subset \C \setminus \left\{1/\bar{w_k} : k \in \N_n \we w_k \neq 0\right\}$. Entonces, $\delta_k \defeq \min_{z \in K} \abs{1 - \bar{w_k}z} > 0$ está bien definido para cada $k \in \N_n$. Sea $R \defeq \max_{z \in K} \abs{z}$. Como $z_k^m \to w_k$ y hay un número finito de índices $k$, $\exists m_0 \in \N : \forall m \geq m_0 : \forall k \in \N_n : \abs{z_k^m - w_k} < \frac{\delta_k}{2(R + 1)}$. En particular,
     \[
     \forall z \in K : \abs{1 - \bar{z_k^m}z} \geq \abs{1 - \bar{w_k}z} - \abs{z_k^m - w_k}\abs{z} \geq \delta_k - \frac{\delta_k R}{2(R+1)} \geq \frac{\delta_k}{2},
     \]
@@ -338,7 +338,7 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
 \end{dem}
 
 \begin{teo}\label{teo:aproximacion-prod-finito-blaschke-ceros-simples}
-    Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$. Entonces, $\exists \left(B_m\right)_{m \in \N} \subset \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$  tal que:
+    Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$. Entonces, $\exists \left(B_m\right)_{m \in \N} \subset \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ tal que:
     \begin{enumerate}[ref=(\arabic*)]
         \item\label{teo:aproximacion-prod-finito-blaschke-ceros-simples:ceros-simples} $\forall m \in \N : B_m$ tiene \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{ceros simples}.
         \item\label{teo:aproximacion-prod-finito-blaschke-ceros-simples:origen} $\forall m \in \N : B_m(0) \neq 0 \we B_m'(0) \neq 0$.
@@ -358,9 +358,9 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \[
     \forall k \in \N_r \cup \{0\} : \Gamma_{k, m} \defeq \left\{z \in \mathbb{C} : \abs{z - z_k} < \frac{1}{m+N} \right\}
     \]
-    que son disjuntos dos a dos y no contienen al origen.
+    que son disjuntos dos a dos y, para $k > 0$, no contienen al origen.
     
-    Para cada $m \in \N$ y $k \in \N_r \cup \{0\}$, tomamos $\forall \ell \in \N_{j_k} : z_{m, k, \ell} = z_k + \frac{1}{(m+N)} \cdot \omega_{j_k}^\ell$ donde $\omega_{j_k}$ es la raíz $j_k$-ésima de la unidad. Entonces, $\forall k \in \N_r \cup \{0\} : \left\{z_{m, k, \ell} \right\}_{\ell=1}^{j_k} \subset \Gamma_{k, m}$ y los $z_{k, m, \ell}$ son distintos entre sí. Para $m \in \N$, consideramos $B_m \in \mathscr{B}_n$ mónico dado por
+    Para cada $m \in \N$ y $k \in \N_r \cup \{0\}$, tomamos $\forall \ell \in \N_{j_k} : z_{m, k, \ell} = z_k + \frac{1}{(m+N)} \cdot \omega_{j_k}^\ell$ donde $\omega_{j_k}$ es la raíz $j_k$-ésima de la unidad. Entonces, $\forall k \in \N_r \cup \{0\} : \left\{z_{m, k, \ell} \right\}_{\ell=1}^{j_k} \subset \Gamma_{k, m}$ y los $z_{m, k, \ell}$ son distintos entre sí. Para $m \in \N$, consideramos $B_m \in \mathscr{B}_n$ mónico dado por
     \[
     B_m(z) = e^{i\beta} \prod_{k=0}^r \prod_{\ell=1}^{j_k} \frac{z_{m, k, \ell} - z}{1 - \bar{z_{m, k, \ell}} z}.
     \]
@@ -369,7 +369,7 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \[
     \frac{B_m'(0)}{B_m(0)} = \sum_{p=1}^n \frac{\abs{w_p}^2 - 1}{w_p} = \sum_{p=1}^n \left(\bar{w_p} - \frac{1}{w_p}\right) = \left(\bar{w_n} - \frac{1}{w_n}\right) + \sum_{p=1}^{n-1} \left(\bar{w_p} - \frac{1}{w_p}\right).
     \]
-    En caso de que $B_m'(0) = 0$ y el sumatorio anterior se anule, redifinimos el último cero como $w_{n} = z_{m, r, j_r} = z_r + \frac{1}{m+N} \cdot \gamma$ con $\gamma \in \mathbb{T}$ apropiadamente elegido de modo que $B_m'(0) \neq 0$ y se mantengan el resto de propiedades. \hfill\qedsymbol
+    En caso de que $B_m'(0) = 0$ y el sumatorio anterior se anule, redefinimos el último cero como $w_{n} = z_{m, r, j_r} = z_r + \frac{1}{m+N} \cdot \gamma$ con $\gamma \in \mathbb{T}$ apropiadamente elegido de modo que $B_m'(0) \neq 0$ y se mantengan el resto de propiedades. \hfill\qedsymbol
 
     %ORDENAR: a lo mejor incluyo más detalles sobre la elección de $\gamma$ y el control de los ceros simples, aunque es un poco engorroso. De hecho, se podría evitar esta parte si en la construcción de $B_m$ se sustituyese el último cero del bloque asociado a $z_r$ por $z_r + \frac{1}{m+N} \cdot \gamma$ con $\gamma$ elegido desde el principio, pero me parecía más natural construir $B_m$ con los ceros equiespaciados y luego modificarlo solo si es necesario para garantizar que $B_m'(0) \neq 0$.
     % Las condiciones \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:ceros-simples} y la primera parte de \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:origen} se cumplen por construcción. La condición \ref{teo:aproximacion-prod-finito-blaschke-ceros-simples:convergencia} se sigue del \excref[lem:convergencia-ceros-imp-convergencia-prod-finito-blaschke]{lem-convergencia-ceros-imp-convergencia-prod-finito-blaschke}.
@@ -506,4 +506,4 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
 \end{dem}
 
 
-\lipsum[1-23]
+% \lipsum[1-23]

@@ -23,21 +23,21 @@
 - Archivo fuente: [../chap2.tex](../chap2.tex)
 - Archivo de revisión: [chap2.md](chap2.md)
 - Bloques totales: 11
-- Bloques revisados: 0 / 11
-- Estado general: pendiente
+- Bloques revisados: 11 / 11
+- Estado general: revisado — con observaciones
 
 **Checklist global del capítulo:**
-- [ ] Bloque 0 — Introducción del capítulo
-- [ ] Bloque 1 — Métrica pseudohiperbólica
-- [ ] Bloque 2 — Desigualdad triangular generalizada
-- [ ] Bloque 3 — Métrica de Poincaré
-- [ ] Bloque 4 — Naturaleza infinitesimal de la métrica de Poincaré
-- [ ] Bloque 5 — Rectas hiperbólicas
-- [ ] Bloque 6 — Versión de Ahlfors del lema de Schwarz (introducción)
-- [ ] Bloque 7 — Densidad de una métrica
-- [ ] Bloque 8 — Densidad métrica inducida por una aplicación holomorfa
-- [ ] Bloque 9 — Curvatura de una densidad métrica
-- [ ] Bloque 10 — Métricas en otros dominios de $\widehat{\mathbb{C}}$
+- [x] Bloque 0 — Introducción del capítulo
+- [x] Bloque 1 — Métrica pseudohiperbólica
+- [x] Bloque 2 — Desigualdad triangular generalizada
+- [x] Bloque 3 — Métrica de Poincaré
+- [x] Bloque 4 — Naturaleza infinitesimal de la métrica de Poincaré
+- [x] Bloque 5 — Rectas hiperbólicas
+- [x] Bloque 6 — Versión de Ahlfors del lema de Schwarz (introducción)
+- [x] Bloque 7 — Densidad de una métrica
+- [x] Bloque 8 — Densidad métrica inducida por una aplicación holomorfa
+- [x] Bloque 9 — Curvatura de una densidad métrica
+- [x] Bloque 10 — Métricas en otros dominios de $\widehat{\mathbb{C}}$
 
 ---
 

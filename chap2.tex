@@ -6,7 +6,7 @@
 
 \section{Métrica pseudohiperbólica}
 
-La métrica euclídea en el disco unidad no es completa (basta con tomar la sucesión de Cauchy dada por $z_n = 1 - \frac{1}{n}$ que no converge en $\mathbb{D}$) y no es invariante conforme. %REVISAR: comprobar esto con un ejemplo
+La métrica euclídea en el disco unidad no es completa (basta con tomar la sucesión de Cauchy dada por $z_n = 1 - \frac{1}{n}$ que no converge en $\mathbb{D}$) y no es invariante conforme.
 
 Esto sugiere la necesidad de definir una métrica alternativa que sí satisfaga estas propiedades. El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} proporciona un punto de partida, ya que asegura que para $f \in \mathrm{Aut}(\mathbb{D})$, $\forall z, w \in \mathbb{D} : \abs{\tau_{f(w)}(f(z))} = \abs{\tau_w(z)}$, es decir, la aplicación
 \begin{defn}\label{defn:metrica-pseudohiperbolica-disco-unidad}
@@ -16,9 +16,8 @@ es invariante conforme. El objetivo de esta sección es demostrar que $\varrho$ 
 
 Denotaremos por $B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}}(z, r)$ a la bola abierta centrada en $z$ y de radio $r$ respecto a la \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{métrica pseudohiperbólica}. Es decir, $\forall z \in \mathbb{D}, r > 0 : B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}}(z, r) \defeq \left\{w \in \mathbb{D} : \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z, w) < r\right\}$.
 
-%Mantener
 \begin{prop}[Bolas pseudohiperbólicas]\label{prop:bola-pseudohiperbolica-bola-euclidea}
-    Sea $z \in \mathbb{D}$ y $r > 0$, entonces
+    Sea $z \in \mathbb{D}$ y $r \in (0,1]$, entonces
     \[
     B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}}(z, r) = D\left(\frac{1 - r^2}{1 - r^2\abs{z}^2}\, z,\, \frac{1 - \abs{z}^2}{1 - r^2\abs{z}^2} \, r\right) \subset \mathbb{D}.
     \]
@@ -32,16 +31,16 @@ Denotaremos por $B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{met
     \[
     w_m = \tau_z\left(r \, \frac{z}{\abs{z}}\right) = \frac{z - r \, \frac{z}{\abs{z}}}{1 - \bar{z} r \, \frac{z}{\abs{z}}} = \frac{z (1 - r/\abs{z})}{1 - r \abs{z}} \cdot \frac{\abs{z}}{\abs{z}} = \frac{\abs{z} - r}{1 - r \abs{z}} \cdot \frac{z}{\abs{z}} = \tau_{\abs{z}}\left(r\right) \cdot \frac{z}{\abs{z}}. 
     \]
-    y, de forma análoga, $w_M = \frac{\abs{z} + r}{1 + r \abs{z}} \cdot \frac{z}{\abs{z}} = \tau_{\abs{z}}(-r) \cdot \frac{z}{\abs{z}}$. Por tanto,
+    De forma análoga, $w_M = \frac{\abs{z} + r}{1 + r \abs{z}} \cdot \frac{z}{\abs{z}} = \tau_{\abs{z}}(-r) \cdot \frac{z}{\abs{z}}$. Por tanto,
     \[
     w = \frac{w_m + w_M}{2} = \frac{1}{2} \left(\tau_{\abs{z}}(r) + \tau_{\abs{z}}(-r)\right) \cdot \frac{z}{\abs{z}} = \frac{1 - r^2}{1 - r^2 \abs{z}^2} \, z.
     \]
 
-    Finalmente, $s$ viene dado por $\ds s = \abs{w - w_m} = \frac{1-\abs{z}^2}{1 - r^2 \abs{z}^2} \, r$.%REVISAR a lo mejor escribir las cuentas más detalladamente
+    Finalmente, $s$ viene dado por $\ds s = \abs{w - w_m} = \frac{1-\abs{z}^2}{1 - r^2 \abs{z}^2} \, r$.
     \hfill\qedsymbol
 \end{dem}
 
-%Quiza incluir en la presentación y citar el libro
+%Quiza incluir en la presentación
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
@@ -130,7 +129,7 @@ Denotaremos por $B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{met
 \subsection{Desigualdad triangular generalizada}
 
 \begin{lem}\label{lem:cota-modulo-bola-pseudohiperbolica}
-    Sea $z \in \mathbb{D}$ y $r \in (0,1)$, entonces
+    Sea $z \in \mathbb{D}$ y $r \in (0,1]$, entonces
     \[
     \forall w \in \bar{B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}}(z, r)} : \frac{\abs{z}-r}{1 - r \abs{z}} \leq \abs{w} \leq \frac{\abs{z} + r}{1 + r \abs{z}}.
     \]
@@ -154,8 +153,9 @@ Denotaremos por $B_{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{met
 \end{dem}
 
 \begin{teo}[Desigualdad triangular generalizada]\label{teo:desigualdad-triangular-generalizada}
-    Sea $z_1, z_2, z_3 \in \mathbb{D}$, entonces
+    % Sean $z_1, z_2, z_3 \in \mathbb{D}$, entonces
     \[
+    \forall z_1, z_2, z_3 \in \mathbb{D} :
     \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_1, z_2) \leq \frac{\exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_1, z_3) + \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_2, z_3)}{1 + \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_1, z_3) \, \exhyperref[defn:metrica-pseudohiperbolica-disco-unidad]{metrica-pseudohiperbolica-disco-unidad}{\varrho}(z_2, z_3)}.
     \]    
 \end{teo}
@@ -206,7 +206,7 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
 \begin{lem}\label{lem:desigualdad-triangular-producto-hiperbolico}
     Sean $x, y, z \in [0,1)$. Entonces, $\ds x \leq \frac{y + z}{1 + yz} \implies \frac{1+x}{1-x} \leq \frac{1+y}{1-y} \cdot \frac{1+z}{1-z}$.
 \end{lem}
-% \begin{dem}%ORDENAR: demostración prescindible
+% \begin{dem}%demostración prescindible
 %     Consideramos $\varphi \colon \R \setminus \{1\} \to \R$ dada por $\varphi(t) = \frac{1+t}{1-t}$.
 %     Entonces, $\forall t < 1 : \varphi'(t) = \frac{2}{(1-t)^2} > 0$, por lo que $\varphi$ es estrictamente creciente en $(-\infty, 1)$.
 
@@ -230,7 +230,7 @@ La métrica pseudohiperbólica $\varrho$ es invariante conforme, pero no es una 
     es una \exhyperref[defn:metrica]{metrica}{métrica} en $\mathbb{D}$, llamada la métrica de Poincaré.
 \end{prop}
 %</prop>
-\begin{dem}%ORDENAR: referenciar bien
+\begin{dem}
     Veamos que se satisfacen las tres propiedades. Sean $z, w, u \in \mathbb{D}$.
     \begin{enumerate}[label=\textnormal{(\roman*)}, wide, labelindent=0pt]
         \item Como $\varrho(z, w) \in [0,1)$, $\varphi(0) = 1$ y $\varphi$ es creciente, $\varphi (\varrho(z,w)) \geq 1$, luego $\wp(z, w) \geq 0$.
@@ -373,7 +373,7 @@ Para probarlo, partiremos de la definición de longitud hiperbólica de un camin
 
 \begin{lem}\label{lem:cociente-incremental-poincare}
     Sea $z\in\mathbb{D}$, entonces $\ds \lim_{h\to 0}\frac{\exhyperref[prop:metrica-poincare]{metrica-poincare}{\wp}(z,z+h)}{\abs{h}}=\frac{2}{1-\abs{z}^2}$.
-\end{lem} %DEMOSTRACIÓN
+\end{lem} %demostración prescindible
 % \begin{dem}
 %     Para $h$ suficientemente pequeño, $z+h\in\mathbb{D}$ y
 %     \[
@@ -574,7 +574,7 @@ Este resultado nos confirma que la métrica de Poincaré es riemanniana, ya que 
     Por definición, $z_1, z_2, z_3$ están en la misma recta hiperbólica si y sólo si existe $t \in \R$ tal que $z_3 = \tau_{z_1}(\tau_{z_1}(z_2) \, t)$. Aplicando $\tau_{z_1}$ a ambos lados, por el \excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}, esto es equivalente a que $\tau_{z_1}(z_3) = \tau_{z_1}(z_2) \, t$. Como $z_2 \neq z_1$ y, por tanto, $\tau_{z_1}(z_2) \neq 0$, esto equivale a que $\frac{\tau_{z_1}(z_3)}{\tau_{z_1}(z_2)} = t \in \R$.\hfill\qedsymbol
 \end{dem}
 
-%COMPLETAR ¿nada de paralelas? REVISAR: mirar ejercicios
+%COMPLETAR ¿nada de paralelas?
 
 \section{Versión de Ahlfors del lema de Schwarz}
 
@@ -614,7 +614,7 @@ En la sección anterior, vimos que la métrica de Poincaré se puede obtener min
         \[
         \ell_{\sigma}(\Gamma_1) < d_\sigma(x, y) + \frac{\varepsilon}{2} \quad\we\quad \ell_{\sigma}(\Gamma_2) < d_\sigma(y, z) + \frac{\varepsilon}{2}. 
         \]
-        Entonces, la concatenación de caminos $\Gamma_1 * \Gamma_2$ es un camino en $\Omega$ entre $x$ y $z$. Además, por linealidad de la integral, $\ell_{\sigma}(\Gamma_1 * \Gamma_2) = \ell_{\sigma}(\Gamma_1) + \ell_{\sigma}(\Gamma_2) < d_\sigma(x, y) + d_\sigma(y, z) + \varepsilon$. Como $d_\sigma(x, z) \leq \ell_{\sigma}(\Gamma_1 * \Gamma_2)$ y $\varepsilon$ era arbitrario, se concluye que $d_\sigma(x, z) \leq d_\sigma(x, y) + d_\sigma(y, z)$.\hfill\qedsymbol 
+        Entonces, la concatenación de caminos $\Gamma_1 * \Gamma_2$ es un camino en $\Omega$ entre $x$ y $z$. Además, por linealidad de la integral, $\ell_{\sigma}(\Gamma_1 * \Gamma_2) = \ell_{\sigma}(\Gamma_1) + \ell_{\sigma}(\Gamma_2) < d_\sigma(x, y) + d_\sigma(y, z) + \varepsilon$. Como $d_\sigma(x, z) \leq \ell_{\sigma}(\Gamma_1 * \Gamma_2)$ y $\varepsilon$ era arbitrario, se concluye la desigualdad triangular: $d_\sigma(x, z) \leq d_\sigma(x, y) + d_\sigma(y, z)$.\hfill\qedsymbol 
     \end{enumerate}
 \end{dem}
 
@@ -736,7 +736,7 @@ En la sección anterior, vimos que la métrica de Poincaré se puede obtener min
     \]
 
     \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}
+    % \vspace{-\belowdisplayskip}
     \hfill\qedsymbol
 \end{dem}
 
@@ -750,23 +750,25 @@ Ahora sí, podemos enunciar la versión de Ahlfors del \exhyperref[lem:schwarz]{
     donde $\mu$ es la \exhyperref[teo:densidad-induce-metrica]{densidad-induce-metrica}{densidad métrica} de la \exhyperref[prop:metrica-poincare]{prop-metrica-poincare}{métrica de Poincaré} en $\mathbb{D}$.
 \end{teo}
 \begin{dem}
-    Sea $r \in (0,1)$. Entonces, en el disco $D(0, r)$, la función dada por $\mu_r(z) = \frac{2}{r^2 - \abs{z}^2}$ está bien definida. Además, es una densidad métrica en $D(0, r)$ cuya curvatura es $\kappa_{\mu_r}(z) = -1$ para todo $z \in D(0, r)$ (el cálculo es análogo al realizado para $\mu$, ver el \excref[ejem:curvatura-poincare]{ejem-curvatura-poincare}).
+    Sea $r \in (0,1)$. Entonces, en el disco $D(0, r)$, la función dada por $\mu_r(z) = \frac{2r}{r^2 - \abs{z}^2}$ está bien definida. Además, es una densidad métrica en $D(0, r)$ cuya curvatura es $\kappa_{\mu_r}(z) = -1$ para todo $z \in D(0, r)$ (el cálculo es análogo al realizado para $\mu$, ver el \excref[ejem:curvatura-poincare]{ejem-curvatura-poincare}).
 
-    Definimos la función $\phi \colon D(0, r) \to \R$ mediante $\forall z \in D(0, r) : \phi(z) = \frac{(f^* \sigma)(z)}{\mu_r(z)}$. Entonces, $\phi \geq 0$ y como $\mu_r$ no se anula y $f^* \sigma$ es continua, $\phi$ es continua en $D(0, r)$. Además, tenemos que
+    Definimos la función $\phi \colon D(0, r) \to \R$ mediante $\forall z \in D(0, r) : \phi(z) = \frac{(f^* \sigma)(z)}{\mu_r(z)}$. Entonces, $\phi \geq 0$ y como $\mu_r$ no se anula y $\mu_r$ y $f^* \sigma$ son continuas, $\phi$ es continua en $D(0, r)$. Además, tenemos que
     \[
     \lim_{\abs{z} \to r^-} \phi(z) = \lim_{\abs{z} \to r^-} \frac{(f^* \sigma)(z)}{\mu_r(z)} = \lim_{\abs{z} \to r^-} (f^* \sigma)(z) \cdot \frac{r^2 - \abs{z}^2}{2} = 0.
     \]
     Por tanto, $\phi$ alcanza su máximo $M$ en un punto $z_0 \in \bar{D(0, r)}$ y, para probar el teorema, basta ver que $M \leq 1$.
     
-    Si el máximo se alcanza en la frontera, entonces $M = \phi(z_0) = 0 \leq 1$ y el resultado se cumple. Suponemos que el máximo se alcanza en el interior, es decir, $z_0 \in D(0, r)$, podemos suponer además que $\phi(z_0) > 0$, es decir, $f^* \sigma (z_0) > 0$. Como $\phi$ es $\mathcal{C}^2$ en un entorno de $z_0$ (pues $f^* \sigma$ y $\mu_r$ lo son), podemos aplicar el operador laplaciano en $z_0$ y obtener que $\Delta \log \phi(z_0) \leq 0$ (pues $z_0$ es un máximo local y $\log$ es creciente). %REVISAR esta última afirmación esto es porque la parte real/imaginaria de una función holomorfa es armónica %ORDENAR: escribir en lema y demostrarlo y citarlo
-    Por tanto, tenemos que
+    Si el máximo se alcanza en la frontera, entonces $M = \phi(z_0) = 0 \leq 1$ y el resultado se cumple. Suponemos que el máximo se alcanza en el interior, es decir, existe $z_0 \in D(0, r)$ tal que $\forall z \in D(0, r) : \phi(z) \leq \phi(z_0)$, podemos suponer además que $\phi(z_0) > 0$, es decir, $f^* \sigma (z_0) > 0$. Entonces, por continuidad, $\phi > 0$ en un entorno de $z_0$. Además, $\phi$ es $\mathcal{C}^2$ en un entorno de $z_0$ (pues $f^* \sigma$ y $\mu_r$ lo son), luego $\log \phi \in \mathcal{C}^2$ en un entorno de $z_0$ y podemos aplicar el operador laplaciano.
+    
+    Como $z_0$ es un máximo local de $\phi$ y $\log$ es creciente, $z_0$ es un máximo local de $\log \phi$ y, por tanto, la matriz hessiana de $\log \phi$ en $z_0$ es semidefinida negativa, lo que implica que $\Delta \log \phi(z_0) \leq 0$.
+    En consecuencias, tenemos que
     \[
     \begin{aligned}
         \Delta \log \phi (z_0) &= \Delta \log (f^* \sigma)(z_0) - \Delta \log \mu_r (z_0) \\
         &= - \kappa_{f^* \sigma}(z_0) \, (f^* \sigma(z_0))^2 + \kappa_{\mu_r}(z_0) \, (\mu_r(z_0))^2 \leq 0.
     \end{aligned}
     \]
-    Por el \excref[lem:curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa]{lem-curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa}, $\kappa_{f^* \sigma}(z) = \kappa_{\sigma}(f(z)) \leq -1$ para todo $z \in \mathbb{D}$ y $\kappa_{\mu_r}(z) = -1$ para todo $z \in D(0, r)$. Por tanto, como $\kappa_{\mu_r} (z_0) (\mu_r(z_0))^2 \leq \kappa_{f^* \sigma}(z_0) (f^* \sigma(z_0))^2$, tenemos que
+    Por el \excref[lem:curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa]{lem-curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa}, $\kappa_{f^* \sigma}(z_0) = \kappa_{\sigma}(f(z_0)) \leq -1$. Por tanto, recordando que $\kappa_{\mu_r} \equiv -1$, de $\kappa_{\mu_r} (z_0) (\mu_r(z_0))^2 \leq \kappa_{f^* \sigma}(z_0) (f^* \sigma(z_0))^2$ deducimos que
     \[
     - (\mu_r(z_0))^2 \leq \kappa_{\sigma} (f(z_0)) (f^* \sigma(z_0))^2 \leq - (f^* \sigma(z_0))^2 \implies \frac{(f^* \sigma)(z_0)}{\mu_r(z_0)} \leq 1.
     \]
@@ -841,59 +843,3 @@ Ahora bien, el concepto de densidad métrica inducida por una aplicación holomo
     \]
     Podemos calcular la curvatura gaussiana de esta métrica a partir de la definición, pero el \excref[lem:curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa]{lem-curvatura-gaussiana-densidad-metrica-inducida-fn-holomorfa} ya nos asegura que $\kappa_{\mu_{\mathbb{H}}}(z) = \kappa_{\mu}(C(z)) = -1$ para todo $z \in \mathbb{H}$, es decir, la métrica hiperbólica en el semiplano superior también tiene curvatura constante igual a $-1$. De hecho, por la \excref[prop:densidad-metrica-inducida-fn-biholomorfa-isometria-espacios-metricos]{prop-densidad-metrica-inducida-fn-biholomorfa-isometria-espacios-metricos}, los espacios métricos $(\mathbb{D}, \wp)$ y $(\mathbb{H}, d_{\mu_{\mathbb{H}}})$ son isomorfos mediante la transformación $C$; así que la métrica hiperbólica en $\mathbb{H}$ también es completa.
 \end{ejem}
-
-
-
-%FALTA: métricas en otros dominios, por ejemplo, la métrica hiperbólica en el semiplano superior y la métrica esférica en el plano complejo extendido.
-
-%REVISAR COMPLETAR: mirarse \cite{krantzComplexAnalysisGeometric2004} capítulo 2 y \cite{pressleyElementaryDifferentialGeometry2012}
-
-% \section{Métrica hiperbólica en el semiplano superior}
-
-% Recordemos que el semiplano superior es el conjunto $\mathbb{H} = \{z \in \C : \Im(z) > 0\}$. En lugar de empezar de nuevo desde cero, vamos a usar el hecho de que el semiplano superior es conformemente equivalente al disco unidad mediante la transformación de Möbius $\varphi \colon \mathbb{H} \to \mathbb{D}$ dada por 
-% \[
-% \forall z \in \mathbb{H} : \varphi(z) = \frac{z - i}{z + i}.
-% \]
-% Entonces, esta transformación es una biyección holomorfa de $\mathbb{H}$ sobre $\mathbb{D}$ con inversa también holomorfa dada por
-% \[
-% \forall w \in \mathbb{D} : \varphi^{-1}(w) = i \, \frac{1 + w}{1 - w}.
-% \]
-
-% Usando la \hyperref[defn:densidad-metrica-inducida]{definición de densidad métrica inducida}, podemos definir la densidad métrica en $\mathbb{H}$ inducida por la métrica de Poincaré en $\mathbb{D}$ mediante la transformación $\varphi$:
-% \[
-% \mu_{\mathbb{H}}(z) = \left(\varphi^* \mu\right)(z) = \mu(\varphi(z)) \, \abs{\varphi'(z)}.
-% \]
-% Calculamos primero la derivada de $\varphi$:
-% \[
-% \forall z \in \mathbb{H} : \varphi'(z) = \frac{(z + i) - (z - i)}{(z + i)^2} = \frac{2i}{(z + i)^2} \implies \abs{\varphi'(z)} = \frac{2}{\abs{z + i}^2}.
-% \]
-% % Por otro lado, tenemos que
-% % \[
-% % \abs{\varphi(z)}^2 = \frac{\abs{z - i}^2}{\abs{z + i}^2} = \frac{(z -i) (\bar{z} + i)}{(z + i)(\bar{z} - i)} = \frac{\abs{z}^2 + 1 - 2 \Im(z)}{\abs{z}^2 + 1 + 2 \Im(z)}.
-% % \]
-
-% Por tanto, nos queda que
-% \[
-% \begin{aligned}
-%     \forall z \in \mathbb{H} : \mu_{\mathbb{H}}(z) &= \frac{2}{1 - \abs{\varphi(z)}^2} \cdot \frac{2}{\abs{z + i}^2} = \frac{4}{\abs{z + i}^2 - \abs{z - i}^2} \\
-%     &= \frac{4}{(z + i)(\overline{z} - i) - (z - i)(\overline{z} + i)} = \frac{4}{2i(z - \overline{z})} = \frac{2}{\Im(z)}.
-% \end{aligned}
-% \]
-
-% Por el ejercicio 2, %ORDENAR: referenciar bien
-% tenemos que los espacios métricos $(\mathbb{D}, \wp)$ y $(\mathbb{H}, d_{\mu_{\mathbb{H}}})$ son isométricos mediante la transformación $\varphi$. Por tanto, podemos definir la métrica hiperbólica en el semiplano superior como la métrica $d_{\mu_{\mathbb{H}}}$ inducida por la densidad métrica $\mu_{\mathbb{H}}(z) = \frac{2}{\Im(z)}$ que es el pullback de la métrica de Poincaré en el disco unidad mediante la transformación $\varphi$.
-
-% \begin{obs}
-%     Dado que las rectas hiperbólicas en el disco unidad son arcos de circunferencia ortogonales a $\mathbb{T}$ y $\varphi$ es una transformación de Möbius (manda circunferencias generalizadas en circunferencias generalizadas y preserva ángulos), las rectas hiperbólicas en el semiplano superior son imágenes mediante $\varphi^{-1}$ de dichos arcos, es decir, son semicircunferencias ortogonales a la recta real y rectas perpendiculares a la recta real puesto que $\varphi(\mathbb{T}) = \R \cup \{\infty\}$.
-% \end{obs}
-
-% \section{Métrica esférica en el plano complejo extendido}
-
-% La métrica esférica en el plano complejo extendido $\widehat{\C} = \C \cup \{\infty\}$ se define mediante la densidad métrica $\mu_{\mathrm{esf}} \colon \widehat{\C} \to (0, \infty)$ dada por
-% \[
-% \forall z \in \C : \mu_{\mathrm{esf}}(z) = \frac{2}{1 + \abs{z}^2} \quad\we \quad \mu_{\mathrm{esf}}(\infty) = 0.
-% \]
-% Esta densidad métrica es la pullback de la métrica estándar en la esfera unidad mediante la proyección estereográfica $\pi \colon \widehat{\C} \to S^2$ dada por
-% \[
-% \forall z \in \C : \pi(z) = \left(\frac{2 \Re(z)}{1 + \abs{z}^2}, \frac{2 \Im(z)}{1 + \abs{z}^2}, \frac{\abs{z}^2 - 1}{1 + \abs{z}^2}\right) \quad\we\quad \pi(\infty) = (0, 0, 1).
-% \]

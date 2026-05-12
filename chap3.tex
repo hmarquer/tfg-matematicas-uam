@@ -84,16 +84,17 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 \section{Unicidad y no unicidad}
 
 \begin{lem}\label{lem:prod-finitos-blaschke-igualdad-n-puntos}
-    Sean $B_1, B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ tales que existen $n$ puntos distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$ con $B_1(w_k) = B_2(w_k)$ para todo $k \in \N_n$. Entonces, existe $\xi \in \mathbb{T}$ tal que $B_1(\xi) = B_2(\xi)$.
+    Sean $B_1, B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ mónicos tales que $B_1(w_k) = B_2(w_k)$ para $n$ puntos distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$. Entonces, existe $\xi \in \mathbb{T}$ tal que $B_1(\xi) = B_2(\xi)$.
     % \[
     % \big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \text{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\big) \implies \exists \xi \in \mathbb{T} : B_1(\xi) = B_2(\xi). 
     % \]
 \end{lem}
 \begin{dem}
-    Tenemos que $\exists \left\{z_k\right\}_{k=1}^n, \left\{v_k\right\}_{k=1}^n \subset \mathbb{D}$ tales que $B_1(z) = B_2(z)$
+    Tenemos que $\exists \left\{z_k\right\}_{k=1}^n, \left\{v_k\right\}_{k=1}^n \subset \mathbb{D}$ tales que
     \[
     \begin{aligned}
-        &\iff \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = \prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z} \iff \left(\prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}\right) \bigg/ \left(\prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z}\right) = 1 \\
+        B_1(z) = B_2(z) &\iff \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = \prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z} \\
+        &\iff \left(\prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}\right) \bigg/ \left(\prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z}\right) = 1 \\
         &\iff \prod_{k=1}^n \frac{(z_k - z)(1 - \overline{v_k} z)}{(v_k - z)(1 - \overline{z_k} z)} = 1.
     \end{aligned}
     \]
@@ -107,17 +108,19 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     \exists \xi \in \mathbb{T} : \arg \left(\prod_{k=1}^n \frac{z_k - \xi}{v_k - \xi}\right) \equiv 0 \mod \pi. 
     \]
 
-    Para ello, definimos $F(z) = \prod_{k=1}^n \frac{z_k - z}{v_k - z}$. Así, $\exists \delta > 0$ tal que $F$ es una función holomorfa y distinta de cero en $\left\{z \in \C : \abs{z} > 1 - \delta\right\}$. Además, tomamos $F(\infty) = \lim_{\abs{z} \to \infty} F(z) = 1$. Por tanto, $H(z) = \log F(z)$ define una función holomorfa en $\left\{z \in \C : \abs{z} > 1 - \delta\right\}$ con $H(\infty) = 0$.
-    
+    Para ello, definimos $F(z) = \prod_{k=1}^n \frac{z_k - z}{v_k - z}$. Así, $\exists \delta > 0$ tal que $F$ es una función holomorfa y distinta de cero en $\left\{z \in \C : \abs{z} > 1 - \delta\right\}$. Además, tomamos $F(\infty) = \lim_{\abs{z} \to \infty} F(z) = 1$. Por tanto, $H(z) = \log F(z)$ define una función holomorfa en $\left\{z \in \C : \abs{z} > 1 - \delta\right\}$ con $H(\infty) = 0$.%REVISAR:
+    % - **Major**: Falta justificar la existencia de una rama holomorfa de $H=\log F$ en $\{|z|>1-\delta\}$; ese dominio no es simplemente conexo. Debes argumentar que el índice de $F$ alrededor del círculo generador es $0$ (p. ej., por el principio del argumento: $F$ tiene $n$ ceros y $n$ polos en $\mathbb{D}$, luego $\frac{1}{2\pi i}\int_{|z|=R}\frac{F'(z)}{F(z)}\,dz=0$ y existe log holomorfo). Ver chap3.tex.
+    % - **Medium**: La prueba no usa la hipótesis de los $n$ puntos distintos $w_k$; tal como está, el argumento daría el punto en $\mathbb{T}$ sin esa hipótesis. Si la necesitas, falta indicar dónde entra; si no, podrías suprimirla. Ver chap3.tex.
+
     Ahora consideramos $h(z) = \Im \left(H \left(\sfrac{1}{z}\right)\right)$ definida en $\left\{z \in \C : \abs{z} < \sfrac{1}{1 - \delta}\right\}$. Entonces, $h$ es armónica en un entorno abierto de $\bar{\mathbb{D}}$. Por la propiedad del valor medio para funciones armónicas, tenemos que
     \[
     h(0) = \frac{1}{2\pi} \int_0^{2\pi} h\left(e^{i\theta}\right) \odif{\theta} \implies 0 = \frac{1}{2\pi} \int_0^{2\pi} h \left(e^{i\theta}\right) \odif{\theta}.
     \]
-    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\im H$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado.\hfill\qedsymbol
+    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\Im H$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \Im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado.\hfill\qedsymbol
 \end{dem}
 
 \begin{teo}\label{teo:unicidad-prod-finitos-blaschke}
-    Sean $B_1, B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ tales que existen $n$ puntos distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$ con $B_1(w_k) = B_2(w_k)$ para todo $k \in \N_n$. Entonces, $B_1 = B_2$ en $\mathbb{D}$.
+    Sean $B_1, B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ mónicos tales que $B_1(w_k) = B_2(w_k)$ para $n$ puntos distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$. Entonces, $B_1 = B_2$ en $\mathbb{D}$.
     % \[
     % \Big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \text{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\Big) \implies B_1 = B_2 \text{ en } \mathbb{D}.
     % \]
@@ -145,7 +148,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     \[
     \forall z \in \mathbb{D} : 1 = \frac{B_1(z)}{B_2(z)} = i \frac{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_n}}(z)}{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{iz_n}}(z)} \implies \tau_{iz_n} = i \tau_{z_n},
     \]
-    luego, como $\tau_{iz_n} \circ \tau_{i z_n} = \operatorname{id}$ (\excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}), obtendríamos que $\forall z \in \mathbb{D} : \tau_{z_n} \circ \tau_{i z_n} (z) = i z$, lo cual es falso poque $\tau_{z_n} \circ \tau_{i z_n} (i z_n) = \tau_{z_n}(0) = z_n \neq i^2 z_n = -z_n$.
+    luego, como $\tau_{iz_n} \circ \tau_{i z_n} = \operatorname{id}$ (\excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}), obtendríamos que $\forall z \in \mathbb{D} : \tau_{z_n} \circ \tau_{i z_n} (z) = i z$, lo cual es falso porque $\tau_{z_n} \circ \tau_{i z_n} (i z_n) = \tau_{z_n}(0) = z_n \neq i^2 z_n = -z_n$.
 
     Por lo tanto, la condición de ser mónicos en el \excref[teo:unicidad-prod-finitos-blaschke]{teo-unicidad-prod-finitos-blaschke} es necesaria para garantizar la unicidad.
 \end{ejem}
@@ -165,7 +168,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$} es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\mathbb{D}$.
 \end{teo}
 \begin{dem}
-    Sea $B \in \mathscr{B}_n$, entonces, existe un $R > 0$ tal que $\bar{\mathbb{D}} \subset D(0, R)$ tal que $B \in \mathcal{H}\left(\Omega\right)$. Sea $w \in \mathbb{D}$, entonces, si tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, como $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$ y $\abs{w} < 1$, se tiene que
+    Sea $B \in \mathscr{B}_n$, entonces, existe un $R > 0$ tal que $\bar{\mathbb{D}} \subset D(0, R)$ tal que $B \in \mathcal{H}\left(D(0, R)\right)$. Sea $w \in \mathbb{D}$, si tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, como $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$ y $\abs{w} < 1$, se tiene que
     \[
     \forall \zeta \in \mathbb{T} : \abs{f(\zeta) - g(\zeta)} = \abs{B(\zeta) - (B(\zeta) - w)} = \abs{w} < 1 = \abs{B(\zeta)} = \abs{f(\zeta)}.
     \]
@@ -186,7 +189,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 \begin{lem}\label{lem:derivada-logaritmica-prod-finito-blaschke}
     Sea $B = \gamma \prod_{k=1}^n \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}} \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$, entonces su \exhyperref[defn:derivada-logaritmica]{derivada-logaritmica}{derivada logarítmica} es
     \[
-    \forall z \in \mathbb{D} : \frac{B'(z)}{B(z)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} z\right) (z_k - z)}. 
+    \forall z \in \mathbb{D} \setminus \{z_k\}_{k=1}^n : \frac{B'(z)}{B(z)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} z\right) (z_k - z)}. 
     \]
 \end{lem}
 \begin{dem}
@@ -219,7 +222,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 \end{obs}
 
 \begin{cor}\label{cor:derivada-arg-prod-finito-blaschke-toro}
-    Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathcal{B}}$, entonces $\ds \forall t \in \R : \odv{}{t} \arg B\left(e^{it}\right) = \abs{B'\left(e^{it}\right)}$.
+    Sea $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$, entonces $\ds \forall t \in \R : \odv{}{t} \arg B\left(e^{it}\right) = \abs{B'\left(e^{it}\right)}$.
 \end{cor}
 \begin{dem}
     Como $\forall t \in \R : B\left(e^{it}\right) \in \mathbb{T}$, podemos escribir $B\left(e^{it}\right) = e^{i \psi(t)}$ para alguna función $\psi \colon \R \to \R$ tal que $\psi(2\pi) - \psi(0) = 2\pi m$ para algún $m \in \Z$. Entonces,
@@ -293,7 +296,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 \begin{dem}
     Existen $\left\{\alpha_k\right\}_{k=0}^n \subset \C$ tales que $P(z) = \sum_{k=0}^n \alpha_k z^k$. Entonces,
     \begin{enumerate}[label=(\arabic*), wide, labelindent=0pt]
-        \item Por definición, $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$. Por tanto, $\deg P^{\#_n} \leq n$ y la igualdad se cumple si y sólo si $\bar{\alpha_n} \neq 0$, es decir, $P(0) = \alpha_0 \neq 0$.
+        \item Por definición, $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$. Por tanto, $\deg P^{\#_n} \leq n$ y la igualdad se cumple si y sólo si $\bar{\alpha_0} \neq 0$, es decir, si $P(0) = \alpha_0 \neq 0$.
         \item $\ds (P^{\#_n})^{\#_n}(z) = z^n \overline{P^{\#_n}\left(\sfrac{1}{\bar{z}}\right)} = z^n \overline{\frac{1}{\bar{z}^n} \bar{P(z)}} = z^n \cdot \frac{1}{z^n} \cdot P(z) = P(z)$.
         \item Para $z \neq 0$, $P(z) = 0 \iff \bar{P(z)} = 0 \iff z^n \bar{P(z)} = 0 \iff P^{\#_n}\left(\sfrac{1}{\bar{z}}\right) = 0$.\hfill\qedsymbol
     \end{enumerate}
@@ -324,7 +327,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
         \]
         para algún $t_0 \in \R$. Definimos ahora el polinomio $P$ mediante
         \[
-        \forall z \in \C : P(z) = e^{t_0i/2} \cdot \prod_{k=1}^n (z_k - z).
+        \forall z \in \C : P(z) = (-1)^n e^{t_0i/2} \cdot \prod_{k=1}^n (z_k - z).
         \]
         Entonces, $P$ es un polinomio de grado $n$ cuyos ceros están en $\mathbb{D}$ y
         \[
@@ -336,7 +339,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
         \[
         P(z) = \alpha_n z^n + \alpha_{n-1} z^{n-1} + \cdots + \alpha_1 z + \alpha_0,
         \]
-        cuyos ceros están en $\mathbb{D}$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}: P(z) = \alpha_n \prod_{k=1}^n (z_k - z)$.
+        cuyos ceros están en $\mathbb{D}$. Entonces, $\exists \left\{z_k\right\}_{k=1}^n \subset \mathbb{D}: P(z) = (-1)^n \alpha_n \prod_{k=1}^n (z_k - z)$.
         \[
         \begin{aligned}
             \therefore \quad P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n\, \bar{\alpha_n} \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = \bar{\alpha_n} \prod_{k=1}^n (1 - \overline{z_k} z).
