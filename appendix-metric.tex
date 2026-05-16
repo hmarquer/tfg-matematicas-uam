@@ -1,10 +1,39 @@
 \chapter{Resultados auxiliares sobre espacios métricos}
 
+\begin{defn}[Métrica]\label{defn:metrica}
+    Sea $X \neq \varnothing$, $\appl{d}{X \times X}{\R}$ es una métrica $\iff$
+    \begin{enumerate}
+        \item\label{defn:metrica:positividad} Positividad (no degenerada): $\forall x,y \in X : d(x,y) \geq 0 \we d(x,y) = 0 \iff x = y$.
+        \item\label{defn:metrica:simetria} Simetría: $\forall x,y \in X : d(x,y) = d(y,x)$.
+        \item\label{defn:metrica:desigualdad-triangular} Desigualdad triangular: $\forall x,y,z \in X : d(x, z) \leq d(x,y) + d(y,z)$.
+    \end{enumerate}
+    $\forall x, y \in X:$ a la imagen $d(x,y)$ se le llama \textbf{distancia} entre $x$ e $y$.
+\end{defn}
+
+\begin{defn}[Espacio métrico]\label{defn:esp-metrico}
+    Sea $X \neq \varnothing$ y $\appl{d}{X \times X}{\R}$,
+    \[
+        \left(X, d\right) \tex{ es un espacio métrico}\iff d\tex{ es una \exhyperref[defn:metrica]{metrica}{métrica}}.
+    \]
+\end{defn}
+
 \section{Convergencia y continuidad uniformes}
 
-\transclude{convergencia-uniforme}
+\begin{defn}[Convergencia uniforme]\label{defn:convergencia-uniforme}
+    Sean $\forall n \in \N : f, f_n \colon X \to Y$ con $\left(Y, d\right)$ un \exhyperref[defn:esp-metrico]{esp-metrico}{espacio métrico}, $\left(f_n\right)_{n\in\N}$ converge uniformemente a $f$ en $X$ (escrito $f_n \xrightrightarrows[n\to\infty]{X} f$)
+    \[\begin{aligned}
+        &\iff \forall \varepsilon > 0 : \exists n_0 \in \N : \forall n \geq n_0 : \forall x \in X : d\left(f_n(x), f(x)\right) < \varepsilon \\
+        &\iff \exhyperref[defn:convergencia]{convergencia}{\lim_{n\to\infty}} \sup_{x\in X} \Big\{d\left(f_n(x), f(x)\right)\Big\} = 0.
+    \end{aligned}
+    \]
+\end{defn}
 
-\transclude{continuidad-uniforme}
+\begin{defn}[Continuidad uniforme]\label{defn:continuidad-uniforme}
+    Sean $\left(X, d_X\right)$ e $\left(Y, d_Y\right)$ dos \exhyperref[defn:esp-metrico]{esp-metrico}{espacios métricos}, $\appl{f}{U \subset X}{Y}$ con $U$ abierto es uniformemente continua en $U$
+    \[
+        \iff \forall \varepsilon > 0 : \exists \delta > 0 : \forall x, y \in U : d_X(x, y) < \delta \implies d_Y\left(f(x), f(y)\right) < \varepsilon.
+    \]
+\end{defn}
 
 \begin{prop}\label{prop:convergencia-uniforme-continuidad-uniforme}
     Sean $X, Y$ \exhyperref[defn:esp-metrico]{esp-metrico}{espacios métricos}, $f \colon X \to Y$ y sea $\left(f_n\right)_{n \in \N}$ una sucesión de funciones $f_n \colon X \to Y$ \exhyperref[defn:continuidad-uniforme]{continuidad-uniforme}{uniformemente continuas} que \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{converge uniformemente} a $f$. Entonces, $f$ es uniformemente continua.
@@ -22,9 +51,14 @@
 
 \subsection{Convergencia uniforme sobre compactos}
 
-\transclude{convergencia-uniforme-compactos}
+\begin{defn}[Convergencia uniforme sobre compactos]\label{defn:convergencia-uniforme-compactos}\mbox{}\\
+    Sean $\forall n \in \N : f, f_n \colon X \to Y$ con $\left(Y, d\right)$ un \exhyperref[defn:esp-metrico]{esp-metrico}{espacio métrico}, $\left(f_n\right)_{n\in\N}$ converge uniformemente sobre compactos a $f$ en $X$ (escrito $f_n \xRightarrow[n\to\infty]{X} f$)
+    \[
+    \iff \forall K \Subset X \tex{ compacto} : f_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n\to\infty]{K}} f.
+    \]
+\end{defn}
 
-\section{Combinaciones y envolventes convexas}
+\section{Combinaciones y envolturas convexas}
 
 \begin{defn}[Combinación convexa]\label{defn:combinacion-convexa}
     Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $\left\{x_i\right\}_{i=1}^n \subset V$, $y \in V$ es una combinación convexa de $\left\{x_i\right\}_{i=1}^n$
@@ -35,11 +69,11 @@
     Sea $A \subset V$, $y \in V$ es una combinación convexa de elementos de $A \iff \exists \left\{a_i\right\}_{i=1}^n \subset A$ tal que $y \tex{ es una combinación convexa de } \left\{a_i\right\}_{i=1}^n$.
 \end{defn} %ORDENAR enviar al anexo
 
-\begin{defn}[Envolvente convexa]\label{defn:envolvente-convexa}
-    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$, $\operatorname{conv}(A)$ es la envolvente convexa de $A \iff \operatorname{conv}(A)$ es el \exhyperref[defn:con-convexo]{con-convexo}{convexo} más pequeño que contiene a $A$.
+\begin{defn}[Envoltura convexa]\label{defn:envoltura-convexa}
+    Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$, $\operatorname{conv}(A)$ es la envoltura convexa de $A \iff \operatorname{conv}(A)$ es el \exhyperref[defn:con-convexo]{con-convexo}{convexo} más pequeño que contiene a $A$.
 \end{defn} %ORDENAR enviar al anexo
 
-\begin{prop}\label{prop:envolvente-convexa-combinacion-convexa}
+\begin{prop}\label{prop:envoltura-convexa-combinacion-convexa}
     Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$. Entonces,
     \[
     \operatorname{conv}(A) = \left\{y \in V : v \tex{ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de elementos de } A \right\}.

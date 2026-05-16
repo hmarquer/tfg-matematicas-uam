@@ -1,4 +1,4 @@
-\chapter{Productos Finitos de Blaschke}
+\chapter{Productos finitos de Blaschke}
 
 \section{Definición y propiedades básicas}
 
@@ -13,15 +13,11 @@
     Denotaremos por $\mathscr{B}_n$ al conjunto de productos finitos de Blaschke de grado $n$ y por $\mathscr{B}$ al conjunto de productos finitos de Blaschke, es decir, $\mathscr{B} = \bigcup_{n \in \N} \mathscr{B}_n$.
 \end{defn}
 
-% \begin{obs}%\label{obs:producto-finito-blaschke-automorfismos-disco-unidad}
-    Un producto finito de Blaschke es el producto de una constante de módulo $1$ y un número finito de \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{involuciones del disco unidad}. Por el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad}, esto significa que $B \in \mathscr{B}$ si y sólo si, es el producto de un número finito de elementos en \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{$\mathrm{Aut}(\mathbb{D})$}.
-% \end{obs}
+Un producto finito de Blaschke es el producto de una constante de módulo $1$ y un número finito de \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{involuciones del disco unidad}. Por el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad}, esto significa que $B \in \mathscr{B}$ si y sólo si es el producto de un número finito de elementos en \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{$\mathrm{Aut}(\mathbb{D})$}.
 
-% \begin{obs}
-    Como cada $\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}}$ tiene un cero en $z_k$ y un polo en $\sfrac{1}{\bar{z_k}}$, el producto finito de Blaschke $B$ tiene $n$ ceros en $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $n$ polos en $\left\{\sfrac{1}{\bar{z_k}}\right\}_{k=1}^n \subset \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
+Como cada $\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_k}}$ tiene un cero en $z_k$ y un polo en $\sfrac{1}{\bar{z_k}}$, el producto finito de Blaschke $B$ tiene $n$ ceros en $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D}$ y $n$ polos en $\left\{\sfrac{1}{\bar{z_k}}\right\}_{k=1}^n \subset \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
 
-    Además, $B$ es una \exhyperref[defn:fn-meromorfa]{fn-meromorfa}{función meromorfa} en $\widehat{\mathbb{C}}$ y \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en $\mathbb{D}$.
-% \end{obs}
+Además, $B$ es una \exhyperref[defn:fn-meromorfa]{fn-meromorfa}{función meromorfa} en $\widehat{\mathbb{C}}$ y \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en $\mathbb{D}$.
 
 \begin{obs}\label{obs:prod-finito-blaschke-clase-schur}
     Por ser un producto de \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{automorfismos del disco unidad}, un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} $B$ pertenece a la \exhyperref[defn:clase-schur]{clase-schur}{clase de Schur}, $\mathscr{S}$, y satisface
@@ -31,34 +27,17 @@
         \inlineitem $\forall z \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}} : \abs{B(z)} > 1$.
     \end{enu}
 
-    Como $\xi \in \mathbb{T}$ implica que $\xi = \sfrac{1}{\bar{\xi}} \we B(\xi) \in \mathbb{T}$, tenemos que
+    Como $\xi \in \mathbb{T}$ implica que $\xi = \sfrac{1}{\bar{\xi}}$ y $B(\xi) \in \mathbb{T}$, tenemos que
     \[
     \forall \zeta \in \mathbb{T} : \ds B(\zeta) = \frac{1}{\bar{B(\zeta)}} = \frac{1}{\bar{B \left(\sfrac{1}{\bar{\zeta}}\right)}}
     \]
     Ahora bien, como $\sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$ define una \exhyperref[defn:fn-meromorfa]{fn-meromorfa}{función meromorfa} en $\widehat{\mathbb{C}}$ que coincide con $B$ en $\mathbb{T}$, el \exhyperref[cor:principio-identidad]{cor-principio-identidad}{principio de identidad} nos dice que $\forall z \in \widehat{\mathbb{C}} : B(z) = \sfrac{1}{\bar{B \left(\sfrac{1}{\bar{z}}\right)}}$.
 \end{obs}
 
-% \transclude{teo-reflexion-schwarz}
-
-% \transclude{cor-reflexion-schwarz-disco-unidad}
-
 \subsection{Caracterización de los productos finitos de Blaschke}
 
-% Consideramos el producto de Blaschke $B(z) = \gamma \prod_{k=1}^n \tau_{z_k}(z)$ de grado $n$. Entonces, $B \in \mathcal{H} \left(\mathbb{D} \right)$ ya que el denominador no se anula en $\mathbb{D}$ por la desigualdad triangular inversa:
-% \[
-% \abs{1 - \overline{z_k} z} \geq 1 - \abs{z_k} \abs{z} \geq 1 - \abs{z_k} > 0. 
-% \]
-% \begin{enumerate}
-%     \item $B \colon \mathbb{D} \to \mathbb{D}$ holomorfa.
-%     \item $B \in \mathcal{C} \left(\mathbb{D} \right)$.
-%     \item $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$.
-%     \item $B$ tiene $n$ ceros en $\mathbb{D}$ (contando multiplicidades).
-% \end{enumerate}
-
-% Además, toda función que cumple estas cuatro propiedades es un producto finito de Blaschke de grado $n$
-
 \begin{defn}\label{defn:fn-holomorfa-dentro-camino}
-    Diremos que una función $f$ es holomorfa dentro de un \exhyperref[defn:camino]{camino}{camino} \exhyperref[defn:curva-cerrada]{curva-cerrada}{cerrado} $\Gamma$ si y solo si existe un abierto $\Omega$ \exhyperref[defn:conexion-simple]{conexion-simple}{simplemente conexo} tal que $\Gamma \subset \Omega$ y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\Omega\right)$.
+    Diremos que una función $f$ es holomorfa dentro de un \exhyperref[defn:camino]{camino}{camino} \exhyperref[defn:curva-cerrada]{curva-cerrada}{cerrado} $\Gamma$ si y sólo si existe un abierto $\Omega$ \exhyperref[defn:conexion-simple]{conexion-simple}{simplemente conexo} tal que $\Gamma \subset \Omega$ y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\Omega\right)$.
 \end{defn}
 
 \begin{defn}\label{defn:numero-ceros-fn-holomorfa-camino}
@@ -71,10 +50,10 @@
 Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguiente caracterización de los productos finitos de Blaschke:
 
 \begin{teo}\label{teo:carac-prod-finito-blaschke}
-    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\mathbb{D}\right) \cap \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}} \left(\bar{\mathbb{D}}\right)$ tal que $\forall \zeta \in \mathbb{T} : \abs{f(\zeta)} = 1$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T})$.% igual al número de ceros de $f$ en $\mathbb{D}$ (contando multiplicidades).
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\mathbb{D}\right) \cap \exhyperref[defn:continuidad]{continuidad}{\mathcal{C}} \left(\bar{\mathbb{D}}\right)$ tal que $\forall \zeta \in \mathbb{T} : \abs{f(\zeta)} = 1$. Entonces, $f$ es un \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T})$.
 \end{teo}
 \begin{dem}
-    Si $f$ tuviese un número infinito de ceros en $\mathbb{D}$, como $\bar{\mathbb{D}}$ es compacto, existiría una sucesion de ceros de $f$ que converge a un punto $z_0 \in \bar{\mathbb{D}}$. Si $z_0 \in \mathbb{D}$, por el \exhyperref[teo:ceros-aislados]{teo-ceros-aislados}{principio de los ceros aislados}, $f \equiv 0$ en $\mathbb{D}$ y, por continuidad, $f \equiv 0$ en $\bar{\mathbb{D}}$. Si $z_0 \in \mathbb{T}$, por continuidad, $f(z_0)=0$. En cualquier caso, llegaríamos a una contradicción con $\abs{f(\zeta)} = 1$ para todo $\zeta \in \mathbb{T}$. Por tanto, $f$ tiene un número finito de ceros en $\mathbb{D}$, digamos $\left(z_k\right)_{k=1}^n \subset \mathbb{D}$ repetidos con multiplicidad. Consideramos $B = \prod_{k=1}^n \tau_{z_k} \in \mathscr{B}_n$.
+    Si $f$ tuviese un número infinito de ceros en $\mathbb{D}$, como $\bar{\mathbb{D}}$ es compacto, existiría una sucesión de ceros de $f$ que converge a un punto $z_0 \in \bar{\mathbb{D}}$. Si $z_0 \in \mathbb{D}$, por el \exhyperref[teo:ceros-aislados]{teo-ceros-aislados}{principio de los ceros aislados}, $f \equiv 0$ en $\mathbb{D}$ y, por continuidad, $f \equiv 0$ en $\bar{\mathbb{D}}$. Si $z_0 \in \mathbb{T}$, por continuidad, $f(z_0)=0$. En cualquier caso, llegaríamos a una contradicción con $\abs{f(\zeta)} = 1$ para todo $\zeta \in \mathbb{T}$. Por tanto, $f$ tiene un número finito de ceros en $\mathbb{D}$, digamos $\left(z_k\right)_{k=1}^n \subset \mathbb{D}$ repetidos con multiplicidad. Consideramos $B = \prod_{k=1}^n \tau_{z_k} \in \mathscr{B}_n$.
 
     Entonces, la función $g = \sfrac{f}{B}$ es holomorfa en $\mathbb{D} \setminus \left\{z_k\right\}_{k=1}^n$ y, como los ceros de $B$ (y sus \exhyperref[defn:orden-cero-fn-holomorfa]{orden-cero-fn-holomorfa}{órdenes}) coinciden con los de $f$, las singularidades de $g$ en $\left\{z_k\right\}_{k=1}^n$ son \exhyperref[defn:singularidad-evitable]{singularidad-evitable}{evitables}, dando lugar a una función holomorfa en $\mathbb{D}$ (\excref[teo:singularidad-evitable-riemann]{teo-singularidad-evitable-riemann}) que no se anula en $\mathbb{D}$.
 
@@ -179,7 +158,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 % \end{dem}
 
 
-\begin{defn}[Derivada logarítmica]\label{defn:derivada-logaritmica}%REVISAR y ORDENAR
+\begin{defn}[Derivada logarítmica]\label{defn:derivada-logaritmica}
     Sea $f$ una función meromorfa en un abierto $\Omega \subset \C$. La derivada logarítmica de $f$ es la función $\mathcal{D} f \colon \Omega \setminus \{z : f(z) = 0\} \to \C$ definida por
     \[
     \mathcal{D} f (z) \defeq \frac{f'(z)}{f(z)}.
@@ -239,33 +218,11 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     Como $\psi = \arg B\left(e^{it}\right)$ (salvo suma de una constante $2\pi m$), concluimos la igualdad del enunciado.\hfill\qedsymbol
 \end{dem}
 
+\begin{obs}\label{obs:n-valencia-prod-finito-blaschke-toro-exterior}
+    La \exhyperref[defn:valencia-fn-holomorfa]{defn-valencia-fn-holomorfa}{definición de $n$-valencia} dada al comienzo de esta sección, se aplica a funciones holomorfas en abiertos. Si queremos usar el mismo lenguaje para funciones meromorfas y conjuntos arbitrarios, podemos extenderla asi: sea $E \subset \widehat{\mathbb{C}}$ y sea $f$ meromorfa en un entorno abierto de $E$. Diremos que $f$ es $n$-valente en $E$ si y solo si, para cada $w \in f(E)$, la ecuación $f(z)=w$ tiene exactamente $n$ soluciones en $E$, contadas con multiplicidad. Para $w \in \mathbb{C}$, la multiplicidad de una solución $z_0 \in E$ es $\operatorname{ord}(f-w,z_0)$; para $w=\infty$, la multiplicidad de un polo $z_0 \in E$ es $\operatorname{ord}(1/f,z_0)$.
 
-
-%REVISAR: estos corolarios son de cosecha propia.
-\begin{cor}\label{cor:n-valencia-prod-finito-blaschke-disco-exterior}
-    Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n$ es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$.
-\end{cor}
-\begin{dem}
-    Sea $w \in \widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$. Por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur},
-    \[
-    B(z) = w \iff B\left(\sfrac{1}{\bar{z}}\right) = \sfrac{1}{\bar{w}}.
-    \]
-    Como $\abs{w} > 1$, se tiene $\sfrac{1}{\bar{w}} \in \mathbb{D}$, y por el \excref[teo:n-valencia-prod-finito-blaschke-disco-unidad]{teo-n-valencia-prod-finito-blaschke-disco-unidad} la ecuación $B(\zeta) = \sfrac{1}{\bar{w}}$ tiene exactamente $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).
-
-    Ahora, $\Phi(z) = \sfrac{1}{\bar{z}}$ es una biyección de $\mathbb{D}$ sobre $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ y, por la equivalencia anterior, induce una correspondencia biyectiva entre las soluciones de $B(\zeta) = \sfrac{1}{\bar{w}}$ en $\mathbb{D}$ y las de $B(z)=w$ en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$. Luego $B(z)=w$ tiene exactamente $n$ soluciones en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ (contando multiplicidades).\hfill\qedsymbol
-\end{dem}
-
-%REVISAR: de cosecha propia.
-% \begin{cor}\label{cor:n-valencia-prod-finito-blaschke-circunferencia}
-%     Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke} de grado $n$ es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\mathbb{T}$.
-% \end{cor}
-% \begin{dem}
-%     Sea $\gamma \in \mathbb{T}$. Como $B$ es racional de grado $n$, la ecuación $B(z)=\gamma$ tiene exactamente $n$ soluciones en $\widehat{\mathbb{C}}$ (contando multiplicidades).
-
-%     Por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur}, si $z \in \mathbb{D}$ entonces $\abs{B(z)}<1$, y si $z \in \widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$ entonces $\abs{B(z)}>1$. Luego, para $\gamma \in \mathbb{T}$, no hay soluciones de $B(z)=\gamma$ ni en $\mathbb{D}$ ni en $\widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$.
-
-%     En consecuencia, las $n$ soluciones de $B(z)=\gamma$ pertenecen a $\mathbb{T}$, es decir, $B$ es $n$-valente en $\mathbb{T}$.\hfill\qedsymbol
-% \end{dem}
+    Con esta extension, todo $B \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ es $n$-valente tanto en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$ como en $\mathbb{T}$. En el exterior del disco, para cada $w$ con $\abs{w}>1$, la ecuacion $B(z)=w$ tiene exactamente $n$ soluciones en $\widehat{\mathbb{C}} \setminus \bar{\mathbb{D}}$, contando multiplicidades. En la circunferencia, para cada $\gamma \in \mathbb{T}$, la ecuacion $B(z)=\gamma$ tiene exactamente $n$ soluciones en $\mathbb{T}$, todas simples.
+\end{obs}
 
 \section{Productos de Blaschke como funciones racionales}
 
@@ -405,7 +362,7 @@ Por ejemplo, $\mathscr{B} \subset \mathscr{A}(\mathbb{D})$. De hecho, cualquier 
 
     Para estudiar el límite en $1$, escribimos $z = re^{it}$ con $0 \leq r < 1$. Si $z \to 1$ dentro de $\bar{\mathbb{D}}$, entonces $r \to 1$ y $t \to 0$ (módulo $2\pi$). Como
     \[
-    \abs{1-z}^2 = \abs{1-re^{it}}^2 = 1+r^2-2r\cos t \longrightarrow 0,
+    \abs{1-z}^2 = \abs{1-re^{it}}^2 = 1+r^2-2r\cos t \to 0,
     \]
     tenemos que $\abs{\sqrt{1-z}} = \sqrt{\abs{1-z}} \to 0$. Definiendo $f(1)=0$, obtenemos una extensión continua a $\bar{\mathbb{D}}$, es decir, $f \in \mathscr{A}(\mathbb{D})$.
 \end{ejem}
@@ -442,7 +399,7 @@ El siguiente resultado nos permitirá caracterizar los productos finitos de Blas
 \end{dem}
 
 \begin{cor}\label{cor:carac-cociente-prod-finito-blaschke-algebra-disco-meromorfa}
-    Sea $f$ una \exhyperref[defn:fn-meromorfa]{fn-meromorfa}{función meromorfa} en $\mathbb{D}$ tal que $f \in \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}} \left(\bar{\mathbb{D}}\right)$ y $f(\mathbb{T}) \subseteq \mathbb{T}$. Entonces, $f$ es el cociente de dos \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
+    Sea $f$ una \exhyperref[defn:fn-meromorfa]{fn-meromorfa}{función meromorfa} en $\mathbb{D}$ tal que $f \in \exhyperref[defn:continuidad]{continuidad}{\mathcal{C}} \left(\bar{\mathbb{D}}\right)$ y $f(\mathbb{T}) \subseteq \mathbb{T}$. Entonces, $f$ es el cociente de dos \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke}.
 \end{cor}
 \begin{dem}
     Como $f$ es continua en el compacto $\bar{\mathbb{D}}$, $f$ tiene un número finito de polos en $\mathbb{D}$. Sea $B_1$ un producto finito de Blaschke cuyos ceros coinciden con los polos de $f$ (contando multiplicidades). Entonces, $B_2 \defeq B_1 f$ es holomorfa en $\mathbb{D}$ y se extiende de forma continua a $\bar{\mathbb{D}}$. Además, $\forall \zeta \in \mathbb{T} : \abs{B_2(\zeta)} = \abs{B_1(\zeta) f(\zeta)} = 1$. Por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-carac-prod-finito-blaschke-algebra-disco}, $B_2$ es un producto finito de Blaschke. Por tanto, $f = \sfrac{B_2}{B_1}$ es el cociente de dos productos finitos de Blaschke.\hfill\qedsymbol
@@ -480,7 +437,7 @@ Podemos concluir este capítulo con una caracterización de los productos finito
 \begin{teo}%[]\label{teo:}
     Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$ una \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{función $n$-valente} en $\mathbb{D}$. Entonces, $f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$.
 \end{teo}
-\begin{dem}%REVISAR esta DEMOSTRACIÓN
+\begin{dem}
     Por el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco}, basta ver que $\lim_{\abs{z} \to 1^-} \abs{f(z)} = 1$. Suponemos por contradicción que $\exists \left(z_m\right)_{m\in \N} \subset \mathbb{D}$ tal que $\abs{z_m} \to 1 \we \neg \left(\abs{f(z_m)} \to 1\right)$. Entonces, existe $r \in (0, 1)$ y una subsucesión $\left(z_{m_j}\right)_{j \in \N}$ tal que $\forall j \in \N : \abs{f(z_{m_j})} \leq r$. Como $\left\{z \in \mathbb{D} : \abs{z} \leq r\right\}$ es compacto, $\exists \big(z_{m_{j_k}}\big)_{k \in \N}$ subsucesión de $\left(z_{m_j}\right)_{j \in \N}$ y $w_0 \in \mathbb{D}$ tales que $f(z_{m_{j_k}}) \xrightarrow{k \to \infty} w_0$. La denotaremos por $\left(z_k\right)_{k \in \N}$.
 
     Sin pérdida de generalidad, podemos suponer que $w_0 = 0$. En caso contrario, tomamos $g \defeq \tau_{w_0} \circ f$. Entonces, $g \in \mathscr{S}$, $g$ es $n$-valente en $\mathbb{D}$, $g(z_k) \xrightarrow{k \to \infty} 0$ y, si $g \in \mathscr{B}$, entonces $f = \tau_{w_0}^{-1} \circ g \in \mathscr{B}$ por el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion}.
@@ -489,7 +446,7 @@ Podemos concluir este capítulo con una caracterización de los productos finito
     \[
     \forall \ell \in \N_s : \exists g_\ell \in \mathcal{H}\left(\mathbb{D}\right) : \forall z \in D(a_\ell, \varepsilon_\ell) : \bigl(g_\ell(z) \neq 0 \we f(z) = (z - a_\ell)^{m_\ell} g_\ell(z)\bigr).
     \]
-    Sin pérdida de generalidad, podemos suponer que las bolas $D(a_\ell, \varepsilon_\ell)$ son disjuntas dos a dos y están contenidas en $\mathbb{D}$ (reduciendo $\varepsilon_\ell$ en caso de que fuese necesario).
+    Sin pérdida de generalidad, podemos suponer que los discos $D(a_\ell, \varepsilon_\ell)$ son disjuntos dos a dos y están contenidos en $\mathbb{D}$ (reduciendo $\varepsilon_\ell$ en caso de que fuese necesario).
     
     Como $D(a_\ell, \varepsilon_\ell)$ es simplemente conexo y $g_\ell$ no se anula en él, existe $h_\ell \in \mathcal{H}\left(D(a_\ell, \varepsilon_\ell)\right)$ tal que $h_\ell^{m_\ell} = g_\ell$. Definimos $\phi_\ell(z) \defeq \left(z - a_\ell\right) h_\ell(z)$ para $z \in D(a_\ell, \varepsilon_\ell)$. Entonces, $\forall z \in D(a_\ell, \varepsilon_\ell) : f(z) = \phi_\ell(z)^{m_\ell}$ y, como $\phi_\ell'(a_\ell) = h_\ell(a_\ell) \neq 0$, por el \exhyperref[teo:fn-inversa-holomorfas]{teo-fn-inversa-holomorfas}{teorema de la función inversa}, $\phi_\ell$ es \exhyperref[defn:inyectividad-local]{inyectividad-local}{localmente inyectiva} en $a_\ell$.
     Reduciendo de nuevo $\varepsilon_\ell$ si es necesario, podemos suponer que $\phi_\ell$ es inyectiva en $D(a_\ell, \varepsilon_\ell)$. Entonces, por el \exhyperref[teo:apl-abierta-compleja]{teo-apl-abierta-compleja}{teorema de la aplicación abierta}, $\phi_\ell\left(D(a_\ell, \varepsilon_\ell)\right)$ es abierto, luego $E \defeq \bigcap_{\ell=1}^s \phi_\ell\left(D(a_\ell, \varepsilon_\ell)\right)$ es abierto. Además, como $\phi_\ell(a_\ell) = 0$ para todo $\ell \in \N_s$, tenemos que $0 \in E$.
@@ -509,131 +466,3 @@ Podemos concluir este capítulo con una caracterización de los productos finito
     Como los abiertos $V_\ell$ son disjuntos dos a dos, estas soluciones son distintas y suman $m_1 + \dots + m_s = n$. Además, $f(z_{k_0+k}) = w_k$ y $z_{k_0+k} \notin \bigcup_{\ell=1}^s V_\ell$, así que obtenemos una solución adicional.
     Por tanto, la ecuación $f(z) = w_k$ tiene al menos $n + 1$ soluciones. Contradicción. \hfill\qedsymbol
 \end{dem}
-
-% \section{Productos finitos de Blaschke en $\mathbb{H}$}
-
-% {\color{red} Está sección no sé si incluirla.}
-
-%REVISAR: lo ha escrito la chati
-
-% Consideramos la transformación de Möbius $\varphi \colon \mathbb{H} \to \mathbb{D}$ dada por 
-% \[
-% \forall z \in \mathbb{H} : \varphi(z) = \frac{z - i}{z + i}.
-% \]
-% Entonces, esta transformación es una biyección holomorfa de $\mathbb{H}$ sobre $\mathbb{D}$ con inversa también holomorfa dada por
-% \[
-% \forall w \in \mathbb{D} : \varphi^{-1}(w) = i \, \frac{1 + w}{1 - w}.
-% \]
-
-% Entonces, podemos aplicar el \excref[teo:formula-aut-disco-unidad]{teo-formula-aut-disco-unidad} para caracterizar los automorfismos de $\mathbb{H}$ componendo $\tau_w$ y $\rho_\gamma$ con $\varphi$ y $\varphi^{-1}$:
-
-% \textbf{Análogo de $\rho_\gamma$ en $\mathbb{H}$:} Para $\gamma \in \mathbb{T}$, definimos
-% \[
-% \forall z \in \mathbb{H} : \rho_\gamma^{\mathbb{H}}(z) = \varphi^{-1} \circ \rho_\gamma \circ \varphi(z) = i \, \frac{1 + \gamma \, \frac{z-i}{z+i}}{1 - \gamma \, \frac{z-i}{z+i}} = i \, \frac{(z+i) + \gamma(z-i)}{(z+i) - \gamma(z-i)} = i \, \frac{(1+\gamma)z + i(1-\gamma)}{(1-\gamma)z + i(1+\gamma)}.
-% \]
-
-% \textbf{Análogo de $\tau_w$ en $\mathbb{H}$:} Para $w \in \mathbb{D}$, sea $a = \varphi^{-1}(w) = i\frac{1+w}{1-w} \in \mathbb{H}$. Entonces
-% \[
-% \forall z \in \mathbb{H} : \tau_a^{\mathbb{H}}(z) = \varphi^{-1} \circ \tau_w \circ \varphi(z) = \frac{z - a}{z - \bar{a}}.
-% \]
-% Geométricamente, como $a \in \mathbb{H}$ y $\bar{a}$ está en el semiplano inferior, $\tau_a^{\mathbb{H}}$ es una transformación de Möbius que envía $a \mapsto \infty$ y $\infty \mapsto a$. Es un automorfismo involutivo de $\mathbb{H}$ ($\tau_a^{\mathbb{H}} \circ \tau_a^{\mathbb{H}} = \text{id}$) que corresponde a una inversión respecto a la semicircunferencia ortogonal al eje real que pasa por $a$ y $\bar{a}$.
-
-% \textbf{Interpretación geométrica de $\rho_\gamma^{\mathbb{H}}$:} La función $\rho_\gamma^{\mathbb{H}}$ traslada al semiplano superior las rotaciones del disco unidad. Algunos casos particulares:
-% \begin{itemize}
-%     \item $\gamma = 1$: $\rho_1^{\mathbb{H}}(z) = z$ (identidad).
-%     \item $\gamma = -1$: $\rho_{-1}^{\mathbb{H}}(z) = -\frac{1}{z}$ (inversión que envía $z \mapsto -\sfrac{1}{z}$).
-%     \item $\gamma = e^{i\theta}$: transformación que corresponde a la rotación por ángulo $\theta$ en $\mathbb{D}$.
-% \end{itemize}
-
-% \textbf{Caso general:} Para $w \in \mathbb{D}$ y $\gamma \in \mathbb{T}$, como la conjugación preserva composiciones, tenemos
-% \[
-% \varphi^{-1} \circ \rho_\gamma \circ \tau_w \circ \varphi = \left(\varphi^{-1} \circ \rho_\gamma \circ \varphi\right) \circ \left(\varphi^{-1} \circ \tau_w \circ \varphi\right) = \rho_\gamma^{\mathbb{H}} \circ \tau_a^{\mathbb{H}},
-% \]
-% donde $a = \varphi^{-1}(w) \in \mathbb{H}$. Desarrollando el cálculo explícitamente:
-% \[
-% \begin{aligned}
-%     \forall z \in \mathbb{H} : \psi(z) &= \varphi^{-1} \circ \rho_\gamma \circ \tau_w \circ \varphi(z) \\
-%     &= i \, \frac{1 + \gamma \, \frac{\varphi(z) - w}{1 - \bar{w} \, \varphi(z)}}{1 - \gamma \, \frac{\varphi(z) - w}{1 - \bar{w} \, \varphi(z)}} = i \, \frac{(1 - \bar{w} \, \varphi(z)) + \gamma (\varphi(z) - w)}{(1 - \bar{w} \, \varphi(z)) - \gamma (\varphi(z) - w)} \\
-%     &= i \, \frac{1 - \bar{w} \, \frac{z - i}{z + i} + \gamma \left(\frac{z - i}{z + i} - w\right)}{1 - \bar{w} \,\frac{z - i}{z + i} - \gamma \left(\frac{z - i}{z + i} - w\right)} = i \, \frac{(z + i) - \bar{w} (z - i) + \gamma \left((z - i) - w (z + i)\right)}{(z + i) - \bar{w} (z - i) - \gamma \left((z - i) - w (z + i)\right)} \\
-%     &= i \, \frac{\left(1 - \bar{w} + \gamma (1 - w)\right) z + i \left(1 + \bar{w} - \gamma (1 + w)\right)}{\left(1 - \bar{w} - \gamma (1 - w)\right) z + i \left(1 + \bar{w} + \gamma (1 + w)\right)}.
-% \end{aligned}
-% \]
-
-% \begin{obs}[Generadores geométricos de $\mathrm{Aut}(\mathbb{H})$]
-%     Los automorfismos de $\mathbb{H}$ admiten una descripción geométrica más directa. Todo $f \in \mathrm{Aut}(\mathbb{H})$ es una transformación de Möbius de la forma
-%     \[
-%     f(z) = \frac{az + b}{cz + d}, \quad \text{donde } a, b, c, d \in \mathbb{R} \text{ y } ad - bc > 0.
-%     \]
-    
-%     Un conjunto de generadores geométricamente más intuitivos es:
-%     \begin{enumerate}
-%         \item \textbf{Traslaciones horizontales:} $T_b(z) = z + b$ para $b \in \mathbb{R}$ (desplazamiento paralelo al eje real).
-%         \item \textbf{Dilataciones:} $D_\lambda(z) = \lambda z$ para $\lambda > 0$ (escalado desde el origen que preserva $\mathbb{H}$).
-%         \item \textbf{Inversión:} $J(z) = -\frac{1}{z}$ (inversión respecto al semicírculo unitario en $\mathbb{H}$).
-%     \end{enumerate}
-    
-%     De hecho, las traslaciones $T_b$ junto con la inversión $J$ ya generan todos los automorfismos de $\mathbb{H}$, pues las dilataciones se obtienen como $D_\lambda = J \circ T_{1-\lambda} \circ J \circ T_{1-\lambda}$ (para $\lambda \neq 1$).
-    
-%     Esta presentación es más natural geométricamente que la obtenida por conjugación desde $\mathbb{D}$, aunque ambas describen el mismo grupo $\mathrm{Aut}(\mathbb{H}) \cong \mathrm{PSL}(2, \mathbb{R})$.
-% \end{obs}
-
-% Para motivar la definición de productos finitos de Blaschke en $\mathbb{H}$, observamos primero una propiedad crucial de los factores individuales:
-
-% \begin{lem}\label{lem:factor-blaschke-semiplano-modulo-uno}
-%     Sea $a \in \mathbb{H}$. Entonces, $\forall x \in \mathbb{R} : \left|\frac{x - a}{x - \bar{a}}\right| = 1$.
-% \end{lem}
-% \begin{dem}
-%     Para $a \in \mathbb{H}$ y $x \in \mathbb{R}$, tenemos que $\bar{a}$ está en el semiplano inferior. Por tanto,
-%     \[
-%     |x - a| = |x - \Re a - i \Im a| = \sqrt{(x - \Re a)^2 + (\Im a)^2}
-%     \]
-%     y
-%     \[
-%     |x - \bar{a}| = |x - \Re a + i \Im a| = \sqrt{(x - \Re a)^2 + (\Im a)^2}.
-%     \]
-%     Por lo tanto, $|x - a| = |x - \bar{a}|$, y concluimos que
-%     \[
-%     \left|\frac{x - a}{x - \bar{a}}\right| = \frac{|x - a|}{|x - \bar{a}|} = 1.
-%     \]
-    
-%     \vspace{-\baselineskip}
-% \end{dem}
-
-% Este lema muestra que cada factor $\frac{z - a}{z - \bar{a}}$ es el análogo natural en $\mathbb{H}$ del factor de Blaschke $\frac{z - z_k}{1 - \bar{z_k}z}$ en $\mathbb{D}$: ambos tienen módulo uno en sus respectivas fronteras.
-
-% \begin{defn}[Producto finito de Blaschke en $\mathbb{H}$]\label{defn:producto-finito-blaschke-semiplano}
-%     Sea $n \in \N$. Un \textbf{producto finito de Blaschke en $\mathbb{H}$} de grado $n$ es una función de la forma
-%     \[
-%     B^{\mathbb{H}}(z) = \gamma \prod_{k=1}^n \frac{z - a_k}{z - \bar{a_k}}
-%     \]
-%     donde $\left\{a_k\right\}_{k=1}^n \subset \mathbb{H}$ y $\gamma \in \mathbb{T}$.
-    
-%     Si $\gamma = 1$, decimos que $B^{\mathbb{H}}$ es \textbf{mónico}.
-% \end{defn}
-
-% \begin{obs}[Justificación de la definición]\mbox{}
-%     \begin{enumerate}
-%         \item \textbf{Módulo uno en la frontera:} Por el lema anterior, cada factor satisface $\left|\frac{x - a_k}{x - \bar{a_k}}\right| = 1$ para $x \in \mathbb{R}$. Por tanto,
-%         \[
-%         \forall x \in \mathbb{R} : \left|B^{\mathbb{H}}(x)\right| = |\gamma| \prod_{k=1}^n \left|\frac{x - a_k}{x - \bar{a_k}}\right| = 1 \cdot 1 = 1.
-%         \]
-%         Esto es análogo a la propiedad fundamental $|B(\zeta)| = 1$ para $\zeta \in \mathbb{T}$ en el disco.
-        
-%         \item \textbf{Por qué $\gamma \in \mathbb{T}$ y no $\gamma \in \mathbb{R}$:} Si tomáramos $\gamma \in \mathbb{R}$, tendríamos $|B^{\mathbb{H}}(x)| = |\gamma|$, que solo sería $1$ si $\gamma = \pm 1$. La condición $\gamma \in \mathbb{T}$ garantiza $|B^{\mathbb{H}}(x)| = 1$ para todo $x \in \mathbb{R}$, preservando la analogía exacta con $\mathbb{D}$.
-        
-%         \item \textbf{Relación con $\mathbb{D}$ por conjugación:} Si $B(z) = \gamma \prod_{k=1}^n \frac{z - z_k}{1 - \bar{z_k}z}$ es un producto de Blaschke en $\mathbb{D}$ con $z_k \in \mathbb{D}$ y definimos $a_k = \varphi^{-1}(z_k) \in \mathbb{H}$, entonces
-%         \[
-%         B^{\mathbb{H}} = \varphi^{-1} \circ B \circ \varphi
-%         \]
-%         donde $\varphi(z) = \frac{z-i}{z+i}$ es la transformación de Cayley. La constante $\gamma \in \mathbb{T}$ se preserva bajo esta conjugación.
-        
-%         \item \textbf{Propiedades análogas:}
-%         \begin{itemize}
-%             \item $B^{\mathbb{H}} \in \mathcal{H}(\mathbb{H})$ (holomorfa en $\mathbb{H}$).
-%             \item $B^{\mathbb{H}}$ mapea $\mathbb{R} \cup \{\infty\} \to \mathbb{R} \cup \{\infty\}$ (análogo a $\mathbb{T} \to \mathbb{T}$).
-%             \item $B^{\mathbb{H}}$ tiene $n$ ceros en $\mathbb{H}$ y $n$ polos en el semiplano inferior $\mathbb{H}^-$ (análogo a ceros en $\mathbb{D}$ y polos en $\widehat{\mathbb{C}}    \setminus \bar{\mathbb{D}}$).
-%         \end{itemize}
-%     \end{enumerate}
-% \end{obs}
-
-% teorema de pick-nevalina ??

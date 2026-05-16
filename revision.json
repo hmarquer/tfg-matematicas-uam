@@ -1,0 +1,11 @@
+{
+  "status": "revisado — con observaciones",
+  "comments": [
+    {"cat": "MAT", "line": 334, "desc": "En la demostración ($\\Rightarrow$), la igualdad intermedia $z^n \\bar{P(1/\\bar{z})} = z^n \\cdot e^{-t_0i/2} \\cdot \\prod \\bar{(z_k - 1/\\bar{z})}$ omite el factor $\\overline{(-1)^n}=(-1)^n$ que procede de conjugar el coeficiente $(-1)^n$ en $P(z)$. La cadena algebraica, tal como está escrita, es incorrecta, aunque el resultado final es correcto porque los dos factores $(-1)^n$ acaban cancelándose.", "correction": "Incluir $(-1)^n$ en la expresión intermedia: $z^n \\bar{P(1/\\bar{z})} = z^n \\cdot (-1)^n \\cdot e^{-t_0i/2} \\cdot \\prod \\bar{(z_k - 1/\\bar{z})}$."},
+    {"cat": "MAT", "line": 345, "desc": "Mismo error que en la línea 334: en la demostración ($\\Leftarrow$), la expresión $z^n \\, \\bar{\\alpha_n} \\prod \\bar{(z_k - 1/\\bar{z})}$ omite el factor $(-1)^n$ que proviene de $\\overline{(-1)^n}$ al conjugar $P(1/\\bar{z})$.", "correction": "Incluir $(-1)^n$: $z^n \\cdot (-1)^n \\, \\bar{\\alpha_n} \\prod \\bar{(z_k - 1/\\bar{z})}$."},
+    {"cat": "MAT", "line": 367, "desc": "En la demostración ($\\Rightarrow$) del corolario, se iguala $n_1 + n_2 = n$ (es decir, $\\deg B_1 + \\deg B_2 = \\deg f$) sin justificación. No es obvio que $\\deg(B_1/B_2) = \\deg B_1 + \\deg B_2$, pues puede haber cancelaciones si $B_1$ y $B_2$ comparten factores de Blaschke. Esta igualdad es necesaria para concluir $\\deg P = n$ y para que $\\#_{n_1+n_2} = \\#_n$ en la línea 369.", "correction": "Justificar que se pueden tomar $B_1$ y $B_2$ sin factores comunes (cancelándolos previamente), o argumentar directamente que $\\deg(B_1/B_2) = \\deg B_1 + \\deg B_2$ cuando $f = B_1/B_2$ está en forma reducida."},
+    {"cat": "RED", "line": 352, "desc": "Comentario 'ORDENAR: me ha dicho Dragan que es muy prescindible' que debe eliminarse antes de la publicación.", "correction": "Eliminar la línea comentada."},
+    {"cat": "RED", "line": 372, "desc": "Código comentado (argumento sobre grados) correspondiente a una versión anterior de la demostración.", "correction": "Eliminar el bloque comentado (líneas 372–377)."},
+    {"cat": "RED", "line": 386, "desc": "Código comentado sobrante al final de la demostración.", "correction": "Eliminar la línea comentada."}
+  ]
+}

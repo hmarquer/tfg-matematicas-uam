@@ -4,39 +4,120 @@
 
 \subsection{Derivada compleja}
 
-\transclude{fn-compleja-derivable-pnt}
+\begin{defn}\label{defn:fn-compleja-derivable-pnt}
+    Sea $\Omega \subset \C$ un abierto, $f \colon \Omega \to \C$ es $\C$-derivable en $z_0\in\Omega$
+    \[
+        \iff \exists \exhyperref[defn:limite-metrico-fn]{limite-fn}{\lim}_{h\to 0} \frac{f(z_0+h)-f(z_0)}{h} \eqdef f'(z_0).
+    \]
+\end{defn}
 
-\transclude{fn-holomorfa}
+\begin{defn}[Función holomorfa]\label{defn:fn-holomorfa}
+    Sea $\Omega$ un abierto de \exhyperref[defn:num-complejos]{num-complejos}{$\C$}, $f \colon \Omega \to \C$ es holomorfa (escrito $f \in \mathcal{H}(\Omega)$) $\iff \forall z_0\in\Omega : f \tex{ es \exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{$\C$-derivable en $z_0$}}$.
+\end{defn}
 
-\transclude{fn-holomorfa-pnt}
+\begin{defn}[Función holomorfa en un punto]\label{defn:fn-holomorfa-pnt}
+    Sea $\Omega$ un abierto de $\C$, $f \colon \Omega \to \C$ es holomorfa en $z_0\in\Omega\iff \exists r> 0 : f\big|_{D(x_0, r)} \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(D(x_0, r))$.
+\end{defn}
 
-\transclude{fn-entera}
+\begin{defn}[Función entera]\label{defn:fn-entera}
+    Sea $\appl{f}{\C}{\C}$ una función, $f$ es entera
+    \[\iff f\tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en todo } \C \iff f \in \mathcal{H}(\C).\]
+\end{defn}
 
-\transclude{prop-fn-compleja-derivable}%DEMOSTRACIÓN
+\begin{prop}[Propiedades de la $\C$-derivabilidad]\label{prop:fn-compleja-derivable}\mbox{}\\
+    Sean $f, g \colon \C \to \C$ dos funciones, entonces:
+    \begin{enumerate}
+        \item Si $f$ es \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivable en $z_0\in \C$}, entonces $f$ es \exhyperref[defn:continuidad-pnt]{Continuidad}{continua en $z_0$}.
+        \item Si $f$ y $g$ son \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivables en $z_0\in \C$}, entonces $f\pm g, f\cdot g, \sfrac{f}{g}$ $\left(g(z_0)\neq 0\right)$ son \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivables en $z_0$} con las siguientes fórmulas para sus derivadas:
+        \begin{enumerate}[label=\textnormal{(\alph*)}]
+            \item $\left(f\pm g\right)'(z_0) = f'(z_0) \pm g'(z_0)$.
+            \item $\left(f\cdot g\right)'(z_0) = f'(z_0)g(z_0) + f(z_0)g'(z_0)$.
+            \item $\ds \left(\sfrac{f}{g}\right)'(z_0) = \frac{f'(z_0)g(z_0) - f(z_0)g'(z_0)}{g^2(z_0)}$.
+        \end{enumerate}
+        \item Regla de la cadena: Si $f$ es \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivable en $z_0\in \C$} y $g$ es \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivable en $f(z_0)$}, entonces $g\circ f$ es \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivable en $z_0$} y $\left(g\circ f\right)'(z_0) = g'\left(f(z_0)\right)f'(z_0)$.
+    \end{enumerate}
+\end{prop}%DEMOSTRACIÓN%DEMOSTRACIÓN
 
 \subsection{Ecuaciones de Cauchy-Riemann}
 
-\transclude[teo]{teo-cauchy-riemann}
+\begin{defn}[Dominio]\label{defn:dominio}
+    Sea $\left(X, \T\right)$ un \exhyperref[defn:topologia]{topologia}{espacio topológico},
+    \[D \subset X \tex{ es un dominio en }X \iff D \tex{ es abierto ($D \in \T$) y \exhyperref[defn:conexion]{conexion}{conexo}}.\]
+\end{defn}
 
-\transclude[prop]{prop-consecuencias-cauchy-riemann}
+\begin{teo}[de Cauchy-Riemann]\label{teo:cauchy-riemann}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} y $f \colon \Omega \to \C$, definimos $u, v \colon \Omega \subset \R^2 \to \R$ dados por $u(x, y) = \Re \left(f(x + iy)\right)$ y $v(x, y) = \Im \left(f(x + iy)\right)$, entonces $f$ es \exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{$\C$-derivable} en $z_0 = x_0 + iy_0 \in \C \iff$
+    \begin{enumerate}
+        \item $u, v$ son \exhyperref[defn:fn-diferenciable]{fn-diferenciable}{$\R$-diferenciables} en $(x_0, y_0)$.
+        \item Se cumplen las ecuaciones de Cauchy-Riemann en $(x_0, y_0)$:
+        \begin{equation}\label{eq-cauchy-riemann}
+            \pdv{u}{x}(x_0, y_0) = \pdv{v}{y}(x_0, y_0) \we \pdv{u}{y}(x_0, y_0) = -\pdv{v}{x}(x_0, y_0).
+        \end{equation}
+    \end{enumerate}
+\end{teo}
+
+\begin{prop}[Consecuencias de las ecuaciones de Cauchy-Riemann]\label{prop:consecuencias-cauchy-riemann}\mbox{}\\
+    Sea $\Omega$ un \exhyperref[defn:dominio]{dominio}{dominio} en $\C$ y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$, entonces
+    \begin{enumerate}[label=\textnormal{(\arabic*)}]
+        \item $\forall z \in \Omega : f'(z) = 0 \implies f$ es constante en $\Omega$.
+        \item $\forall z \in \Omega : \big(\Re \left(f(z)\right) = \textnormal{cte}\big) \ve \big(\Im \left(f(z)\right)= \textnormal{cte}\big) \implies f$ es constante en $\Omega$. 
+        \item $\abs{f(z)}$ es constante en $\Omega \implies f$ es constante en $\Omega$.
+    \end{enumerate}
+\end{prop}
 
 \section{Transformaciones de Möbius}
 
-\transclude{transformacion-mobius}
+\begin{defn}[Transformación de Möbius]\label{defn:transformacion-mobius}
+    Sea $T \colon \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\mathbb{C}}} \longrightarrow \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\mathbb{C}}}$ una aplicación, es una transformación de Möbius
+    \[
+    \iff \exists a, b, c, d \in \mathbb{C} : ad - bc \neq 0 \we \forall z \in \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\C}} : T(z) = \begin{cases}
+        \frac{az + b}{cz + d} & \text{si } z \in \C \setminus \left\{\sfrac{-d}{c}\right\} \\
+        \infty & \text{si } z = \sfrac{-d}{c} \\
+        \sfrac{b}{d} & \text{si } z = \infty. 
+    \end{cases}
+    \]
+    Es decir, una transformación de Möbius es una función racional dada por el cociente de dos polinomios lineales linealmente independientes y extendida a la esfera de Riemann según la habitual aritmética del infinito.
 
-\transclude[prop]{prop-transformacion-mobius-composicion}
+    Al conjunto de todas las transformaciones de Möbius se le denota por $\operatorname{M\ddot{o}b}\left(\exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\C}}\right)$.
+\end{defn}
 
-\transclude[teo]{transformacion-mobius-circunferencias-generalizadas}
+\begin{prop}\label{prop:transformacion-mobius-composicion}
+    Toda \exhyperref[defn:transformacion-mobius]{transformacion-mobius}{transformación de Möbius} es una composición de traslaciones, dilataciones, rotaciones e inversiones.
+\end{prop}
+
+\begin{teo}\label{teo:transformacion-mobius-circunferencias-generalizadas}
+    Toda \exhyperref[defn:transformacion-mobius]{transformacion-mobius}{transformación de Möbius} manda \exhyperref[defn:circunferencia-generalizada]{circunferencia-generalizada}{circunferencias generalizadas} a \exhyperref[defn:circunferencia-generalizada]{circunferencia-generalizada}{circunferencias generalizadas}. 
+
+    % Más aún, si $\Gamma$ es una \exhyperref[defn:circunferencia-generalizada]{circunferencia-generalizada}{circunferencia generalizada}, $T$ transforma cada uno de los dos dominios complementarios en que $\Gamma$ divide a la \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{esfera de Riemann} en uno de los dominios complementarios de $T(\Gamma)$.
+\end{teo}
 
 \section{Teorema de la función inversa y de la aplicación abierta}
 
-\transclude[teo]{teo-fn-inversa-holomorfas}
+\begin{teo}[de la función inversa]\label{teo:fn-inversa-holomorfas}
+    Sea $z_0 \in \Omega \subset \C$ abierto y $\appl{f}{\Omega}{\C}$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa en $\Omega$} y \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{$\mathcal{C}^1 \left(\Omega\right)$} con $f'(z_0) \neq 0$
+    \[
+    \implies \exists \, \mathcal{U}\in \mathcal{V}(z_0) : f\big|_{\mathcal{U}} \tex{ es biyectiva } \we \appl{f^{-1}}{f(\mathcal{U})}{\mathcal{U}} \tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa en $f(\mathcal{U})$}}.
+    \]
+    Además, se tiene que $\ds \forall z \in U : \left(f^{-1}\right)'(f(z)) = \frac{1}{f'(z)}$.
+\end{teo}
 
-\transclude{teo-apl-abierta-compleja}
+%<*teo>
+\begin{teo}[de la aplicación abierta]\label{teo:apl-abierta-compleja}
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$  no constante donde $\Omega\subset \C$ es un \exhyperref[defn:dominio]{dominio}{dominio}. Entonces, $f$ es una \exhyperref[defn:apl-abierta]{apl-abierta}{aplicación abierta} en $\Omega$.
+\end{teo}
 
-\transclude{inyectividad-local}
+\begin{defn}[Inyectividad local]\label{defn:inyectividad-local}
+    Sea $f \colon X \to Y$ una función entre dos espacios topológicos, $f$ es localmente inyectiva en $x \in X$ 
+    \[
+        \iff \exists U \in \mathcal{V}(x) : f|_U \colon U \to Y \tex{ es inyectiva}.
+    \]
 
-\transclude{lem-localmente-inyectiva-implica-inversa-no-nula}%DEMOSTRACIÓN
+    Además, $f$ es localmente inyectiva $\iff \forall x \in X : f$ es localmente inyectiva en $x$.
+\end{defn}
+
+\begin{lem}\label{lem:localmente-inyectiva-implica-inversa-no-nula}
+    Sea $f \in \mathcal{H}(\Omega)$ \exhyperref[defn:inyectividad-local]{inyectividad-local}{localmente inyectiva} donde $\Omega \subset \C$ es un \exhyperref[defn:dominio]{dominio}{dominio}. Entonces, $\forall z \in \Omega : f'(z) \neq 0$.
+\end{lem}
 
 \cleardoublepage
 
@@ -44,25 +125,134 @@
 
 \subsection{Derivadas de Wirtinger}
 
-\transclude[defn]{operadores-wirtinger}
+\begin{defn}[Operadores de Wirtinger]\label{defn:operadores-wirtinger}
+    Sea $f \colon \Omega \subset \C \to \C$, con $\Omega$ un \exhyperref[defn:dominio]{dominio}{dominio}, $\partial f, \bar{\partial}f \colon \Omega \to \C$ son los operadores de Wirtinger
+    \[
+        \iff \forall x+yi \in \Omega : \left\{\begin{aligned}
+            \partial f (x+yi) &= \partial_z f (x+ yi)=  \frac{1}{2} \left(\pdv{f}{x}(x, y) - i\pdv{f}{y}(x, y)\right) \\
+            \bar{\partial} f (x+yi) &= \partial_{\bar{z}} f (x+ yi)=  \frac{1}{2} \left(\pdv{f}{x}(x, y) + i\pdv{f}{y}(x, y)\right)
+        \end{aligned}\right.
+    \] 
+    donde $\partial_x f = u_x + iv_x$ y $\partial_y f = u_y + iv_y$. 
+\end{defn}
 
 También podemos expresar las derivadas parciales habituales en términos de las derivadas de Wirtinger:
 
-\transclude{lem-derivadas-parciales-wirtinger}
+\begin{lem}\label{lem:derivadas-parciales-wirtinger}
+    Sea $f \in \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^1}(\Omega)$ con $\Omega \subset \C$ abierto, entonces
+    \[
+    \pdv{f}{x}(z) = \pdv{f}{z}(z) + \pdv{f}{\bar{z}}(z) \quad \we \quad \pdv{f}{y}(z) = i \, \left(\pdv{f}{z}(z) - \pdv{f}{\bar{z}}(z)\right),
+    \]
+    donde $\pdv{}{z}$ y $\pdv{}{\bar{z}}$ son las \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{derivadas de Wirtinger}.
+\end{lem}
 
-\transclude{fn-antiholomorfa}
+\begin{defn}[Función antiholomorfa]\label{defn:fn-antiholomorfa}
+    Sea $\Omega \subset \C$ abierto,
+    \[
+    f \colon \Omega \to \C \tex{ es antiholomorfa en }\Omega \iff \exhyperref[defn:num-complejo-conjugado]{num-complejo-conjugado}{\bar{f}} \tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en } \Omega. 
+    \]
+\end{defn}
 
-\transclude{obs-holomorfa-conjugada-antiholomorfa}
+\begin{obs}\label{obs:holomorfa-conjugada-antiholomorfa}
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$, entonces $\exhyperref[defn:num-complejo-conjugado]{num-complejo-conjugado}{\bar{f}}$ es \exhyperref[defn:fn-antiholomorfa]{fn-antiholomorfa}{antiholomorfa} en $\Omega$ y $\forall z \in \Omega :$
+    \[
+    \begin{aligned}
+        \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{\bar{f}}{\bar{z}}}(z) &= \frac{1}{2} \left(\pdv{\bar{f}}{x}(z) + i \, \pdv{\bar{f}}{y}(z)\right) = \frac{1}{2} \left(\pdv{u}{x}(z) - i \, \pdv{v}{x}(z) + i \, \pdv{u}{y}(z) + \pdv{v}{y}(z)\right) \\
+        &\upexpl{=}{\exhyperref[teo:cauchy-riemann]{teo-cauchy-riemann}{C-R}} \frac{1}{2} \left(\pdv{u}{x}(z) - i \, \pdv{v}{x}(z) + i \left(-\pdv{v}{x}(z)\right) + \pdv{u}{x}(z)\right) = \frac{1}{2} \left(2 \, \pdv{u}{x}(z) - 2 i \, \pdv{v}{x}(z)\right) \\
+        &= \pdv{u}{x}(z) - i \, \pdv{v}{x}(z) = \bar{\pdv{f}{z}(z)} = \bar{f'(z)}.
+    \end{aligned}
+    \]
+\end{obs}
 
-\transclude{prop-fn-holomorfa-iff-wirtinger}
+\begin{prop}\label{prop:fn-holomorfa-iff-wirtinger}
+    Sea $f \in \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^1}(\Omega)$ con $\Omega \subset \C$ abierto, entonces
+    \begin{enumerate}
+        \item $f$ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en $\ds \Omega \iff \forall z \in \Omega : \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{f}{\bar{z}}}(z) = 0$.
+        \item $f$ es \exhyperref[defn:fn-antiholomorfa]{fn-antiholomorfa}{antiholomorfa} en $\ds \Omega \iff \forall z \in \Omega : \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{f}{z}}(z) = 0$.
+    \end{enumerate}
+\end{prop}
+\begin{dem}
+    Procedemos por definición de las derivadas de Wirtinger:
+    \begin{enumerate}[label=\textnormal{(\arabic*)}]
+        \item Escribimos $z = x + iy$ con $x, y \in \R$ y $f = u + iv$ con $u = \Re(f), v = \Im(f)$. Entonces,
+        \[
+        \begin{aligned}
+            \forall z \in \Omega : \pdv{f}{\bar{z}}(z) = 0 &\iff \frac{1}{2} \left(\pdv{f}{x}(z) + i \, \pdv{f}{y}(z)\right) = 0 \iff \pdv{f}{x}(z) + i \, \pdv{f}{y}(z) = 0 \\
+            &\iff \pdv{u}{x}(z) + i \, \pdv{v}{x}(z) + i \, \pdv{u}{y}(z) - \pdv{v}{y}(z) = 0.
+        \end{aligned}
+        \]
+        Tomando ahora partes real e imaginaria tenemos que esto es equivalente a
+        \[
+        \pdv{u}{x}(z) - \pdv{v}{y}(z) = 0 \;\;\we\;\; \pdv{v}{x}(z) + \pdv{u}{y}(z) = 0,
+        \]
+        que son las \exhyperref[eq-cauchy-riemann]{teo-cauchy-riemann}{Ecuaciones de Cauchy-Riemann}, luego esto es equivalente a que $f$ sea holomorfa en $\Omega$. Es decir, $f$ es holomorfa en $\Omega \iff \forall z \in \Omega : \pdv{f}{\bar{z}}(z) = 0$.
+        \item De forma análoga, tenemos que
+        \[
+        \begin{aligned}
+            \forall z \in \Omega : \pdv{f}{z}(z) = 0 &\iff \pdv{u}{x}(z) + i \, \pdv{v}{x}(z) - i \, \pdv{u}{y}(z) + \pdv{v}{y}(z) = 0 \\
+            &\iff \pdv{u}{x}(z) + \pdv{v}{y}(z) = 0 \;\;\we\;\; \pdv{v}{x}(z) - \pdv{u}{y}(z) = 0.
+        \end{aligned}
+        \]
 
-\transclude{obs-derivada-holomorfa-wirtinger}
+        Por otro lado, $\bar{f} = u - iv$ y, por tanto, $\pdv{\bar{f}}{x} = \pdv{u}{x} - i \, \pdv{v}{x}$ y $\pdv{\bar{f}}{y} = \pdv{u}{y} - i \, \pdv{v}{y}$. Por tanto, por el \exhyperref[teo:cauchy-riemann]{teo-cauchy-riemann}{Teorema de Cauchy-Riemann}, $\bar{f}$ es holomorfa en $\Omega$
+        \[
+        \iff \pdv{u}{x}(z) + \pdv{v}{y}(z) = 0 \;\;\we\;\; -\pdv{v}{x}(z) + \pdv{u}{y}(z) = 0,
+        \]
+        que son precisamente las ecuaciones anteriores. Por tanto, $f$ es antiholomorfa en $\Omega \iff \forall z \in \Omega : \pdv{f}{z}(z) = 0$.
+    \end{enumerate}
 
-\transclude{prop-regla-cadena-wirtinger}
+    \vspace{-\baselineskip}
+    % \vspace{-\belowdisplayskip}
+\end{dem}
 
-\transclude{cor-wirtinger-composicion-holomorfas}%DEMOSTRACIÓN
+\begin{obs}\label{obs:derivada-holomorfa-wirtinger}
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$, entonces
+    \[
+    f'(z) \upexpl{=}{$\,$\exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{def}} \lim_{\substack{h \to 0 \\ \tex{en }\C}} \frac{f(z + h) - f(z)}{h} = \lim_{\substack{s \to 0 \\ \tex{en }\R}} \frac{f(z + s) - f(z)}{s} = \pdv{f}{x}(z) = -i \, \pdv{f}{y}(z).
+    \]
+\end{obs}
 
-\transclude{cor-wirtinger-composicion-antiholomorfas}%DEMOSTRACIÓN
+\begin{prop}[Regla de la cadena]\label{prop:regla-cadena-wirtinger}
+    Sean $f \in \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^1}(\Omega_1)$ y $g \in \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^1}(\Omega_2)$ con $f(\Omega_1) \subset \Omega_2$, entonces se satisfacen
+    \begin{enumerate}
+        \item $\ds \pdv{}{z} (g \circ f)(z) = \pdv{g}{z}\left(f(z)\right) \, \pdv{f}{z}(z) + \pdv{g}{\bar{z}}\left(f(z)\right) \, \pdv{\bar{f}}{z}(z)$.
+        \item $\ds \pdv{}{\bar{z}} (g \circ f)(z) = \pdv{g}{z}\left(f(z)\right) \,\pdv{f}{\bar{z}}(z) + \pdv{g}{\bar{z}}\left(f(z)\right) \, \pdv{\bar{f}}{\bar{z}}(z)$.
+    \end{enumerate}
+\end{prop}
+\begin{dem}
+    Veremos únicamente la primera identidad, la segunda se demuestra de forma análoga. Escribimos $f(z) = u(x, y) + i \, v(x, y)$. Entonces, por \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{definición de derivada de Wirtinger} y la regla de la cadena para derivadas parciales, %ORDENAR referenciar
+    se tiene que
+    \[
+    \begin{aligned}
+        2\, \pdv{}{z} (g \circ f)(z) &= \left(\pdv{}{x} - i \, \pdv{}{y}\right) (g \circ f)(z) = \pdv{g}{u} \, \pdv{u}{x} + \pdv{g}{v} \, \pdv{v}{x} - i \pdv{g}{u} \, \pdv{u}{y} - i \pdv{g}{v} \, \pdv{v}{y} = (\ast). \\
+    \end{aligned}
+    \]
+    Aplicando ahora el \excref[lem:derivadas-parciales-wirtinger]{lem-derivadas-parciales-wirtinger}, tenemos que
+    \[
+    \begin{aligned}
+        (\ast) &= \left(\pdv{g}{z} + \pdv{g}{\bar{z}}\right) \pdv{u}{x} + i\left(\pdv{g}{z} - \pdv{g}{\bar{z}}\right) \pdv{v}{x} - i \left(\pdv{g}{z} + \pdv{g}{\bar{z}}\right) \pdv{u}{y} + \left(\pdv{g}{z} - \pdv{g}{\bar{z}}\right) \pdv{v}{y} \\
+        &= \pdv{g}{z}\left(\pdv{u}{x} + i \pdv{v}{x} - i\pdv{u}{y} + \pdv{v}{y}\right) + \pdv{g}{\bar{z}}\left(\pdv{u}{x} - i \pdv{v}{x} - i\pdv{u}{y} - \pdv{v}{y}\right) \\
+        &= \pdv{g}{z} \left(2 \pdv{u}{z} + 2 i \pdv{v}{z}\right) + \pdv{g}{\bar{z}} \left(2 \pdv{u}{\bar{z}} + 2 i \pdv{v}{\bar{z}}\right) = 2 \, \pdv{g}{z}(f(z)) \, \pdv{f}{z}(z) + 2 \, \pdv{g}{\bar{z}}(f(z)) \, \pdv{\bar{f}}{z}(z).
+    \end{aligned}
+    \]
+    Luego el resultado se sigue dividiendo entre $2$.
+\end{dem}
+
+\begin{cor}\label{cor:wirtinger-composicion-holomorfas}
+    Sean $f \in \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^1}(\Omega_1)$ y $g \in \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^1}(\Omega_2)$ con $f(\Omega_1) \subset \Omega_2$, entonces
+    \[
+    f \ve g \tex{ \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}} \implies \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{}{z}} (g \circ f)(z) = \pdv{g}{z}\left(f(z)\right) \, \pdv{f}{z}(z).
+    \]
+    Si ambas son \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfas}, se tiene además que $\ds \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\pdv{}{\bar{z}}} (g \circ f)(z) = 0$ (i.e. $g \circ f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\Omega_1\right)$).
+\end{cor}%DEMOSTRACIÓN%DEMOSTRACIÓN
+
+\begin{cor}\label{cor:wirtinger-composicion-antiholomorfas}
+    Sean $f, g$ \exhyperref[defn:fn-antiholomorfa]{fn-antiholomorfa}{antiholomorfas} en $\Omega_1$ y $\Omega_2$ respectivamente y tales que $f(\Omega_1) \subset \Omega_2$. Entonces,
+    \[
+    \forall z \in \Omega_1 : \quad \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{}{z}} (g \circ f)(z) = \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{g}{\bar{z}}}\left(f(z)\right) \, \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{\bar{f}}{z}}(z) \quad \we \quad \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{}{\bar{z}}} (g \circ f)(z) = 0.
+    \]
+    En particular, $g \circ f$ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en $\Omega_1$.
+\end{cor}%DEMOSTRACIÓN%DEMOSTRACIÓN
 
 \subsection{El operador laplaciano}
 
@@ -73,62 +263,122 @@ También podemos expresar las derivadas parciales habituales en términos de las
     \]
 \end{defn}
 
-\transclude{lem-laplaciano-wirtinger}
+\begin{lem}\label{lem:laplaciano-wirtinger}
+    Sea $f \in \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^2}(\mathbb{D})$, entonces $\ds \forall z \in \mathbb{D} : \exhyperref[defn:laplaciano]{laplaciano}{\Delta} f(z) = 4 \, \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{f}{z, \bar{z}}}(z) = 4 \, \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{f}{\bar{z}, z}}(z)$.
+\end{lem}
+\begin{dem}
+    Desarrollando las \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{derivadas de Wirtinger} en el lado derecho, tenemos:
+    \[
+    \begin{aligned}
+        \pdv{f}{z, \bar{z}} &= \pdv{}{z} \left(\pdv{f}{\bar{z}}\right) = \pdv{}{z} \left(\frac{1}{2} \left(\pdv{f}{x} + i \, \pdv{f}{y}\right)\right) \\
+        &= \frac{1}{2} \left[\frac{1}{2}\left(\pdv[2]{f}{x} - i \, \pdv{f}{y, x}\right) + \frac{1}{2} i \left(\pdv{f}{x, y} - i \, \pdv[2]{f}{y}\right)\right] \\
+        &= \frac{1}{4} \left(\pdv[2]{f}{x} - i \, \pdv{f}{y, x} + i \, \pdv{f}{x, y} + \pdv[2]{f}{y}\right) = \frac{1}{4} \left(\pdv[2]{f}{x} + \pdv[2]{f}{y}\right) = \frac{1}{4} \Delta f.
+    \end{aligned}
+    \]
+    Por tanto, $\Delta = 4 \, \pdv{}{z, \bar{z}}$ (también se puede ver que $\Delta = 4 \, \pdv{}{\bar{z}, z}$ de forma análoga).
+\end{dem}
 
-\transclude{lem-laplaciano-cambio-variable}
+\begin{lem}[Fórmulas de cambio de variable para el laplaciano]\label{lem:laplaciano-cambio-variable}
+    Sea $f:\Omega_1\to\Omega_2$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} y sea $\phi:\Omega_2\to \R^n$ una función $\mathcal{C}^2$
+    \[
+    \implies \forall z \in \Omega_1 : \exhyperref[defn:laplaciano]{laplaciano}{\Delta}\big(\phi\circ f\big)(z) = \lvert f'(z)\rvert^2\,\big(\exhyperref[defn:laplaciano]{laplaciano}{\Delta}\phi\big)\big(f(z)\big).
+    \]
+\end{lem}
+\begin{dem}
+    Sea $w = f(z)$ la variable en $\Omega_2$. Por la \exhyperref[prop:regla-cadena-wirtinger]{prop-regla-cadena-wirtinger}{regla de la cadena para las derivadas de Wirtinger}, tenemos que
+    \[
+    \pdv{}{z}\pdv{}{\bar z}\left(\phi\circ f\right)(z) = \pdv{}{z} \left(\pdv{\phi}{w} (f(z)) \, \pdv{f}{\bar z}(z) + \pdv{\phi}{\bar w}(f(z)) \, \pdv{\bar f}{\bar z}(z)\right)
+    \]
+    Como $f$ es holomorfa, por la \excref[prop:fn-holomorfa-iff-wirtinger]{prop-fn-holomorfa-iff-wirtinger}, $\pdv{f}{\bar z} \equiv 0$ y el primer sumando se anula. Luego, por la regla del producto, tenemos que %ORDENAR crear nota y referenciar
+    \[
+    \pdv{}{z}\pdv{}{\bar z}\left(\phi\circ f\right)(z) = \pdv{}{z} \left(\pdv{\phi}{\bar w} \circ f\right)(z) \; \pdv{\bar f}{\bar z}(z) + \pdv{\phi}{\bar w}(f(z)) \; \pdv{}{z}\pdv{\bar f}{\bar z}(z).
+    \]
+    Como $f$ es holomorfa, $\overline{f}$ es antiholomorfa y, por tanto, $\pdv{}{z} \pdv{\bar f}{\bar z} \equiv 0$ y el segundo sumando se anula. Aplicando de nuevo la regla de la cadena y usando que $f$ es holomorfa para aplicar el \excref[cor:wirtinger-composicion-holomorfas]{cor-wirtinger-composicion-holomorfas}, tenemos que
+    \[
+    \pdv{}{z} \pdv{}{\bar z}\left(\phi\circ f\right)(z) = \pdv{\phi}{w, \bar w}(f(z)) \; \pdv{f}{z}(z) \; \pdv{\bar f}{\bar z}(z) = \pdv{\phi}{w, \bar w}(f(z)) \, \abs{f'(z)}^2.
+    \]
+    Entonces, por el \excref[lem:laplaciano-wirtinger]{lem-laplaciano-wirtinger}, tenemos que $\ds \Delta\left(\phi\circ f\right)(z) = \abs{f'(z)}^2\,\left(\Delta\phi\right)(f(z))$.
+\end{dem}
 
 \cleardoublepage
 
 \section{Integración compleja}
 
-\transclude{curva-topologica}
+\begin{defn}[Curva]\label{defn:curva-topologica}
+    Sea $(X, \T)$ un \exhyperref[defn:esp-topologico]{esp-topologico}{esp topológico}, $\Gamma \colon I \subset \R \to X$ es una curva (topológica) $\iff \Gamma$ es \exhyperref[defn:continuidad]{continuidad}{continua} en $I$ intervalo de $\R$.
+\end{defn}
 
-% \transclude{curva-cerrada}
+\begin{defn}[Curva cerrada]\label{defn:curva-cerrada}
+    Sea $\Gamma \colon [a, b] \to X$ una \exhyperref[defn:curva-topologica]{curva-topologica}{curva}, es cerrada
+    \[
+    \iff \Gamma(a) = \Gamma(b).
+    \]
+\end{defn}
 
-% \transclude{curva-simple}
+\begin{defn}[Curva simple]\label{defn:curva-simple}
+    Sea $\Gamma \colon [a, b] \to X$ una \exhyperref[defn:curva-topologica]{curva-topologica}{curva}, es simple
+    \[
+    \iff \Gamma \tex{ es inyectiva en }(a, b).
+    \]
+\end{defn}
 
 % \transclude{curva-jordan}
 
-\transclude{camino}
+\begin{defn}[camino]\label{defn:camino}
+    Sea $\Gamma \colon [a, b] \to \R^n$ una \exhyperref[defn:curva-topologica]{curva-topologica}{curva}, es un camino
+    \[
+    \iff \Gamma \tex{ es } \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^1} \tex{ a trozos, i.e. }\exists \left\{t_i\right\}_{i=1}^{n} \subset [a, b] : \forall i \in \N_{n-1} : \Gamma \tex{ es } \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{\mathcal{C}^1} \tex{ en } (t_i, t_{i+1}).
+    \]
+\end{defn}    
 
 % \transclude{longitud-camino}
 
 % \transclude{camino-opuesto}
 
-\transclude{integral-linea-compleja}
-
-\transclude{integral-linea-compleja-longitud}
-
-
-
-\transclude[teo]{teo-cauchy-goursat}
-
-\transclude[teo]{teo-formula-integral-cauchy-disco}
-
-\begin{cor}[Propiedad del valor medio para funciones holomorfas]\label{teo:valor-medio-fn-holomorfa}\mbox{}\\
-    Sea $\Omega \subset \C$ abierto, $f \in \mathcal{H}(\Omega)$, $z_0 \in \Omega$ y $r > 0$ tales que $\overline{D(z_0,r)} \subset \Omega$. Entonces,
+\begin{defn}[Integral de línea]\label{defn:integral-linea-compleja}
+    Sea $\Gamma \colon [a, b] \to \C$ un \exhyperref[defn:camino]{camino}{camino} y $f \colon \Gamma([a, b]) \to \C$ \exhyperref[defn:continuidad]{continuidad}{continua}, $\int_\Gamma f$ es la integral de línea compleja de $f$ sobre $\Gamma$
     \[
-    f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f\left(z_0 + re^{it}\right) \, \odif{t}.
+    \iff \int_{\Gamma} f(z) \odif{z} \defeq \exhyperref[defn:integral]{integral}{\int_a^b} f(\Gamma(t)) \cdot \Gamma'(t) \odif{t}.
     \]
-\end{cor}
-\begin{dem}
-    Por la \exhyperref[teo:formula-integral-cauchy-disco]{teo-formula-integral-cauchy-disco}{fórmula integral de Cauchy para discos},
+\end{defn}
+
+\begin{defn}[Integral respecto a la longitud]\label{defn:integral-linea-compleja-longitud}
+    Sea $\Gamma \colon [a, b] \to \C$ un \exhyperref[defn:camino]{camino}{camino} y $f \colon \im(\Gamma) \to \C$ \exhyperref[defn:continuidad]{continuidad}{continua}, la integral de $f$ con respecto a la longitud de $\Gamma$ es
     \[
-    f(z_0) = \frac{1}{2\pi i} \int_{\abs{\zeta-z_0}=r} \frac{f(\zeta)}{\zeta-z_0} \, \odif{\zeta}.
-    \]
-    Parametrizando $\zeta(t) = z_0 + re^{it}$, $t \in [0,2\pi]$, se tiene $\odif{\zeta} = ire^{it} \, \odif{t}$ y $\zeta-z_0 = re^{it}$:
+    \int_{\Gamma} f(z) \abs{\odif{z}} \defeq \exhyperref[defn:integral]{integral}{\int_a^b} f(\Gamma(t)) \abs{\Gamma'(t)} \odif{t}.
+   \]
+\end{defn}
+
+
+\begin{teo}[Cauchy-Goursat]\label{teo:cauchy-goursat}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\Omega\right)$ y $\Gamma$ un \exhyperref[defn:camino]{camino}{camino} \exhyperref[defn:curva-simple]{curva-simple}{simple} y \exhyperref[defn:curva-cerrada]{curva-cerrada}{cerrado} tal que $\bar{\exhyperref[defn:interior-curva]{interior-curva}{\operatorname{int}}(\Gamma)} \subset \Omega$. Entonces, $\int_{\Gamma} f(z) \odif{z} = 0$.
+\end{teo}
+
+\begin{teo}[Fórmula integral de Cauchy para discos]\label{teo:formula-integral-cauchy-disco}\mbox{}\\
+    Sea $\Omega \subset \C$ abierto, $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ y sea $z_0 \in \Omega$ y $r > 0$ tal que $\overline{D(z_0, r)} \subset \Omega$, consideremos la circunferencia $C(z_0, r)$ orientada positivamente (la denotamos por $C_r^+$). Entonces,
     \[
-    f(z_0) = \frac{1}{2\pi i} \int_0^{2\pi} \frac{f\left(z_0+re^{it}\right)}{re^{it}} \, ire^{it} \, \odif{t} = \frac{1}{2\pi} \int_0^{2\pi} f\left(z_0+re^{it}\right) \, \odif{t}.
+    \forall z \in D(z_0, r) : f(z) = \frac{1}{2\pi i} \exhyperref[defn:integral-linea-compleja]{integral-linea-compleja}{\int_{C_r^+}} \frac{f(w)}{w - z} \odif{w}.
     \]
+\end{teo}
 
-    \vspace{-\baselineskip}
-    \vspace{-\belowdisplayskip}
-\end{dem}
+\begin{teo}[Fórmula integral de Cauchy para derivadas]\label{teo:formula-integral-cauchy-derivadas}
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ con $\Omega \subset \C$ un conjunto abierto y sea $n \in \N$. Entonces,
+    \[
+    \forall z \in D(z_0, r) \subset \Omega : 
+    f^{(n)}(z) = \frac{n!}{2\pi i} \exhyperref[defn:integral-linea-compleja]{integral-linea-compleja}{\int_{C(z_0, r)^+}} \frac{f(w)}{(w-z)^{n+1}} \odif{w}.
+    \]
+\end{teo}
 
-\transclude[teo]{teo-formula-integral-cauchy-derivadas}
 
-
-\transclude[teo]{teo-ceros-aislados}
+\begin{teo}[Principio de los ceros aislados]\label{teo:ceros-aislados}\mbox{}\\
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ y $\left(a_n\right)_{n\in\N} \subset \Omega$ tales que
+    \begin{enu}[3][label=\textnormal{(\roman*)}]
+        \item\label{teo:ceros-aislados-i} $\ds \forall n \neq m : a_n \neq a_m$.
+        \item\label{teo:ceros-aislados-ii} $\ds \exists \lim_{n \to \infty} a_n = a \in \Omega$.
+        \item\label{teo:ceros-aislados-iii} $\ds \forall n \in \N : f(a_n) = 0$.
+    \end{enu}
+    Entonces, $f \equiv 0$ en $\Omega$.
+\end{teo}
 \vspace{0.3em}
 
 \begin{cor}\label{cor:fn-holomorfa-compacto-imp-finitud-ceros}
@@ -139,51 +389,113 @@ También podemos expresar las derivadas parciales habituales en términos de las
 \end{dem}
 
 \begin{cor}[Principio de identidad]\label{cor:principio-identidad}
-    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, sean $f, g \in \mathcal{H}(\Omega)$ y $\left(a_n\right)_{n\in\N} \subset \Omega$ tales que $a_n \xrightarrow{n\to\infty} a \in \Omega \we \forall n \in \N : f(a_n) = g(a_n)$
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, sean $f, g \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ y $\left(a_n\right)_{n\in\N} \subset \Omega$ tales que $a_n \xrightarrow{n\to\infty} a \in \Omega$ y $\forall n \in \N : f(a_n) = g(a_n)$. Entonces, $f \equiv g$ en $\Omega$.
+\end{cor}
+
+\begin{teo}[Principio del módulo máximo]\label{teo:modulo-maximo}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ tal que $\abs{f}$ alcanza un máximo local en $\Omega$. Entonces, $f$ es constante en $\Omega$.
+\end{teo}
+
+\begin{cor}\label{cor:modulo-maximo}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} acotado y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega) \cap \exhyperref[defn:continuidad-pnt]{continuidad}{\mathcal{C}}\left(\bar{\Omega}\right)$. Entonces,
     \[
-    \implies f \equiv g \tex{ en } \Omega.
+    \max_{z \in \bar{\Omega}} \abs{f(z)} = \max_{z \in \partial \Omega} \abs{f(z)}.
     \]
 \end{cor}
 
-\transclude[teo]{teo-modulo-maximo}
+\begin{prop}\label{prop:modulo-constante-imp-constante}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$. Entonces
+    \[
+    \abs{f} \text{ es constante en } \Omega \implies f \text{ es constante en } \Omega.
+    \]
+\end{prop}
+\begin{dem}
+    Supongamos que $\forall z \in \Omega : \abs{f(z)} = c$ para una constante $c \in \mathbb{R}_{\geq 0}$.
+    \begin{itemize}
+        \item Si $c = 0$, entonces $f(z) = 0$ para todo $z \in \Omega$, luego $f$ es constante.
+        \item Si $c > 0$, entonces $\abs{f}$ alcanza su máximo $c$ en cualquier punto de $\Omega$. Por el principio del módulo máximo local (\excref[teo:modulo-maximo]{teo-modulo-maximo}), $f$ es constante en $\Omega$.
+    \end{itemize}
 
-\transclude[cor]{cor-modulo-maximo}
+    \vspace{-\baselineskip}
+    % \vspace{-\belowdisplayskip}
+\end{dem}
 
-\transclude{prop-modulo-constante-imp-constante}
-
-\transclude{orden-cero-fn-holomorfa}
+\begin{defn}[Orden de un cero]\label{defn:orden-cero-fn-holomorfa}
+    Sea $\Omega \subset \C$ un abierto, $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ no identicamente nula y $z_0 \in \Omega$ un cero de $f$, $\operatorname{ord}(f, z_0)$ es el orden de $z_0$ como cero de $f$
+    \[
+    \iff \operatorname{ord}(f, z_0) = \min \left\{m \in \N \cup \{0\} : \exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{f^{(m)}(z_0)} \neq 0\right\}.
+    \]
+\end{defn}
 
 % \transclude{valencia-fn-holomorfa}
 
-\transclude{singularidad-aislada}
+\begin{defn}[Singularidad aislada]\label{defn:singularidad-aislada}
+    $z_0 \in \C$ es una singularidad aislada de $f$
+    \[
+    \iff \exists U \in \mathcal{V}(z_0) : f \tex{ no es \exhyperref[defn:fn-holomorfa-pnt]{fn-holomorfa-pnt}{holomorfa} en }z_0 \we f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(U \setminus \{z_0\}).
+    \]
+\end{defn}
 
-\transclude{singularidad-evitable}
+\begin{defn}[Singularidad evitable]\label{defn:singularidad-evitable}
+    Sea $z_0$ una \exhyperref[defn:singularidad-aislada]{singularidad-aislada}{singularidad aislada} de $f$,
+    \[
+    z_0\tex{ es evitable}\iff \exhyperref[defn:limite-metrico-fn]{limite-fn}{\lim_{z \to z_0}} (z - z_0) f(z) = 0.
+    \]
+\end{defn}
 
 % \transclude{polo}
 
 \begin{defn}[Polo]\label{defn:polo-fn-meromorfa}
-    Sea $\Omega \subset \C$ abierto, $z_0 \in \Omega$ y $f \in \mathcal{H}(\Omega \setminus \{z_0\})$,
+    Sea $\Omega \subset \C$ abierto, $z_0 \in \Omega$ y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega \setminus \{z_0\})$,
     \[
     z_0 \tex{ es un polo de } f \iff \lim_{z \to z_0} \abs{f(z)} = \infty.
     \]
 \end{defn}
 
 \begin{defn}[Orden de un polo]\label{defn:orden-polo-fn-meromorfa}
-    Sea $z_0$ un polo de $f$, $\operatorname{ord}(f, z_0)$ es el orden de $z_0$
+    Sea $z_0$ un \exhyperref[defn:polo]{polo}{polo} de $f$, $\operatorname{ord}(f, z_0)$ es el orden de $z_0$ como polo de $f$
     \[
     \iff \operatorname{ord}(f, z_0) = \min \left\{ n \in \N : \lim_{z \to z_0} \abs{(z - z_0)^n f(z)} < \infty \right\}.
     \]
 \end{defn}
 
-\transclude{singularidad-esencial}
+\begin{defn}[Singularidad esencial]\label{defn:singularidad-esencial}
+    Sea $z_0$ una \exhyperref[defn:singularidad-aislada]{singularidad-aislada}{singularidad aislada} de $f$, 
+    \[
+    z_0 \tex{ es esencial} \iff z_0 \text{ no es ni un \exhyperref[defn:polo]{polo}{polo} ni una \exhyperref[defn:singularidad-evitable]{singularidad-evitable}{singularidad evitable}.}
+    \]
+\end{defn}
 
-\transclude{teo-singularidad-evitable-riemann}
+\begin{teo}[de Riemann]\label{teo:singularidad-evitable-riemann}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $z_0 \in \Omega$ y $f \in \mathcal{H}(\Omega \setminus \{z_0\})$. Entonces, las siguientes afirmaciones son equivalentes:
+    \begin{enumerate}[label=\textnormal{(\roman*)}]
+        \item $z_0$ es una \exhyperref[defn:singularidad-evitable]{singularidad-evitable}{singularidad evitable} de $f$.
+        \item Existe $r > 0$ tal que la función $f$ es {acotada} en $B(z_0, r) \setminus \{z_0\}$.
+        \item $f$ se puede extender a una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} en $\Omega$.
+    \end{enumerate}
+\end{teo}%DEMOSTRACIÓN
 
-\transclude{fn-meromorfa}
+\begin{defn}[Función meromorfa]\label{defn:fn-meromorfa}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, una función $f \colon \Omega \to \C$ es meromorfa en $\Omega$ 
+    \[
+    \iff \exists \left\{z_k\right\}_{k=1}^{\infty} \subset \Omega : f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\Omega \setminus \left\{z_k\right\}_{k=1}^{\infty}\right) \we \forall k \in \N : z_k \tex{ es un \exhyperref[defn:polo]{polo}{polo} de } f.
+    \]
+\end{defn}
 
-\transclude{teo-residuos}
+\begin{teo}[de los Residuos]\label{teo:residuos}
+    Sea $\Omega \subset \mathbb{C}$ un \exhyperref[defn:dominio]{dominio}{dominio} y $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\Omega \setminus \{a_1, \dots, a_n\}\right)$ donde $a_1, \dots, a_n \in \Omega$ son \exhyperref[defn:polo]{polo}{polos} de $f$. Sea $\Gamma$ un \exhyperref[defn:camino]{camino}{camino} \exhyperref[defn:curva-simple]{curva-simple}{simple} y \exhyperref[defn:curva-cerrada]{curva-cerrada}{cerrada} en $\Omega$ tal que $a_1, \dots, a_n$ están en el \exhyperref[defn:interior-curva]{interior-curva}{interior} de $\Gamma$. Entonces,
+    \[
+    \frac{1}{2\pi i} \exhyperref[defn:integral-linea-compleja]{integral-linea-compleja}{\int_{\Gamma^+}} f(z) \odif{z} = \sum_{k = 1}^{n} \exhyperref[defn:residuo]{residuo}{\operatorname{Res}}(f, a_k).
+    \]
+\end{teo}
 
-\transclude{teo-principio-argumento}
+\begin{teo}[Principio del argumento]\label{teo:principio-argumento}
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $\Gamma \colon [0, 1] \to \Omega$ un \exhyperref[defn:camino]{camino}{camino} simple y cerrado orientado positivamente. Sea $f$ holomorfa en $\Omega$ y sin ceros en $\Gamma$. Entonces,
+    \[
+    \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\Gamma) = \frac{1}{2\pi i} \exhyperref[defn:integral-linea-compleja]{integral-linea-compleja}{\int_{\Gamma}} \frac{f'(z)}{f(z)} \odif{z}.
+    \]
+\end{teo}
 
-\transclude{teo-rouche}
-
+\begin{teo}[de Rouché]\label{teo:rouche}
+    Sean $0 < r < R$ y $f, g \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(D(0, R)\right)$ tales que $\forall z \in D(0, r) : \abs{f(z) - g(z)} < \abs{f(z)}$. Entonces, $f$ y $g$ tienen el mismo número de ceros en $D(0, r)$.
+\end{teo}

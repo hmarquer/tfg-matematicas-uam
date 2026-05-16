@@ -1,29 +1,8 @@
-# Revisión del Capítulo 4 — Aproximación por productos finitos de Blaschke
+# Revisión — Capítulo 4: Aproximación por productos finitos de Blaschke
 
 ## Bloque 0 — Introducción del capítulo
 
-- **Líneas:** [L1–L46](../chap4.tex#L1-L46)
-- **Estado:** pendiente
-
-**Checklist de revisión:**
-- [ ] [ORT] Ortografía y tipografía
-- [ ] [RED] Redacción y estilo
-- [ ] [NOT] Notación matemática
-- [ ] [MAT] Errores matemáticos
-- [ ] [REF] Referencias y estructura
-- [ ] [TEX] LaTeX y formato
-- [ ] [MEJ] Mejoras de presentación
-
-**Comentarios:**
-<!-- Lista numerada con los problemas encontrados, por orden de aparición en el bloque,
-     referenciando la línea exacta del archivo .tex. Formato:
-     1. [CAT] Línea XX — Descripción del problema. **Corrección sugerida:** corrección concreta. -->
-
----
-
-## Bloque 1 — Aproximación de funciones en $\mathscr{S}$
-
-- **Líneas:** [L48–L145](../chap4.tex#L48-L145)
+- **Líneas:** [1–46](../chap4.tex#L1-L46)
 - **Estado:** pendiente
 
 **Checklist de revisión:**
@@ -40,9 +19,28 @@
 
 ---
 
-## Bloque 2 — La envolvente convexa de $\mathscr{B}$
+## Bloque 1 — Aproximación de funciones en $\mathscr{S}$
 
-- **Líneas:** [L147–L210](../chap4.tex#L147-L210)
+- **Líneas:** [47–142](../chap4.tex#L47-L142)
+- **Estado:** pendiente
+
+**Checklist de revisión:**
+- [ ] [ORT] Ortografía y tipografía
+- [ ] [RED] Redacción y estilo
+- [ ] [NOT] Notación matemática
+- [ ] [MAT] Errores matemáticos
+- [ ] [REF] Referencias y estructura
+- [ ] [TEX] LaTeX y formato
+- [ ] [MEJ] Mejoras de presentación
+
+**Comentarios:**
+<!--  -->
+
+---
+
+## Bloque 2 — La envoltura convexa de $\mathscr{B}$
+
+- **Líneas:** [143–203](../chap4.tex#L143-L203)
 - **Estado:** pendiente
 
 **Checklist de revisión:**
@@ -61,7 +59,7 @@
 
 ## Bloque 3 — Aproximación de funciones unimodulares continuas
 
-- **Líneas:** [L212–L271](../chap4.tex#L212-L271)
+- **Líneas:** [205–267](../chap4.tex#L205-L267)
 - **Estado:** pendiente
 
 **Checklist de revisión:**
@@ -80,7 +78,7 @@
 
 ## Bloque 4 — Aproximación con ceros simples
 
-- **Líneas:** [L273–L419](../chap4.tex#L273-L419)
+- **Líneas:** [269–395](../chap4.tex#L269-L395)
 - **Estado:** pendiente
 
 **Checklist de revisión:**
@@ -97,9 +95,9 @@
 
 ---
 
-## Bloque 5 — Generalización del teorema de Rouché y su inverso
+## Bloque 5 — Generalización del teorema de Rouché y su recíproco
 
-- **Líneas:** [L421–L509](../chap4.tex#L421-L509)
+- **Líneas:** [397–469](../chap4.tex#L397-L469)
 - **Estado:** pendiente
 
 **Checklist de revisión:**

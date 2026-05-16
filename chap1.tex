@@ -1,7 +1,7 @@
 \chapter{Geometría de la clase de Schur}\label{chap1}
 
 \begin{defn}\label{defn:clase-schur}
-    Definimos la \textit{clase de Schur} como $\mathscr{S} \defeq \left\{ f \colon \mathbb{D} \longrightarrow \bar{\mathbb{D}} : f \text{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}} \right\}$.
+    Definimos la \textit{clase de Schur} como $\mathscr{S} \defeq \left\{ f \colon \mathbb{D} \to \bar{\mathbb{D}} : f \text{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en } \mathbb{D}  \right\}$.
 \end{defn}
 
 \begin{lem}[de Schwarz]\label{lem:schwarz}
@@ -316,7 +316,7 @@ donde $\gamma = e^{i\theta}$, $\alpha = \frac{i}{\sqrt{1 - \abs{w}^2}}$ y $\beta
 \end{dem}
 
 \begin{obs}
-    El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} se reduce al \exhyperref[lem:schwarz]{lem-schwarz}{Lema de Schwarz} al tomar $w = 0$ y suponer $f(0) = 0$: la desigualdad \ref{teo:schwarz-pick:eq1} da $\abs{f(z)} \leq \abs{z}$ y \ref{teo:schwarz-pick:eq2} da $\abs{f'(0)} \leq 1$.
+    El \exhyperref[lem:schwarz]{lem-schwarz}{lema de Schwarz} se obtiene como caso particular del \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} al tomar $w = 0$ y suponer $f(0) = 0$: la desigualdad \ref{teo:schwarz-pick:eq1} da $\abs{f(z)} \leq \abs{z}$ y \ref{teo:schwarz-pick:eq2} da $\abs{f'(0)} \leq 1$.
 \end{obs}
 
 \begin{cor}\label{cor:schwarz-pick-involucion-disco-unidad}
@@ -331,7 +331,7 @@ donde $\gamma = e^{i\theta}$, $\alpha = \frac{i}{\sqrt{1 - \abs{w}^2}}$ y $\beta
     Basta con aplicar el \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} a $\tau_{w_0} \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\mathrm{Aut} \left(\mathbb{D} \right)}$.\hfill\qedsymbol
 \end{dem}
 
-\subsection{Un problema extremal}
+\subsection{Un problema extremal asociado}
 
 El \exhyperref[teo:schwarz-pick]{teo-schwarz-pick}{teorema de Schwarz-Pick} nos permite resolver problemas extremales relacionados con la clase de Schur. Veamos un ejemplo concreto.
 
