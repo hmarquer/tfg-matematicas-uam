@@ -15,7 +15,6 @@
 - [x] [MEJ] Mejoras de presentación
 
 **Comentarios:**
-1. [ORT] Línea 1 — Mayúscula injustificada en «Finitos»: según las normas ortográficas del español (RAE), en los títulos solo se capitaliza la primera palabra y los nombres propios. **Corrección sugerida:** `\chapter{Productos finitos de Blaschke}`.
 
 ---
 
@@ -70,12 +69,7 @@
 - [x] [MEJ] Mejoras de presentación
 
 **Comentarios:**
-1. [TEX] Línea 104 — Uso de `\bar` para la conjugación compleja de una fracción; la barra no cubre toda la expresión. **Corrección sugerida:** Sustituir `\bar{\left(\frac{z_k - z}{v_k - z}\right)}` por `\overline{\left(\frac{z_k - z}{v_k - z}\right)}`.
 2. [MAT] Línea 111 — La existencia de una rama holomorfa $H = \log F$ en $\{z \in \C : |z| > 1-\delta\}$ no está justificada: el dominio no es simplemente conexo. Hace falta argumentar que el índice de $F$ alrededor del círculo es $0$ (p.ej., por el principio del argumento). El comentario en l. 112 ya lo señala. **Corrección sugerida:** Incluir el argumento del índice o restringir el dominio a la esfera de Riemann.
-3. [MAT] Línea 113 — La demostración no utiliza la hipótesis de que los $n$ puntos $w_k$ son distintos. Tal como está, el argumento pretende probar la conclusión sin ella; el comentario en l. 113 ya lo observa. **Corrección sugerida:** Revisar si la hipótesis es necesaria y, de serlo, incorporarla en la prueba; si no, suprimirla del enunciado.
-4. [TEX] Línea 131 — `\bar` se usa para la conjugación de expresiones con fracciones (`\bar{B_j \left(\sfrac{1}{\bar{z}}\right)}` y `\bar{R \left(\sfrac{1}{\bar{z}}\right)}`); `\bar` solo cubre el primer carácter. **Corrección sugerida:** Cambiar ambos `\bar` por `\overline` para que la barra abarque toda la expresión.
-5. [TEX] Línea 138 — El argumento opcional del entorno `ejem` está comentado con `%` y se inserta un `\mbox{}` vacío, lo que sugiere código en fase de revisión. **Corrección sugerida:** Eliminar el `%` y el `\mbox{}` si no se necesita el título opcional; si se quiere un título, escribirlo sin comentar.
-6. [MAT] Línea 151 — Error algebraico: de $\tau_{iz_n} = i \tau_{z_n}$ se deduce $\tau_{z_n} \circ \tau_{iz_n}(z) = -iz$, no $iz$. Además, la comprobación en $z = iz_n$ no contradiría $-iz$ (daría $z_n = z_n$); habría que evaluar en $z = 0$. **Corrección sugerida:** Cambiar «$= i z$» por «$= -i z$» y cambiar el punto de evaluación de $iz_n$ a $0$: $\tau_{z_n} \circ \tau_{iz_n}(0) = \tau_{z_n}(iz_n) \neq 0 = -i \cdot 0$.
 
 ---
 

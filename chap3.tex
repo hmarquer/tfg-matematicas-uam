@@ -64,9 +64,6 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 
 \begin{lem}\label{lem:prod-finitos-blaschke-igualdad-n-puntos}
     Sean $B_1, B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ mónicos tales que $B_1(w_k) = B_2(w_k)$ para $n$ puntos distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$. Entonces, existe $\xi \in \mathbb{T}$ tal que $B_1(\xi) = B_2(\xi)$.
-    % \[
-    % \big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \text{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\big) \implies \exists \xi \in \mathbb{T} : B_1(\xi) = B_2(\xi). 
-    % \]
 \end{lem}
 \begin{dem}
     Tenemos que $\exists \left\{z_k\right\}_{k=1}^n, \left\{v_k\right\}_{k=1}^n \subset \mathbb{D}$ tales que
@@ -100,9 +97,6 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 
 \begin{teo}\label{teo:unicidad-prod-finitos-blaschke}
     Sean $B_1, B_2 \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}_n}$ mónicos tales que $B_1(w_k) = B_2(w_k)$ para $n$ puntos distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$. Entonces, $B_1 = B_2$ en $\mathbb{D}$.
-    % \[
-    % \Big(\exists \left\{w_k\right\}_{k=1}^n \subset \mathbb{D} \text{ distintos} : \forall k \in \N_n : B_1(w_k) = B_2(w_k)\Big) \implies B_1 = B_2 \text{ en } \mathbb{D}.
-    % \]
 \end{teo}
 \begin{dem}
     Definimos la función $R$ mediante $R(z) = \frac{B_1(z)}{B_2(z)}$. Como $B_1, B_2 \in \mathscr{B}$, por la \excref[obs:prod-finito-blaschke-clase-schur]{obs-prod-finito-blaschke-clase-schur}, $\forall \zeta \in \mathbb{T} : \abs{R(\zeta)} = 1$ y, además,
@@ -114,7 +108,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     Por el \excref[lem:prod-finitos-blaschke-igualdad-n-puntos]{lem-prod-finitos-blaschke-igualdad-n-puntos}, $\exists \xi \in \mathbb{T} : R(\xi) = 1$. Por tanto, tenemos al menos $2n + 1$ puntos distintos en los que $R$ toma el valor $1$. Como $R$ es una función racional de grado a lo sumo $2n$, concluimos que $R \equiv 1$ en $\widehat{\mathbb{C}}$, es decir, $B_1 = B_2$ en $\mathbb{D}$.\hfill\qedsymbol
 \end{dem}
 
-\begin{ejem}%[de necesidad de ser mónicos en el {\excref[teo:unicidad-prod-finitos-blaschke]{teo-unicidad-prod-finitos-blaschke}}]\mbox{}
+\begin{ejem}
     Sean $\left\{z_k\right\}_{k=1}^n \subset \mathbb{D} \setminus \{0\}$ distintos, definimos:
     \[
     B_1(z) = i \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} \quad \we \quad B_2(z) = \frac{iz_n - z}{1 + i \bar{z_n} z} \cdot \prod_{k=1}^{n-1} \frac{z_k - z}{1 - \overline{z_k} z}.
@@ -127,14 +121,12 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     \[
     \forall z \in \mathbb{D} : 1 = \frac{B_1(z)}{B_2(z)} = i \frac{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{z_n}}(z)}{\exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{iz_n}}(z)} \implies \tau_{iz_n} = i \tau_{z_n},
     \]
-    luego, como $\tau_{iz_n} \circ \tau_{i z_n} = \operatorname{id}$ (\excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}), obtendríamos que $\forall z \in \mathbb{D} : \tau_{z_n} \circ \tau_{i z_n} (z) = i z$, lo cual es falso porque $\tau_{z_n} \circ \tau_{i z_n} (i z_n) = \tau_{z_n}(0) = z_n \neq i^2 z_n = -z_n$.
+    luego, como $\tau_{iz_n} \circ \tau_{i z_n} = \operatorname{id}$ (\excref[lem:involucion-disco-unidad]{lem-involucion-disco-unidad}), obtendríamos que $\forall z \in \mathbb{D} : z = \tau_{iz_n} \left(i \tau_{z_n}(z)\right)$. Evaluando en $z = z_n$, se tendría que $z_n = \tau_{iz_n} \left(i \cdot 0\right) = \tau_{iz_n}(0) = iz_n$, que implica que $z_n = 0$, contradiciendo la hipótesis.
 
     Por lo tanto, la condición de ser mónicos en el \excref[teo:unicidad-prod-finitos-blaschke]{teo-unicidad-prod-finitos-blaschke} es necesaria para garantizar la unicidad.
 \end{ejem}
 
-\section{Valencia de los productos finitos de Blaschke} %Esto puede ir de lo primero si las demostraciones no usan B=P/P^#
-
-%ORDENAR: reescribir esta sección usando la definición de valencia  
+\section{Valencia de los productos finitos de Blaschke}
 
 \begin{defn}\label{defn:valencia-fn-holomorfa}
     Decimos que una función $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\Omega\right)$ es $n$-valente en el abierto $\Omega \subset \C$ si para cada $w \in f(\Omega)$, la ecuación $f(z) = w$ tiene exactamente $n$ soluciones en $\Omega$ (contando multiplicidades). Formalmente, $f$ es $n$-valente en $\Omega$ si, y sólo si,
@@ -147,16 +139,12 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     Todo \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{producto finito de Blaschke de grado $n$} es \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valente} en $\mathbb{D}$.
 \end{teo}
 \begin{dem}
-    Sea $B \in \mathscr{B}_n$, entonces, existe un $R > 0$ tal que $\bar{\mathbb{D}} \subset D(0, R)$ tal que $B \in \mathcal{H}\left(D(0, R)\right)$. Sea $w \in \mathbb{D}$, si tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, como $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$ y $\abs{w} < 1$, se tiene que
+    Sea $B \in \mathscr{B}_n$, entonces, existe un $R > 0$ tal que $\bar{\mathbb{D}} \subset D(0, R)$ y $B \in \mathcal{H}\left(D(0, R)\right)$. Sea $w \in \mathbb{D}$, si tomamos $f(z) = B(z)$ y $g(z) = B(z) - w$, como $\forall \zeta \in \mathbb{T} : \abs{B(\zeta)} = 1$ y $\abs{w} < 1$, se tiene que
     \[
     \forall \zeta \in \mathbb{T} : \abs{f(\zeta) - g(\zeta)} = \abs{B(\zeta) - (B(\zeta) - w)} = \abs{w} < 1 = \abs{B(\zeta)} = \abs{f(\zeta)}.
     \]
     Por tanto, por \exhyperref[teo:rouche]{teo-rouche}{teorema de Rouché}, $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T}) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\mathbb{T})$. Como $B$ tiene $n$ ceros en $\mathbb{D}$, concluimos que $B(z) - w$ también tiene $n$ ceros en $\mathbb{D}$, es decir, la ecuación $B(z) = w$ tiene $n$ soluciones en $\mathbb{D}$ (contando multiplicidades).\hfill\qedsymbol
 \end{dem}
-% \begin{dem}[Alternativa]
-%     Usamos que $B = \sfrac{P}{P^{\#_n}}$ y jugamos con los coeficientes para ver que hay $n$ soluciones por el teorema fundamental del álgebra. págs 48-49
-% \end{dem}
-
 
 \begin{defn}[Derivada logarítmica]\label{defn:derivada-logaritmica}
     Sea $f$ una función meromorfa en un abierto $\Omega \subset \C$. La derivada logarítmica de $f$ es la función $\mathcal{D} f \colon \Omega \setminus \{z : f(z) = 0\} \to \C$ definida por
@@ -306,7 +294,6 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     \end{itemize}
 \end{dem}
 
-%ORDENAR: me ha dicho Dragan que es muy prescindible
 \begin{cor}\label{cor:carac-cociente-prod-finito-blaschke-fn-racional}
     Sea $f$ una función racional de grado $n$, entonces
     \[
