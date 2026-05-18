@@ -88,10 +88,6 @@
 - [x] [MEJ] Mejoras de presentación
 
 **Comentarios:**
-1. [RED] Línea 171 — Repetición de «tal que» en la misma frase. **Corrección sugerida:** Cambiar a: «existe un $R > 0$ tal que $\bar{\mathbb{D}} \subset D(0, R)$ y $B \in \mathcal{H}(D(0, R))$».
-2. [MAT] Línea 211 — Error de signo al simplificar el denominador: $\bar{\zeta}(1-\overline{z_k}\zeta)(z_k-\zeta) = -|\zeta-z_k|^2$, no $\overline{(\zeta-z_k)}(\zeta-z_k)$. Además, la suma es positiva ($>0$), no negativa. **Corrección sugerida:** Escribir: $\zeta\frac{B'(\zeta)}{B(\zeta)} = \sum_{k=1}^n \frac{|z_k|^2-1}{-|\zeta-z_k|^2} = \sum_{k=1}^n \frac{1-|z_k|^2}{|\zeta-z_k|^2} > 0$.
-3. [MAT] Línea 235 — Mismo error de signo que en la línea 211: $\frac{1}{e^{it}}(1-\overline{z_k}e^{it})(z_k-e^{it}) = -|e^{it}-z_k|^2$, no $\overline{(e^{it}-z_k)}(e^{it}-z_k)$. **Corrección sugerida:** Cambiar a: $= \sum_{k=1}^n \frac{|z_k|^2-1}{-\overline{(e^{it}-z_k)}(e^{it}-z_k)} = \sum_{k=1}^n \frac{1-|z_k|^2}{|e^{it}-z_k|^2}$.
-4. [MAT] Línea 249 — La demostración no justifica que la biyección $\Phi(z) = 1/\bar{z}$ (que no es holomorfa) preserve las multiplicidades de las soluciones al transformar la ecuación. **Corrección sugerida:** Usar que $B$ es racional de grado $n$; para $|w|>1$ no hay soluciones en $\mathbb{D}$ (pues $|B(z)|<1$ ahí), luego las $n$ soluciones de $B(z)=w$ están en $\widehat{\mathbb{C}}\setminus\bar{\mathbb{D}}$, sin necesidad del cambio de variable.
 
 ---
 
@@ -110,9 +106,6 @@
 - [x] [MEJ] Mejoras de presentación
 
 **Comentarios:**
-1. [MAT] Líneas 334, 345 — En las dos direcciones del teorema de caracterización, las derivaciones de $P^{\#_n}$ omiten el factor $(-1)^n$ al conjugar $P(1/\bar{z})$. El resultado final es correcto (los dos $(-1)^n$ se cancelan), pero los pasos intermedios tienen errores algebraicos. **Corrección sugerida:** Incluir explícitamente el factor $(-1)^n$ en la conjugación para que los pasos algebraicos sean rigurosos.
-2. [MAT] Línea 367 — En la prueba $\Rightarrow$ del corolario se asume $\deg B_1 + \deg B_2 = \deg f$ sin justificación. Es necesario argumentar que los factores comunes se cancelan, o que se toma una representación reducida. **Corrección sugerida:** Añadir una justificación de que $n_1 + n_2 = n$ mediante el análisis de factores comunes y cancelaciones.
-3. [RED] Líneas 352, 372–377, 386 — Comentarios y código comentado que deben limpiarse (fragmentos de demostraciones alternativas no utilizadas). **Corrección sugerida:** Eliminar el código comentado o moverlo a un archivo de notas si se quiere conservar.
 
 ---
 
@@ -131,8 +124,6 @@
 - [x] [MEJ] Mejoras de presentación
 
 **Comentarios:**
-1. [TEX] Línea 423 — `\bar{D(0, r)}` solo coloca la barra sobre la $D$, no sobre toda la expresión $D(0,r)$. Para la clausura de un conjunto con notación compuesta debe usarse `\overline`. **Corrección sugerida:** Sustituir `\bar{D(0, r)}` por `\overline{D(0, r)}`.
-2. [MAT] Línea 445 — El enunciado «Sea $f$ una función meromorfa en $\mathbb{D}$ tal que $f \in \mathcal{C}(\bar{\mathbb{D}})$» es contradictorio: si $f$ tiene polos en $\mathbb{D}$ no puede ser continua en $\bar{\mathbb{D}}$. La misma imprecisión aparece en línea 448. **Corrección sugerida:** Reformular como «Sea $f$ una función meromorfa en $\mathbb{D}$ con un número finito de polos tal que $f$ admite una extensión continua a $\overline{\mathbb{D}}$ (es decir, $f \in \mathcal{C}(\overline{\mathbb{D}} \setminus \{\text{polos}\})$) y $f(\mathbb{T}) \subseteq \mathbb{T}$». En la demostración (l. 448), cambiar a: «Como $f$ tiene una extensión continua a $\bar{\mathbb{D}}$ y $\bar{\mathbb{D}}$ es compacto, los polos de $f$ en $\mathbb{D}$ no pueden acumularse, luego hay un número finito de ellos.»
 
 ---
 
@@ -151,7 +142,6 @@
 - [x] [MEJ] Mejoras de presentación
 
 **Comentarios:**
-1. [MEJ] Líneas 459, 461 — Inconsistencia en el comando de referencia cruzada: en líneas 459 y 461 se usa `\cref{teo:fatou-carac-...}` directamente, mientras que en líneas 465 y 473 se usa `\excref[teo:formula-...]{teo-formula-...}` (que internamente llama a `\cref` descartando el segundo argumento). El resultado es idéntico pero el estilo alterna sin motivo aparente. **Corrección sugerida:** Unificar el criterio: usar siempre `\cref{...}` (o siempre `\excref[lab]{...}`) en todas las referencias del bloque.
 
 ---
 
@@ -170,9 +160,6 @@
 - [x] [MEJ] Mejoras de presentación
 
 **Comentarios:**
-1. [MAT] Línea 484 — El conjunto compacto escrito es $\{z \in \mathbb{D} : |z| \leq r\}$, pero la condición $|f(z_{m_j})| \leq r$ afecta a los valores, no a los puntos del dominio. Los puntos $z_{m_j}$ cumplen $|z_{m_j}| \to 1$, luego no pertenecen a $\{z \in \mathbb{D} : |z| \leq r\}$ para $j$ grande. La subsucesión convergente de $f(z_{m_j})$ se extrae porque $\{w \in \mathbb{C} : |w| \leq r\}$ es compacto. **Corrección sugerida:** Cambiar $\{z \in \mathbb{D} : |z| \leq r\}$ por $\{w \in \mathbb{C} : |w| \leq r\}$.
-2. [REF] Línea 480 — La etiqueta `\label{teo:}` aparece comentada dentro de `%[]\label{teo:}`. El teorema no tiene una etiqueta activa, por lo que no puede ser referenciado desde ningún otro punto del documento. **Corrección sugerida:** Proporcionar una etiqueta descriptiva, por ejemplo: `\label{teo:carac-b-s-en-schur}`.
-3. [TEX] Línea 480 — El fragmento `%[]\label{teo:}` contiene un `%[]` residual que parece un resto de plantilla o un marcador de posición para argumento opcional nunca completado. **Corrección sugerida:** Eliminar el `%[]` y, si se desea mantener la etiqueta, dejar solo `\label{teo:carac-b-s-en-schur}` (o bien `\begin{teo}[...]` si se necesita argumento opcional).
 
 ---
 

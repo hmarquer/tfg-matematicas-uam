@@ -65,13 +65,13 @@
 - Archivo fuente: [../chap4.tex](../chap4.tex)
 - Archivo de revisión: [chap4.md](chap4.md)
 - Bloques totales: 6
-- Bloques revisados: 0 / 6
-- Estado general: pendiente
+- Bloques revisados: 6 / 6
+- Estado general: revisado
 
 **Checklist global del capítulo:**
-- [ ] Bloque 0 — Introducción del capítulo
-- [ ] Bloque 1 — Aproximación de funciones en $\mathscr{S}$
-- [ ] Bloque 2 — La envoltura convexa de $\mathscr{B}$
-- [ ] Bloque 3 — Aproximación de funciones unimodulares continuas
-- [ ] Bloque 4 — Aproximación con ceros simples
-- [ ] Bloque 5 — Generalización del teorema de Rouché y su recíproco
+- [x] Bloque 0 — Introducción del capítulo
+- [x] Bloque 1 — Aproximación de funciones en $\mathscr{S}$
+- [x] Bloque 2 — La envoltura convexa de $\mathscr{B}$
+- [x] Bloque 3 — Aproximación de funciones unimodulares continuas
+- [x] Bloque 4 — Aproximación con ceros simples
+- [x] Bloque 5 — Generalización del teorema de Rouché y su recíproco

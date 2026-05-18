@@ -1,4 +1,4 @@
-Tienes acceso a `chap3.tex` y al archivo `revision/chap3.md` que contiene la lista de bloques del capítulo 3. El TFG está escrito en español.
+Tienes acceso a `chap4.tex` y al archivo `revision/chap4.md` que contiene la lista de bloques del capítulo 4. El TFG está escrito en español.
 
 **Tarea:** lanza dos tipos de agentes en paralelo:
 
@@ -6,7 +6,7 @@ Tienes acceso a `chap3.tex` y al archivo `revision/chap3.md` que contiene la lis
 
 ### Agente tipo A — Revisión por bloques
 
-Para cada bloque definido en `chap3.md`, lanza un agente independiente que lea las líneas exactas indicadas en el campo `Líneas` del bloque correspondiente y anote todos los problemas encontrados.
+Para cada bloque definido en `chap4.md`, lanza un agente independiente que lea las líneas exactas indicadas en el campo `Líneas` del bloque correspondiente y anote todos los problemas encontrados.
 
 **Qué debe buscar cada agente — categorías de revisión:**
 
@@ -55,7 +55,7 @@ Para cada bloque definido en `chap3.md`, lanza un agente independiente que lea l
 
 **Formato de salida para cada agente tipo A:**
 
-Actualiza el campo `Comentarios` del bloque correspondiente en `revision/chap3.md` con una lista numerada. Cada entrada debe seguir este formato:
+Actualiza el campo `Comentarios` del bloque correspondiente en `revision/chap4.md` con una lista numerada. Cada entrada debe seguir este formato:
 
 ```markdown
 **Comentarios:**
@@ -78,7 +78,7 @@ Actualiza el campo `Estado` del bloque:
 
 ### Agente tipo B — Revisión global del capítulo
 
-Lanza un único agente que lea `chap3.tex` al completo y realice una revisión exhaustiva del contenido a gran escala, con independencia de los bloques. Este agente debe evaluar:
+Lanza un único agente que lea `chap4.tex` al completo y realice una revisión exhaustiva del contenido a gran escala, con independencia de los bloques. Este agente debe evaluar:
 
 **Contenido y cobertura**
 - Resultados relevantes para el tema del capítulo que no se incluyen y deberían mencionarse o demostrarse.
@@ -104,7 +104,7 @@ Lanza un único agente que lea `chap3.tex` al completo y realice una revisión e
 
 **Formato de salida del agente tipo B:**
 
-Anota los resultados en la sección `## Comentarios generales` al final de `revision/chap3.md`, con una lista numerada organizada por las subcategorías anteriores:
+Anota los resultados en la sección `## Comentarios generales` al final de `revision/chap4.md`, con una lista numerada organizada por las subcategorías anteriores:
 
 ```markdown
 ## Comentarios generales
@@ -127,5 +127,5 @@ Si no hay observaciones en una subcategoría, escríbelo explícitamente: `- Sin
 ---
 
 **Instrucciones finales (ambos tipos de agentes):**
-- **No modifiques ningún archivo `.tex`.** Solo actualiza `revision/chap3.md`.
+- **No modifiques ningún archivo `.tex`.** Solo actualiza `revision/chap4.md`.
 - Una vez completada la revisión, actualiza el campo `Bloques revisados` y marca las entradas correspondientes en la checklist global de `revision/revision.md`.

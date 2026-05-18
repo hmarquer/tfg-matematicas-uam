@@ -47,7 +47,7 @@ Como $\exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\mathbb{D}\
 \section{Aproximación de funciones en $\mathscr{S}$}
 
 \begin{obs}
-    Sean $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$ y $\left(B_n\right)_{n \in \N} \subset \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ tales que $B_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{\mathbb{D}}} f$. Como cada $B_n$ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}, está acotada por $1$ y es unimodular en $\mathbb{T}$, la \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{convergencia uniforme} asegura que $f$ se prolonga de forma continua y única a $\overline{\mathbb{D}}$ y que la restricción a $\mathbb{T}$ sigue siendo unimodular.
+    Sean $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$ y $\left(B_n\right)_{n \in \N} \subset \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ tales que $B_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{\mathbb{D}}} f$. Como cada $B_n$ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}, está acotada por $1$ y es unimodular en $\mathbb{T}$, la \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{convergencia uniforme} asegura que $f$ se prolonga de forma continua y única a $\bar{\mathbb{D}}$ y que la restricción a $\mathbb{T}$ sigue siendo unimodular.
     
     Entonces, por el \excref[cor:carac-prod-finito-blaschke-algebra-disco]{cor-prod-finito-blaschke-algebra-disco}, $f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$. En particular, $\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$ es un subconjunto de $\exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$ cerrado respecto de la topología de la \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{convergencia uniforme} en $\mathbb{D}$. El siguiente ejemplo muestra que también se trata de un subconjunto propio.
 \end{obs}
@@ -59,7 +59,7 @@ Como $\exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\mathbb{D}\
     \]
     Entonces, $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(\mathbb{D}\right)$ por ser composición de funciones \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfas} ($1 \notin \mathbb{D}$). Además,
     \[
-    \forall z \in \mathbb{D} : \abs{f(z)} = \exp \left( - \Re \left( \frac{1 + z}{1 - z} \right) \right) \leq 1 \iff \Re \left( \frac{1 + z}{1 - z} \right) \geq 0.
+    \forall z \in \mathbb{D} : \quad \abs{f(z)} = \exp \left( - \Re \left( \frac{1 + z}{1 - z} \right) \right) \leq 1 \iff \Re \left( \frac{1 + z}{1 - z} \right) \geq 0.
     \]
     Sea $z = x + iy$ con $x^2 + y^2 < 1$. Entonces,
     \[
@@ -123,7 +123,7 @@ Sin embargo, si nos limitamos a subconjuntos \exhyperref[defn:compacidad]{compac
     \[
     \abs{g_n(z_m)} \xrightarrow[m \to \infty]{} \norm{g_n}_{\infty}.
     \]
-    Supongamos $\norm{g_n}_{\infty} > 0$ (si $\norm{g_n}_{\infty} = 0$, no hay nada que probar). Sea $\left(z_{m_j}\right)_{j \in \N}$ una subsucesión convergente a $\zeta \in \overline{\mathbb{D}}$. Si $\abs{\zeta} < 1$, por continuidad se tendría
+    Supongamos $\norm{g_n}_{\infty} > 0$ (si $\norm{g_n}_{\infty} = 0$, no hay nada que probar). Sea $\left(z_{m_j}\right)_{j \in \N}$ una subsucesión convergente a $\zeta \in \bar{\mathbb{D}}$. Si $\abs{\zeta} < 1$, por continuidad se tendría
     \[
     \abs{g_n(\zeta)} = \lim_{j \to \infty} \abs{g_n(z_{m_j})} = \norm{g_n}_{\infty},
     \]
@@ -161,7 +161,7 @@ Sin embargo, si nos limitamos a subconjuntos \exhyperref[defn:compacidad]{compac
 
     Si $w = 0$, el resultado es inmediato. Suponemos $w \neq 0$. Escribimos $\tau_w(tz)$ como una combinación lineal de $\tau_{wt}(z)$ y una constante:
     \[
-    c_1 \tau_{wt}(z) + \kappa = c_1 \frac{wt - z}{1 - \overline{w} t z} + \kappa = (\tau_w)_t(z) = \frac{w - t z}{1 - \overline{w} t z}.
+    c_1 \tau_{wt}(z) + \kappa = c_1 \frac{wt - z}{1 - \bar{w} t z} + \kappa = (\tau_w)_t(z) = \frac{w - t z}{1 - \bar{w} t z}.
     \]
     Resolviendo el sistema de ecuaciones resultante, obtenemos que
     \[
@@ -174,7 +174,7 @@ Sin embargo, si nos limitamos a subconjuntos \exhyperref[defn:compacidad]{compac
     \]
     El defecto es $\delta = 1 - (c_1 + c_2) = \frac{(1-t)(1-\abs{w})}{1 + \abs{w}t}$. Entonces, podemos sumar los términos $\frac{\delta}{2} \cdot 1 + \frac{\delta}{2} \cdot (-1)$, que se cancelan entre sí. Recordando que $1$ y $-1$ son constantes unimodulares, llegamos finalmente a una combinación convexa de productos finitos de Blaschke:
     \[
-    {(\tau_w)}_t = c_1 \tau_{wt} + c_2 e^{i \arg w} + \frac{\delta}{2} \cdot 1 + \frac{\delta}{2} \cdot (-1) \\
+    {(\tau_w)}_t = c_1 \tau_{wt} + c_2 e^{i \arg w} + \frac{\delta}{2} \cdot 1 + \frac{\delta}{2} \cdot (-1).
     \]
     Recordando las definiciones de $c_1, c_2$ y $\delta$, obtenemos que
     \[
@@ -187,19 +187,19 @@ Sin embargo, si nos limitamos a subconjuntos \exhyperref[defn:compacidad]{compac
 \begin{teo}[Fisher]\label{teo:fisher-aproximacion-algebra-disco-conv-prod-finito-blaschke}
     Sea $f \in \exhyperref[defn:algebra-disco-unidad]{algebra-disco-unidad}{\mathscr{A}} \left(\mathbb{D} \right)$ tal que $\exhyperref[defn:norma-lp]{norma-lp}{\norm{f}_{\infty}} \leq 1$. Entonces,
     \[
-    \exists \left(f_n\right)_{n\in \N} \subset \exhyperref[defn:envoltura-convexa]{envoltura-convexa}{\operatorname{conv}} (\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}) : f_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{\overline{\mathbb{D}}}} f.
+    \exists \left(f_n\right)_{n\in \N} \subset \exhyperref[defn:envoltura-convexa]{envoltura-convexa}{\operatorname{conv}} (\exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}) : f_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n \to \infty]{\bar{\mathbb{D}}}} f.
     \]
 \end{teo}
 \begin{dem}
-    Sea $\varepsilon > 0$. Como $f \in \mathcal{C} \left(\bar{\mathbb{D}}\right)$ y $\bar{\mathbb{D}}$ es compacto, $f$ es uniformemente continua en $\overline{\mathbb{D}}$. Por lo tanto, $\exists t \in [0, 1) : \max_{z \in \overline{\mathbb{D}}} \abs{f(tz) - f(z)} < \sfrac{\varepsilon}{2}$.
+    Sea $\varepsilon > 0$. Como $f \in \mathcal{C} \left(\bar{\mathbb{D}}\right)$ y $\bar{\mathbb{D}}$ es compacto, $f$ es uniformemente continua en $\bar{\mathbb{D}}$. Por lo tanto, $\exists t \in [0, 1) : \max_{z \in \bar{\mathbb{D}}} \abs{f(tz) - f(z)} < \sfrac{\varepsilon}{2}$.
 
-    Como $\overline{t\mathbb{D}} \Subset \mathbb{D}$ y $f \in \mathscr{S}$, por el \excref[teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos]{teo-caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}, $\exists B \in \mathscr{B} :\ds \smash{\max_{w \in \overline{t\mathbb{D}}} \abs{f(w) - B(w)} < \sfrac{\varepsilon}{2}}$. Definiendo $f_t(z) \defeq f(tz)$ y $B_t(z) \defeq B(tz)$,
+    Como $\bar{t\mathbb{D}} \Subset \mathbb{D}$ y $f \in \mathscr{S}$, por el \excref[teo:caratheodory-aproximacion-schur-prod-finito-blaschke-compactos]{teo-caratheodory-aproximacion-schur-prod-finito-blaschke-compactos}, $\exists B \in \mathscr{B} :\ds \smash{\max_{w \in \bar{t\mathbb{D}}} \abs{f(w) - B(w)} < \sfrac{\varepsilon}{2}}$. Definiendo $f_t(z) \defeq f(tz)$ y $B_t(z) \defeq B(tz)$,
     \[
-    \max_{z \in \overline{\mathbb{D}}} \abs{f_t(z) - B_t(z)} = \max_{z \in \overline{\mathbb{D}}} \abs{f(tz) - B(tz)} = \max_{w \in \overline{t\mathbb{D}}} \abs{f(w) - B(w)} < \frac{\varepsilon}{2}.
+    \max_{z \in \bar{\mathbb{D}}} \abs{f_t(z) - B_t(z)} = \max_{z \in \bar{\mathbb{D}}} \abs{f(tz) - B(tz)} = \max_{w \in \bar{t\mathbb{D}}} \abs{f(w) - B(w)} < \frac{\varepsilon}{2}.
     \]
-    En consecuencia, $\ds \max_{z \in \overline{\mathbb{D}}} \abs{f(z) - B_t(z)} \leq \max_{z \in \overline{\mathbb{D}}} \abs{f(z) - f_t(z)} + \max_{z \in \overline{\mathbb{D}}} \abs{f_t(z) - B_t(z)} < \varepsilon$.
+    En consecuencia, $\ds \max_{z \in \bar{\mathbb{D}}} \abs{f(z) - B_t(z)} \leq \max_{z \in \bar{\mathbb{D}}} \abs{f(z) - f_t(z)} + \max_{z \in \bar{\mathbb{D}}} \abs{f_t(z) - B_t(z)} < \varepsilon$.
 
-    Además, por el \excref[lem:dilatacion-prod-finito-blaschke]{lem-dilatacion-prod-finito-blaschke}, $B_t$ es una combinación convexa de productos finitos de Blaschke. Como $\varepsilon > 0$ es arbitrario, tomando $\varepsilon = \sfrac{1}{n}$ para $n \in \N$ obtenemos una sucesión $\left(f_n\right)_{n \in \N} \subset \exhyperref[defn:envoltura-convexa]{envoltura-convexa}{\operatorname{conv}}(\mathscr{B})$ tal que $f_n$ converge uniformemente a $f$ en $\overline{\mathbb{D}}$.\hfill\qedsymbol
+    Además, por el \excref[lem:dilatacion-prod-finito-blaschke]{lem-dilatacion-prod-finito-blaschke}, $B_t$ es una combinación convexa de productos finitos de Blaschke. Como $\varepsilon > 0$ es arbitrario, tomando $\varepsilon = \sfrac{1}{n}$ para $n \in \N$ obtenemos una sucesión $\left(f_n\right)_{n \in \N} \subset \exhyperref[defn:envoltura-convexa]{envoltura-convexa}{\operatorname{conv}}(\mathscr{B})$ tal que $f_n$ converge uniformemente a $f$ en $\bar{\mathbb{D}}$.\hfill\qedsymbol
 \end{dem}
 
 \section{Aproximación de funciones unimodulares continuas}
@@ -245,11 +245,11 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     Sea $u \colon \mathbb{T} \to \mathbb{T}$ \exhyperref[defn:continuidad-pnt]{continuidad}{continua} y sea $\varepsilon > 0$. Entonces, existen $B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} tales que $\max_{\xi \in \mathbb{T}} \abs{u(\xi) - \frac{B_1(\xi)}{B_2(\xi)}} < \varepsilon$. 
 \end{teo}
 \begin{dem}
-    Por el \excref[lem:fn-continua-toro-imp-vueltas-par-impar]{lem-fn-continua-toro-imp-vueltas-par-impar}, $\exists \eta \in \mathcal{C}(\mathbb{T})$ unimodular $ : \forall \zeta \in \mathbb{T} : u(\zeta) = \eta^2(\zeta)$ o $\forall \zeta \in \mathbb{T} : u(\zeta) = \zeta \cdot \eta^2(\zeta)$. Como $,\operatorname{id}(\zeta) = \zeta$ es la función frontera de $B \in \mathscr{B}$ dado por $B(z) = z$, en ambos casos basta probar el resultado para $\eta^2$.
+    Por el \excref[lem:fn-continua-toro-imp-vueltas-par-impar]{lem-fn-continua-toro-imp-vueltas-par-impar}, $\exists \eta \in \mathcal{C}(\mathbb{T})$ unimodular $ : \forall \zeta \in \mathbb{T} : u(\zeta) = \eta^2(\zeta)$ o $\forall \zeta \in \mathbb{T} : u(\zeta) = \zeta \cdot \eta^2(\zeta)$. Como $\operatorname{id}(\zeta) = \zeta$ es la función frontera de $B \in \mathscr{B}$ dado por $B(z) = z$, en ambos casos basta probar el resultado para $\eta^2$.
     Sin pérdida de generalidad, suponemos que $\varepsilon < 1$.
     
     Por el \exhyperref[teo:stone-weierstrass-toro]{teo-stone-weierstrass-toro}{teorema de Stone--Weierstrass en $\mathbb{T}$},
-    $\exists h \colon \mathbb{T} \to \C$ dada por $h(\zeta) = \sum_{k=-N}^N a_k \zeta^k$ tal que $\max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - h(\xi)} < \frac{\varepsilon}{2}$. Entonces, como $\eta$ es unimodular y $\varepsilon < 1$, $h$ no se anula en $\mathbb{T}$. Definimos $P(z) \defeq z^N h(z) = \sum_{k=0}^{2N} b_k z^k$ y consideramos el \hyperref[defn:polinomio-conjugado-reverso]{polinomio conjugado reverso} dado por $P^{\#_{2N}}(z) \defeq z^{2N} \overline{P\left(\sfrac{1}{\bar{z}}\right)}$. Para $z \in \mathbb{T}$, definimos $h^{\#}(z) \defeq \overline{h\left(\sfrac{1}{\bar{z}}\right)} = \frac{P^{\#_{2N}}(z)}{z^N}$ y podemos definir $f(z) \defeq \frac{h(z)}{h^{\#}(z)} = \frac{P(z)}{P^{\#_{2N}}(z)}$, que es meromorfa en $\mathbb{D}$ y continua en $\mathbb{T}$ porque $P^{\#_{2N}}$ no se anula en $\mathbb{T}$.
+    $\exists h \colon \mathbb{T} \to \C$ dada por $h(\zeta) = \sum_{k=-N}^N a_k \zeta^k$ tal que $\max_{\xi \in \mathbb{T}} \abs{\eta(\xi) - h(\xi)} < \frac{\varepsilon}{2}$. Entonces, como $\eta$ es unimodular y $\varepsilon < 1$, $h$ no se anula en $\mathbb{T}$. Definimos $P(z) \defeq z^N h(z) = \sum_{k=0}^{2N} b_k z^k$ y consideramos el \hyperref[defn:polinomio-conjugado-reverso]{polinomio conjugado reverso} dado por $P^{\#_{2N}}(z) \defeq z^{2N} \bar{P\left(\sfrac{1}{\bar{z}}\right)}$. Para $z \in \mathbb{T}$, definimos $h^{\#}(z) \defeq \bar{h\left(\sfrac{1}{\bar{z}}\right)} = \frac{P^{\#_{2N}}(z)}{z^N}$ y podemos definir $f(z) \defeq \frac{h(z)}{h^{\#}(z)} = \frac{P(z)}{P^{\#_{2N}}(z)}$, que es meromorfa en $\mathbb{D}$ y continua en $\mathbb{T}$ porque $P^{\#_{2N}}$ no se anula en $\mathbb{T}$.
     \[
     \begin{aligned}
         \forall \zeta \in \mathbb{T} : \abs{f(\zeta)} = \abs{\frac{h(\zeta)}{h^{\#}(\zeta)}} = \frac{\abs{h(\zeta)}}{\abs{h \left(\sfrac{1}{\bar{\zeta}}\right)}} = \frac{\abs{h(\zeta)}}{\abs{h(\zeta)}} = 1,
@@ -396,13 +396,6 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
 
 \section{Generalización del teorema de Rouché y su recíproco}
 
-% \begin{defn}\label{defn:numero-polos-fn-meromorfa-camino}
-%     Sea $\Gamma \colon [0, 1] \to \C$ un \exhyperref[defn:camino]{camino}{camino} cerrado y \exhyperref[defn:fn-meromorfa-dentro-camino]{fn-meromorfa-dentro-camino}{$f$ meromorfa dentro de $\Gamma$}, $P_f(\Gamma)$ es el número de polos de $f$ dentro de $\Gamma$ contado con multiplicidad
-%     \[
-%     \iff P_f(\Gamma) = \!\!\!\!\!\!\!\!\!\!\!\sum_{\substack{z \in \operatorname{int}(\Gamma) \\ z \text{ es un \exhyperref[defn:polo-fn-meromorfa]{polo-fn-meromorfa}{polo} de } f}} \!\!\!\!\!\!\!\!\!\!\! \exhyperref[defn:orden-polo-fn-meromorfa]{orden-polo-fn-meromorfa}{\operatorname{ord}}(f, z).
-%     \]
-% \end{defn}
-
 \begin{teo}[Glicksberg]\label{teo:glicksberg}
     Sea $\Gamma \colon [0, 1] \to \C$ un \exhyperref[defn:camino]{camino}{camino} \exhyperref[defn:curva-cerrada]{curva-cerrada}{cerrado} \exhyperref[defn:curva-simple]{curva-simple}{simple} y $f, g$ \exhyperref[defn:fn-holomorfa-dentro-camino]{fn-holomorfa-dentro-camino}{holomorfas dentro de $\Gamma$} tales que $\forall z \in \Gamma : \abs{f(z) - g(z)} < \abs{f(z)} + \abs{g(z)}$. Entonces,
     \[
@@ -435,13 +428,13 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
 \end{obs}
 
 \begin{obs}\label{obs:challener-rubel-implica-glicksberg}
-    Sean $f, g \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(D(0, R)\right)$ con $R> 1$ y sin ceros en $\mathbb{T}$. Sean $B_1, B_2$ \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{productos finitos de Blaschke de grado $n$} tales que $\abs{B_1 f + B_2 g} < \abs{f} + \abs{g}$ en $\mathbb{T}$. Entonces, $\abs{B_1 f - B_2 g} < \abs{B_1 f} + \abs{B_2 g}$ en $\mathbb{T}$, luego por el \hyperref[teo:glicksberg]{teorema de Glicksberg}, $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_{B_1 f}}(\mathbb{T}) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_{B_2 g}}(\mathbb{T})$. Es decir, $n + \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T}) = n + \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\mathbb{T})$, luego $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T}) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\mathbb{T})$.
+    Sean $f, g \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(D(0, R)\right)$ con $R> 1$ y sin ceros en $\mathbb{T}$. Sean $B_1, B_2$ \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{productos finitos de Blaschke de grado $n$} tales que $\abs{B_1 f + B_2 g} < \abs{f} + \abs{g}$ en $\mathbb{T}$. Entonces, por el \hyperref[teo:glicksberg]{teorema de Glicksberg} aplicado a $F = B_1 f$ y a $G = -B_2 g$, como $\abs{B_1} = \abs{B_2} = 1$ en $\mathbb{T}$, obtenemos $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_{B_1 f}}(\mathbb{T}) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_{B_2 g}}(\mathbb{T})$, es decir, $n + \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T}) = n + \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\mathbb{T})$ y por tanto $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T}) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\mathbb{T})$.
 
     Como muestra el siguiente teorema, el recíproco de este resultado también es cierto.
 \end{obs}
 
 \begin{teo}[Challener--Rubel]\label{teo:challener-rubel}
-    Sean $f, g \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(D(0,R)\right)$ con $R > 1$ y sin ceros en $\mathbb{T}$. Entonces, $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T}) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\mathbb{T})$ si y solo si $\exists B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} del mismo grado tal que $\abs{B_1 f + B_2 g} < \abs{f} + \abs{g}$ en $\mathbb{T}$.
+    Sean $f, g \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(D(0,R)\right)$ con $R > 1$ y sin ceros en $\mathbb{T}$. Entonces, $\exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_f}(\mathbb{T}) = \exhyperref[defn:numero-ceros-fn-holomorfa-camino]{numero-ceros-fn-holomorfa-camino}{Z_g}(\mathbb{T})$ si y solo si $\exists B_1, B_2$ \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} del mismo grado tales que $\abs{B_1 f + B_2 g} < \abs{f} + \abs{g}$ en $\mathbb{T}$.
 \end{teo}
 \begin{dem}
     La implicación $\boxed{\Leftarrow}$ es la \cref{obs:challener-rubel-implica-glicksberg}.
@@ -460,10 +453,10 @@ Si nos restringimos a la frontera $\mathbb{T}$, podemos rebajar las hipótesis y
     \begin{aligned}
         \abs{B_1 f + B_2 g} &= \abs{f} \cancelto{1}{\abs{B_2}}\quad \abs{\frac{B_1}{B_2} + \frac{g}{f}} = \abs{f} \cdot \abs{u \abs{\frac{g}{f}} + \frac{B_1}{B_2}} \\
         &= \abs{f} \cdot \abs{u \left(\abs{\frac{g}{f}} -1\right) + \left(u + \frac{B_1}{B_2}\right)} \leq \abs{f} \cdot \cancelto{1}{\abs{u}}\; \cdot \abs{\frac{\abs{g}}{\abs{f}} - 1} + \abs{f} \cdot \abs{u + \frac{B_1}{B_2}} \\
-        &<  \abs{\abs{g} - \abs{f}} + M \cdot \frac{m}{M} = \abs{\abs{f} - \abs{g}} + m \leq \abs{f} + \abs{g}. 
+        &<  \abs{\abs{g} - \abs{f}} + M \cdot \frac{m}{M} = \abs{\abs{f} - \abs{g}} + m \leq \abs{f} + \abs{g},
     \end{aligned}
     \]
-    Donde la última desigualdad se sigue de la identidad $\abs{f} + \abs{g} - \abs{\abs{f} - \abs{g}} = 2 \min \left\{\abs{f}, \abs{g}\right\}$ y de la definición de $m$.
+    donde la última desigualdad se sigue de la identidad $\abs{f} + \abs{g} - \abs{\abs{f} - \abs{g}} = 2 \min \left\{\abs{f}, \abs{g}\right\}$ y de la definición de $m$.
 
     Como $\abs{B_1 f} + \abs{B_2 g} = \abs{f} + \abs{g}$ en $\mathbb{T}$, se sigue que $\abs{B_1 f + B_2 g} < \abs{B_1 f} + \abs{B_2 g}$ en $\mathbb{T}$, luego por el \hyperref[teo:glicksberg]{teorema de Glicksberg}, $Z_{B_1 f}(\mathbb{T}) = Z_{B_2 g}(\mathbb{T})$ y como $Z_{f} (\mathbb{T}) = Z_{g}(\mathbb{T})$, se tiene que $Z_{B_1}(\mathbb{T}) = Z_{B_2}(\mathbb{T})$, es decir, $B_1$ y $B_2$ tienen el mismo grado.\hfill\qedsymbol
 \end{dem}

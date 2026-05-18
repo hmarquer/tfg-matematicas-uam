@@ -7,7 +7,7 @@
 \begin{defn}\label{defn:fn-compleja-derivable-pnt}
     Sea $\Omega \subset \C$ un abierto, $f \colon \Omega \to \C$ es $\C$-derivable en $z_0\in\Omega$
     \[
-        \iff \exists \exhyperref[defn:limite-metrico-fn]{limite-fn}{\lim}_{h\to 0} \frac{f(z_0+h)-f(z_0)}{h} \eqdef f'(z_0).
+        \iff \exists \exhyperref[defn:limite-metrico-fn]{limite-fn}{\lim_{h\to 0}} \frac{f(z_0+h)-f(z_0)}{h} \eqdef f'(z_0).
     \]
 \end{defn}
 
@@ -16,7 +16,7 @@
 \end{defn}
 
 \begin{defn}[Función holomorfa en un punto]\label{defn:fn-holomorfa-pnt}
-    Sea $\Omega$ un abierto de $\C$, $f \colon \Omega \to \C$ es holomorfa en $z_0\in\Omega\iff \exists r> 0 : f\big|_{D(x_0, r)} \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(D(x_0, r))$.
+    Sea $\Omega$ un abierto de $\C$, $f \colon \Omega \to \C$ es holomorfa en $z_0\in\Omega\iff \exists r> 0 : f\big|_{D(z_0, r)} \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(D(z_0, r))$.
 \end{defn}
 
 \begin{defn}[Función entera]\label{defn:fn-entera}
@@ -36,7 +36,7 @@
         \end{enumerate}
         \item Regla de la cadena: Si $f$ es \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivable en $z_0\in \C$} y $g$ es \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivable en $f(z_0)$}, entonces $g\circ f$ es \exhyperref[defn:fn-compleja-derivable-pnt]{Fn-compleja-derivable-pnt}{$\C$-derivable en $z_0$} y $\left(g\circ f\right)'(z_0) = g'\left(f(z_0)\right)f'(z_0)$.
     \end{enumerate}
-\end{prop}%DEMOSTRACIÓN%DEMOSTRACIÓN
+\end{prop}
 
 \subsection{Ecuaciones de Cauchy-Riemann}
 
@@ -46,7 +46,7 @@
 \end{defn}
 
 \begin{teo}[de Cauchy-Riemann]\label{teo:cauchy-riemann}
-    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} y $f \colon \Omega \to \C$, definimos $u, v \colon \Omega \subset \R^2 \to \R$ dados por $u(x, y) = \Re \left(f(x + iy)\right)$ y $v(x, y) = \Im \left(f(x + iy)\right)$, entonces $f$ es \exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{$\C$-derivable} en $z_0 = x_0 + iy_0 \in \C \iff$
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio} y $f \colon \Omega \to \C$. Definimos $u, v \colon \Omega \subset \R^2 \to \R$ dadas por $u(x, y) = \Re \left(f(x + iy)\right)$ y $v(x, y) = \Im \left(f(x + iy)\right)$. Entonces, $f$ es \exhyperref[defn:fn-compleja-derivable-pnt]{fn-compleja-derivable-pnt}{$\C$-derivable} en $z_0 = x_0 + iy_0 \in \C \iff$
     \begin{enumerate}
         \item $u, v$ son \exhyperref[defn:fn-diferenciable]{fn-diferenciable}{$\R$-diferenciables} en $(x_0, y_0)$.
         \item Se cumplen las ecuaciones de Cauchy-Riemann en $(x_0, y_0)$:
@@ -68,14 +68,19 @@
 \section{Transformaciones de Möbius}
 
 \begin{defn}[Transformación de Möbius]\label{defn:transformacion-mobius}
-    Sea $T \colon \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\mathbb{C}}} \longrightarrow \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\mathbb{C}}}$ una aplicación, es una transformación de Möbius
-    \[
-    \iff \exists a, b, c, d \in \mathbb{C} : ad - bc \neq 0 \we \forall z \in \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\C}} : T(z) = \begin{cases}
-        \frac{az + b}{cz + d} & \text{si } z \in \C \setminus \left\{\sfrac{-d}{c}\right\} \\
-        \infty & \text{si } z = \sfrac{-d}{c} \\
-        \sfrac{b}{d} & \text{si } z = \infty. 
-    \end{cases}
-    \]
+    Sea $T \colon \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\mathbb{C}}} \longrightarrow \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\mathbb{C}}}$ una aplicación, es una transformación de Möbius $\iff \exists a, b, c, d \in \mathbb{C} : ad - bc \neq 0$ y
+    \begin{itemize}
+        \item Si $c \neq 0$, $\ds \forall z \in \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\C}} : T(z) = \begin{cases}
+            \frac{az + b}{cz + d} & \text{si } z \in \C \setminus \left\{-\frac{d}{c}\right\} \\
+            \infty & \text{si } z = -\frac{d}{c} \\
+            \frac{a}{c} & \text{si } z = \infty
+        \end{cases}$
+        \item Si $c = 0$, $\ds \forall z \in \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\C}} : T(z) = \begin{cases}
+            \frac{a}{d}z + \frac{b}{d} & \text{si } z \in \C \\
+            \infty & \text{si } z = \infty
+        \end{cases}$
+    \end{itemize}
+
     Es decir, una transformación de Möbius es una función racional dada por el cociente de dos polinomios lineales linealmente independientes y extendida a la esfera de Riemann según la habitual aritmética del infinito.
 
     Al conjunto de todas las transformaciones de Möbius se le denota por $\operatorname{M\ddot{o}b}\left(\exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{\widehat{\C}}\right)$.
@@ -88,20 +93,19 @@
 \begin{teo}\label{teo:transformacion-mobius-circunferencias-generalizadas}
     Toda \exhyperref[defn:transformacion-mobius]{transformacion-mobius}{transformación de Möbius} manda \exhyperref[defn:circunferencia-generalizada]{circunferencia-generalizada}{circunferencias generalizadas} a \exhyperref[defn:circunferencia-generalizada]{circunferencia-generalizada}{circunferencias generalizadas}. 
 
-    % Más aún, si $\Gamma$ es una \exhyperref[defn:circunferencia-generalizada]{circunferencia-generalizada}{circunferencia generalizada}, $T$ transforma cada uno de los dos dominios complementarios en que $\Gamma$ divide a la \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{esfera de Riemann} en uno de los dominios complementarios de $T(\Gamma)$.
+    Más aún, si $\Gamma$ es una \exhyperref[defn:circunferencia-generalizada]{circunferencia-generalizada}{circunferencia generalizada}, $T$ transforma cada uno de los dos dominios complementarios en que $\Gamma$ divide a la \exhyperref[defn:plano-complejo-extendido]{plano-complejo-extendido}{esfera de Riemann} en uno de los dominios complementarios de $T(\Gamma)$.
 \end{teo}
 
-\section{Teorema de la función inversa y de la aplicación abierta}
+\section{Teorema de la función inversa y teorema de la aplicación abierta}
 
 \begin{teo}[de la función inversa]\label{teo:fn-inversa-holomorfas}
-    Sea $z_0 \in \Omega \subset \C$ abierto y $\appl{f}{\Omega}{\C}$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa en $\Omega$} y \exhyperref[defn:fn-clase-ck]{fn-clase-ck}{$\mathcal{C}^1 \left(\Omega\right)$} con $f'(z_0) \neq 0$
+    Sea $z_0 \in \Omega \subset \C$ abierto y $\appl{f}{\Omega}{\C}$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa en $\Omega$} con $f'(z_0) \neq 0$. Entonces,
     \[
-    \implies \exists \, \mathcal{U}\in \mathcal{V}(z_0) : f\big|_{\mathcal{U}} \tex{ es biyectiva } \we \appl{f^{-1}}{f(\mathcal{U})}{\mathcal{U}} \tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa en $f(\mathcal{U})$}}.
+    \exists \, U \in \mathcal{V}(z_0) : f\big|_{U} \tex{ es biyectiva } \we \appl{f^{-1}}{f(U)}{U} \tex{ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa en $f(U)$}}.
     \]
     Además, se tiene que $\ds \forall z \in U : \left(f^{-1}\right)'(f(z)) = \frac{1}{f'(z)}$.
 \end{teo}
 
-%<*teo>
 \begin{teo}[de la aplicación abierta]\label{teo:apl-abierta-compleja}
     Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$  no constante donde $\Omega\subset \C$ es un \exhyperref[defn:dominio]{dominio}{dominio}. Entonces, $f$ es una \exhyperref[defn:apl-abierta]{apl-abierta}{aplicación abierta} en $\Omega$.
 \end{teo}
@@ -128,12 +132,11 @@
 \begin{defn}[Operadores de Wirtinger]\label{defn:operadores-wirtinger}
     Sea $f \colon \Omega \subset \C \to \C$, con $\Omega$ un \exhyperref[defn:dominio]{dominio}{dominio}, $\partial f, \bar{\partial}f \colon \Omega \to \C$ son los operadores de Wirtinger
     \[
-        \iff \forall x+yi \in \Omega : \left\{\begin{aligned}
-            \partial f (x+yi) &= \partial_z f (x+ yi)=  \frac{1}{2} \left(\pdv{f}{x}(x, y) - i\pdv{f}{y}(x, y)\right) \\
-            \bar{\partial} f (x+yi) &= \partial_{\bar{z}} f (x+ yi)=  \frac{1}{2} \left(\pdv{f}{x}(x, y) + i\pdv{f}{y}(x, y)\right)
+        \iff \forall z = x+yi \in \Omega : \left\{\begin{aligned}
+            \pdv{}{z} f (z) &= \partial_z f (z)=  \frac{1}{2} \left(\pdv{f}{x}(x, y) - i\pdv{f}{y}(x, y)\right), \\
+            \pdv{}{\bar{z}} f (z) &= \partial_{\bar{z}} f (z)=  \frac{1}{2} \left(\pdv{f}{x}(x, y) + i\pdv{f}{y}(x, y)\right).
         \end{aligned}\right.
     \] 
-    donde $\partial_x f = u_x + iv_x$ y $\partial_y f = u_y + iv_y$. 
 \end{defn}
 
 También podemos expresar las derivadas parciales habituales en términos de las derivadas de Wirtinger:
@@ -220,8 +223,7 @@ También podemos expresar las derivadas parciales habituales en términos de las
     \end{enumerate}
 \end{prop}
 \begin{dem}
-    Veremos únicamente la primera identidad, la segunda se demuestra de forma análoga. Escribimos $f(z) = u(x, y) + i \, v(x, y)$. Entonces, por \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{definición de derivada de Wirtinger} y la regla de la cadena para derivadas parciales, %ORDENAR referenciar
-    se tiene que
+    Veremos únicamente la primera identidad, la segunda se demuestra de forma análoga. Escribimos $f(z) = u(x, y) + i \, v(x, y)$. Entonces, por \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{definición de derivada de Wirtinger} y la regla de la cadena para derivadas parciales, se tiene que
     \[
     \begin{aligned}
         2\, \pdv{}{z} (g \circ f)(z) &= \left(\pdv{}{x} - i \, \pdv{}{y}\right) (g \circ f)(z) = \pdv{g}{u} \, \pdv{u}{x} + \pdv{g}{v} \, \pdv{v}{x} - i \pdv{g}{u} \, \pdv{u}{y} - i \pdv{g}{v} \, \pdv{v}{y} = (\ast). \\
@@ -244,7 +246,7 @@ También podemos expresar las derivadas parciales habituales en términos de las
     f \ve g \tex{ \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa}} \implies \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{}{z}} (g \circ f)(z) = \pdv{g}{z}\left(f(z)\right) \, \pdv{f}{z}(z).
     \]
     Si ambas son \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfas}, se tiene además que $\ds \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\pdv{}{\bar{z}}} (g \circ f)(z) = 0$ (i.e. $g \circ f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}\left(\Omega_1\right)$).
-\end{cor}%DEMOSTRACIÓN%DEMOSTRACIÓN
+\end{cor}
 
 \begin{cor}\label{cor:wirtinger-composicion-antiholomorfas}
     Sean $f, g$ \exhyperref[defn:fn-antiholomorfa]{fn-antiholomorfa}{antiholomorfas} en $\Omega_1$ y $\Omega_2$ respectivamente y tales que $f(\Omega_1) \subset \Omega_2$. Entonces,
@@ -252,7 +254,7 @@ También podemos expresar las derivadas parciales habituales en términos de las
     \forall z \in \Omega_1 : \quad \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{}{z}} (g \circ f)(z) = \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{g}{\bar{z}}}\left(f(z)\right) \, \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{\bar{f}}{z}}(z) \quad \we \quad \exhyperref[defn:operadores-wirtinger]{operadores-wirtinger}{\pdv{}{\bar{z}}} (g \circ f)(z) = 0.
     \]
     En particular, $g \circ f$ es \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en $\Omega_1$.
-\end{cor}%DEMOSTRACIÓN%DEMOSTRACIÓN
+\end{cor}
 
 \subsection{El operador laplaciano}
 
@@ -278,8 +280,8 @@ También podemos expresar las derivadas parciales habituales en términos de las
     Por tanto, $\Delta = 4 \, \pdv{}{z, \bar{z}}$ (también se puede ver que $\Delta = 4 \, \pdv{}{\bar{z}, z}$ de forma análoga).
 \end{dem}
 
-\begin{lem}[Fórmulas de cambio de variable para el laplaciano]\label{lem:laplaciano-cambio-variable}
-    Sea $f:\Omega_1\to\Omega_2$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} y sea $\phi:\Omega_2\to \R^n$ una función $\mathcal{C}^2$
+\begin{lem}[Fórmulas de cambio de variable para el laplaciano]\label{lem:laplaciano-cambio-variable}\mbox{}\\
+    Sea $f:\Omega_1\to\Omega_2$ una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} y sea $\phi \colon \Omega_2\to \R^n$ una función $\mathcal{C}^2$
     \[
     \implies \forall z \in \Omega_1 : \exhyperref[defn:laplaciano]{laplaciano}{\Delta}\big(\phi\circ f\big)(z) = \lvert f'(z)\rvert^2\,\big(\exhyperref[defn:laplaciano]{laplaciano}{\Delta}\phi\big)\big(f(z)\big).
     \]
@@ -289,7 +291,7 @@ También podemos expresar las derivadas parciales habituales en términos de las
     \[
     \pdv{}{z}\pdv{}{\bar z}\left(\phi\circ f\right)(z) = \pdv{}{z} \left(\pdv{\phi}{w} (f(z)) \, \pdv{f}{\bar z}(z) + \pdv{\phi}{\bar w}(f(z)) \, \pdv{\bar f}{\bar z}(z)\right)
     \]
-    Como $f$ es holomorfa, por la \excref[prop:fn-holomorfa-iff-wirtinger]{prop-fn-holomorfa-iff-wirtinger}, $\pdv{f}{\bar z} \equiv 0$ y el primer sumando se anula. Luego, por la regla del producto, tenemos que %ORDENAR crear nota y referenciar
+    Como $f$ es holomorfa, por la \excref[prop:fn-holomorfa-iff-wirtinger]{prop-fn-holomorfa-iff-wirtinger}, $\pdv{f}{\bar z} \equiv 0$ y el primer sumando se anula. Luego, por la regla del producto, tenemos que
     \[
     \pdv{}{z}\pdv{}{\bar z}\left(\phi\circ f\right)(z) = \pdv{}{z} \left(\pdv{\phi}{\bar w} \circ f\right)(z) \; \pdv{\bar f}{\bar z}(z) + \pdv{\phi}{\bar w}(f(z)) \; \pdv{}{z}\pdv{\bar f}{\bar z}(z).
     \]
@@ -362,13 +364,12 @@ También podemos expresar las derivadas parciales habituales en términos de las
 \end{teo}
 
 \begin{teo}[Fórmula integral de Cauchy para derivadas]\label{teo:formula-integral-cauchy-derivadas}
-    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ con $\Omega \subset \C$ un conjunto abierto y sea $n \in \N$. Entonces,
+    Sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ con $\Omega \subset \C$ un conjunto abierto y sea $n \in \N$. Entonces, para $z_0 \in \Omega$ y $r > 0$ tal que $\overline{D(z_0, r)} \subset \Omega$, se tiene que
     \[
-    \forall z \in D(z_0, r) \subset \Omega : 
+    \forall z \in D(z_0, r) : 
     f^{(n)}(z) = \frac{n!}{2\pi i} \exhyperref[defn:integral-linea-compleja]{integral-linea-compleja}{\int_{C(z_0, r)^+}} \frac{f(w)}{(w-z)^{n+1}} \odif{w}.
     \]
 \end{teo}
-
 
 \begin{teo}[Principio de los ceros aislados]\label{teo:ceros-aislados}\mbox{}\\
     Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ y $\left(a_n\right)_{n\in\N} \subset \Omega$ tales que
@@ -382,7 +383,7 @@ También podemos expresar las derivadas parciales habituales en términos de las
 \vspace{0.3em}
 
 \begin{cor}\label{cor:fn-holomorfa-compacto-imp-finitud-ceros}
-    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $K \subset \Omega$ un \exhyperref[defn:compacidad]{compacidad}{compacto} y sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ no identicamente nula. Entonces, $f$ tiene un número finito de ceros en $K$.
+    Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, $K \subset \Omega$ un \exhyperref[defn:compacidad]{compacidad}{compacto} y sea $f \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}}(\Omega)$ no idénticamente nula. Entonces, $f$ tiene un número finito de ceros en $K$.
 \end{cor}
 \begin{dem}
     Supongamos por contradicción que existe una sucesión $\left(z_n\right)_{n \in \N} \subset K$ tal que $\forall n \neq m : z_n \neq z_m \we f(z_n) = 0$. Como $K$ es compacto, $\exists \left(z_{n_k}\right)_{k \in \N} \subset \left(z_n\right)_{n \in \N}$ tal que $z_{n_k} \xrightarrow{k \to \infty} z_0 \in K$. Entonces, por el \exhyperref[teo:ceros-aislados]{teo-ceros-aislados}{principio de los ceros aislados}, $f \equiv 0$ en $\Omega$. Contradicción.
@@ -471,9 +472,9 @@ También podemos expresar las derivadas parciales habituales en términos de las
     \begin{enumerate}[label=\textnormal{(\roman*)}]
         \item $z_0$ es una \exhyperref[defn:singularidad-evitable]{singularidad-evitable}{singularidad evitable} de $f$.
         \item Existe $r > 0$ tal que la función $f$ es {acotada} en $B(z_0, r) \setminus \{z_0\}$.
-        \item $f$ se puede extender a una \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{función holomorfa} en $\Omega$.
+        \item $f$ admite una extensión \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{holomorfa} en $\Omega$.
     \end{enumerate}
-\end{teo}%DEMOSTRACIÓN
+\end{teo}
 
 \begin{defn}[Función meromorfa]\label{defn:fn-meromorfa}
     Sea $\Omega \subset \C$ un \exhyperref[defn:dominio]{dominio}{dominio}, una función $f \colon \Omega \to \C$ es meromorfa en $\Omega$ 
@@ -497,5 +498,5 @@ También podemos expresar las derivadas parciales habituales en términos de las
 \end{teo}
 
 \begin{teo}[de Rouché]\label{teo:rouche}
-    Sean $0 < r < R$ y $f, g \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(D(0, R)\right)$ tales que $\forall z \in D(0, r) : \abs{f(z) - g(z)} < \abs{f(z)}$. Entonces, $f$ y $g$ tienen el mismo número de ceros en $D(0, r)$.
+    Sean $0 < r < R$ y $f, g \in \exhyperref[defn:fn-holomorfa]{fn-holomorfa}{\mathcal{H}} \left(D(0, R)\right)$ tales que $\forall z \in \partial D(0, r) : \abs{f(z) - g(z)} < \abs{f(z)}$. Entonces, $f$ y $g$ tienen el mismo número de ceros en $D(0, r)$.
 \end{teo}

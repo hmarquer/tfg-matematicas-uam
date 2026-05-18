@@ -19,11 +19,11 @@
 
 \section{Convergencia y continuidad uniformes}
 
-\begin{defn}[Convergencia uniforme]\label{defn:convergencia-uniforme}
-    Sean $\forall n \in \N : f, f_n \colon X \to Y$ con $\left(Y, d\right)$ un \exhyperref[defn:esp-metrico]{esp-metrico}{espacio métrico}, $\left(f_n\right)_{n\in\N}$ converge uniformemente a $f$ en $X$ (escrito $f_n \xrightrightarrows[n\to\infty]{X} f$)
+\begin{defn}[Convergencia uniforme]\label{defn:convergencia-uniforme}\mbox{}\\
+    Sean $f, f_n \colon X \to Y$ para $n\in \N$ con $\left(Y, d\right)$ un \exhyperref[defn:esp-metrico]{esp-metrico}{espacio métrico}, decimos que $\left(f_n\right)_{n\in\N}$ converge uniformemente a $f$ en $X$ (escrito $f_n \xrightrightarrows[n\to\infty]{X} f$)
     \[\begin{aligned}
         &\iff \forall \varepsilon > 0 : \exists n_0 \in \N : \forall n \geq n_0 : \forall x \in X : d\left(f_n(x), f(x)\right) < \varepsilon \\
-        &\iff \exhyperref[defn:convergencia]{convergencia}{\lim_{n\to\infty}} \sup_{x\in X} \Big\{d\left(f_n(x), f(x)\right)\Big\} = 0.
+        &\iff \exhyperref[defn:convergencia]{convergencia}{\lim_{n\to\infty}} \sup_{x\in X} d\left(f_n(x), f(x)\right) = 0.
     \end{aligned}
     \]
 \end{defn}
@@ -49,10 +49,8 @@
     Luego $f$ es uniformemente continua.
 \end{dem}
 
-\subsection{Convergencia uniforme sobre compactos}
-
 \begin{defn}[Convergencia uniforme sobre compactos]\label{defn:convergencia-uniforme-compactos}\mbox{}\\
-    Sean $\forall n \in \N : f, f_n \colon X \to Y$ con $\left(Y, d\right)$ un \exhyperref[defn:esp-metrico]{esp-metrico}{espacio métrico}, $\left(f_n\right)_{n\in\N}$ converge uniformemente sobre compactos a $f$ en $X$ (escrito $f_n \xRightarrow[n\to\infty]{X} f$)
+    Sean $f, f_n \colon X \to Y$ para $n\in\N$ con $\left(Y, d\right)$ un \exhyperref[defn:esp-metrico]{esp-metrico}{espacio métrico}, decimos que $\left(f_n\right)_{n\in\N}$ converge uniformemente sobre compactos a $f$ en $X$ (escrito $f_n \xRightarrow[n\to\infty]{X} f$)
     \[
     \iff \forall K \Subset X \tex{ compacto} : f_n \exhyperref[defn:convergencia-uniforme]{convergencia-uniforme}{\xrightrightarrows[n\to\infty]{K}} f.
     \]
@@ -67,21 +65,20 @@
     \]
 
     Sea $A \subset V$, $y \in V$ es una combinación convexa de elementos de $A \iff \exists \left\{a_i\right\}_{i=1}^n \subset A$ tal que $y \tex{ es una combinación convexa de } \left\{a_i\right\}_{i=1}^n$.
-\end{defn} %ORDENAR enviar al anexo
+\end{defn}
 
 \begin{defn}[Envoltura convexa]\label{defn:envoltura-convexa}
     Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$, $\operatorname{conv}(A)$ es la envoltura convexa de $A \iff \operatorname{conv}(A)$ es el \exhyperref[defn:con-convexo]{con-convexo}{convexo} más pequeño que contiene a $A$.
-\end{defn} %ORDENAR enviar al anexo
+\end{defn}
 
 \begin{prop}\label{prop:envoltura-convexa-combinacion-convexa}
     Sea $V$ un $\R$-\exhyperref[defn:esp-vectorial]{esp-vectorial}{espacio vectorial} y $A \subset V$. Entonces,
     \[
-    \operatorname{conv}(A) = \left\{y \in V : v \tex{ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de elementos de } A \right\}.
+    \operatorname{conv}(A) = \left\{v \in V : v \tex{ es una \exhyperref[defn:combinacion-convexa]{combinacion-convexa}{combinación convexa} de elementos de } A \right\}.
     \]
-\end{prop}%ORDENAR enviar al anexo
+\end{prop}
 
 
-%ORDENAR: reposicionar este teorema
 \begin{teo}[Stone--Weierstrass en $\mathbb{T}$]\label{teo:stone-weierstrass-toro}
     Sean $\eta \in \mathcal{C}(\mathbb{T})$ y $\varepsilon > 0$. Entonces, existen $N \in \N$ y $\left(a_k\right)_{k=-N}^N \subset \C$ tales que
     \[

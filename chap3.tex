@@ -69,12 +69,11 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     Tenemos que $\exists \left\{z_k\right\}_{k=1}^n, \left\{v_k\right\}_{k=1}^n \subset \mathbb{D}$ tales que
     \[
     \begin{aligned}
-        B_1(z) = B_2(z) &\iff \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = \prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z} \\
-        &\iff \left(\prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}\right) \bigg/ \left(\prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z}\right) = 1 \\
-        &\iff \prod_{k=1}^n \frac{(z_k - z)(1 - \overline{v_k} z)}{(v_k - z)(1 - \overline{z_k} z)} = 1.
+        B_1(z) = B_2(z) &\iff \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z} = \prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z} 
+        % &\iff \left(\prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}\right) \bigg/ \left(\prod_{k=1}^n \frac{v_k - z}{1 - \overline{v_k} z}\right) = 1 \\
+        \iff \prod_{k=1}^n \frac{(z_k - z)(1 - \overline{v_k} z)}{(v_k - z)(1 - \overline{z_k} z)} = 1.
     \end{aligned}
     \]
-
     Para $z \in \mathbb{T}$, esta última igualdad es equivalente a
     \[
     \prod_{k=1}^n \frac{(z_k - z)(\bar{z} - \bar{v_k})}{(v_k - z)(\bar{z} - \bar{z_k})} = 1 \iff \prod_{k=1}^n \left(\frac{z_k - z}{v_k - z}\right) \bigg/\, \bar{\left(\frac{z_k - z}{v_k - z}\right)} = 1.
@@ -83,16 +82,19 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     \[
     \exists \xi \in \mathbb{T} : \arg \left(\prod_{k=1}^n \frac{z_k - \xi}{v_k - \xi}\right) \equiv 0 \mod \pi. 
     \]
+    Para ello, definimos $F(z) = \prod_{k=1}^n \frac{z_k - z}{v_k - z}$. Si $B_1 = B_2$, el resultado es inmediato, así que suponemos $B_1 \neq B_2$, lo que implica que $F$ no es idénticamente $1$. Observamos que la hipótesis $B_1(w_k) = B_2(w_k)$ para $k \in \N_n$ se traduce en $F(w_k) = 1$ para $n$ valores distintos $\left\{w_k\right\}_{k=1}^n \subset \mathbb{D}$. Puesto que $F - 1$ es una función racional de grado a lo sumo $n$ con al menos $n$ ceros en $\mathbb{D}$, estos son todos sus ceros (contados con multiplicidad); en particular, $F$ no tiene ceros adicionales en $\mathbb{C}$, y dado que $F(\infty) = 1 \neq 0$, los únicos ceros de $F$ en $\mathbb{C}$ son precisamente $z_1, \ldots, z_n \in \mathbb{D}$.
 
-    Para ello, definimos $F(z) = \prod_{k=1}^n \frac{z_k - z}{v_k - z}$. Así, $\exists \delta > 0$ tal que $F$ es una función holomorfa y distinta de cero en $\left\{z \in \C : \abs{z} > 1 - \delta\right\}$. Además, tomamos $F(\infty) = \lim_{\abs{z} \to \infty} F(z) = 1$. Por tanto, $H(z) = \log F(z)$ define una función holomorfa en $\left\{z \in \C : \abs{z} > 1 - \delta\right\}$ con $H(\infty) = 0$.%REVISAR:
-    % - **Major**: Falta justificar la existencia de una rama holomorfa de $H=\log F$ en $\{|z|>1-\delta\}$; ese dominio no es simplemente conexo. Debes argumentar que el índice de $F$ alrededor del círculo generador es $0$ (p. ej., por el principio del argumento: $F$ tiene $n$ ceros y $n$ polos en $\mathbb{D}$, luego $\frac{1}{2\pi i}\int_{|z|=R}\frac{F'(z)}{F(z)}\,dz=0$ y existe log holomorfo). Ver chap3.tex.
-    % - **Medium**: La prueba no usa la hipótesis de los $n$ puntos distintos $w_k$; tal como está, el argumento daría el punto en $\mathbb{T}$ sin esa hipótesis. Si la necesitas, falta indicar dónde entra; si no, podrías suprimirla. Ver chap3.tex.
-
-    Ahora consideramos $h(z) = \Im \left(H \left(\sfrac{1}{z}\right)\right)$ definida en $\left\{z \in \C : \abs{z} < \sfrac{1}{1 - \delta}\right\}$. Entonces, $h$ es armónica en un entorno abierto de $\bar{\mathbb{D}}$. Por la propiedad del valor medio para funciones armónicas, tenemos que
+    Existe $\delta > 0$ tal que $F$ es holomorfa y no nula en $\left\{z \in \mathbb{C} : \abs{z} > 1 - \delta\right\}$. Aplicando el \exhyperref[teo:principio-argumento]{teo-principio-argumento}{principio del argumento} al círculo $\abs{z} = R$ con $R > 1$, se tiene
     \[
-    h(0) = \frac{1}{2\pi} \int_0^{2\pi} h\left(e^{i\theta}\right) \odif{\theta} \implies 0 = \frac{1}{2\pi} \int_0^{2\pi} h \left(e^{i\theta}\right) \odif{\theta}.
+    \frac{1}{2\pi i} \int_{\abs{z} = R} \frac{F'(z)}{F(z)} \odif{z} = n - n = 0,
     \]
-    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\Im H$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \Im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado.\hfill\qedsymbol
+    pues $F$ tiene exactamente $n$ ceros ($z_1, \ldots, z_n$) y $n$ polos ($v_1, \ldots, v_n$), todos en $\mathbb{D} \subset \left\{\abs{z} < R\right\}$. Por tanto, la variación total del argumento de $F$ a lo largo de cualquier curva cerrada en $\left\{z \in \mathbb{C} : \abs{z} > 1 - \delta\right\}$ es nula, lo que garantiza la existencia de una rama holomorfa $H = \log F$ en dicho dominio, con $H(\infty) = \log F(\infty) = 0$.
+
+    Ahora consideramos $h(z) = \Im \left(H \left(\sfrac{1}{z}\right)\right)$ definida en $\left\{z \in \mathbb{C} : \abs{z} < \sfrac{1}{1 - \delta}\right\}$. Entonces, $h$ es armónica en un entorno abierto de $\bar{\mathbb{D}}$. Por la propiedad del valor medio para funciones armónicas, tenemos que
+    \[
+        h(0) = \frac{1}{2\pi} \int_0^{2\pi} h\left(e^{i\theta}\right) \odif{\theta} \implies 0 = \frac{1}{2\pi} \int_0^{2\pi} h \left(e^{i\theta}\right) \odif{\theta}.
+    \]
+    Como $h$ es continua y real, por el teorema de los valores intermedios, $\exists \zeta \in \mathbb{T} : h(\zeta) = 0$ (en caso contrario, $h$ sería estrictamente positiva o negativa en $\mathbb{T}$, lo que contradice la integral anterior). Ahora bien, como $\Im (H)$ es una rama de $\arg F$ (i.e. $F = \abs{F} e^{i \Im H}$) y las ramas de $\arg$ difieren en múltiplos de $2\pi$, el lema queda demostrado.\hfill\qedsymbol
 \end{dem}
 
 \begin{teo}\label{teo:unicidad-prod-finitos-blaschke}
@@ -175,7 +177,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 \begin{dem}
     Sea $\zeta \in \mathbb{T}$, entonces por el \excref[lem:derivada-logaritmica-prod-finito-blaschke]{lem-derivada-logaritmica-prod-finito-blaschke}, tenemos que
     \[
-    \zeta \frac{B'(\zeta)}{B(\zeta)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\bar{\zeta} (1 - \overline{z_k} \zeta)(z_k - \zeta)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\bar{\left(\zeta - z_k\right)} (\zeta - z_k)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\abs{\zeta - z_k}^2} < 0.
+    \zeta \frac{B'(\zeta)}{B(\zeta)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\bar{\zeta} (1 - \overline{z_k} \zeta)(z_k - \zeta)} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\bar{\left(\zeta - z_k\right)} (z_k - \zeta)} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\abs{\zeta - z_k}^2} > 0.
     \]
     Como $\abs{B(\zeta)} = 1$ y $\abs{\zeta} = 1$, concluimos que $\ds \abs{B'(\zeta)} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\abs{\zeta - z_k}^2} > 0$.\hfill\qedsymbol
 \end{dem}
@@ -199,7 +201,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 
     Aplicando el \excref[lem:derivada-logaritmica-prod-finito-blaschke]{lem-derivada-logaritmica-prod-finito-blaschke} en $z = e^{it}$, tenemos que
     \[
-    \psi'(t) = e^{it} \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} e^{it}\right) (z_k - e^{it})} = \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\bar{\left(e^{it} - z_k\right)} (e^{it} - z_k)} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\abs{e^{it} - z_k}^2}.
+    \psi'(t) = e^{it} \sum_{k=1}^n \frac{\abs{z_k}^2 - 1}{\left(1 - \overline{z_k} e^{it}\right) (z_k - e^{it})} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\bar{\left(e^{it} - z_k\right)} (e^{it} - z_k)} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\abs{e^{it} - z_k}^2}.
     \]
     Entonces, por la demostración del \excref[lem:derivada-prod-finito-blaschke-no-nula-toro]{lem-derivada-prod-finito-blaschke-no-nula-toro}, $\abs{B'\left(e^{it}\right)} = \sum_{k=1}^n \frac{1 - \abs{z_k}^2}{\abs{e^{it} - z_k}^2}$,
     y por tanto $\psi'(t) = \abs{B'\left(e^{it}\right)}$.
@@ -237,15 +239,14 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
         \item $\forall z \in \C \setminus \{0\} : \big(P(z) = 0 \iff P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} \left(\sfrac{1}{\bar{z}}\right) = 0\big)$.
     \end{enumerate}
 \end{lem}
-
-\begin{dem}
-    Existen $\left\{\alpha_k\right\}_{k=0}^n \subset \C$ tales que $P(z) = \sum_{k=0}^n \alpha_k z^k$. Entonces,
-    \begin{enumerate}[label=(\arabic*), wide, labelindent=0pt]
-        \item Por definición, $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$. Por tanto, $\deg P^{\#_n} \leq n$ y la igualdad se cumple si y sólo si $\bar{\alpha_0} \neq 0$, es decir, si $P(0) = \alpha_0 \neq 0$.
-        \item $\ds (P^{\#_n})^{\#_n}(z) = z^n \overline{P^{\#_n}\left(\sfrac{1}{\bar{z}}\right)} = z^n \overline{\frac{1}{\bar{z}^n} \bar{P(z)}} = z^n \cdot \frac{1}{z^n} \cdot P(z) = P(z)$.
-        \item Para $z \neq 0$, $P(z) = 0 \iff \bar{P(z)} = 0 \iff z^n \bar{P(z)} = 0 \iff P^{\#_n}\left(\sfrac{1}{\bar{z}}\right) = 0$.\hfill\qedsymbol
-    \end{enumerate}
-\end{dem}
+% \begin{dem}
+%     Existen $\left\{\alpha_k\right\}_{k=0}^n \subset \C$ tales que $P(z) = \sum_{k=0}^n \alpha_k z^k$. Entonces,
+%     \begin{enumerate}[label=(\arabic*), wide, labelindent=0pt]
+%         \item Por definición, $P^{\#_n}(z) = \sum_{k=0}^n \bar{\alpha_{n-k}} z^k$. Por tanto, $\deg P^{\#_n} \leq n$ y la igualdad se cumple si y sólo si $\bar{\alpha_0} \neq 0$, es decir, si $P(0) = \alpha_0 \neq 0$.
+%         \item $\ds (P^{\#_n})^{\#_n}(z) = z^n \overline{P^{\#_n}\left(\sfrac{1}{\bar{z}}\right)} = z^n \overline{\frac{1}{\bar{z}^n} \bar{P(z)}} = z^n \cdot \frac{1}{z^n} \cdot P(z) = P(z)$.
+%         \item Para $z \neq 0$, $P(z) = 0 \iff \bar{P(z)} = 0 \iff z^n \bar{P(z)} = 0 \iff P^{\#_n}\left(\sfrac{1}{\bar{z}}\right) = 0$.\hfill\qedsymbol
+%     \end{enumerate}
+% \end{dem}
 
 \begin{prop}\label{prop:conjugado-reverso-producto}
     Sean $P, Q \in \C[z]$ tales que $\deg P \leq n, \deg Q \leq m$. Entonces,
@@ -253,9 +254,9 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
     \left(P \cdot Q\right)^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_{n+m}}} = P^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_n}} \cdot Q^{\exhyperref[defn:polinomio-conjugado-reverso]{polinomio-conjugado-reverso}{\#_m}}.
     \]
 \end{prop}
-\begin{dem}
-    Se sigue directamente de la definición.\hfill\qedsymbol
-\end{dem}
+% \begin{dem}
+%     Se sigue directamente de la definición.\hfill\qedsymbol
+% \end{dem}
 
 \begin{teo}\label{teo:carac-prod-finito-blaschke-fn-racional}
     Sea $f$ una función racional de grado $n > 0$, entonces
@@ -272,11 +273,13 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
         \]
         para algún $t_0 \in \R$. Definimos ahora el polinomio $P$ mediante
         \[
-        \forall z \in \C : P(z) = (-1)^n e^{t_0i/2} \cdot \prod_{k=1}^n (z_k - z).
+        \forall z \in \C : P(z) = e^{(t_0 + n\pi)i/2} \cdot \prod_{k=1}^n (z_k - z).
         \]
         Entonces, $P$ es un polinomio de grado $n$ cuyos ceros están en $\mathbb{D}$ y
         \[
-        P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n \cdot e^{-t_0i/2} \cdot \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = e^{-t_0i/2} \cdot \prod_{k=1}^n (1 - \overline{z_k} z).
+        \begin{aligned}
+            P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} &= (-1)^n e^{-(t_0 + n\pi)i/2} \cdot \prod_{k=1}^n (1 - \overline{z_k} z).
+        \end{aligned}
         \]
         Por tanto, $\forall z \in \mathbb{D} : f(z) = \sfrac{P(z)}{P^{\#_n}(z)}$.
 
@@ -290,7 +293,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
             \therefore \quad P^{\#_n}(z) = z^n \bar{P \left(\sfrac{1}{\bar{z}}\right)} = z^n\, \bar{\alpha_n} \prod_{k=1}^n \bar{\left(z_k - \sfrac{1}{\bar{z}}\right)} = \bar{\alpha_n} \prod_{k=1}^n (1 - \overline{z_k} z).
         \end{aligned}
         \]
-        Por tanto, $\forall z \in \mathbb{D} : \ds f(z) = \frac{P(z)}{P^{\#_n}(z)} = \frac{\alpha_n}{\bar{\alpha_n}} \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}$ donde $\ds \abs{\frac{\alpha_n}{\bar{\alpha_n}}} = 1$.\hfill\qedsymbol
+        Por tanto, $\forall z \in \mathbb{D} : \ds f(z) = \frac{P(z)}{P^{\#_n}(z)} = (-1)^n \frac{\alpha_n}{\bar{\alpha_n}} \cdot \prod_{k=1}^n \frac{z_k - z}{1 - \overline{z_k} z}$ donde $\ds \abs{\frac{\alpha_n}{\bar{\alpha_n}}} = 1$.\hfill\qedsymbol
     \end{itemize}
 \end{dem}
 
@@ -306,7 +309,7 @@ Con esta nueva notación, podemos enunciar de forma sencilla y precisa la siguie
 \begin{dem}
     Veamos ambas implicaciones por separado.
     \begin{itemize}[wide, labelindent=0pt]
-        \item[$\boxed{\Rightarrow}$] Por el \excref[teo:carac-prod-finito-blaschke-fn-racional]{teo:carac-prod-finito-blaschke-fn-racional}, $\exists Q, R \in \C[z]$ de grados $n_1 \defeq \deg B_1$ y $n_2 \defeq\deg B_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $B_1 = \sfrac{Q}{Q^{\#_{n_1}}}$ y $B_2 = \sfrac{R}{R^{\#_{n_2}}}$.
+        \item[$\boxed{\Rightarrow}$] Por el \excref[teo:carac-prod-finito-blaschke-fn-racional]{teo:carac-prod-finito-blaschke-fn-racional}, $\exists Q, R \in \C[z]$ de grados $n_1 \defeq \deg B_1$ y $n_2 \defeq\deg B_2$ respectivamente, cuyos ceros están en $\mathbb{D}$, tales que $B_1 = \sfrac{Q}{Q^{\#_{n_1}}}$ y $B_2 = \sfrac{R}{R^{\#_{n_2}}}$. Podemos suponer que $\sfrac{B_1}{B_2}$ está en forma reducida (sin factores comunes), y entonces $\deg f = \deg B_1 + \deg B_2$, es decir, $n = n_1 + n_2$.
         
         Por tanto, si definimos $P \defeq Q \cdot R^{\#_{n_2}}$, $\deg P = \deg Q + \deg R^{\#_{n_2}} \leq n_1 + n_2 = n$ (por el \excref[lem:polinomio-conjugado-reverso]{lem-polinomio-conjugado-reverso}) y los ceros de $P$ están en $\mathbb{D} \cup \C \setminus \bar{\mathbb{D}} = \C \setminus \mathbb{T}$. Además,
         \[
@@ -419,15 +422,15 @@ Los resultados anteriores nos permiten demostrar que $\mathscr{B}$ es cerrado pa
 
 \section{Caracterización de $\mathscr{B}$ en $\mathscr{S}$}
 
-Podemos concluir este capítulo con una caracterización de los productos finitos de Blaschke dentro de la clase de Schur. En concreto, veremos que los productos finitos de Blaschke son exactamente las funciones $n$-valentes de la clase de Schur.
+Podemos concluir este capítulo con una caracterización de los \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} dentro de la \exhyperref[defn:clase-schur]{clase-schur}{clase de Schur}. En concreto, veremos que los \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{productos finitos de Blaschke} son exactamente las funciones \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{$n$-valentes} de la \exhyperref[defn:clase-schur]{clase-schur}{clase de Schur}.
 
-\begin{teo}%[]\label{teo:}
+\begin{teo}\label{teo:carac-prod-finito-blaschke-clase-schur-valencia}
     Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$ una \exhyperref[defn:valencia-fn-holomorfa]{valencia-fn-holomorfa}{función $n$-valente} en $\mathbb{D}$. Entonces, $f \in \exhyperref[defn:producto-finito-blaschke]{producto-finito-blaschke}{\mathscr{B}}$.
 \end{teo}
 \begin{dem}
-    Por el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco}, basta ver que $\lim_{\abs{z} \to 1^-} \abs{f(z)} = 1$. Suponemos por contradicción que $\exists \left(z_m\right)_{m\in \N} \subset \mathbb{D}$ tal que $\abs{z_m} \to 1 \we \neg \left(\abs{f(z_m)} \to 1\right)$. Entonces, existe $r \in (0, 1)$ y una subsucesión $\left(z_{m_j}\right)_{j \in \N}$ tal que $\forall j \in \N : \abs{f(z_{m_j})} \leq r$. Como $\left\{z \in \mathbb{D} : \abs{z} \leq r\right\}$ es compacto, $\exists \big(z_{m_{j_k}}\big)_{k \in \N}$ subsucesión de $\left(z_{m_j}\right)_{j \in \N}$ y $w_0 \in \mathbb{D}$ tales que $f(z_{m_{j_k}}) \xrightarrow{k \to \infty} w_0$. La denotaremos por $\left(z_k\right)_{k \in \N}$.
+    Por el \cref{teo:fatou-carac-prod-finito-blaschke-algebra-disco}, basta ver que $\lim_{\abs{z} \to 1^-} \abs{f(z)} = 1$. Suponemos por contradicción que $\exists \left(z_m\right)_{m\in \N} \subset \mathbb{D}$ tal que $\abs{z_m} \to 1 \we \neg \left(\abs{f(z_m)} \to 1\right)$. Entonces, existe $r \in (0, 1)$ y una subsucesión $\left(z_{m_j}\right)_{j \in \N}$ tal que $\forall j \in \N : \abs{f(z_{m_j})} \leq r$. Como $\left\{w \in \mathbb{D} : \abs{w} \leq r\right\}$ es compacto, $\exists \big(z_{m_{j_k}}\big)_{k \in \N}$ subsucesión de $\left(z_{m_j}\right)_{j \in \N}$ y $w_0 \in \mathbb{D}$ tales que $f(z_{m_{j_k}}) \xrightarrow{k \to \infty} w_0$. La denotaremos por $\left(z_k\right)_{k \in \N}$.
 
-    Sin pérdida de generalidad, podemos suponer que $w_0 = 0$. En caso contrario, tomamos $g \defeq \tau_{w_0} \circ f$. Entonces, $g \in \mathscr{S}$, $g$ es $n$-valente en $\mathbb{D}$, $g(z_k) \xrightarrow{k \to \infty} 0$ y, si $g \in \mathscr{B}$, entonces $f = \tau_{w_0}^{-1} \circ g \in \mathscr{B}$ por el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion}.
+    Sin pérdida de generalidad, podemos suponer que $w_0 = 0$. En caso contrario, tomamos $g \defeq \exhyperref[defn:involucion-disco-unidad]{involucion-disco-unidad}{\tau_{w_0}} \circ f$. Entonces, $g \in \mathscr{S}$, $g$ es $n$-valente en $\mathbb{D}$, $g(z_k) \xrightarrow{k \to \infty} 0$ y, si $g \in \mathscr{B}$, entonces $f = \tau_{w_0}^{-1} \circ g = \tau_{w_0} \circ g \in \mathscr{B}$ por el \excref[lem:prod-finito-blaschke-composicion-involucion]{lem-prod-finito-blaschke-composicion-involucion}.
 
     Como $f$ es $n$-valente, $f(z) = 0$ tiene $n$ soluciones en $\mathbb{D}$, digamos $\left\{a_\ell\right\}_{\ell=1}^s \subset \mathbb{D}$ con multiplicidades $\left\{m_\ell\right\}_{\ell=1}^s$ respectivamente tales que $\sum_{\ell=1}^s m_\ell = n$. Entonces,
     \[
