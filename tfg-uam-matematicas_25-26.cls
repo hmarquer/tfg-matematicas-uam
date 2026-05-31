@@ -17,7 +17,7 @@
 \RequirePackage[a4paper,left=3.4cm,right=3.4cm,top=3.8cm,bottom=3.8cm]{geometry}
 
 \RequirePackage{url}
-\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{xcolor}
 
 \clubpenalty=10000
 \widowpenalty=10000
