@@ -1,13 +1,13 @@
 \documentclass[
-    handout,
+    % handout, % para imprimir sin animaciones
     aspectratio=169,
-    12pt
+    % 12pt
 ]{beamer}
 
 \usepackage{beamerstyle}
 \usepackage{pgfpages}
 
-% \setbeameroption{show notes on second screen=bottom}
+\setbeameroption{show notes on second screen=bottom}
 
 \usepackage[spanish]{babel}
 %
@@ -146,7 +146,7 @@
 % =========================
 \title{Productos de Blaschke finitos}
 % \subtitle{Subtítulo opcional}
-\author{Hugo Marquerie Martín}
+\author{Hugo Marquerie Martín\hfill Tutor: Dragan Vukotić}
 \institute{Universidad Autónoma de Madrid}
 \date{\today}
 
@@ -518,11 +518,11 @@
         $\forall B \in \mathscr{B} : B \in \mathscr{S}$ y, si $\deg(B) \geq 1$, entonces
         \vspace{0.5em}
         \begin{enumerate}
-            \item $B \left(\mathbb{D}\right) \subset \mathbb{D}$, 
+            \item $B \left(\mathbb{D}\right) = \mathbb{D}$, 
             \vspace{0.5em}
-            \item $B \left(\mathbb{T}\right) \subset \mathbb{T}$
+            \item $B \left(\mathbb{T}\right) = \mathbb{T}$
             \vspace{0.5em}
-            \item $B \left(\hat{\C} \setminus \mathbb{D}\right) \subset \hat{\C} \setminus \mathbb{D}$.
+            \item $B \left(\hat{\C} \setminus \mathbb{D}\right) = \hat{\C} \setminus \mathbb{D}$.
         \end{enumerate}
         
         \begin{figure}
@@ -545,8 +545,11 @@
     }
 
     \note<2>[item]{
-        Como propiedades fundamentales tenemos que 
-    }%COMPLETAR: añadir notas
+        Como primeras propiedades, observamos que todo producto finito de Blaschke está en la clase de Schur y, si es no constante (es decir, si su grado es al menos $1$), entonces mapea el disco unidad en sí mismo, la frontera del disco unidad en sí misma y el exterior del disco unidad en sí mismo.
+    }
+    \note<2>[item]{
+        Aquí podemos ver un \textit{domain coloring} de un producto de Blaschke de grado $3$. Estos serían sus tres ceros simples y esta circunferencia marca el borde del disco unidad.
+    }
 \end{frame}
 
 \subsection{Valencia constante}
@@ -560,13 +563,23 @@
         Si $B \in \mathscr{B}_n$, entonces $B$ es $n$-valente en $\mathbb{D}$.
     \end{teo}
 
+    \pause
     \vspace{1em}
 
     \begin{itemize}[itemsep=0.5em]
         \item $B \in \mathscr{B}_n \implies B$ es $n$-valente en $\mathbb{T}$ con soluciones simples.
         \item $B \in \mathscr{B}_n \implies B$ es $n$-valente en $\hat{\C} \setminus \mathbb{D}$.
     \end{itemize}
-    %COMPLETAR: añadir notas
+
+    \note<1-2>[item]{
+        Una propiedad que se deduce fácilmente del teorema de Rouché pero que es muy importante es que cada producto finito de Blaschke es una función $n$-valente en el disco unidad, donde $n$ es el grado de dicho producto.
+
+        Lo que esto significa es que cada valor en la imagen tiene exactamente $n$ preimágenes contadas con multiplicidad.
+    }
+    \note<2>[item]{
+        Además, también tenemos $n$-valencia en la frontera del disco unidad, donde las soluciones son simples, y en el exterior del disco unidad.
+    }
+    %REVISAR: Hacer referencia a la figura del domain coloring para ilustrar esta propiedad. Puede que haga falta incluirla también en esta diapositiva. 
 \end{frame}
 
 \subsection{Teorema de Fatou}
@@ -616,7 +629,7 @@
     \end{dem}
 
     \note<1>[item]{
-        El primer resultado que veremos es este teorema de Fatou, que proporciona una caracterización de los productos de Blaschke finitos como funciones holomorfas en el disco unidad en términos de su comportamiento en la frontera del disco unidad.
+        Otro resultado crucial es este teorema de Fatou, que proporciona una caracterización de los productos de Blaschke finitos como funciones holomorfas en el disco unidad en términos de su comportamiento en la frontera.
     }
     \note<1>[item]{
         Como este teorema se aplica continuamente a lo largo del trabajo y además su demostración es sencilla y representativa de las técnicas que se utilizan en el TFG, he decidido incluir el esquema de la demostración en la presentación. 
@@ -624,10 +637,10 @@
 
 
     \note<2-3>[item]{
-        La segunda condición del teorema implica que la función $f$ no se puede anular cerca de la frontera del disco unidad, por lo que todos sus ceros deben estar contenidos en un disco cerrado.
+        Primero, observamos que la segunda condición del teorema implica que la función $f$ no se puede anular cerca de la frontera del disco unidad, por lo que todos sus ceros deben estar contenidos en un disco cerrado contenido en el disco unidad.
     }
     \note<3>[item]{
-        Como este conjunto es compacto y $f$ es holomorfa no idénticamente nula por la segunda condición, por el principio de los ceros aislados, $f$ solo puede tener un número finito de ceros, digamos $n$ contados con multiplicidad.
+        Ahora bien, como este conjunto es compacto y $f$ es holomorfa no idénticamente nula por la segunda condición, por el principio de los ceros aislados, $f$ solo puede tener un número finito de ceros, digamos $n$ contados con multiplicidad.
 
         Lo escribo con paréntesis para indicar que los $z_k$ se pueden repetir.
     }
@@ -647,7 +660,7 @@
 
 \subsection{Consecuencias del teorema de Fatou y otros resultados relacionados}
 
-\begin{frame}
+\begin{frame}{Consecuencias del teorema de Fatou y otros resultados relacionados}
     \begin{cor}[Caracterización en el álgebra del disco unidad]
         Si $f \in \mathcal{H}\left(\mathbb{D}\right) \cap \mathcal{C}\left(\bar{\mathbb{D}}\right)$ y $f \left(\mathbb{T}\right) \subset \mathbb{T}$, entonces $f \in \mathscr{B}$.
     \end{cor}
@@ -665,7 +678,22 @@
     \begin{teo}[Caracterización en la clase de Schur]
         Si $f \in \mathscr{S}$ es $n$-valente en $\mathbb{D}$, entonces $f \in \mathscr{B}_n$.
     \end{teo}
-    %COMPLETAR: añadir notas
+
+    \note<1-3>[item]{
+        Como consecuencia del teorema de Fatou, obtenemos una caracterización de los productos de Blaschke finitos dentro del álgebra del disco unidad, que es el espacio de funciones holomorfas en el disco unidad que se extienden de forma continua a la frontera.
+
+        En concreto, tenemos este corolario.
+    }
+
+    \note<2-3>[item]{
+        Además, el teorema de Fatou (junto con la $n$-valencia para determinar el grado), nos permite demostrar que los productos de Blaschke finitos son cerrados para la composición sin necesidad de hacer los cálculos explícitos.
+    }
+
+    \note<3>[item]{
+        Por último, el teorema de Fatou también nos proporciona esta caracterización de los productos de Blaschke finitos dentro de la clase de Schur en términos de la valencia que nos sirve para cerrar el tercer capítulo.
+
+        Es decir, los productos de Blaschke finitos son las únicas funciones de la clase de Schur que son $n$-valentes en el disco unidad para algún $n \in \N$.
+    }
 \end{frame}
 
 \section{Aproximación por productos de Blaschke finitos}
@@ -675,28 +703,149 @@
         \item $\mathscr{B}$ es cerrado para la convergencia uniforme en $\mathbb{D}$.
     \end{itemize}
 
+    \vspace{1em}
     \pause
 
     \begin{teo}[Carathéodory]\label{teo:caratheodory}
         $\mathscr{B}$ es denso en $\mathscr{S}$ para la convergencia uniforme sobre compactos de $\mathbb{D}$.
     \end{teo}
 
+    \vspace{1em}
     \pause
 
     \begin{lem}[Auxiliar]
         $f \in \mathscr{S} \implies \forall n \in \N : \exists B_n \in \mathscr{B}_n : \operatorname{ord}(f - B_n, 0) \geq n$. 
     \end{lem}
-    %COMPLETAR: añadir notas
+
+    \note<1>[item]{
+        En el cuarto capítulo, nos centramos en la aproximación de funciones por productos de Blaschke finitos.
+    }
+    \note<1>[item]{
+        En primer lugar, observamos que por el teorema de Fatou, el conjunto de productos de Blaschke finitos es cerrado para la convergencia uniforme en el disco unidad, lo que implica que no podemos aproximar uniformemente en el disco unidad a funciones que no sean productos de Blaschke finitos.
+    }
+    \note<2-3>[item]{
+        Sin embargo, sin nos restingimos a la convergencia uniforme sobre compactos de $\mathbb{D}$, el teorema de Carathéodory nos asegura que sí podemos aproximar a cualquier función de la clase de Schur por productos de Blaschke finitos.
+    }
+    \note<3>[item]{
+        En este caso, no veremos la demostración porque es un poco larga y utiliza conceptos que no he mencionado en la presentación, pero se basa en este lema auxiliar que, básicamente, nos dice que podemos aproximar cualquier función de la clase de Schur alrededor del origen por productos de Blaschke finitos de grado proporcional a la calidad de la aproximación que queramos.
+    }
 \end{frame}
 
+\subsection{Aproximación por combinaciones convexas de productos de Blaschke finitos}
 
-\begin{frame}
+\begin{frame}{Aproximación por combinaciones convexas de productos de Blaschke finitos}
     
+    \pause
+    \begin{teo}[Fisher]
+        $\operatorname{conv} \left(\mathscr{B}\right)$ es denso en $\mathscr{S} \cap \mathcal{C}\left(\bar{\mathbb{D}}\right)$ para la convergencia uniforme en $\bar{\mathbb{D}}$.
+    \end{teo}
+    \pause
+    \begin{dem}[Idea]
+        Sea $f \in \mathscr{S} \cap \mathcal{C}\left(\bar{\mathbb{D}}\right)$ y $\varepsilon > 0$.
+        \[
+        \left.\begin{minipage}{0.55\textwidth}
+        \begin{itemize}[wide]
+            \item $\ds \exists t \in (0, 1) : \max_{z \in \bar{\mathbb{D}}} \abs{f(z) - f(tz)} < \sfrac{\varepsilon}{2}$.
+            \pause
+            \item $\ds \exists B \in \mathscr{B} : \max_{z \in t\bar{\mathbb{D}}} \abs{f(z) - B(z)} < \sfrac{\varepsilon}{2}$.
+        \end{itemize}
+        \end{minipage}
+        \pause
+        \!\!\!\!\!\!\!\!\!\!\!\!\right\}
+        \implies \max_{z \in \bar{\mathbb{D}}} \abs{f(z) - B(tz)} < \varepsilon
+        \]
+
+        \pause
+        \vspace{-\baselineskip}
+        % \vspace{-\belowdisplayskip}
+        \hfill\qedsymbol
+    \end{dem}
+
+    \begin{lem}[Auxiliar]
+        $B \in \mathscr{B} \implies \forall t \in (0, 1) : z \mapsto B(tz) \in \operatorname{conv} \left(\mathscr{B}\right)$.
+    \end{lem}
+
+    \note<1-2>[item]{
+        Si queremos aproximar uniformemente en $\bar{\mathbb{D}}$, necesitaremos un conjunto de funciones aproximadoras más grande que los productos finitos de Blaschke y no podremos aproximar todas las funciones de la clase de Schur, solo las que se extienden de forma continua al borde. 
+    }
+    \note<2>[item]{
+        En concreto, tenemos este teorema de Fisher que nos asegura que podemos aproximar uniformemente en el disco cerrado cualquier función del álgebra del disco unidad por combinaciones convexas de productos de Blaschke finitos.
+    }
+    \note<3-6>{
+        La demostración es sencilla. Dada una función en el álgebra del disco unidad y un $\varepsilon > 0$, tenemos que
+    }
+    \note<3-6>[item]{
+        como $f$ es continua en el disco cerrado, que es un conjunto compacto, $f$ es uniformemente continua, por lo que existe un $t$ cercano a $1$ tal que podemos aproximar $f(z)$ por $f(tz)$ uniformemente en el disco cerrado.
+    }
+    \note<4-6>[item]{
+        Además, como $f$ pertenece a la clase de Schur y $t\mathbb{D}$ es un subconjunto compacto de $\mathbb{D}$, por el teorema de Carathéodory, podemos aproximar $f$ por un producto de Blaschke finito uniformemente en dicho subconjunto compacto.
+    }
+    \note<5-6>[item]{
+        Combinando estas dos desigualdades y aplicando la desigualdad triangular, obtenemos que $f(z)$ se puede aproximar por $B(tz)$ uniformemente en el disco cerrado.
+    }
+    \note<6>[item]{
+        Por último, el lema auxiliar nos asegura que $B(tz)$ es una combinación convexa de productos de Blaschke finitos, lo que concluye la demostración.
+    }
+    %REVISAR: a lo mejor hacer un comentario sobre la demostración del lema auxiliar
 \end{frame}
 
+\subsection{Aproximación de funciones unimodulares continuas}
 
-\begin{frame}
-    
+\begin{frame}{Aproximación de funciones unimodulares continuas}
+    \begin{teo}[Helson-Sarason]
+        Sea $u \in \mathcal{C}\left(\mathbb{T}\right)$ unimodular y $\varepsilon > 0$, entonces
+        \[
+        \exists B_1, B_2 \in \mathscr{B} : \max_{\xi \in \mathbb{T}} \abs{u(\xi) - \frac{B_1(\xi)}{B_2(\xi)}} < \varepsilon.
+        \]
+    \end{teo}
+
+    \note<1>[item]{
+        El último resultado de aproximación que veremos es este teorema de Helson-Sarason, que nos asegura que cualquier función continua que vaya de la circunferencia unidad en sí misma se puede aproximar uniformemente en la circunferencia unidad por cocientes de productos de Blaschke finitos.   
+    }
+    \note<1>[item]{
+        La demostración no es muy larga pero de nuevo requiere aplicar conceptos y resultados que no me da tiempo a explicar en esta presentación, así que no la veremos.        
+    }
+    \note<1>[item]{
+        La importancia de este resultado se puede ver en que nos permite demostrar una especie de recíproco del teorema de Rouché que involucra productos de Blaschke finitos, que es el último resultado que veremos.        
+    }
+\end{frame}
+
+\subsection{Generalización y recíproco del teorema de Rouché}
+
+\begin{frame}{Generalización y recíproco del teorema de Rouché}
+    \begin{teo}[Glicksberg]
+        Sean $f, g$ holomorfas dentro de un camino cerrado y simple $\Gamma$ tales que
+        \[
+        \forall z \in \Gamma : \abs{f(z) - g(z)} < \abs{f(z)} + \abs{g(z)}.
+        \]
+        Entonces, $Z_f(\Gamma) = Z_g(\Gamma)$.
+    \end{teo}
+
+    \pause
+
+    \begin{teo}[Challender--Rubel]
+        Sean $f, g \in \mathcal{H} \left(D(0, R)\right)$ con $R > 1$ sin ceros en $\mathbb{T}$, entonces $Z_f(\mathbb{T}) = Z_g(\mathbb{T})$ si y solo si $\exists B_1, B_2 \in \mathscr{B}$ del mismo grado tales que
+        \[
+        \abs{B_1 f + B_2 g} < \abs{f} + \abs{g} \text{ en } \mathbb{T}.
+        \]
+    \end{teo}
+
+    \note<1>[item]{
+        Antes de ver el recíproco, tenemos esta generalización del teorema de Rouché que nos dice que, si $f$ y $g$ son funciones holomorfas dentro de un camino cerrado y simple $\Gamma$ y se cumple esta desigualdad, entonces $f$ y $g$ tienen el mismo número de ceros dentro de $\Gamma$ contados con multiplicidad.
+    }
+    \note<1>[item]{
+        Digo que es una generalización porque la hipótesis del teorema de Rouché que no incluye el sumando $\abs{g(z)}$ en el lado derecho de la desigualdad implica esta hipótesis y la conclusión es la misma. Por lo tanto, Glicksberg implica Rouché.
+    }
+    \note<1>[item]{
+        La demostración, al igual que el teorema de Rouché, se basa en el principio del argumento.
+    }
+    \note<2>[item]{
+        Por último, el trabajo concluye con este resultado que proporciona un recíproco del teorema de Rouché.
+    }
+    \note<2>[item]{
+        Afirma que, si $f$ y $g$ son funciones holomorfas en un entorno del disco unidad cerrado y no tienen ceros en la circunferencia unidad, entonces $f$ y $g$ tienen el mismo número de ceros dentro del disco unidad si y solo si existen dos productos de Blaschke finitos del mismo grado que cumplen esta desigualdad en la circunferencia unidad.    
+    }
+
 \end{frame}
 
 % =========================
