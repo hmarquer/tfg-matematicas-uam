@@ -4,6 +4,10 @@
     % 12pt
 ]{beamer}
 
+\usepackage{xr-hyper}
+
+\externaldocument[TFG-]{/home/hugo/tfg-matematicas-uam/build/TFG_MAT_MarquerieMartin_Hugo_25-26}
+
 \usepackage{beamerstyle}
 \usepackage{pgfpages}
 
@@ -146,9 +150,9 @@
 % =========================
 \title{Productos de Blaschke finitos}
 % \subtitle{Subtítulo opcional}
-\author{Hugo Marquerie Martín\hfill Tutor: Dragan Vukotić}
+\author{Hugo Marquerie Martín\hspace{5em} Tutor: Dragan Vukotić}
 \institute{Universidad Autónoma de Madrid}
-\date{\today}
+\date{\hspace{1em}\today}
 
 % =========================
 % BEGIN DOCUMENT
@@ -160,6 +164,16 @@
 % -------------------------
 \begin{frame}[plain,noframenumbering]
     \titlepage
+
+    
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=center, xshift=5.1cm, yshift=0.27cm] at (current page.center) 
+            {\includegraphics[height=0.45\textheight]{Blaschke-riemann.png}};
+    \end{tikzpicture}
+
+    \note[item]{
+        Buenos días, soy Hugo Marquerie y voy a presentar el trabajo de fin de grado que he realizado bajo la supervisión de Dragan Vukotić, titulado ``Productos de Blaschke finitos''.
+    }
 \end{frame}
 
 % -------------------------
@@ -168,10 +182,22 @@
 {
 \setbeamertemplate{headline}{}
 \begin{frame}[plain, noframenumbering]{Índice}
-    \tableofcontents
+    \small{\tableofcontents}
 
-    \note[item]{Para esta presentación, he hecho una selección de los contenidos de la memoria que me han parecido más interesantes o relevantes, dejando fuera muchas cuestiones por falta de tiempo.}
-    \note[item]{He organizado los contenidos de la presentación siguiendo la misma estructura que el TFG: cada sección de la presentación corresponde a un capítulo de la memoria.}
+    \note[item]{
+        Para esta presentación, he tenido que hacer una selección de los contenidos de la memoria que me han parecido más interesantes o relevantes, dejando fuera muchas cuestiones por falta de tiempo.
+    }
+    \note[item]{
+        He organizado los contenidos de la presentación siguiendo la misma estructura que el TFG: cada sección de la presentación corresponde a un capítulo de la memoria.
+    }
+    \note[item]{
+        En lugar de seguir una estructura estrictamente lineal a lo largo de todo el trabajo que culmine en un solo resultado final, cada capítulo representa un enfoque diferente de manera que se complementan entre sí.
+
+        Dicho esto, no son completamente independientes entre sí, sino que cada capítulo se apoya en los resultados anteriores.
+    }
+    \note[item]{
+        El primer capítulo sirve de introducción de los conceptos y resultados más básicos, el segundo, se centra en reinterpretar y generalizar bajo un enfoque geométrico el teorema de Schwarz-Pick y, en ese sentido, es el más independiente de los demás. En el tercer capítulo, nos centramos en los productos de Blaschke finitos y sus propiedades y en el cuarto capítulo, vemos qué usos tienen los productos de Blaschke finitos en la teoría de la aproximación.
+    }
 \end{frame}
 }
 
@@ -187,24 +213,33 @@
 
     \pause
 
-    \begin{lem}[de Schwarz]\label{lem:schwarz}
+    \begin{lem}[de Schwarz]%\label{lem:schwarz}
         Sea $f \in \mathscr{S}$ tal que $f(0) = 0$, entonces
         \begin{enu}[2][label=\textnormal{(\arabic*)}, ref=\textnormal{(\arabic*)}]
             \item $\forall z \in \mathbb{D} : \abs{f(z)} \leq \abs{z}$. \label{lem:schwarz:1}
             \item $\abs{f'(0)} \leq 1$. \label{lem:schwarz:2}
         \end{enu}
 
-        Además, si se cumple la igualdad en \ref{lem:schwarz:1} para $z \neq 0$ o en \ref{lem:schwarz:2}, $f$ es una \exhyperref[ejem:rotacion-disco-unidad]{ejem-rotacion-disco-unidad}{rotación}.
+        Además, si se cumple la igualdad en \ref{lem:schwarz:1} para $z \neq 0$ o en \ref{lem:schwarz:2}, $f$ es una rotación.
     \end{lem}
 
     \note<1-2>[item]{
-        Como punto de partida, definimos la clase de Schur, que es el conjunto de funciones holomorfas definidas en el disco unidad que toman valores en el disco cerrado.
+        Como punto de partida, definimos la clase de Schur, que es el conjunto de funciones holomorfas en el disco unidad que toman valores en el disco cerrado.
     }
     \note<2>[item]{
-        y consideramos el lema de Schwarz, un resultado fundamental en análisis complejo que establece una cota para el módulo de una función de la clase de Schur que anula en el origen, así como para su derivada en el origen. 
-        
+        y consideramos el lema de Schwarz, un resultado fundamental en análisis complejo que asegura que una función de la clase de Schur que anule en cero no puede aumentar la distancia al origen:
+        \begin{itemize}
+            \item ni a nivel global, como muestra la primera desigualdad,
+            \item ni localmente, como muestra la segunda desigualdad.
+        \end{itemize}
+    }
+    \note<2>[item]{
         Además, proporciona una condición de igualdad que caracteriza a las funciones extremales, que en este caso son las rotaciones del disco unidad.
     }
+    % \note<2>[item]{
+    %     \vspace{3em}
+    %     Este es lema \ref{TFG-lem:schwarz} de la memoria.
+    % }
 \end{frame}
 
 \subsection{Automorfismos del disco unidad}
@@ -214,10 +249,10 @@
     $\ds \operatorname{Aut}(\mathbb{D}) = \left\{f \colon \mathbb{D} \to \mathbb{D} \text{ biholomorfa de } \mathbb{D} \tex{ en } \mathbb{D} \right\}$.
 
     \note<1>[item]{
-        Un subconjunto importante de la clase de Schur es el conjunto de automorfismos del disco unidad, que son las funciones holomorfas definidas en el disco unidad que son biyectivas de $\mathbb{D}$ en sí mismo.
+        Un subconjunto importante de la clase de Schur es el de automorfismos del disco unidad, que son las funciones holomorfas y biyectivas del disco unidad en sí mismo.
     }
     \note<1>[item]{
-        Estos automorfismos serán los bloques de construcción para los productos de Blaschke, como veremos más adelante.
+        Estos automorfismos serán los bloques de construcción de los productos de Blaschke, como veremos más adelante.
     }
 
     \vspace{1em}
@@ -257,7 +292,7 @@
             \item forman un grupo bajo la composición de funciones,
             \item y que cada automorfismo se puede expresar de manera única como la composición de una rotación y una involución.
             
-            La demostración de esta caracterización se basa en el lema de Schwarz y en el hecho de que cada involución del disco unidad es su propio inverso en el grupo de automorfismos, es decir, al componer una involución consigo misma se obtiene la identidad. Esta propiedad se usa continuamente a lo largo del trabajo.
+            La demostración de esta caracterización se basa en el lema de Schwarz y en el hecho de que cada involución del disco unidad es su propio inverso en el grupo de automorfismos, que es una propiedad que se usa continuamente a lo largo del trabajo.
         \end{itemize}
     }
 \end{frame}
@@ -267,7 +302,7 @@
 \begin{frame}{Teorema de Schwarz-Pick}
     
     \begin{teo}[Schwarz-Pick]\label{teo:schwarz-pick}
-        Sea $f \in \exhyperref[defn:clase-schur]{clase-schur}{\mathscr{S}}$, entonces
+        Sea $f \in \mathscr{S}$, entonces
         \begin{enumerate}[label=\textnormal{(\arabic*)}]
             \item\label{teo:schwarz-pick:eq1} $\ds \forall w, z \in \mathbb{D} : \abs{\frac{f(w) - f(z)}{1 - \overline{f(w)} f(z)}} \leq \abs{\frac{w - z}{1 - \bar{w} z}}$
             \item\label{teo:schwarz-pick:eq2} $\ds \forall z \in \mathbb{D} : \abs{f'(z)} \leq \frac{1 - \abs{f(z)}^2}{1 - \abs{z}^2}$
@@ -279,23 +314,13 @@
         % \end{align}
 
         Además, si se cumple la igualdad en \ref{teo:schwarz-pick:eq1} para algún par de puntos distintos $z, w \in \mathbb{D}$ o en \ref{teo:schwarz-pick:eq2} para algún punto $z \in \mathbb{D}$, entonces se cumplen ambas igualdades para todos los puntos de $\mathbb{D}$ y $f$ es un automorfismo del disco unidad.
-        
-        % las siguientes afirmaciones son equivalentes:
-        % \begin{enu}[2][label=\textnormal{(\roman*)}, ref=\textnormal{(\roman*)}]
-        %     \item $\exists z \neq w \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq1}.
-        %     \item $\forall z \neq w \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq1}.
-        %     \item $\exists z \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq2}.
-        %     \item $\forall z \in \mathbb{D} : $ hay igualdad en \ref{teo:schwarz-pick:eq2}.
-        %     \item $f \in \exhyperref[defn:automorfismo-disco-unidad]{automorfismo-disco-unidad}{\operatorname{Aut} \left(\mathbb{D} \right)}$.
-        %     \item[]
-        % \end{enu}
     \end{teo}
 
     \note<1>[item]{
-        Con este nuevo lenguaje de automorfismos del disco unidad, podemos generalizar el lema de Schwarz a lo que se conoce como el teorema de Schwarz-Pick.
+        Con este nuevo lenguaje de automorfismos del disco unidad, podemos generalizar el lema de Schwarz al teorema de Schwarz-Pick.
     }
     \note<1>[item]{
-        En este caso, no exigimos que la función se anule en el origen, sino que consideramos cualquier función de la clase de Schur. Esto da lugar a dos desigualdades en correspondencia con las del lema de Schwarz:
+        En este caso, no exigimos que la función se anule en el origen, sino que consideramos cualquier función de la clase de Schur y obtenemos dos desigualdades en correspondencia con las del lema de Schwarz:
         \begin{enumerate}
             \item una que relaciona los valores de la función en dos puntos cualesquiera del disco unidad,
             \item y otra que proporciona una cota para la derivada de la función en cualquier punto del disco unidad.
@@ -349,18 +374,18 @@
         Otra ventaja de estas nuevas métricas con respecto a la eucídea es que son completas.
     }
     \note<3>[item]{
-        La razón detrás de esta propiedad es que las únicas sucesiones de Cauchy que no convergen en el disco unidad con la métrica euclídea son aquellas que se acercan a la frontera del disco. 
+        La intuición detrás de esta propiedad es la siguiente: para la métrica euclídea, las sucesiones de Cauchy problemáticas son aquellas que se escapan a la frontera del disco unidad, que no pertenece al espacio.
         \begin{itemize}
-            \item Según la métrica pseudohiperbólica, estas sucesiones que convergen euclídeamente a un punto de la frontera del disco unidad no son de Cauchy porque la distancia pseudohiperbólica entre sus términos no tiende a cero, sino a $1$.
+            \item Según la métrica pseudohiperbólica, estas sucesiones dejan de ser de Cauchy porque la distancia pseudohiperbólica entre sus términos no tiende a cero, sino a $1$, que es su valor máximo.
             \item En consecuencia, para la métrica de Poincaré, tampoco son de Cauchy porque la distancia de Poincaré entre sus términos tiene a $+\infty$.
         \end{itemize}
     }
 
     \note<4>[item]{
-        En ese sentido, la métrica pseudohiperbólica ``aleja'' el borde del disco lo suficiente como para que las sucesiones que se acercan a él no sean de Cauchy, pero se mantiene acotada (la distancia entre dos puntos del disco unidad siempre es menor que $1$).
+        En ese sentido, la métrica pseudohiperbólica ``aleja'' el borde del disco lo suficiente como para que las sucesiones que se acercan a él no sean de Cauchy, pero se mantiene acotada.
     }
     \note<4>[item]{
-        Por otro lado, la métrica de Poincaré ``aleja'' el borde del disco infinítamente, lo que hace que la distancia entre dos puntos del disco unidad pueda ser arbitrariamente grande.
+        Por otro lado, la métrica de Poincaré ``aleja'' el borde del disco infinítamente, por lo que no es acotada.
     }
 \end{frame}
 
@@ -462,10 +487,10 @@
     \note[item]{
         Estos dibujos ilustran el hecho de que los discos pseudohiperbólicos son discos euclídeos, aunque el radio y el centro euclídeos pueden ser distintos al radio y centro pseudohiperbólicos.
         
-        En estos dibujos, $c$ es el centro euclídeo y $z$ es el centro pseudohiperbólico.
+        Aquí, $c$ es el centro euclídeo y $z$ es el centro pseudohiperbólico.
     }
     \note[item]{
-        Además, en ambos casos, el radio pseudohiperbólico $r$ es el mismo, solo cambia el módulo del centro $z$ y podemos ver que el radio euclídeo $s$ es menor cuanto más cerca esté el centro pseudohiperbólico $z$ del borde del disco unidad, poniendo de manifiesto la propiedad de que la métrica pseudohiperbólica ``aleja'' el borde del disco unidad.
+        Además, en ambos casos, el radio pseudohiperbólico es el mismo, solo cambia el módulo del centro $z$ y podemos ver que el radio euclídeo es menor cuanto más cerca esté el centro pseudohiperbólico $z$ del borde del disco unidad, poniendo de manifiesto la propiedad de que la métrica pseudohiperbólica ``aleja'' el borde del disco unidad.
     }
 \end{frame}
 
@@ -484,13 +509,13 @@
     Se cumple que $\forall z, w \in \mathbb{D} : \wp(z, w) = \inf \{ \ell_\mu(\Gamma) : \Gamma \text{ camino de } z \text{ a } w \}$.
 
     \note<1>[item]{
-        La principal razón para introducir la métrica de Poincaré es que, a diferencia de la métrica pseudohiperbólica, es una métrica Riemanniana.
+        La principal razón para introducir la métrica de Poincaré es que, a diferencia de la pseudohiperbólica, está sí es Riemanniana.
     }
     \note<1>[item]{
         El concepto de métrica Riemanniana es fundamental en geometría diferencial y se aplica en contextos mucho más generales, pero en el caso que nos ocupa, que la métrica de Poincaré sea Riemanniana significa que la distancia entre dos puntos se puede obtener minimizando la longitud de los caminos que los unen, donde la longitud de un camino se calcula integrando una función de densidad a lo largo del camino.
     }
     \note<1>[item]{
-        En mi TFG, esta propiedad de la métrica de Poincaré sirve de puente para introducir conceptos como la curvatura gaussiana de una métrica Riemanniana y demostrar finalmente la generalización del teorema de Schwarz-Pick que se conoce como la versión de Ahlfors del lema de Schwarz. Por falta de tiempo, no podré entrar en detalles sobre este resultado en la presentación.
+        En mi TFG, esta propiedad de la métrica de Poincaré sirve de puente para introducir conceptos como la curvatura gaussiana de una métrica Riemanniana y demostrar finalmente la generalización del teorema de Schwarz-Pick que se conoce como la versión de Ahlfors del lema de Schwarz. Sin embargo, no podré entrar en detalles sobre este resultado en la presentación.
     }
 \end{frame}
 
@@ -527,7 +552,7 @@
         
         \begin{figure}
             % \centering
-            \includegraphics[width=0.3\textwidth]{blaschke_domain_coloring.pdf}
+            \includegraphics[width=0.3\textwidth]{blaschke_domain_coloring_1.pdf}
             % \caption{Domain coloring de un producto de Blaschke de grado $3$.}
         \end{figure}
     \end{multicols}
@@ -538,11 +563,13 @@
         El tercer capítulo de la memoria está dedicado a los productos de Blaschke finitos y a sus propiedades más relevantes.
     }    
     \note<1>[item]{
-        Un producto de Blaschke finito es una función de variable compleja con esta forma. Recordando la caracterización de los automorfismos del disco unidad, podemos ver que un producto finito de Blaschke de grado $n$ no es más que un producto de $n$ automorfismos del disco unidad.
+        Un producto finito de Blaschke de grado $n$ es una función de variable compleja con esta forma.
+        
+        Recordando la caracterización de los automorfismos del disco unidad, podemos ver que no es más que un producto de $n$ automorfismos del disco unidad.
     }
-    \note<1>[item]{
-        Denotaremos con una be caligráfica al conjunto de productos de Blaschke finitos y añadiremos un subíndice para indicar el grado cuando sea necesario.
-    }
+    % \note<1>[item]{
+    %     Denotaremos con una be caligráfica al conjunto de productos de Blaschke finitos y añadiremos un subíndice para indicar el grado cuando sea necesario.
+    % }
 
     \note<2>[item]{
         Como primeras propiedades, observamos que todo producto finito de Blaschke está en la clase de Schur y, si es no constante (es decir, si su grado es al menos $1$), entonces mapea el disco unidad en sí mismo, la frontera del disco unidad en sí misma y el exterior del disco unidad en sí mismo.
@@ -557,19 +584,29 @@
 \begin{frame}{Valencia constante de los productos de Blaschke finitos}
     $f \in \mathcal{H}\left(\Omega\right)$ es $n$-valente en $\Omega$ si $\forall w \in f(\Omega) :$ la ecuación $f(z) = w$ tiene exactamente $n$ soluciones en $\Omega$ contadas con multiplicidad.
 
-    \vspace{1em}
+    \vspace{0.2em}
 
-    \begin{teo}[Valencia constante]
-        Si $B \in \mathscr{B}_n$, entonces $B$ es $n$-valente en $\mathbb{D}$.
-    \end{teo}
+    \begin{minipage}{0.55\textwidth}
+        \begin{teo}[Valencia constante]
+            Si $B \in \mathscr{B}_n$, entonces $B$ es $n$-valente en $\mathbb{D}$.
+        \end{teo}
 
-    \pause
-    \vspace{1em}
+        \pause
+        \vspace{1em}
 
-    \begin{itemize}[itemsep=0.5em]
-        \item $B \in \mathscr{B}_n \implies B$ es $n$-valente en $\mathbb{T}$ con soluciones simples.
-        \item $B \in \mathscr{B}_n \implies B$ es $n$-valente en $\hat{\C} \setminus \mathbb{D}$.
-    \end{itemize}
+        \begin{itemize}[itemsep=0.75em]
+            \item $B \in \mathscr{B}_n$ es $n$-valente en $\hat{\C} \setminus \mathbb{D}$.
+            \item $B \in \mathscr{B}_n$ es $n$-valente en $\mathbb{T}$ \\(soluciones simples).
+        \end{itemize}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.4\textwidth}
+        \begin{figure}
+            % \centering
+            \includegraphics[width=\textwidth]{blaschke_domain_coloring_2.pdf}
+            % \caption{Domain coloring de un producto de Blaschke de grado $3$.}
+        \end{figure}
+    \end{minipage}
 
     \note<1-2>[item]{
         Una propiedad que se deduce fácilmente del teorema de Rouché pero que es muy importante es que cada producto finito de Blaschke es una función $n$-valente en el disco unidad, donde $n$ es el grado de dicho producto.
@@ -577,9 +614,11 @@
         Lo que esto significa es que cada valor en la imagen tiene exactamente $n$ preimágenes contadas con multiplicidad.
     }
     \note<2>[item]{
-        Además, también tenemos $n$-valencia en la frontera del disco unidad, donde las soluciones son simples, y en el exterior del disco unidad.
+        Además, también tenemos $n$-valencia en el exterior del disco unidad y en la frontera del disco unidad, donde las soluciones son simples.
     }
-    %REVISAR: Hacer referencia a la figura del domain coloring para ilustrar esta propiedad. Puede que haga falta incluirla también en esta diapositiva. 
+    \note<2>[item]{
+        Esta propiedad explica por qué en esta gráfica, cada color se repite exactamente tres veces, que es el grado del producto de Blaschke que se ha representado. 
+    }
 \end{frame}
 
 \subsection{Teorema de Fatou}
@@ -631,10 +670,12 @@
     \note<1>[item]{
         Otro resultado crucial es este teorema de Fatou, que proporciona una caracterización de los productos de Blaschke finitos como funciones holomorfas en el disco unidad en términos de su comportamiento en la frontera.
     }
+    % \note<1>[item]{
+    %     Como este teorema se aplica continuamente a lo largo del trabajo y además su demostración es sencilla y representativa de las técnicas que se utilizan en el TFG, he decidido incluir el esquema de la demostración en la presentación. 
+    % }
     \note<1>[item]{
-        Como este teorema se aplica continuamente a lo largo del trabajo y además su demostración es sencilla y representativa de las técnicas que se utilizan en el TFG, he decidido incluir el esquema de la demostración en la presentación. 
+        La idea de la demostración es la siguiente
     }
-
 
     \note<2-3>[item]{
         Primero, observamos que la segunda condición del teorema implica que la función $f$ no se puede anular cerca de la frontera del disco unidad, por lo que todos sus ceros deben estar contenidos en un disco cerrado contenido en el disco unidad.
@@ -642,7 +683,7 @@
     \note<3>[item]{
         Ahora bien, como este conjunto es compacto y $f$ es holomorfa no idénticamente nula por la segunda condición, por el principio de los ceros aislados, $f$ solo puede tener un número finito de ceros, digamos $n$ contados con multiplicidad.
 
-        Lo escribo con paréntesis para indicar que los $z_k$ se pueden repetir.
+        % Lo escribo con paréntesis para indicar que los $z_k$ se pueden repetir.
     }
     \note<4-6>[item]{
         Entonces, si definimos $B$ como el producto finito de blaschke dado por esta fórmula, $B$ se anula exactamente en los ceros de $f$ con la misma multiplicidad, luego
@@ -698,13 +739,14 @@
 
 \section{Aproximación por productos de Blaschke finitos}
 
+\subsection{Aproximación de funciones en la clase de Schur}
+
 \begin{frame}{Aproximación de funciones en la clase de Schur}
     \begin{itemize}
         \item $\mathscr{B}$ es cerrado para la convergencia uniforme en $\mathbb{D}$.
     \end{itemize}
 
     \vspace{1em}
-    \pause
 
     \begin{teo}[Carathéodory]\label{teo:caratheodory}
         $\mathscr{B}$ es denso en $\mathscr{S}$ para la convergencia uniforme sobre compactos de $\mathbb{D}$.
@@ -717,17 +759,17 @@
         $f \in \mathscr{S} \implies \forall n \in \N : \exists B_n \in \mathscr{B}_n : \operatorname{ord}(f - B_n, 0) \geq n$. 
     \end{lem}
 
-    \note<1>[item]{
+    \note<1-2>[item]{
         En el cuarto capítulo, nos centramos en la aproximación de funciones por productos de Blaschke finitos.
     }
-    \note<1>[item]{
+    \note<1-2>[item]{
         En primer lugar, observamos que por el teorema de Fatou, el conjunto de productos de Blaschke finitos es cerrado para la convergencia uniforme en el disco unidad, lo que implica que no podemos aproximar uniformemente en el disco unidad a funciones que no sean productos de Blaschke finitos.
     }
-    \note<2-3>[item]{
+    \note<1-2>[item]{
         Sin embargo, sin nos restingimos a la convergencia uniforme sobre compactos de $\mathbb{D}$, el teorema de Carathéodory nos asegura que sí podemos aproximar a cualquier función de la clase de Schur por productos de Blaschke finitos.
     }
-    \note<3>[item]{
-        En este caso, no veremos la demostración porque es un poco larga y utiliza conceptos que no he mencionado en la presentación, pero se basa en este lema auxiliar que, básicamente, nos dice que podemos aproximar cualquier función de la clase de Schur alrededor del origen por productos de Blaschke finitos de grado proporcional a la calidad de la aproximación que queramos.
+    \note<2>[item]{
+        En este caso, no veremos la demostración porque utiliza conceptos que no he mencionado en la presentación, pero el primer paso es demostrar este lema auxiliar que, básicamente, nos dice que podemos aproximar cualquier función de la clase de Schur alrededor del origen por productos de Blaschke finitos de grado proporcional a la calidad de la aproximación que queramos.
     }
 \end{frame}
 
@@ -735,7 +777,6 @@
 
 \begin{frame}{Aproximación por combinaciones convexas de productos de Blaschke finitos}
     
-    \pause
     \begin{teo}[Fisher]
         $\operatorname{conv} \left(\mathscr{B}\right)$ es denso en $\mathscr{S} \cap \mathcal{C}\left(\bar{\mathbb{D}}\right)$ para la convergencia uniforme en $\bar{\mathbb{D}}$.
     \end{teo}
@@ -765,25 +806,25 @@
         $B \in \mathscr{B} \implies \forall t \in (0, 1) : z \mapsto B(tz) \in \operatorname{conv} \left(\mathscr{B}\right)$.
     \end{lem}
 
-    \note<1-2>[item]{
-        Si queremos aproximar uniformemente en $\bar{\mathbb{D}}$, necesitaremos un conjunto de funciones aproximadoras más grande que los productos finitos de Blaschke y no podremos aproximar todas las funciones de la clase de Schur, solo las que se extienden de forma continua al borde. 
+    \note<1>[item]{
+        Si queremos aproximar uniformemente en el disco cerrado, necesitaremos un conjunto de funciones aproximadoras más grande que los productos finitos de Blaschke y no podremos aproximar todas las funciones de la clase de Schur, solo las que se extienden de forma continua al borde. 
     }
-    \note<2>[item]{
-        En concreto, tenemos este teorema de Fisher que nos asegura que podemos aproximar uniformemente en el disco cerrado cualquier función del álgebra del disco unidad por combinaciones convexas de productos de Blaschke finitos.
+    \note<1>[item]{
+        En concreto, tenemos este teorema de Fisher que nos asegura que podemos aproximar uniformemente en el disco cerrado cualquier función del álgebra del disco unidad que tome valores en el disco cerrado por combinaciones convexas de productos de Blaschke finitos.
     }
-    \note<3-6>{
-        La demostración es sencilla. Dada una función en el álgebra del disco unidad y un $\varepsilon > 0$, tenemos que
+    \note<2-5>{
+        La demostración es sencilla. Dada una función $f$ y un $\varepsilon > 0$, tenemos que
     }
-    \note<3-6>[item]{
+    \note<2-5>[item]{
         como $f$ es continua en el disco cerrado, que es un conjunto compacto, $f$ es uniformemente continua, por lo que existe un $t$ cercano a $1$ tal que podemos aproximar $f(z)$ por $f(tz)$ uniformemente en el disco cerrado.
     }
-    \note<4-6>[item]{
-        Además, como $f$ pertenece a la clase de Schur y $t\mathbb{D}$ es un subconjunto compacto de $\mathbb{D}$, por el teorema de Carathéodory, podemos aproximar $f$ por un producto de Blaschke finito uniformemente en dicho subconjunto compacto.
+    \note<3-5>[item]{
+        Además, como $f$ pertenece a la clase de Schur y este conjunto ($t\bar{\mathbb{D}}$) es un subconjunto compacto de $\mathbb{D}$, por el teorema de Carathéodory, podemos aproximar $f$ por un producto de Blaschke finito uniformemente en dicho subconjunto compacto.
     }
-    \note<5-6>[item]{
+    \note<4-5>[item]{
         Combinando estas dos desigualdades y aplicando la desigualdad triangular, obtenemos que $f(z)$ se puede aproximar por $B(tz)$ uniformemente en el disco cerrado.
     }
-    \note<6>[item]{
+    \note<5>[item]{
         Por último, el lema auxiliar nos asegura que $B(tz)$ es una combinación convexa de productos de Blaschke finitos, lo que concluye la demostración.
     }
     %REVISAR: a lo mejor hacer un comentario sobre la demostración del lema auxiliar
@@ -802,9 +843,9 @@
     \note<1>[item]{
         El último resultado de aproximación que veremos es este teorema de Helson-Sarason, que nos asegura que cualquier función continua que vaya de la circunferencia unidad en sí misma se puede aproximar uniformemente en la circunferencia unidad por cocientes de productos de Blaschke finitos.   
     }
-    \note<1>[item]{
-        La demostración no es muy larga pero de nuevo requiere aplicar conceptos y resultados que no me da tiempo a explicar en esta presentación, así que no la veremos.        
-    }
+    % \note<1>[item]{
+    %     La demostración no es muy larga pero de nuevo requiere aplicar conceptos y resultados que no me da tiempo a explicar en esta presentación, así que no la veremos.        
+    % }
     \note<1>[item]{
         La importancia de este resultado se puede ver en que nos permite demostrar una especie de recíproco del teorema de Rouché que involucra productos de Blaschke finitos, que es el último resultado que veremos.        
     }
@@ -831,10 +872,12 @@
     \end{teo}
 
     \note<1>[item]{
-        Antes de ver el recíproco, tenemos esta generalización del teorema de Rouché que nos dice que, si $f$ y $g$ son funciones holomorfas dentro de un camino cerrado y simple $\Gamma$ y se cumple esta desigualdad, entonces $f$ y $g$ tienen el mismo número de ceros dentro de $\Gamma$ contados con multiplicidad.
+        Antes de ver el recíproco, tenemos esta generalización del teorema de Rouché.
+        
+        % que nos dice que, si $f$ y $g$ son funciones holomorfas dentro de un camino cerrado y simple $\Gamma$ y se cumple esta desigualdad, entonces $f$ y $g$ tienen el mismo número de ceros dentro de $\Gamma$ contados con multiplicidad.
     }
     \note<1>[item]{
-        Digo que es una generalización porque la hipótesis del teorema de Rouché que no incluye el sumando $\abs{g(z)}$ en el lado derecho de la desigualdad implica esta hipótesis y la conclusión es la misma. Por lo tanto, Glicksberg implica Rouché.
+        En lo único en lo que difiere del teorema de Rouché es que en el lado derecho de la desigualdad tenemos la suma de los módulos de ambas funciones en lugar de solo el módulo de una de ellas, por lo que la hipótesis es más débil y, como el resultado es el mismo, el resultado es más general.
     }
     \note<1>[item]{
         La demostración, al igual que el teorema de Rouché, se basa en el principio del argumento.
@@ -845,18 +888,39 @@
     \note<2>[item]{
         Afirma que, si $f$ y $g$ son funciones holomorfas en un entorno del disco unidad cerrado y no tienen ceros en la circunferencia unidad, entonces $f$ y $g$ tienen el mismo número de ceros dentro del disco unidad si y solo si existen dos productos de Blaschke finitos del mismo grado que cumplen esta desigualdad en la circunferencia unidad.    
     }
+    \note<2>[item]{
+        La implicación de derecha a izquierda se deduce de este teorema de Glicksberg, mientras que para la implicación de izquierda a derecha se necesita el teorema de Helson-Sarason de la diapositiva anterior.
+    }
 
 \end{frame}
 
 % =========================
 \begin{frame}[standout]
-    \Huge
-    Gracias
+
+    {{\Large Referencias}}
+
+    \vspace{1em}
+
+    \nocite{garciaFiniteBlaschkeProducts2018}
+    \nocite{daeppBeautyBlaschkeProducts2021}
+    
+    \printbibliography %REVISAR: añadir separación entre referencias y quitar del indice de arriba
+
+    \vspace{3em}
+
+    {\LARGE Gracias por su atención.}
+
 
     \vspace{0.3cm}
 
     \normalsize
-    Preguntas
+
+    \note[item]{
+        Esto concluye la presentación. Muchas gracias por su atención.
+    }
+    \note[item]{
+        Doy paso al turno de preguntas.
+    }
 \end{frame}
 
 \end{document}

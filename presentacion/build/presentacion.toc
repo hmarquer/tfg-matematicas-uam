@@ -11,6 +11,7 @@
 \beamer@subsectionintoc {3}{2}{Teorema de Fatou}{19}{0}{3}
 \beamer@subsectionintoc {3}{3}{Consecuencias del teorema de Fatou y otros resultados relacionados}{25}{0}{3}
 \beamer@sectionintoc {4}{Aproximación por productos de Blaschke finitos}{28}{0}{4}
-\beamer@subsectionintoc {4}{1}{Aproximación por combinaciones convexas de productos de Blaschke finitos}{31}{0}{4}
-\beamer@subsectionintoc {4}{2}{Aproximación de funciones unimodulares continuas}{37}{0}{4}
-\beamer@subsectionintoc {4}{3}{Generalización y recíproco del teorema de Rouché}{38}{0}{4}
+\beamer@subsectionintoc {4}{1}{Aproximación de funciones en la clase de Schur}{28}{0}{4}
+\beamer@subsectionintoc {4}{2}{Aproximación por combinaciones convexas de productos de Blaschke finitos}{30}{0}{4}
+\beamer@subsectionintoc {4}{3}{Aproximación de funciones unimodulares continuas}{35}{0}{4}
+\beamer@subsectionintoc {4}{4}{Generalización y recíproco del teorema de Rouché}{36}{0}{4}

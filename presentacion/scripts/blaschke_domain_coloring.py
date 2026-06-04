@@ -60,13 +60,14 @@ def main():
     zeros = [
         0.2 + 0.4j,
         -0.35 + 0.25j,
+        -0.35 + 0.25j,
         0.55 - 0.2j,
     ]
 
     # Image domain
     n = 900
-    xlim = (-1.2, 1.2)
-    ylim = (-1.2, 1.2)
+    xlim = (-2.3, 2.3)
+    ylim = (-2.3, 2.3)
 
     x = np.linspace(xlim[0], xlim[1], n)
     y = np.linspace(ylim[0], ylim[1], n)

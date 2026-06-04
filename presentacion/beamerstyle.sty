@@ -5,7 +5,7 @@
 % \usepackage{ragged2e} % para controlar formato de texto
 % \usepackage{xfrac}
 \usepackage{nicefrac}
-\usepackage{mathtools}  
+\usepackage{mathtools}
 \usepackage{derivative}
 \usepackage[inline]{enumitem} % para listas numeradas
 \usepackage{geometry} % Configuración de márgenes
@@ -56,10 +56,10 @@
 \usepackage{hyperref}
 \usepackage{hyperxmp}
 % \usepackage[nameinlink,noabbrev]{cleveref}
-% \usepackage[backend=biber,style=numeric]{biblatex}
-% \addbibresource{/home/hugo/texnotes/bibliography.bib}
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{/home/hugo/texnotes/bibliography.bib}
 % Apellidos en versales pequeñas (small caps)
-% \renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
+\renewcommand*{\mkbibnamefamily}[1]{\textsc{#1}}
 % Mantener los nombres tal cual (opcional)
 % \renewcommand*{\mkbibnamegiven}[1]{#1}
 
@@ -394,7 +394,16 @@
 % \setcounter{secnumdepth}{2}
 
 %
+% \makeatletter
+% \newcommand{\exhyperref}[3][note]{%
+%     \hyperref[#2-#1]{#3}% Referencia externa
+% }
 
-\newcommand{\excref}[2][note]{\ref{#1}}
-\newcommand{\exref}[2][note]{\ref{#1}}
-\newcommand{\exhyperref}[3][note]{\hyperref[#1]{#3}}
+% \newcommand{\excref}[2][note]{%
+%     \exhyperref[#1]{#2}{\texttt{#2/}\cref*{#2-#1}}%
+% }
+
+% \newcommand{\exref}[2][note]{%
+%     \exhyperref[#1]{#2}{\texttt{#2/}\ref*{#2-#1}}%
+% }
+% \makeatother
