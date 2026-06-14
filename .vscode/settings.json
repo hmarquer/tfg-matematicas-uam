@@ -1,4 +1,4 @@
 {
-    "latex-workshop.view.pdf.trim": 24,
+    "latex-workshop.view.pdf.trim": 0, //24,
     "editor.lineNumbers": "on"
 }

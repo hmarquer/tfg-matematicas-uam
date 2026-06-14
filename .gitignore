@@ -1,3 +1,8 @@
 build/*
+!build/*.pdf
 informe-intermedio/build/*
+!informe-intermedio/build/*.pdf
 presentacion/build/*
+!presentacion/build/*.pdf
+.vscode/*
+presentacion/.vscode/*
