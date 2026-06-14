@@ -1,17 +1,17 @@
 \babel@toc {spanish}{}\relax 
-\beamer@sectionintoc {1}{Geometría de la clase de Schur}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{La clase de Schur y el lema de Schwarz}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{Automorfismos del disco unidad}{5}{0}{1}
-\beamer@subsectionintoc {1}{3}{Teorema de Schwarz-Pick}{8}{0}{1}
-\beamer@sectionintoc {2}{Geometría hiperbólica}{9}{0}{2}
-\beamer@subsectionintoc {2}{1}{Comparativa de métricas en el disco unidad}{9}{0}{2}
-\beamer@subsectionintoc {2}{2}{La métrica de Poincaré es Riemanniana}{14}{0}{2}
-\beamer@sectionintoc {3}{Productos de Blaschke finitos}{15}{0}{3}
-\beamer@subsectionintoc {3}{1}{Valencia constante}{17}{0}{3}
-\beamer@subsectionintoc {3}{2}{Teorema de Fatou}{19}{0}{3}
-\beamer@subsectionintoc {3}{3}{Consecuencias del teorema de Fatou y otros resultados relacionados}{25}{0}{3}
-\beamer@sectionintoc {4}{Aproximación por productos de Blaschke finitos}{28}{0}{4}
-\beamer@subsectionintoc {4}{1}{Aproximación de funciones en la clase de Schur}{28}{0}{4}
-\beamer@subsectionintoc {4}{2}{Aproximación por combinaciones convexas de productos de Blaschke finitos}{30}{0}{4}
-\beamer@subsectionintoc {4}{3}{Aproximación de funciones unimodulares continuas}{35}{0}{4}
-\beamer@subsectionintoc {4}{4}{Generalización y recíproco del teorema de Rouché}{36}{0}{4}
+\beamer@sectionintoc {1}{Geometría de la clase de Schur}{4}{0}{1}
+\beamer@subsectionintoc {1}{1}{La clase de Schur y el lema de Schwarz}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Automorfismos del disco unidad}{6}{0}{1}
+\beamer@subsectionintoc {1}{3}{Teorema de Schwarz-Pick}{9}{0}{1}
+\beamer@sectionintoc {2}{Geometría hiperbólica}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Comparativa de métricas en el disco unidad}{10}{0}{2}
+\beamer@subsectionintoc {2}{2}{La métrica de Poincaré es Riemanniana}{15}{0}{2}
+\beamer@sectionintoc {3}{Productos de Blaschke finitos}{16}{0}{3}
+\beamer@subsectionintoc {3}{1}{Valencia constante}{18}{0}{3}
+\beamer@subsectionintoc {3}{2}{Teorema de Fatou}{20}{0}{3}
+\beamer@subsectionintoc {3}{3}{Consecuencias del teorema de Fatou y otros resultados relacionados}{26}{0}{3}
+\beamer@sectionintoc {4}{Aproximación por productos de Blaschke finitos}{29}{0}{4}
+\beamer@subsectionintoc {4}{1}{Aproximación de funciones en la clase de Schur}{29}{0}{4}
+\beamer@subsectionintoc {4}{2}{Aproximación por combinaciones convexas de productos de Blaschke finitos}{31}{0}{4}
+\beamer@subsectionintoc {4}{3}{Aproximación de funciones unimodulares continuas}{36}{0}{4}
+\beamer@subsectionintoc {4}{4}{Generalización y recíproco del teorema de Rouché}{37}{0}{4}
